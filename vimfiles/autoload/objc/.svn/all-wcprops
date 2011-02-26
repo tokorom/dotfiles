@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 46
+/svn/!svn/ver/102/trunk/vimfiles/autoload/objc
+END
+method_builder.vim
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/!svn/ver/102/trunk/vimfiles/autoload/objc/method_builder.vim
+END
+man.vim
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn/!svn/ver/102/trunk/vimfiles/autoload/objc/man.vim
+END
+method_list.vim
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/!svn/ver/102/trunk/vimfiles/autoload/objc/method_list.vim
+END
+cocoacomplete.vim
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/!svn/ver/102/trunk/vimfiles/autoload/objc/cocoacomplete.vim
+END
+pum_snippet.vim
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/!svn/ver/102/trunk/vimfiles/autoload/objc/pum_snippet.vim
+END

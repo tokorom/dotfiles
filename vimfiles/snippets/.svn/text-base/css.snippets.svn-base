@@ -1,0 +1,14 @@
+# css base
+snippet {
+	${1:tagName} {
+		${2:key}: ${3:value};${4}
+	}${5}
+# css key
+snippet :
+	${1:key}: ${2:value};${3}
+# body
+snippet body
+	body {
+	    font-family: Verdana, Helvetica, sans-serif;
+	    background-color: #FFFFFF;
+	}

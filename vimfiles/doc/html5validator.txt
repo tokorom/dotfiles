@@ -1,0 +1,33 @@
+*html5validator.txt*	html5 validate using Validator.nu API
+
+Author:  Kazuhito Hokamura <http://webtech-walker.com/>
+Version: 0.0.1
+License: MIT License <http://www.opensource.org/licenses/mit-license.php>
+
+==============================================================================
+CONTENTS					*html5validator-contents*
+ 
+INTRODUCTION		|html5validator-introduction|
+INTERFACE		|html5validator-interface|
+  COMMANDS		  |html5validator-commands|
+
+==============================================================================
+INTRODUCTION					*html5validator-introduction*
+
+If this plugin is used, it comes to be able to do the validation of html5 in
+vim. This pluign uses Validator.nu API.
+http://html5.validator.nu/
+
+==============================================================================
+INTERFACE					*html5validator-interface*
+
+------------------------------------------------------------------------------
+COMMANDS					*html5validator-commands*
+
+:HTML5Validate						*:HTML5Validate*
+			Exec HTML5 validation. This command dosen't need the
+			arguments.
+			Using curl when API request.
+
+==============================================================================
+vim:tw=78:ts=8:ft=help:norl:fen:fdl=0:fdm=marker:

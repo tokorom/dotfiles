@@ -1,0 +1,113 @@
+" ########## keymap.vim ##########
+
+" ---------- general ----------
+
+set winaltkeys=no
+noremap [MyPrefix] <Nop>
+map <Space> [MyPrefix]
+noremap  <C-l>   <Esc>
+noremap! <C-l>   <Esc>
+
+" ---------- for MacVim ----------
+
+nnoremap <S-C>   c$
+
+" ---------- vimrc ----------
+
+noremap [MyPrefix].v :<C-u>edit $MYVIMRC<Enter>
+noremap [MyPrefix].k :<C-u>edit $HOME/vimfiles/keybinding.vim<Enter>
+noremap [MyPrefix].s :<C-u>source $MYVIMRC<Enter>:echo "source .vimrc"<Enter>
+noremap [MyPrefix].n :<C-u>edit $HOME/dot.nodoka<Enter>
+
+" ---------- move ----------
+
+noremap  <silent> <C-a>    <Esc>:<C-u>MoveToZero<CR>
+noremap  <silent> <C-e>    $
+noremap j gj
+noremap k gk
+noremap gj j
+noremap gk k
+
+" ---------- tab ----------
+
+nnoremap <C-n>        <Esc>:<C-u>tabn<CR>
+nnoremap <C-p>        <Esc>:<C-u>tabp<CR>
+nnoremap [MyPrefix]d  <Esc>:<C-u>bd<CR>
+
+" ---------- buffer ----------
+
+nnoremap [MyPrefix]j       <Esc>:<C-u>bn<CR>
+nnoremap [MyPrefix]k       <Esc>:<C-u>bp<CR>
+
+" ---------- insert mode ----------
+
+inoremap <C-d>     <Delete>
+
+" ---------- visual mode ----------
+
+nnoremap gc   '[v']
+vnoremap gc   :<C-u>normal gc<Enter>
+onoremap gc   :<C-u>normal gc<Enter>
+
+" ---------- command mode ----------
+
+cnoremap <C-f>    <Right>
+cnoremap <C-b>    <Left>
+cnoremap <C-a>    <Home>
+cnoremap <C-e>    <End>
+cnoremap <C-d>    <Del>
+cnoremap <C-h>    <BackSpace>
+
+" ---------- grep ----------
+
+nnoremap [MyPrefix]g             <Esc>:<C-u>vimgrep // **/*<Left><Left><Left><Left><Left><Left>
+nnoremap [MyPrefix][MyPrefix]g   <Esc>:<C-u>vimgrep /<C-r><C-w>/ **/*
+
+" ---------- edit ----------
+
+nnoremap <expr> [MyPrefix]s      ':%substitute/\<' . expand('<cword>') . '\>//gc<Left><Left><Left>'
+nnoremap [MyPrefix]o             A;<Esc>o
+nnoremap [MyPrefix]{             A<Space>{<Esc>o}<Esc>
+nnoremap [MyPrefix][MyPrefix]{   $xA<Space>{<Esc>o}<Esc>
+
+" ---------- file ----------
+
+nnoremap [MyPrefix]w             <Esc>:<C-u>w<CR>
+nnoremap [MyPrefix]e             <Esc>:<C-u>e .<CR>
+nnoremap <silent> <C-w><C-e>     <Esc>:<C-u>vs<CR>:<C-u>e .<CR>
+
+nnoremap [MyPrefix]t             <Esc>:<C-u>tabnew 
+
+" display Most Recently Used (MRU) files
+nnoremap [MyPrefix]r             <Esc>:<C-u>MRU<CR>
+nnoremap [MyPrefix][MyPrefix]r   <Esc>:<C-u>tabnew<CR>:<C-u>MRU<CR>
+
+" exchange source <--> header
+nnoremap [MyPrefix]a             <Esc>:<C-u>A<CR>
+nnoremap [MyPrefix][MyPrefix]a   <Esc>:<C-u>vs<CR><C-w><C-w>:<C-u>A<CR>
+
+" ---------- FuzzyFinder ----------
+
+nnoremap [MyPrefix]b             <Esc>:<C-u>FuzzyFinderBuffer<CR>
+nnoremap [MyPrefix][MyPrefix]b   <Esc>:<C-u>tabnew<CR>:<C-u>FuzzyFinderBuffer<CR>
+
+" ---------- quick-fix ----------
+
+nnoremap [MyPrefix]cm            <Esc>:<C-u>w<CR>:<C-u>make<CR>
+nnoremap [MyPrefix]cl            <Esc>:<C-u>clist<CR>
+nnoremap [MyPrefix][MyPrefix]cl  <Esc>:<C-u>clist!<CR>
+nnoremap [MyPrefix]cc            <Esc>:<C-u>cc<CR>
+nnoremap [MyPrefix]cn            <Esc>:<C-u>cn<CR>
+nnoremap [MyPrefix]cp            <Esc>:<C-u>cp<CR>
+
+" ---------- programming ----------
+
+" omni complete
+inoremap <expr> <C-J>      pumvisible()?"\<Down>":"\<C-x><C-o>"
+inoremap <expr> <C-K>      pumvisible()?"\<Up>":"\<C-k>"
+
+" ---------- for yankring ----------
+
+let g:yankring_replace_n_pkey = '<Space>p'
+let g:yankring_replace_n_nkey = '<Space>n'
+

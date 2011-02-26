@@ -1,0 +1,405 @@
+# file header
+snippet headerh
+	//
+	//  ${1:`Filename()`}.h
+	//
+	//  Created by ToKoRo on `system("date +%Y-%m-%d")`.
+	//
+snippet headers
+	//
+	//  ${1:`Filename()`}.s
+	//
+	//  Created by ToKoRo on `system("date +%Y-%m-%d")`.
+	//
+# template for header
+snippet objch
+	//
+	//  ${1:`Filename()`}.h
+	//
+	//  Created by ToKoRo on `system("date +%Y-%m-%d")`.
+	//
+	
+	@interface $1 : NSObject
+	{
+	 @private
+	}
+	
+	@end
+snippet vch
+	//
+	//  ${1:`Filename()`}.h
+	//
+	//  Created by ToKoRo on `system("date +%Y-%m-%d")`.
+	//
+	
+	#import <UIKit/UIKit.h>
+	
+	@interface $1 : UIViewController
+	{
+	 @private
+	}
+	
+	@end
+snippet delh
+	//
+	//  ${1:`Filename()`}.h
+	//
+	//  Created by ToKoRo on `system("date +%Y-%m-%d")`.
+	//
+	
+	#import <UIKit/UIKit.h>
+	
+	@interface $1 : NSObject <UIApplicationDelegate>
+	{
+	  UIWindow *window_;
+	  UINavigationController* navi_;
+	}
+	
+	@end
+snippet tableh
+	//
+	//  ${1:`Filename()`}.h
+	//
+	//  Created by ToKoRo on `system("date +%Y-%m-%d")`.
+	//
+	
+	#import <UIKit/UIKit.h>
+	
+	@interface $1 : UITableViewController
+	{
+	  NSArray* dataSource_;
+	}
+	
+	@end
+# template for source
+snippet objcs
+	//
+	//  ${1:`Filename()`}.m
+	//
+	//  Created by ToKoRo on `system("date +%Y-%m-%d")`.
+	//
+	
+	#import "$1.h"
+	
+	@implementation $1
+	
+	@end
+snippet vcs
+	//
+	//  ${1:`Filename()`}.m
+	//
+	//  Created by ToKoRo on `system("date +%Y-%m-%d")`.
+	//
+	
+	#import "$1.h"
+	
+	@implementation $1
+	
+	- (void)viewDidLoad {
+		[super viewDidLoad];
+	}
+	
+	- (void)viewDidUnload {
+	  [dataSource_ release];
+	  [super viewDidUnload];
+	}
+
+	@end
+snippet dels
+	//
+	//  ${1:`Filename()`}.m
+	//
+	//  Created by ToKoRo on `system("date +%Y-%m-%d")`.
+	//
+	
+	#import "$1.h"
+	#import "RootViewController.h"
+	
+	@implementation $1
+	
+	- (void)dealloc {
+	  [navi_ release];
+	  [window_ release];
+	  [super dealloc];
+	}
+	
+	- (void)applicationDidFinishLaunching:(UIApplication *)application {    
+	
+	  CGRect frame = [[UIScreen mainScreen] bounds];
+	  window_ = [[UIWindow alloc] initWithFrame:frame];
+	
+	  RootViewController* rootViewController = [[[RootViewController alloc] init] autorelease];
+	  navi_ = [[UINavigationController alloc] initWithRootViewController:rootViewController];
+	
+	  [window_ addSubview:navi_.view];
+	  [window_ makeKeyAndVisible];
+	}
+	
+	@end
+snippet tables
+	//
+	//  ${1:`Filename()`}.m
+	//
+	//  Created by ToKoRo on `system("date +%Y-%m-%d")`.
+	//
+	
+	#import "$1.h"
+	
+	@implementation $1
+	
+	- (void)dealloc {
+	  [dataSource_ release];
+	  [super dealloc];
+	}
+	
+	- (void)viewDidLoad {
+	  [super viewDidLoad];
+	  dataSource_ = [[NSArray alloc] initWithObjects:
+	                                   @"DATA1",
+	                                   nil ];
+	}
+	
+	- (void)viewDidUnload {
+	  [dataSource_ release];
+	  [super viewDidUnload];
+	}
+	
+	- (NSInteger)tableView:(UITableView*)tableView
+	  numberOfRowsInSection:(NSInteger)section
+	{
+	  return [dataSource_ count];
+	}
+	
+	- (UITableViewCell*)tableView:(UITableView*)tableView
+	  cellForRowAtIndexPath:(NSIndexPath*)indexPath
+	{
+	  static NSString* CellIdentifier = @"CellStyleDefault";
+	  UITableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+	  if ( nil == cell ) {
+	    cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
+	  }
+	  cell.textLabel.text = [dataSource_ objectAtIndex:indexPath.row];
+	  return cell;
+	}
+	
+	@end
+# temlate for instance variables
+snippet im
+	${1:id} ${2:varName}_;
+# temlate for a method call
+snippet mc
+	[${1:instance} ${2:method}];
+# input a string literal
+snippet @
+	@"${1:literal}"${2}
+# use a method
+snippet [
+	[${1:instance} ${2:method}]${3}
+snippet [[
+	[[${1:instance} ${2:method1}] ${3:method2}]${4}
+# define a instance method 
+snippet -(
+	- (${1:returnValue})${2:methodName};${3}
+snippet -((
+	- (${1:returnValue})${2:methodName}:(${3:argType})${4:argName};${5}
+# define a class method 
+snippet +(
+	+ (${1:returnValue})${2:methodName};${3}
+snippet +((
+	+ (${1:returnValue})${2:methodName}:(${3:argType})${4:argName};${5}
+# define a action method 
+snippet -action
+	- (IBAction)${1:action}${2::(id)sender}${3: forEvent:(UIEvent*)event};${4}
+# override a init 
+snippet -init
+	- (id)init {
+		if ( (self = [super init]) ) {
+			${1}
+		}
+		return self;
+	}
+# add  a initWithXXX method 
+snippet -initw
+	- (id)initWith${1:X}:(${2:argType}):${3:argName};${4}
+# override a dealloc
+snippet -dealloc
+	- (void)dealloc {
+		${1}
+		[super dealloc];
+	}
+# template for autorelease
+snippet autorelease
+	[[[${1:className} alloc] ${2:init}] autorelease];${3}
+# template for alloc&init
+snippet allocinit
+	[[${1:className} alloc] ${2:init}];${3}
+# define a protocol
+snippet @protocol
+	#pragma mark ----- $1 -----
+
+	@protocol ${1:protocolName}
+	@required
+	@optional
+	@end 
+# define a protocol for delegate
+snippet @delegate
+	#pragma mark ----- $1 -----
+
+	@protocol ${1:`Filename()`Delegate}
+	@required
+	@optional
+	@end 
+# define a interface
+snippet @interface
+	#pragma mark ----- $1 -----
+
+	@interface ${1:`Filename()`}
+	{
+	 @private
+	}
+
+	@end 
+# define a private category
+snippet @private
+	#pragma mark ----- Private Methods Definition -----
+
+	@interface ${1:`Filename()`} ()
+	@end 
+
+	#pragma mark ----- Start Implementation For Methods -----
+# define a category
+snippet @category
+	#pragma mark ----- Category $2 -----
+
+	@interface ${1:`Filename()`} (${2:categoryName})
+	@end 
+
+	@implementation $1 ($2)
+	@end
+snippet #pm
+	#pragma mark ----- ${1:`Filename()`} -----
+snippet #pmpm
+	#pragma mark ----- Private Methods -----
+snippet #pmpr
+	#pragma mark ----- ${1:Protocol} Methods -----
+snippet #pmom
+	#pragma mark ----- Override Methods -----
+snippet #pmre
+	#pragma mark ----- Responder -----
+# insert a implementation
+snippet @impl
+	@implementation ${1:`Filename()`}
+	@end 
+# import a header
+snippet #i
+	#import "${1:fileName}.h"${2}
+# import a UIKit.h
+snippet #iu
+	#import <UIKit/UIKit.h>
+# use a selector
+snippet @sel
+	@selector(${1:method})${2}
+# define a property
+snippet @prop
+	@property (${1:nonatomic, retain}) ${2:id} ${3:varName};${4}
+# define a NSString property
+snippet @propc
+	@property (${1:nonatomic, copy}) ${2:NSString*} ${3:varName};${3}
+# define a delegate property
+snippet @propa
+	@property (${1:nonatomic, assign}) ${2:id} ${3:delegate};${3}
+# template for synthesize
+snippet @s
+	@synthesize ${1:varName} = $1_;${2}
+# use respondsToSelector
+snippet responds
+	if ( [${1:(id)delegate_} respondsToSelector:@selector(${2:SEL})] ) {
+		[$1 $2];
+	}
+# use conformsToProtocol
+snippet conforms
+	if ( [${1:(id)delegate_} conformsToProtocol:@protocol(${2:protocol})] ) {
+		[$1 ${3:prefix:self} ${4:method:arg}];
+	}
+# use isKindOf
+snippet kindof
+	if ( [${1:sender} isKindOfClass:[${2:UIView} class]] ) {
+		$2* ${3:obj} = $1;
+	} 
+# forreach
+snippet forr
+	for ( ${1:id} ${2:object} in ${3:array} ) {
+	}
+# NSLog
+snippet log
+	NSLog( @"${1}"${2} );
+# UIView
+snippet add
+	[${1:self.view} addSubview:${2:subview}];
+# UIImageView
+snippet image
+	UIImage* image = [UIImage imageNamed:${1:@"xxx.png"}];
+	UIImageView* ${2:imageView} = [[[UIImageView alloc] initWithImage:image] autorelease];
+	// $2_ = [[UIImageView alloc] initWithImage:image];
+# autoresizingMask
+snippet maskwh
+	${1:view}.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+snippet maskmargin
+	${1:view}.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin |
+															 UIViewAutoresizingFlexibleRightMargin |
+															 UIViewAutoresizingFlexibleTopMargin |
+															 UIViewAutoresizingFlexibleBottomMargin;
+snippet maskall
+	${1:view}.autoresizingMask = UIViewAutoresizingFlexibleWidth |
+															 UIViewAutoresizingFlexibleHeight |
+															 UIViewAutoresizingFlexibleLeftMargin |
+															 UIViewAutoresizingFlexibleRightMargin |
+															 UIViewAutoresizingFlexibleTopMargin |
+															 UIViewAutoresizingFlexibleBottomMargin;
+# UIAlert
+snippet alert
+	UIAlertView* alert = [[[UIAlertView alloc] init] autorelease];
+	alert.message = ${1:message};
+	// alert.cancelButtonIndex = 0;
+	// [alert addButtonWithTitle:@"${2:Cancel}"];
+	[alert addButtonWithTitle:@"${2:OK}"];
+	[alert show];
+# bundle
+snippet path
+	NSBundle* mainBundle = [NSBundle mainBundle];
+	if ( path = [mainBundle pathForResource:@"${1:sample}" ofType:@"${2:txt}"] ) {
+		NSData* data = [NSData dataWithContentsOfFile:path];
+	}
+<<<<<<< .mine
+# viewcontroller
+snippet viewWillAppear
+	- (void)viewWillAppear:(BOOL)animated {
+	  [super viewWillAppear:animated];
+	}
+snippet viewDidAppear
+	- (void)viewDidlAppear:(BOOL)animated {
+	  [super viewDidlAppear:animated];
+	}
+snippet viewWillDisappear
+	- (void)viewWillDisappear:(BOOL)animated {
+	  [super viewWillDisappear:animated];
+	}
+snippet viewDidDisappear
+	- (void)viewDidDisappear:(BOOL)animated {
+	  [super viewDidDisappear:animated];
+	}
+=======
+# button
+snippet button
+	UIButton* ${1:button} = [UIButton buttonWithType:${2:UIButtonTypeRoundedRect}];
+	[$1 setTitle:@"${3:BUTTON}" forState:UIControlStateNormal];
+	[$1 sizeToFit];
+# barButton
+snippet barbutton
+	UIBarButtonItem* ${1:barButton} =
+		[[[UIBarButtonItem alloc] initWithBarButtonSystemItem:${2:UIBarButtonSystemItemAction}
+		// [[[UIBarButtonItem alloc] initWithTitle:@"BUTTON"
+		//                                   style:UIBarButtonItemStyleBordered
+		                                               target:self
+		                                               action:@selector(${3:barButonDidPush})] autorelease];
+>>>>>>> .r84

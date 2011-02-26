@@ -1,0 +1,549 @@
+# file header
+snippet headerh
+	//
+	//  ${1:`Filename()`}.h
+	//
+	//  Created by ToKoRo on `system("date +%Y-%m-%d")`.
+	//  `expand("Last Change")`: .
+	//
+snippet headers
+	//
+	//  ${1:`Filename()`}.m
+	//
+	//  Created by ToKoRo on `system("date +%Y-%m-%d")`.
+	//  `expand("Last Change")`: .
+	//
+# template for header
+snippet objch
+	//
+	//  ${1:`Filename()`}.h
+	//
+	//  Created by ToKoRo on `system("date +%Y-%m-%d")`.
+	//  `expand("Last Change")`: .
+	//
+	
+	@interface $1 : NSObject
+	@end
+snippet vch
+	//
+	//  ${1:`Filename()`}.h
+	//
+	//  Created by ToKoRo on `system("date +%Y-%m-%d")`.
+	//  `expand("Last Change")`: .
+	//
+	
+	#import <UIKit/UIKit.h>
+	
+	@interface $1 : UIViewController
+	@end
+snippet tableh
+	//
+	//  ${1:`Filename()`}.h
+	//
+	//  Created by ToKoRo on `system("date +%Y-%m-%d")`.
+	//  `expand("Last Change")`: .
+	//
+	
+	#import <UIKit/UIKit.h>
+	
+	@interface $1 : UITableViewController
+	
+	@property (nonatomic, retain) NSArray* dataSource;
+	
+	@end
+snippet singleton for interface
+	//
+	//  ${1:`Filename()`}.h
+	//
+	//  Created by ToKoRo on `system("date +%Y-%m-%d")`.
+	//  `expand("Last Change")`: .
+	//
+	
+	#import "ILSingleton.h"
+	
+	@interface $1 : NSObject
+	
+	/**
+	 * + ($1*)sharedManager;
+	 * + (void)releaseSharedManager;
+	 */
+	INTERFACE_FOR_SINGLETON( $1 )
+	
+	@end
+snippet delh
+	//
+	//  ${1:`Filename()`}.h
+	//
+	//  Created by ToKoRo on `system("date +%Y-%m-%d")`.
+	//  `expand("Last Change")`: .
+	//
+	
+	@interface $1 : NSObject <UIApplicationDelegate>
+
+	@property (nonatomic, retain) UIWindow* window;
+	@property (nonatomic, retain) UIViewController* rootViewController;
+
+	@end
+# template for source
+snippet objcs
+	//
+	//  ${1:`Filename()`}.m
+	//
+	//  Created by ToKoRo on `system("date +%Y-%m-%d")`.
+	//  `expand("Last Change")`: .
+	//
+	
+	#import "$1.h"
+	
+	@implementation $1
+	
+	@end
+snippet vcs
+	//
+	//  ${1:`Filename()`}.m
+	//
+	//  Created by ToKoRo on `system("date +%Y-%m-%d")`.
+	//  `expand("Last Change")`: .
+	//
+	
+	#import "$1.h"
+	
+	@implementation $1
+	
+	- (void)viewDidLoad {
+		[super viewDidLoad];
+	}
+	
+	- (void)loadView {
+	  [super loadView];
+	}
+	
+	- (void)viewDidUnload {
+	  [super viewDidUnload];
+	  self.view = nil;
+	}
+
+	@end
+snippet tables
+	//
+	//  ${1:`Filename()`}.m
+	//
+	//  Created by ToKoRo on `system("date +%Y-%m-%d")`.
+	//  `expand("Last Change")`: .
+	//
+	
+	#import "$1.h"
+	
+	@implementation $1
+	
+	@synthesize dataSource = dataSource_;
+	
+	- (void)dealloc {
+	  self.dataSource = nil;
+	  [super dealloc];
+	}
+	
+	- (void)viewDidLoad {
+	  [super viewDidLoad];
+	  self.dataSource = [NSArray arrayWithObjects:
+	                                   @"DATA1",
+	                                   nil ];
+	}
+	
+	- (void)loadView {
+	  [super loadView];
+	}
+
+	- (void)viewDidUnload {
+	  self.dataSource = nil;
+	  [super viewDidUnload];
+	  self.view = nil;
+	}
+	
+	- (NSInteger)tableView:(UITableView*)tableView
+	  numberOfRowsInSection:(NSInteger)section
+	{
+	  return self.dataSource.count;
+	}
+	
+	- (UITableViewCell*)tableView:(UITableView*)tableView
+	  cellForRowAtIndexPath:(NSIndexPath*)indexPath
+	{
+	  static NSString* CellIdentifier = @"CellStyleDefault";
+	  UITableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+	  if ( nil == cell ) {
+	    cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
+	  }
+	  cell.textLabel.text = [self.dataSource objectAtIndex:indexPath.row];
+	  return cell;
+	}
+	
+	@end
+snippet singleton for implemention
+	//
+	//  ${1:`Filename()`}.m
+	//
+	//  Created by ToKoRo on `system("date +%Y-%m-%d")`.
+	//  `expand("Last Change")`: .
+	//
+	
+	#import "$1.h"
+	
+	@implementation $1
+	IMPLEMENTATION_FOR_SINGLETON( $1 )
+	
+	@end
+snippet dels
+	//
+	//  ${1:`Filename()`}.m
+	//
+	//  Created by ToKoRo on `system("date +%Y-%m-%d")`.
+	//  `expand("Last Change")`: .
+	//
+	
+	#import "$1.h"
+	#import "${2:RootViewController}.h"
+	
+	@implementation $1
+	
+	@synthesize window = window_;
+	@synthesize rootViewController = rootViewController_;
+	
+	- (void)dealloc {
+		self.window = nil;
+		[super dealloc];
+	}
+	
+	#pragma mark -
+	#pragma mark Application lifecycle
+	
+	- (BOOL)application:(UIApplication*)application didFinishLaunchingWithOptions:(NSDictionary*)launchOptions {    
+		CGRect frame = [[UIScreen mainScreen] bounds];
+		self.window = [[[UIWindow alloc] initWithFrame:frame] autorelease];
+		self.rootViewController = [[[$2 alloc] init] autorelease];
+		[self.window addSubview:self.rootViewController.view];
+		[self.window makeKeyAndVisible];
+		return YES;
+	}
+	
+	- (void)applicationWillResignActive:(UIApplication*)application {
+	}
+	
+	- (void)applicationDidBecomeActive:(UIApplication*)application {
+	}
+	
+	- (void)applicationWillTerminate:(UIApplication*)application {
+	}
+
+	@end
+# temlate for instance variables
+snippet im
+	${1:id} ${2:varName}_;
+# temlate for a method call
+snippet mc
+	[${1:instance} ${2:method}];
+# input a string literal
+snippet @
+	@"${1:literal}"${2}
+# use a method
+snippet [
+	[${1:instance} ${2:method}]${3}
+snippet [[
+	[[${1:instance} ${2:method1}] ${3:method2}]${4}
+# define a instance method 
+snippet -(
+	- (${1:void})${2:methodName};${3}
+snippet -((
+	- (${1:void})${2:methodName}:(${3:argType})${4:argName};${5}
+# define a class method 
+snippet +(
+	+ (${1:void})${2:methodName};${3}
+snippet +((
+	+ (${1:void})${2:methodName}:(${3:argType})${4:argName};${5}
+# define a action method 
+snippet -action
+	- (IBAction)${1:action}${2::(id)sender}${3: forEvent:(UIEvent*)event};${4}
+# override a init 
+snippet -init
+	- (id)init {
+		if ( (self = [super init]) ) {
+			${1}
+		}
+		return self;
+	}
+# add  a initWithXXX method 
+snippet -initw
+	- (id)initWith${1:X}:(${2:argType}):${3:argName};${4}
+# override a dealloc
+snippet -dealloc
+	- (void)dealloc {
+		${1}
+		[super dealloc];
+	}
+# template for autorelease
+snippet ar
+	${1:self.xxx} = [[[${2:className} alloc] ${3:init}] autorelease];${4}
+snippet autorelease
+	[[[${1:className} alloc] ${2:init}] autorelease];${3}
+# template for alloc&init
+snippet allocinit
+	[[${1:className} alloc] ${2:init}];${3}
+# define a protocol
+snippet @protocol
+	#pragma mark -
+	#pragma mark ----- $1 -----
+
+	@protocol ${1:protocolName}
+	@required
+	@optional
+	@end 
+# define a protocol for delegate
+snippet @delegate
+	#pragma mark -
+	#pragma mark ----- $1 -----
+
+	@protocol ${1:`Filename()`Delegate}
+	@required
+	@optional
+	@end 
+# define a interface
+snippet @interface
+	#pragma mark -
+	#pragma mark ----- $1 -----
+
+	@interface ${1:`Filename()`}
+	{
+	 @private
+	}
+
+	@end 
+# define a private category
+snippet @private
+	#pragma mark -
+	#pragma mark ----- Private Methods Definition -----
+
+	@interface ${1:`Filename()`} ()
+	@end 
+
+	#pragma mark -
+	#pragma mark ----- Main Implementation -----
+# define a category
+snippet @category
+	#pragma mark -
+	#pragma mark ----- Category $2 -----
+
+	@interface ${1:`Filename()`} (${2:categoryName})
+	@end 
+
+	@implementation $1 ($2)
+	@end
+snippet #pm
+	#pragma mark -
+	#pragma mark ----- ${1:`Filename()`} -----
+snippet #pmif
+	#pragma mark -
+	#pragma mark ----- Initialization/Finalization -----
+snippet #pmpm
+	#pragma mark -
+	#pragma mark ----- Private Methods -----
+snippet #pmpu
+	#pragma mark -
+	#pragma mark ----- Public Interface -----
+snippet #pmpr
+	#pragma mark -
+	#pragma mark ----- ${1:Protocol} Methods -----
+snippet #pmom
+	#pragma mark -
+	#pragma mark ----- Override Methods -----
+snippet #pmre
+	#pragma mark -
+	#pragma mark ----- Responder -----
+# insert a implementation
+snippet @impl
+	@implementation ${1:`Filename()`}
+	@end 
+# import a header
+snippet #i
+	#import "${1:fileName}.h"${2}
+# import a UIKit.h
+snippet #iu
+	#import <UIKit/UIKit.h>
+# use a selector
+snippet @sel
+	@selector(${1:method})${2}
+# define a property
+snippet @prop
+	@property (${1:nonatomic, retain}) ${2:id} ${3:varName};${4}
+# define a NSString property
+snippet @propc
+	@property (${1:nonatomic, copy}) ${2:NSString*} ${3:varName};${4}
+# define a delegate property
+snippet @propa
+	@property (${1:nonatomic, assign}) ${2:id} ${3:delegate};${4}
+# template for synthesize
+snippet @s
+	@synthesize ${1:varName} = $1_;
+# add release
+snippet rel
+	self.${1:varName} = nil;
+# use respondsToSelector
+snippet responds
+	if ( [${1:(id)delegate_} respondsToSelector:@selector(${2:SEL})] ) {
+		[$1 $2];
+	}
+# use conformsToProtocol
+snippet conforms
+	if ( [${1:(id)delegate_} conformsToProtocol:@protocol(${2:protocol})] ) {
+		[$1 ${3:prefix:self} ${4:method:arg}];
+	}
+# use isKindOf
+snippet kindof
+	if ( [${1:sender} isKindOfClass:[${2:UIView} class]] ) {
+		$2* ${3:obj} = $1;
+	} 
+# forreach
+snippet forr
+	for ( ${1:id} ${2:object} in ${3:array} ) {
+	}
+# NSLog
+snippet log
+	NSLog( @"${1}"${2} );
+# NSAssert
+snippet assert
+	NSAssert( ${1}, @"${2}" );
+snippet assertnil
+	NSAssert( ${1:sender}, @"$1 is nil" );
+snippet assertequal
+	NSAssert( ${1:lhs} == ${2:rhs}, @"$1 isn't $2" );
+snippet assertkind
+	NSAssert( [${1:sender} isKindOfClass:[${2:NSString} class]], @"$1 isn't $2" );
+# UIView
+snippet add
+	[${1:self.view} addSubview:${2:subview}];
+# UIImageView
+snippet image
+	UIImage* image = [UIImage imageNamed:${1:@"xxx.png"}];
+	UIImageView* ${2:imageView} = [[[UIImageView alloc] initWithImage:image] autorelease];
+	// $2_ = [[UIImageView alloc] initWithImage:image];
+# autoresizingMask
+snippet maskwh
+	${1:view}.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+snippet maskmargin
+	${1:view}.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin |
+															 UIViewAutoresizingFlexibleRightMargin |
+															 UIViewAutoresizingFlexibleTopMargin |
+															 UIViewAutoresizingFlexibleBottomMargin;
+snippet maskall
+	${1:view}.autoresizingMask = UIViewAutoresizingFlexibleWidth |
+															 UIViewAutoresizingFlexibleHeight |
+															 UIViewAutoresizingFlexibleLeftMargin |
+															 UIViewAutoresizingFlexibleRightMargin |
+															 UIViewAutoresizingFlexibleTopMargin |
+															 UIViewAutoresizingFlexibleBottomMargin;
+# UIAlert
+snippet alert
+	UIAlertView* alert = [[[UIAlertView alloc] init] autorelease];
+	alert.message = ${1:message};
+	// alert.cancelButtonIndex = 0;
+	// [alert addButtonWithTitle:@"${2:Cancel}"];
+	[alert addButtonWithTitle:@"${2:OK}"];
+	[alert show];
+# bundle
+snippet path
+	NSBundle* mainBundle = [NSBundle mainBundle];
+	if ( path = [mainBundle pathForResource:@"${1:sample}" ofType:@"${2:txt}"] ) {
+		NSData* data = [NSData dataWithContentsOfFile:path];
+	}
+# viewcontroller
+snippet viewWillAppear
+	- (void)viewWillAppear:(BOOL)animated {
+	  [super viewWillAppear:animated];
+	}
+snippet viewDidAppear
+	- (void)viewDidAppear:(BOOL)animated {
+	  [super viewDidAppear:animated];
+	}
+snippet viewWillDisappear
+	- (void)viewWillDisappear:(BOOL)animated {
+	  [super viewWillDisappear:animated];
+	}
+snippet viewDidDisappear
+	- (void)viewDidDisappear:(BOOL)animated {
+	  [super viewDidDisappear:animated];
+	}
+# button
+snippet button
+	UIButton* ${1:button} = [UIButton buttonWithType:${2:UIButtonTypeRoundedRect}];
+	[$1 setTitle:@"${3:BUTTON}" forState:UIControlStateNormal];
+	[$1 sizeToFit];
+# barButton
+snippet barbutton
+	UIBarButtonItem* ${1:barButton} =
+		[[[UIBarButtonItem alloc] initWithBarButtonSystemItem:${2:UIBarButtonSystemItemAction}
+		// [[[UIBarButtonItem alloc] initWithTitle:@"BUTTON"
+		//                                   style:UIBarButtonItemStyleBordered
+		                                               target:self
+		                                               action:@selector(${3:barButtonDidPush})] autorelease];
+# UIControl
+snippet addtarget
+	[${1:button} addTarget:${2:self}
+	                action:@selector(${3:buttonDidPush})
+	      forControlEvents:${4:UIControlEventTouchUpInside}];
+# UIActionSheet
+snippet actionsheet
+	UIActionSheet* sheet = [[[UIActionSheet alloc] init] autorelease];
+	sheet.delegate = self;
+	[sheet addButtonWithTitle:@"action1"];
+	[sheet addButtonWithTitle:@"action2"];
+	[sheet addButtonWithTitle:@"Cancel"];
+	sheet.cancelButtonIndex = 2;
+	[sheet showInView:self.view];
+	// [sheet showFromToolbar:self.navigationController.toolbar];
+
+	- (void)actionSheet:(UIActionSheet*)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
+	  if ( buttonIndex == actionSheet.cancelButtonIndex ) {
+	    NSLog( @"pushed Cancel button." );
+	  }
+	}
+# Orientation
+snippet orientation
+	- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation {
+	  return YES;
+	}
+	
+	- (void)willAnimateRotationToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation
+	                                         duration:(NSTimeInterval)duration
+	{
+	  switch ( toInterfaceOrientation ) {
+	    case UIInterfaceOrientationPortrait:
+	    case UIInterfaceOrientationPortraitUpsideDown:
+	      // 縦画面
+	      break;
+	    case UIInterfaceOrientationLandscapeLeft:
+	    case UIInterfaceOrientationLandscapeRight:
+	      // 横画面
+	      break;
+	    default:
+	      break;
+	  }
+	}
+# UIResponder
+snippet touches
+	- (void)touchesBegan:(NSSet*)touches withEvent:(UIEvent*)event {
+		// [self.nextResponder touchesBegan:touches withEvent:event];
+	}
+	- (void)touchesEnded:(NSSet*)touches withEvent:(UIEvent*)event {
+		// [self.nextResponder touchesEnded:touches withEvent:event];
+	}
+	- (void)touchesMoved:(NSSet*)touches withEvent:(UIEvent*)event {
+		// [self.nextResponder touchesMoved:touches withEvent:event];
+	}
+	- (void)touchesCancelled:(NSSet*)touches withEvent:(UIEvent*)event {
+		// [self.nextResponder touchesCancelled:touches withEvent:event];
+	}
+# UIView
+snippet animation
+	[UIView beginAnimations:nil context:NULL];
+	[UIView setAnimationDuration:0.5];
+	// view.alpha = 1.0;
+	[UIView commitAnimations];

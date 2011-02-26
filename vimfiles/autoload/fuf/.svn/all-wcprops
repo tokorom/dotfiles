@@ -1,0 +1,131 @@
+K 25
+svn:wc:ra_dav:version-url
+V 45
+/svn/!svn/ver/127/trunk/vimfiles/autoload/fuf
+END
+mrucmd.vim
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svn/!svn/ver/127/trunk/vimfiles/autoload/fuf/mrucmd.vim
+END
+line.vim
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn/!svn/ver/127/trunk/vimfiles/autoload/fuf/line.vim
+END
+help.vim
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn/!svn/ver/127/trunk/vimfiles/autoload/fuf/help.vim
+END
+coveragefile.vim
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/!svn/ver/127/trunk/vimfiles/autoload/fuf/coveragefile.vim
+END
+taggedfile.vim
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/!svn/ver/127/trunk/vimfiles/autoload/fuf/taggedfile.vim
+END
+callbackfile.vim
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/!svn/ver/127/trunk/vimfiles/autoload/fuf/callbackfile.vim
+END
+givencmd.vim
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svn/!svn/ver/127/trunk/vimfiles/autoload/fuf/givencmd.vim
+END
+mrufile.vim
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svn/!svn/ver/127/trunk/vimfiles/autoload/fuf/mrufile.vim
+END
+bookmarkdir.vim
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/!svn/ver/127/trunk/vimfiles/autoload/fuf/bookmarkdir.vim
+END
+bookmarkfile.vim
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/!svn/ver/127/trunk/vimfiles/autoload/fuf/bookmarkfile.vim
+END
+buffertag.vim
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svn/!svn/ver/127/trunk/vimfiles/autoload/fuf/buffertag.vim
+END
+jumplist.vim
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svn/!svn/ver/127/trunk/vimfiles/autoload/fuf/jumplist.vim
+END
+givendir.vim
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svn/!svn/ver/127/trunk/vimfiles/autoload/fuf/givendir.vim
+END
+givenfile.vim
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svn/!svn/ver/127/trunk/vimfiles/autoload/fuf/givenfile.vim
+END
+buffer.vim
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svn/!svn/ver/127/trunk/vimfiles/autoload/fuf/buffer.vim
+END
+tag.vim
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/svn/!svn/ver/127/trunk/vimfiles/autoload/fuf/tag.vim
+END
+callbackitem.vim
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/!svn/ver/127/trunk/vimfiles/autoload/fuf/callbackitem.vim
+END
+dir.vim
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/svn/!svn/ver/127/trunk/vimfiles/autoload/fuf/dir.vim
+END
+file.vim
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn/!svn/ver/127/trunk/vimfiles/autoload/fuf/file.vim
+END
+changelist.vim
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/!svn/ver/127/trunk/vimfiles/autoload/fuf/changelist.vim
+END
+quickfix.vim
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svn/!svn/ver/127/trunk/vimfiles/autoload/fuf/quickfix.vim
+END

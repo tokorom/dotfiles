@@ -1,0 +1,194 @@
+snippet #!
+	#!/usr/bin/python
+
+snippet imp
+	import ${1:module}
+# Module Docstring
+snippet docs
+	'''
+	File: ${1:`Filename('$1.py', 'foo.py')`}
+	Author: ${2:`g:snips_author`}
+	Description: ${3}
+	'''
+snippet wh
+	while ${1:condition}:
+		${2:# code...}
+snippet if
+	if ${1:condition}:
+		${2}
+snippet switch
+	if ${2:a} == ${1:var}:
+	elif ${3:b} == $1:
+	else:
+		pass
+snippet for
+	for ${1:needle} in ${2:haystack}:
+		${3:# code...}
+snippet fori
+	for ${2:i} in range(${1:n}):
+		${3}
+snippet forr
+	for k, v in ${1:dic}.iteritems():
+		${2}
+snippet header
+	# -*- coding: utf-8 -*-
+	
+# New Class
+snippet class
+	# -*- coding: utf-8 -*-
+	
+	import sys
+	
+	class ${1:ClassName}(${2:object}):
+		"""${3:docstring for $1}"""
+		def __init__(self, ${4:arg}):
+			${5:super($1, self).__init__()}
+			self.$4 = $4
+			${6}
+	
+# New Function
+snippet def
+	def ${1:fname}(${2:`indent('.') ? 'self' : ''`}):
+		"""${3:docstring for $1}"""
+		${4:pass}
+snippet deff
+	def ${1:fname}(${2:`indent('.') ? 'self' : ''`}):
+		${3}
+# New Method
+snippet defs
+	def ${1:mname}(self, ${2:arg}):
+		${3:pass}
+# New Property
+snippet property
+	def ${1:foo}():
+		doc = "${2:The $1 property.}"
+		def fget(self):
+			${3:return self._$1}
+		def fset(self, value):
+			${4:self._$1 = value}
+# Lambda
+snippet ld
+	${1:var} = lambda ${2:vars} : ${3:action}
+snippet .
+	self.
+snippet try Try/Except
+	try:
+		${1:pass}
+	except ${2:Exception}, ${3:e}:
+		${4:raise $3}
+snippet try Try/Except/Else
+	try:
+		${1:pass}
+	except ${2:Exception}, ${3:e}:
+		${4:raise $3}
+	else:
+		${5:pass}
+snippet try Try/Except/Finally
+	try:
+		${1:pass}
+	except ${2:Exception}, ${3:e}:
+		${4:raise $3}
+	finally:
+		${5:pass}
+snippet try Try/Except/Else/Finally
+	try:
+		${1:pass}
+	except ${2:Exception}, ${3:e}:
+		${4:raise $3}
+	else:
+		${5:pass}
+	finally:
+		${6:pass}
+# if __name__ == '__main__':
+snippet ifmain
+	if __name__ == '__main__':
+		${1:main()}
+# __magic__
+snippet _
+	__${1:init}__${2}
+# Google App Engine
+# main template
+snippet gae Main Python Template
+	# -*- coding: utf-8 -*-
+	
+	import os
+	
+	from google.appengine.api import users
+	from google.appengine.ext import webapp
+	from google.appengine.ext.webapp.util import run_wsgi_app
+	from google.appengine.ext.webapp import template
+	
+	class MainPage(webapp.RequestHandler):
+	  def get(self):
+	    if users.get_current_user():
+	      url = users.create_logout_url(self.request.uri)
+	      url_linktext = 'Logout'
+	    else:
+	      url = users.create_login_url(self.request.uri)
+	      url_linktext = 'Login'
+	
+	    template_values = {
+	        'url': url,
+	        'url_linktext': url_linktext,
+	        }
+	
+	    path = os.path.join(os.path.dirname(__file__), 'templates/index.html')
+	    self.response.out.write(template.render(path, template_values))
+	
+	application = webapp.WSGIApplication(
+	                [('/', MainPage)],
+	                debug=True)
+	
+	def main():
+	  run_wsgi_app(application)
+	
+	if __name__ == "__main__":
+	  main()
+# logging
+snippet logging import
+	import logging
+snippet logging setLevel
+	logging.getLogger().setLevel(logging.DEBUG)
+snippet info
+	logging.info(${1:info})
+snippet debug
+	logging.debug(${1:debug})
+snippet warning
+	logging.warning(${1:warning})
+snippet error
+	logging.error(${1:error})
+snippet defl
+	if None == ${1:list}: $1 = []
+snippet defd
+	if None == ${1:dic}: $1 = {}
+# New Class
+snippet import
+	import logging
+	import sys
+# Unit Test
+snippet test
+	# -*- coding: utf-8 -*-
+	
+	import unittest
+	from ${2:path} import ${1:TestClass}
+	
+	class Test$1(unittest.TestCase):
+	
+		def setUp(self):
+			self.c = $1()
+			pass
+	
+		def tearDown(self):
+			pass
+	
+		def test_instance(self):
+			self.assertNotEquals( None, self.c )
+			
+		${3}
+snippet deft
+	def test_${1:function}(self):
+		self.assertEquals( 0, 1 )
+snippet as
+	self.assertEquals( ${1}, ${2} )
+snippet asn
+	self.assertNotEquals( ${1}, ${2} )
