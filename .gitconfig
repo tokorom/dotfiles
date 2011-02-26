@@ -10,9 +10,10 @@
     ui = auto
 [alias]
     co = checkout
-    cm = commit
-    ci = commit --interactive
+    cm = commit -a
+    cmi = commit --interactive
     st = status
+    stn = status --untracked-files=no
     br = branch
     ll = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
     type = cat-file -t
