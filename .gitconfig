@@ -1,0 +1,24 @@
+[user]
+    name = tokorom
+    email = tokorom@gmail.com
+[core]  
+
+[diff]
+    color = auto
+    rename = copy
+[color] 
+    ui = auto
+[alias]
+    co = checkout
+    cm = commit
+    ci = commit --interactive
+    st = status
+    br = branch
+    ll = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
+    type = cat-file -t
+    dump = cat-file -p
+[pager]
+    color = true
+[status]
+    color = auto
+
