@@ -82,6 +82,9 @@ noremap <C-t>       :t<Space>
 noremap j 5j
 noremap k 5k
 
+" Openは強制Google検索で
+nnoremap o :open google 
+
 " bookmark
 noremap A           a<Space>-T=
 
