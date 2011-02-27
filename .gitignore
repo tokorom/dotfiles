@@ -1,6 +1,10 @@
 
 *~
 *.swap
-proc.so
+.DS_Store
 .svn
+*.model*
+*.pbxuser
+*.o
+*.ob
 
