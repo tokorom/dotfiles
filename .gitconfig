@@ -16,6 +16,7 @@
     st = status
     stn = status --untracked-files=no
     br = branch
+    brr = branch -r
     re = reset --hard
     diffl = diff --name-status
     ll = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
