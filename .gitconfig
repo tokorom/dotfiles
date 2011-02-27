@@ -15,6 +15,7 @@
     st = status
     stn = status --untracked-files=no
     br = branch
+    re = reset --hard
     ll = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
     type = cat-file -t
     dump = cat-file -p

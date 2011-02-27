@@ -1,7 +1,7 @@
 10
 
 dir
-146
+148
 https://tokorom.googlecode.com/svn/trunk/vimfiles/snippets
 https://tokorom.googlecode.com/svn
 
@@ -72,39 +72,17 @@ file
 19
 tokorom
 
-ruby.snippets
+java.snippets
 file
 
 
 
 
-2010-10-10T06:16:47.000000Z
-b1ab48bd1f500349aeef732225148a11
-2010-10-08T03:49:15.582043Z
-130
+2009-07-21T15:07:32.000000Z
+02a7d601af87d16ce7c51c84635cd183
+2009-04-16T08:44:53.405087Z
+19
 tokorom
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-9017
 
 python.snippets
 file
@@ -140,26 +118,14 @@ tokorom
 
 3804
 
-java.snippets
-file
-
-
-
-
-2009-07-21T15:07:32.000000Z
-02a7d601af87d16ce7c51c84635cd183
-2009-04-16T08:44:53.405087Z
-19
-tokorom
-
-tcl.snippets
+ruby.snippets
 file
 
 
 
 
 2010-10-10T06:16:47.000000Z
-fce56ba970d8c68cce965ef3928769cd
+b1ab48bd1f500349aeef732225148a11
 2010-10-08T03:49:15.582043Z
 130
 tokorom
@@ -184,16 +150,16 @@ tokorom
 
 
 
-1468
+9017
 
-snippet.snippets
+cpp.snippets
 file
 
 
 
 
 2009-07-21T15:07:32.000000Z
-f3360d272b41c09e3c3edd0274ea65bf
+b6488d07cdac75f19fd51fd0a71a023f
 2009-04-16T08:44:53.405087Z
 19
 tokorom
@@ -232,14 +198,60 @@ tokorom
 
 2250
 
-cpp.snippets
+snippet.snippets
 file
 
 
 
 
 2009-07-21T15:07:32.000000Z
-b6488d07cdac75f19fd51fd0a71a023f
+f3360d272b41c09e3c3edd0274ea65bf
+2009-04-16T08:44:53.405087Z
+19
+tokorom
+
+tcl.snippets
+file
+
+
+
+
+2010-10-10T06:16:47.000000Z
+fce56ba970d8c68cce965ef3928769cd
+2010-10-08T03:49:15.582043Z
+130
+tokorom
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+1468
+
+php.snippets
+file
+
+
+
+
+2009-07-21T15:07:32.000000Z
+9592ad74484993ce2c3ccfe5dedb472c
 2009-04-16T08:44:53.405087Z
 19
 tokorom
@@ -277,18 +289,6 @@ tokorom
 
 
 749
-
-php.snippets
-file
-
-
-
-
-2009-07-21T15:07:32.000000Z
-9592ad74484993ce2c3ccfe5dedb472c
-2009-04-16T08:44:53.405087Z
-19
-tokorom
 
 css.snippets
 file
@@ -358,18 +358,6 @@ tokorom
 
 949
 
-tex.snippets
-file
-
-
-
-
-2009-07-21T15:07:32.000000Z
-5ecb320c369c48a2a67707887e32ecff
-2009-04-16T08:44:53.405087Z
-19
-tokorom
-
 hatena.snippets
 file
 
@@ -403,6 +391,18 @@ tokorom
 
 
 599
+
+tex.snippets
+file
+
+
+
+
+2009-07-21T15:07:32.000000Z
+5ecb320c369c48a2a67707887e32ecff
+2009-04-16T08:44:53.405087Z
+19
+tokorom
 
 perl.snippets
 file
