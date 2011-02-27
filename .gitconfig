@@ -11,6 +11,7 @@
 [alias]
     co = checkout
     cm = commit -a
+    cmn = commit
     cmi = commit --interactive
     st = status
     stn = status --untracked-files=no

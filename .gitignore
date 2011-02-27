@@ -7,4 +7,5 @@
 *.pbxuser
 *.o
 *.ob
+.netrwhist
 

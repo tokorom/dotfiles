@@ -23,8 +23,9 @@ alias svnadd="svn st | grep '^?' | sed -e 's/\?[ ]*/svn add /g' | sh"
 alias svncommit='svn commit -m ""'
 
 alias clang-scan-build="/usr/local/lib/checker-0.186/scan-build -o ./check_result xcodebuild -alltargets"
-alias gvim='env LANG=ja_JP.UTF-8 open -a /Applications/MacVim.app "$@"'
+alias mvim='mvim -c "cd ${PWD}"'
 
 # Load RVM into a shell session *as a function*
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
+rvm use default 1.9.2-head > /dev/null
 
