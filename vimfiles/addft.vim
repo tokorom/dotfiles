@@ -1,10 +1,18 @@
 " ファイルタイプの追加
 
-" vim
-autocmd BufNewFile,BufRead *.vimperatorrc set filetype=vim
+augroup AddFileType
+  autocmd!
 
-" mayu
-autocmd BufNewFile,BufRead *.mayu,*.nodoka set filetype=mayu
+  " vim
+  autocmd BufWinEnter,BufNewFile *.vimperatorrc set filetype=vim
 
-" ujml
-autocmd BufNewFile,BufRead *.ujml,*.ujmi,*.ent,*.ujmc set filetype=ujml
+  " mayu
+  autocmd BufWinEnter,BufNewFile *.mayu,*.nodoka set filetype=mayu
+
+  " ujml
+  autocmd BufWinEnter,BufNewFile *.ujml,*.ujmi,*.ent,*.ujmc set filetype=ujml
+
+  " ujml
+  autocmd BufWinEnter,BufNewFile *_spec.rb set filetype=ruby.rspec
+
+augroup END

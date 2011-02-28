@@ -34,6 +34,12 @@ augroup zunit
   autocmd FileType python let g:zunit_find_testfile_regex = []
   autocmd FileType python call add( g:zunit_find_testfile_regex, ['[^/\\]*\.py', 'test\0'] )
   autocmd FileType python let g:zunit_parse_setting = fnameescape(expand(g:zunit_filepath_home.'zunit_python.py'))
+  " for ruby.rspec
+  autocmd FileType ruby let g:zunit_compiler= 'rspec'
+  autocmd FileType ruby let g:zunit_find_sourcefile_regex= []
+  autocmd FileType ruby call add( g:zunit_find_sourcefile_regex, ['_spec\.', '.'] )
+  autocmd FileType ruby let g:zunit_find_testfile_regex = []
+  autocmd FileType ruby call add( g:zunit_find_testfile_regex, ['\.rb', '_spec\0'] )
   " end
 augroup END
 
