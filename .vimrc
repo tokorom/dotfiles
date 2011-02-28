@@ -123,7 +123,6 @@ set ambiwidth=double
 
 set completeopt=menu,preview,longest
 
-
 " ========== include ==========
 
 source $HOME/vimfiles/keybinding.vim
@@ -133,6 +132,11 @@ source $HOME/vimfiles/addft.vim
 " ========== autodate設定 ==========
 
 let autodate_format="%Y-%m-%d"
+
+" ========== QuickRun ==========
+
+let g:quickrun_config = {}
+let g:quickrun_config['*'] = {'runmode': "async:remote:vimproc", 'split': 'below'}
 
 " ========== onCreate ==========
 

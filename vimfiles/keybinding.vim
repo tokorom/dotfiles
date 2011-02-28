@@ -132,3 +132,7 @@ nnoremap [MyPrefix].r             :<C-u>FufMruFile<CR>
 
 map      [MyPrefix]x               \x
 
+" ---------- for QuickRun ----------
+
+silent! map <unique> [MyPrefix]q <Plug>(quickrun)
+
