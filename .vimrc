@@ -137,7 +137,8 @@ let autodate_format="%Y-%m-%d"
 
 let g:quickrun_config = {}
 let g:quickrun_config['*'] = {'runmode': "async:remote:vimproc", 'split': 'below'}
-let g:quickrun_config['ruby.rspec'] = {'command': 'rspec'}
+let g:quickrun_config['ruby.rspec'] = {'command': 'rspec', 'exec': ['%c -I . %s']}
+let g:quickrun_config['python.unit'] = {'command': 'nosetests', 'exec': ['%c %s']}
 
 " ========== onCreate ==========
 

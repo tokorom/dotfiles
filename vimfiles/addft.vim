@@ -12,7 +12,10 @@ augroup AddFileType
   " ujml
   autocmd BufWinEnter,BufNewFile *.ujml,*.ujmi,*.ent,*.ujmc set filetype=ujml
 
-  " ujml
+  " rspec
   autocmd BufWinEnter,BufNewFile *_spec.rb set filetype=ruby.rspec
+
+  " puthon.unit
+  autocmd BufWinEnter,BufNewFile test*.py set filetype=python.unit
 
 augroup END
