@@ -53,6 +53,21 @@ PROMPT2="%{${fg[green]}%}%_> %{${reset_color}%}"
 SPROMPT="%{${fg[red]}%}correct: %R -> %r [nyae]? %{${reset_color}%}"
 RPROMPT="%{${fg[green]}%}[%~]%{${reset_color}%}"
 
+# NORMALモードかINSERTモードかでプロンプトの色を変える 
+function zle-line-init zle-keymap-select {
+  case $KEYMAP in
+    vicmd)
+    PROMPT="%{${fg[red]}%}[%n@%m] %(!.#.$) %{${reset_color}%}"
+    ;;
+    main|viins)
+    PROMPT="%{${fg[green]}%}[%n@%m] %(!.#.$) %{${reset_color}%}"
+    ;;
+  esac
+  zle reset-prompt
+}
+zle -N zle-line-init
+zle -N zle-keymap-select
+
 ####### option ########
 
 ## 補完機能の強化
