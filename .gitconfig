@@ -19,6 +19,7 @@
     brr = branch -r
     re = reset --hard
     diffl = diff --name-status
+    diffr = diff --name-status origin/master
     ll = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
     type = cat-file -t
     dump = cat-file -p
