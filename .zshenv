@@ -28,5 +28,5 @@ alias mvim='mvim -c "cd ${PWD}"'
 
 # Load RVM into a shell session *as a function*
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
-rvm use default 1.9.2-head > /dev/null
+rvm use default 1.9.2 > /dev/null
 
