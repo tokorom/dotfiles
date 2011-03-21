@@ -6,15 +6,37 @@
 # こいつの前に .zshenv が読み込まれるのでそちらも参照
 # export alias等は .zshenv のほうに記載する
 
-####### base ########
+####### history ########
 
 HISTFILE=$HOME/.zsh-history
 HISTSIZE=100000
 SAVEHIST=100000
 
+# zsh の開始, 終了時刻をヒストリファイルに書き込む
+setopt extended_history
+
+# ヒストリを共有
+setopt share_history
+
+# 全履歴の一覧を出力する 
+function history-all { history -E 1 }
+
 ####### keybinding ########
 
-bindkey -e
+# Vi base 
+bindkey -v
+
+bindkey '^P' up-line-or-history
+bindkey '^N' down-line-or-history
+bindkey '^A' beginning-of-line
+bindkey '^E' end-of-line
+bindkey '^F' forward-char
+bindkey '^B' backward-char
+bindkey '^D' delete-char-or-list
+bindkey '^U' kill-whole-line
+bindkey '^K' kill-line
+bindkey '^R' history-incremental-search-backward
+bindkey '^W' backward-kill-word
 
 ####### prompt ########
 
@@ -70,9 +92,6 @@ setopt pushd_ignore_dups
 ## サスペンド中のプロセスと同じコマンド名を実行した場合ãªを呼び出してから実行する間に一旦編集
 setopt auto_menu
 
-## zsh の開始, 終了時刻をヒストリファイルに書き込む
-#setopt extended_history
-
 ## =command を command のパス名に展開する
 setopt equals
 
@@ -87,9 +106,6 @@ setopt hist_verify
 
 ## 出力時8ビットを通す
 setopt print_eight_bit
-
-## ヒストリを共有
-setopt share_history
 
 ## 補完候補のカーソル選択を有効に
 zstyle ':completion:*:default' menu select=1
