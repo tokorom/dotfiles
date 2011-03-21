@@ -13,6 +13,7 @@ export MAILCHECK=0
 ####### alias ########
 
 alias sc="screen -UxDR"
+alias tt="tmux attach"
 alias sed="gsed"
 alias awk="gawk"
 alias ls="ls -G"

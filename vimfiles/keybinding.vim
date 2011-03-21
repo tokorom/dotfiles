@@ -58,6 +58,9 @@ nnoremap [MyPrefix]" :<C-u>let @y=@*<CR>:echo @y<CR>
 " 単語の置き換え(クリップボードの内容を保つ)
 nnoremap [MyPrefix]r "rciw<C-r>*<Esc>
 
+" 全選択
+nnoremap [MyPrefix]<C-a> ggVG
+
 " -- exchange source <--> header --
 
 nnoremap [MyPrefix]a             :<C-u>A<CR>
