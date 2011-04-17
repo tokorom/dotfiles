@@ -13,8 +13,9 @@
     cm = commit -a
     cmn = commit
     cmi = commit --interactive
-    st = status
-    stn = status --untracked-files=no
+    st = status ./
+    stn = status --untracked-files=no ./
+    rmc = rm --cached
     br = branch
     brr = branch -r
     re = reset --hard

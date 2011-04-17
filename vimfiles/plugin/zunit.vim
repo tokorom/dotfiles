@@ -2,7 +2,7 @@
 " Version: 0.0.1
 " Author: tokorom
 " Description: unit test assistant
-" Last Modified: February 13, 2011
+" Last Change: 2011-04-17.
 
 "=============================================================================
 " load guard {{{1
@@ -54,6 +54,10 @@ nnoremap <silent> <Plug>(zunit-prefix) <Nop>
 " execute tests
 nnoremap <silent> <Plug>(zunit-prefix)m
 \ :call ZUnitMake()<Return>
+
+" execute tests
+nnoremap <silent> <Plug>(zunit-prefix).
+\ :call ZUnitGetCurrentTestCase()<Return>
 
 " UnitText <--> Source
 nnoremap <silent> <Plug>(zunit-prefix)z
@@ -141,6 +145,36 @@ EOM
     call setreg('*', ret, 'l')
   else
     echo 'file not found: '.g:zunit_parse_setting
+  endif
+endfunction
+
+function! ZUnitGetCurrentTestCase()
+  if filereadable(g:zunit_parse_setting)
+    let line = line('.')
+    if -1 < match(g:zunit_parse_setting, '\.py$')
+      let path = fnamemodify(g:zunit_parse_setting, ':p:h')
+      let module = fnamemodify(g:zunit_parse_setting, ':t:r')
+      if exists('g:zunit_completion_funcname') && 0 < strlen(g:zunit_completion_funcname)
+        let funcname = g:zunit_get_current_testcase
+      else
+        let funcname = 'ZUnitGetCurrentTestCase'
+      endif
+python <<EOM
+import vim, sys
+sys.path.append(vim.eval('path'))
+exec 'import '+vim.eval('module')
+exec 'reload('+vim.eval('module')+')'
+exec 'ret = '+vim.eval('module')+'.'+vim.eval('funcname')+'(r"'+vim.eval('line')+'")'
+vim.command('let ret = "'+ret+'"')
+EOM
+    else
+      source g:zunit_parse_setting
+      execute('let ret = ZUnitGetCurrentTestCase('.line.')')
+    endif
+    return ret
+  else
+    echo 'file not found: '.g:zunit_parse_setting
+    return ''
   endif
 endfunction
 

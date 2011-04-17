@@ -60,6 +60,12 @@
           <not>VIRTUALMACHINE, REMOTEDESKTOPCONNECTION</not>
           <autogen>--KeyToKey-- KeyCode::D, ModifierFlag::OPTION_L,     KeyCode::F11</autogen>
         </item>
+        <item>
+          <name>Change Option_L+T to F9 Keys</name>
+          <identifier>remap.hhkmode_optD_to_f9_tokorom</identifier>
+          <not>VIRTUALMACHINE, REMOTEDESKTOPCONNECTION</not>
+          <autogen>--KeyToKey-- KeyCode::T, ModifierFlag::OPTION_L,     KeyCode::F9</autogen>
+        </item>
       </list>
     </item>
   </list>

@@ -1,11 +1,12 @@
-
+/tmp
 *~
 *.swap
 .DS_Store
-.svn
+Thumbs.db
+.svn/
 *.model*
 *.pbxuser
 *.o
 *.ob
 .netrwhist
-
+*.pyc
