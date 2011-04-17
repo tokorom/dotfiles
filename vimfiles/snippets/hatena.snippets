@@ -1,11 +1,20 @@
+# init
+snippet init
+	*[${1:tag1}] ${2:title}
+	
+	**${3:subtitle}
+	${4}
 # title
 snippet title
-	*[${1:tag1}]${2} ${3:title}
+	*[${1:tag1}] ${2:title}
 # code
 snippet pre
 	>|${1:format}|
 	${2}
 	||<
+# notes
+snippet notes
+	((${1:notes}))
 # uikit
 snippet uikit
 	*[UIKit][UIKit本補足情報][訂正とお詫び] ${1:title}
