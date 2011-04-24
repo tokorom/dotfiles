@@ -23,6 +23,10 @@ noremap j gj
 noremap k gk
 noremap gj j
 noremap gk k
+vnoremap L l/)<CR>h
+vnoremap H h?(<CR>l
+nnoremap L l/)<CR>:noh<CR>h
+nnoremap H h?(<CR>:noh<CR>l
 
 " ---------- insert mode ----------
 

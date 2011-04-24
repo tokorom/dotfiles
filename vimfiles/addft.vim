@@ -15,7 +15,7 @@ augroup AddFileType
   " rspec
   autocmd BufWinEnter,BufNewFile *_spec.rb set filetype=ruby.rspec
 
-  " puthon.unit
-  autocmd BufWinEnter,BufNewFile test*.py set filetype=python.unit
+  " puthon.test
+  autocmd BufWinEnter,BufNewFile test*.py set filetype=python.test
 
 augroup END
