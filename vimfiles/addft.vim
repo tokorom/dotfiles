@@ -18,4 +18,7 @@ augroup AddFileType
   " puthon.test
   autocmd BufWinEnter,BufNewFile test*.py set filetype=python.test
 
+  " hatena
+  autocmd BufWinEnter,BufNewFile *.hatena set filetype=hatena
+
 augroup END
