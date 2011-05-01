@@ -17,7 +17,7 @@
     stn = status --untracked-files=no ./
     rmc = rm --cached
     br = branch
-    brr = branch -r
+    brr = branch -a
     re = reset --hard
     diffr = diff origin/master
     diffl = diff --name-status

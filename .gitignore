@@ -1,4 +1,6 @@
 /tmp
+/develop
+/Works
 *~
 *.swap
 .DS_Store
