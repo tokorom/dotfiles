@@ -1,14 +1,22 @@
-/tmp
-/develop
-/Works
-*~
-*.swap
+# ignore all files
+/*
+/.*
+# require files
+!/Library/Application Support/KeyRemap4MacBook/*.xml
+!/bin
+!/vimfiles
+!/.gitconfig
+!/.gitignore
+!/.gvimrc
+!/.screenrc
+!/.tmux.conf
+!/.vimperatorrc
+!/.vimrc
+!/.zshenv
+!/.zshrc
+!/dot.nodoka
+# add ignore files
 .DS_Store
-Thumbs.db
-.svn/
-*.model*
-*.pbxuser
-*.o
-*.ob
-.netrwhist
+.svn
 *.pyc
+.netrwhist
