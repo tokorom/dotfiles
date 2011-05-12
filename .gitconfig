@@ -10,6 +10,7 @@
     ui = auto
 [alias]
     co = checkout
+    cob = checkout -b
     cm = commit -a
     cmn = commit
     cmi = commit --interactive
@@ -19,10 +20,13 @@
     br = branch
     brr = branch -a
     re = reset --hard
+    diffs = diff --staged
     diffr = diff origin/master
     diffl = diff --name-status
     difflr = diff --name-status origin/master
     ll = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
+    lg = log --graph
+    lp = log -p --stat
     type = cat-file -t
     dump = cat-file -p
 [pager]
