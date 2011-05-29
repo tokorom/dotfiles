@@ -208,8 +208,6 @@ nnoremap [MyPrefix].  <Nop>
 nnoremap [MyPrefix].. :<C-u>edit %:h<CR>
 nnoremap [MyPrefix].v :<C-u>edit $MYVIMRC<Enter>
 nnoremap [MyDoublePrefix].v :<C-u>source $MYVIMRC<Enter>:echo "source .vimrc"<Enter>
-nnoremap [MyPrefix].k :<C-u>edit $HOME/vimfiles/keybinding.vim<Enter>
-nnoremap [MyPrefix].n :<C-u>edit $HOME/dot.nodoka<Enter>
 nnoremap [MyPrefix].p :<C-u>edit $HOME/vimfiles/snippets/<Enter>
 
 " ---------- file ----------
