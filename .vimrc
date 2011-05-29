@@ -24,9 +24,11 @@ Bundle 'quickrun'
 Bundle 'L9'
 Bundle 'FuzzyFinder'
 Bundle 'The-NERD-Commenter'
+Bundle 'git://github.com/tyru/open-browser.vim.git'
 
 " my plugins
 Bundle 'git://github.com/tokorom/brew.vim.git'
+Bundle 'git://gist.github.com/997811.git'
 
 " }}}1
 "=============================================================================
@@ -350,6 +352,11 @@ let g:snippets_dir = '$HOME/vimfiles/snippets'
 " The-NERD-Commenter
 
 map <space>x <plug>NERDCommenterToggle
+
+" openbrowser.vim
+
+nmap [MyPrefix]bs <Plug>(openbrowser-smart-search)
+nmap [MyPrefix]bo <Plug>(openbrowser-open)
 
 " }}}1
 
