@@ -25,6 +25,9 @@ Bundle 'L9'
 Bundle 'FuzzyFinder'
 Bundle 'The-NERD-Commenter'
 
+" my plugins
+Bundle 'git://github.com/tokorom/brew.vim.git'
+
 " }}}1
 "=============================================================================
 " 基本設定 {{{1

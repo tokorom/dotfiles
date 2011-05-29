@@ -1,7 +1,7 @@
 " OmniCppComplete setting
 
 " 初期化
-call omni#cpp#complete#Init()
+"call omni#cpp#complete#Init()
 
 " プレビューウィンドウを表示しない
 setlocal completeopt -=preview
