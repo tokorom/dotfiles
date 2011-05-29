@@ -17,6 +17,14 @@ call vundle#rc()
 " non github repos
 " Bundle 'git://git.wincent.com/command-t.git'
 
+Bundle 'a.vim'
+Bundle 'surround.vim'
+Bundle 'snipMate'
+Bundle 'quickrun'
+Bundle 'L9'
+Bundle 'FuzzyFinder'
+Bundle 'The-NERD-Commenter'
+
 " }}}1
 "=============================================================================
 " 基本設定 {{{1
@@ -115,11 +123,6 @@ let g:fuf_mrufile_exclude = g:fuf_file_exclude
 let g:fuf_keyOpen = '<Tab>'
 let g:fuf_keyOpenTabpage = '<CR>'
 
-" ref.vim
-
-let g:ref_use_vimproc = 0
-let g:ref_open = "vsplit"
-
 
 " quickrun.vim
 
@@ -135,6 +138,14 @@ let g:quickrun_switcher_config['python.test']['one'] = {'command': 'nosetests', 
 let g:quickrun_switcher_config['ruby.rspec'] = {}
 let g:quickrun_switcher_config['ruby.rspec']['all'] = {'command': 'rspec', 'exec': ['%c -I . %s']}
 let g:quickrun_switcher_config['ruby.rspec']['one'] = {'command': 'rspec', 'exec': ['%c -I . %s -l {line(".")}']}
+
+" snipMate.vim
+
+let g:snippets_dir = '$HOME/vimfiles/snippets'
+
+" The-NERD-Commenter
+
+map <space>x <plug>NERDCommenterToggle
 
 " }}}1
 "=============================================================================
