@@ -25,6 +25,7 @@ Bundle 'L9'
 Bundle 'FuzzyFinder'
 Bundle 'The-NERD-Commenter'
 Bundle 'git://github.com/tyru/open-browser.vim.git'
+Bundle 'git://github.com/Shougo/vimproc.git'
 
 " my plugins
 Bundle 'git://github.com/tokorom/brew.vim.git'
