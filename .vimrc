@@ -85,9 +85,6 @@ set browsedir=buffer
 " 変更中のファイルでも、保存しないで他のファイルを表示
 set hidden
 
-" クリップボードをOSと連携
-set clipboard=unnamed
-
 "インクリメンタルサーチを行う
 set incsearch
 "マッチした文字列をハイライト
