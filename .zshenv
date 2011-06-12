@@ -24,6 +24,7 @@ alias svncommit='svn commit -m ""'
 
 alias clang-scan-build="/usr/local/lib/checker-0.186/scan-build -o ./check_result xcodebuild -alltargets"
 alias mvim='mvim -c "cd ${PWD}"'
+alias mkcd='source ~/bin/mkcd'
 
 alias tmux-changekey='tmux set-option -ag prefix C-b'
 alias tmux-revertkey='tmux set-option -ag prefix C-t'
