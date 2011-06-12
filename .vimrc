@@ -19,7 +19,6 @@ call vundle#rc()
 
 Bundle 'a.vim'
 Bundle 'surround.vim'
-Bundle 'snipMate'
 Bundle 'quickrun'
 Bundle 'L9'
 Bundle 'FuzzyFinder'
@@ -31,6 +30,7 @@ Bundle 'ZenCoding.vim'
 " my plugins
 Bundle 'git://github.com/tokorom/brew.vim.git'
 Bundle 'git://gist.github.com/997811.git'
+Bundle 'git://github.com/tokorom/snipmate.vim.git'
 
 " }}}1
 "=============================================================================
@@ -359,7 +359,6 @@ nmap [MyPrefix]bo <Plug>(openbrowser-open)
 
 " ZenCoding.vim
 
-let g:user_zen_leader_key = '<c-i>'
 let g:user_zen_settings = {
 \  'indentation' : '  '
 \}

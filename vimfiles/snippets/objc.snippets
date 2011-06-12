@@ -136,7 +136,7 @@ snippet tables
 	
 	@implementation $1
 	
-	@synthesize dataSource = dataSource_;
+	@synthesize dataSource;
 	
 	- (void)dealloc {
 	  self.dataSource = nil;
@@ -206,8 +206,8 @@ snippet dels
 	
 	@implementation $1
 	
-	@synthesize window = window_;
-	@synthesize rootViewController = rootViewController_;
+	@synthesize window;
+	@synthesize rootViewController;
 	
 	- (void)dealloc {
 		self.window = nil;
@@ -382,7 +382,7 @@ snippet @propa
 	@property (${1:nonatomic, assign}) ${2:id} ${3:delegate};${4}
 # template for synthesize
 snippet @s
-	@synthesize ${1:varName} = $1_;
+	@synthesize ${1:varName}${2:;}
 # add release
 snippet rel
 	self.${1:varName} = nil;
