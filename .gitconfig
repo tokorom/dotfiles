@@ -33,4 +33,5 @@
     color = true
 [status]
     color = auto
-
+[http]
+    sslVerify = false
