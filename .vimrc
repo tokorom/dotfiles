@@ -26,6 +26,7 @@ Bundle 'FuzzyFinder'
 Bundle 'The-NERD-Commenter'
 Bundle 'git://github.com/tyru/open-browser.vim.git'
 Bundle 'git://github.com/Shougo/vimproc.git'
+Bundle 'ZenCoding.vim'
 
 " my plugins
 Bundle 'git://github.com/tokorom/brew.vim.git'
@@ -355,6 +356,13 @@ map <space>x <plug>NERDCommenterToggle
 
 nmap [MyPrefix]bs <Plug>(openbrowser-smart-search)
 nmap [MyPrefix]bo <Plug>(openbrowser-open)
+
+" ZenCoding.vim
+
+let g:user_zen_leader_key = '<c-i>'
+let g:user_zen_settings = {
+\  'indentation' : '  '
+\}
 
 " }}}1
 

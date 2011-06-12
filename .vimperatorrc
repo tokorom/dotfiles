@@ -83,7 +83,7 @@ noremap j 5j
 noremap k 5k
 
 " Google検索
-nnoremap G :tabopen google 
+nnoremap S :tabopen google 
 
 " bookmark
 noremap A           a<Space>-T=
