@@ -32,8 +32,6 @@ snippet vch
 	//  `expand("Last Change")`: .
 	//
 	
-	#import <UIKit/UIKit.h>
-	
 	@interface $1 : UIViewController
 	@end
 snippet tableh
@@ -43,8 +41,6 @@ snippet tableh
 	//  Created by ToKoRo on `system("date +%Y-%m-%d")`.
 	//  `expand("Last Change")`: .
 	//
-	
-	#import <UIKit/UIKit.h>
 	
 	@interface $1 : UITableViewController
 	
@@ -301,7 +297,7 @@ snippet @protocol
 snippet @delegate
 	#pragma mark -
 	#pragma mark ----- $1 -----
-
+	
 	@protocol ${1:`Filename()`Delegate}
 	@required
 	@optional
@@ -310,21 +306,17 @@ snippet @delegate
 snippet @interface
 	#pragma mark -
 	#pragma mark ----- $1 -----
-
-	@interface ${1:`Filename()`}
-	{
-	 @private
-	}
-
+	
+	@interface ${1:`Filename()`} : NSObject
 	@end 
 # define a private category
 snippet @private
 	#pragma mark -
 	#pragma mark ----- Private Methods Definition -----
-
+	
 	@interface ${1:`Filename()`} ()
 	@end 
-
+	
 	#pragma mark -
 	#pragma mark ----- Main Implementation -----
 # define a category
@@ -365,9 +357,6 @@ snippet @impl
 # import a header
 snippet #i
 	#import "${1:fileName}.h"${2}
-# import a UIKit.h
-snippet #iu
-	#import <UIKit/UIKit.h>
 # use a selector
 snippet @sel
 	@selector(${1:method})${2}
@@ -547,3 +536,32 @@ snippet animation
 	[UIView setAnimationDuration:0.5];
 	// view.alpha = 1.0;
 	[UIView commitAnimations];
+# blocks
+snippet ^
+	^${1:}{
+		${3}
+	}${2:];}
+snippet nettask
+	[ILNet get:${1:urlString} callback:^(ILNetStatus status, ILNetResponse* response){
+		if ( ILTaskSuccess == status ) {
+			// responseData: response.data 
+		} else if ( ILTaskFailed == status ) {
+			NSLog( [response.error localizedDescription] );
+		} else if ( ILTaskCancelled == status ) {
+			NSLog( @"canceld..." );
+		}
+	}];
+snippet taskForCallback
+	taskForCallback:^(ILTaskStatus status, ILTaskResponse* response){
+		if ( ILTaskSuccess == status ) {
+		} else if ( ILTaskFailed == status ) {
+		} else if ( ILTaskCancelled == status ) {
+		}
+	}${1:];}
+snippet startTask
+	[ILTaskManager startTask:${1:task} forCallback:^(ILTaskStatus status, ILTaskResponse* response){
+		if ( ILTaskSuccess == status ) {
+		} else if ( ILTaskFailed == status ) {
+		} else if ( ILTaskCancelled == status ) {
+		}
+	}];
