@@ -132,7 +132,7 @@ snippet tables
 	
 	@implementation $1
 	
-	@synthesize dataSource;
+	@synthesize dataSource = dataSource_;
 	
 	- (void)dealloc {
 	  self.dataSource = nil;
@@ -202,8 +202,8 @@ snippet dels
 	
 	@implementation $1
 	
-	@synthesize window;
-	@synthesize rootViewController;
+	@synthesize window = window_;
+	@synthesize rootViewController = rootViewController_;
 	
 	- (void)dealloc {
 		self.window = nil;
@@ -369,9 +369,22 @@ snippet @propc
 # define a delegate property
 snippet @propa
 	@property (${1:nonatomic, assign}) ${2:id} ${3:delegate};${4}
+# prop snippets 
+snippet @p retain
+	@property (${1:nonatomic, retain}) ${2:id} ${3:varName};${4}
+	@synthesize $3 = $3_;
+	self.$3 = nil;
+snippet @p copy
+	@property (${1:nonatomic, copy}) ${2:id} ${3:varName};${4}
+	@synthesize $3 = $3_;
+	self.$3 = nil;
+snippet @p assign
+	@property (${1:nonatomic, assign}) ${2:id} ${3:varName};${4}
+	@synthesize $3 = $3_;
+	self.$3 = nil;
 # template for synthesize
 snippet @s
-	@synthesize ${1:varName}${2:;}
+	@synthesize ${1:varName} = $1_${2:;}
 # add release
 snippet rel
 	self.${1:varName} = nil;
@@ -565,3 +578,15 @@ snippet startTask
 		} else if ( ILTaskCancelled == status ) {
 		}
 	}];
+# dispatch once 
+snippet dispatch_once
+	static dispatch_once_t onceToken;
+	dispatch_once(&onceToken, ^{
+		${1}
+	});
+snippet pool
+	NSAutoreleasePool* pool = [[NSAutoreleasePool alloc] init];
+	{
+		${1}
+	}
+	[pool release];
