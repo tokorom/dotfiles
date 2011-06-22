@@ -19,6 +19,7 @@
     rmc = rm --cached
     br = branch
     brr = branch -a
+    ms = merge --squash
     re = reset --hard
     diffs = diff --staged
     diffr = diff origin
