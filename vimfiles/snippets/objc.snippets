@@ -555,15 +555,20 @@ snippet ^
 		${3}
 	}${2:];}
 snippet nettask
-	[ILNet get:${1:urlString} callback:^(ILNetStatus status, ILNetResponse* response){
-		if ( ILTaskSuccess == status ) {
-			// responseData: response.data 
-		} else if ( ILTaskFailed == status ) {
-			NSLog( [response.error localizedDescription] );
-		} else if ( ILTaskCancelled == status ) {
-			NSLog( @"canceld..." );
+	[ILNet get:${1:urlString}
+		finished:^(NSData* data){
+			${2:UIImage* image = [[[UIImage alloc] initWithData:data] autorelease];}
 		}
-	}];
+		failed:^(NSError* error){
+			NSLog( [error localizedDescription] );
+		}
+		cancelled:^{
+			NSLog( @"cancelled" );
+		}
+		finally:^{
+			NSLog( @"finally..." );
+		}
+	];
 snippet taskForCallback
 	taskForCallback:^(ILTaskStatus status, ILTaskResponse* response){
 		if ( ILTaskSuccess == status ) {

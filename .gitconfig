@@ -21,9 +21,9 @@
     brr = branch -a
     re = reset --hard
     diffs = diff --staged
-    diffr = diff origin/master
+    diffr = diff origin
     diffl = diff --name-status
-    difflr = diff --name-status origin/master
+    difflr = diff --name-status origin
     ll = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
     lg = log --graph
     lp = log -p --stat
