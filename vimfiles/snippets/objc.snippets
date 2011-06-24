@@ -595,3 +595,20 @@ snippet pool
 		${1}
 	}
 	[pool release];
+#gestures
+snippet gesture swipe
+	UISwipeGestureRecognizer* swipeLeftGesture =
+		[[[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(swipeLeftGesture:)] autorelease];
+	swipeLeftGesture.direction = UISwipeGestureRecognizerDirectionLeft;
+	[${1:self.view} addGestureRecognizer:swipeLeftGesture];
+	UISwipeGestureRecognizer* swipeRightGesture =
+		[[[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(swipeRightGesture:)] autorelease];
+	swipeRightGesture.direction = UISwipeGestureRecognizerDirectionRight;
+	[$1 addGestureRecognizer:swipeRightGesture];
+	
+	- (void)swipeLeftGesture:(id)sender {
+		NSLog( @"#left" );
+	}
+	- (void)swipeRightGesture:(id)sender {
+		NSLog( @"#right" );
+	}
