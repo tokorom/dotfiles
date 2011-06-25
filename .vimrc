@@ -26,6 +26,7 @@ Bundle 'The-NERD-Commenter'
 Bundle 'git://github.com/tyru/open-browser.vim.git'
 Bundle 'git://github.com/Shougo/vimproc.git'
 Bundle 'ZenCoding.vim'
+Bundle 'neocomplcache'
 
 " my plugins
 Bundle 'git://github.com/tokorom/brew.vim.git'
@@ -362,6 +363,25 @@ nmap [MyPrefix]bo <Plug>(openbrowser-open)
 let g:user_zen_settings = {
 \  'indentation' : '  '
 \}
+
+" neocomplcache.vim
+
+let g:neocomplcache_enable_at_startup = 1 "自動起動
+let g:neocomplcache_disable_auto_complete = 1 "自動補完はしない（手動補完のみとする)
+let g:neocomplcache_enable_smart_case = 1 "大文字小文字無視
+let g:neocomplcache_enable_underbar_completion = 1 " _区切り補完
+let g:neocomplcache_lock_buffer_name_pattern = '\*fuf\*' "fufでは利用しない 
+" Define keyword.
+if !exists('g:neocomplcache_keyword_patterns')
+    let g:neocomplcache_keyword_patterns = {}
+endif
+let g:neocomplcache_keyword_patterns['default'] = '\h\w*'
+let g:neocomplcache_enable_auto_select = 1 "最初の候補を自動選択 
+
+" <C-x><C-f>でneocomplcacheのファイル名補完を利用する 
+inoremap <expr><C-x><C-f>  neocomplcache#manual_filename_complete()
+" <C-n>でneocomplcacheのキーワード補完を利用する 
+inoremap <expr><C-n>  pumvisible() ? "\<C-n>" : neocomplcache#manual_keyword_complete()
 
 " }}}1
 
