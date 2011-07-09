@@ -2,6 +2,11 @@
 setlocal makeprg=g++\ -o\ temp.a\ %
 setlocal errorformat=%f:%l:\ %m
 
+" --- altr settings ---
+
+call altr#remove_all()
+call altr#define('%.h', '%.hpp', '%.c', '%.cpp')
+
 " --- keymap ---
 nnoremap <buffer><silent>   <M-c><M-t>  <Esc>:call Cpp_execute_preview()<CR>
 nnoremap <buffer><silent>   <Space>ct  <Esc>:call Cpp_execute_preview()<CR>

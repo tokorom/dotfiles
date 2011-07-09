@@ -17,7 +17,6 @@ call vundle#rc()
 " non github repos
 " Bundle 'git://git.wincent.com/command-t.git'
 
-Bundle 'a.vim'
 Bundle 'surround.vim'
 Bundle 'quickrun'
 Bundle 'L9'
@@ -27,6 +26,7 @@ Bundle 'git://github.com/tyru/open-browser.vim.git'
 Bundle 'git://github.com/Shougo/vimproc.git'
 Bundle 'ZenCoding.vim'
 Bundle 'neocomplcache'
+Bundle 'git://github.com/kana/vim-altr.git'
 
 " my plugins
 Bundle 'git://github.com/tokorom/brew.vim.git'
@@ -183,8 +183,10 @@ nnoremap [MyPrefix]<C-a> ggVG
 
 " -- exchange source <--> header --
 
-nnoremap [MyPrefix]a             :<C-u>A<CR>
-nnoremap [MyDoublePrefix]a       :<C-u>vs<CR><C-w><C-w>:<C-u>A<CR>
+nmap [MyPrefix]a             <Plug>(altr-forward)
+nmap [MyPrefix]A             <Plug>(altr-back)
+nmap [MyDoublePrefix]a       :<C-u>vs<CR><C-w><C-w><Plug>(altr-forward)
+nmap [MyDoublePrefix]A       :<C-u>vs<CR><C-w><C-w><Plug>(altr-back)
 
 " ---------- quick-fix ----------
 

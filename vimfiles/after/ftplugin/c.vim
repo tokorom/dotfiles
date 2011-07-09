@@ -6,6 +6,11 @@
 " プレビューウィンドウを表示しない
 setlocal completeopt -=preview
 
+" --- altr settings ---
+
+call altr#remove_all()
+call altr#define('%.h', '%.c')
+
 " 自動補完を解除
 let OmniCpp_MayCompleteDot = 0
 let OmniCpp_MayCompleteArrow = 0

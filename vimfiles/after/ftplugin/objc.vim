@@ -3,6 +3,11 @@ set shiftwidth=2
 "ファイル内の <Tab> が対応する空白の数
 set tabstop=2
 
+" --- altr settings ---
+
+call altr#remove_all()
+call altr#define('%.h', '%.m', '%.mm')
+
 " --- added keybinds ---
 
 nnoremap [MyPrefix][   ebi[<Esc>ea<Space>]<Esc>i
