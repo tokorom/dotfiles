@@ -53,6 +53,8 @@ command! ObjectiveC :call ChangeFiletypeToObjectiveC()
 
 " create Objective-C class ( XXXX.h & XXXX.m )
 function! CreateObjectiveCClass( fname ) 
+    execute ":!touch " . a:fname . ".m"
+    execute ":!touch " . a:fname . ".h"
     execute ":tabnew " . a:fname . ".m"
     execute ":e " . a:fname . ".h"
 endfunction
