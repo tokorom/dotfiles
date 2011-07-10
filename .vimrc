@@ -28,6 +28,10 @@ Bundle 'ZenCoding.vim'
 Bundle 'neocomplcache'
 Bundle 'git://github.com/kana/vim-altr.git'
 
+Bundle 'unite.vim'
+Bundle 'unite-font'
+Bundle 'unite-colorscheme'
+
 " my plugins
 Bundle 'git://github.com/tokorom/brew.vim.git'
 Bundle 'git://gist.github.com/997811.git'
