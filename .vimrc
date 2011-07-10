@@ -36,6 +36,7 @@ Bundle 'unite-colorscheme'
 Bundle 'git://github.com/tokorom/brew.vim.git'
 Bundle 'git://gist.github.com/997811.git'
 Bundle 'git://github.com/tokorom/snipmate.vim.git'
+Bundle 'git://github.com/tokorom/zoom.vim.git'
 
 " }}}1
 "=============================================================================

@@ -25,11 +25,13 @@ if has("win32")
 
     " Windows用設定
     set guifont=MS_Gothic:h10:cSHIFTJIS 
+    set guifontwide=MS_Gothic:h10:cSHIFTJIS
 
 elseif has("mac")
 
     " MacVim用設定
     set guifont=Monaco:h12
+    set guifontwide=Monaco:h12
 
 endif
 
