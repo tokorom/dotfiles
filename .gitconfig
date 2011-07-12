@@ -14,6 +14,7 @@
     cm = commit -a
     cmn = commit
     cmi = commit --interactive
+    amend = commit --amend -a
     st = status ./
     stn = status --untracked-files=no ./
     rmc = rm --cached
