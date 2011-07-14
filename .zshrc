@@ -38,10 +38,6 @@ bindkey '^K' kill-line
 bindkey '^R' history-incremental-search-backward
 bindkey '^W' backward-kill-word
 
-####### functions  ########
-
-autoload -Uz add-zsh-hook
-
 ####### prompt ########
 
 ## 出力の文字列末尾に改行コードが無い場合でも表示
@@ -74,41 +70,42 @@ function zle-line-init zle-keymap-select {
 zle -N zle-line-init
 zle -N zle-keymap-select
 
-# バージョン管理システムとの連携を有効にする 
-autoload -Uz vcs_info
 # gitのブランチ名と変更状況をプロンプトに表示する 
 autoload -Uz is-at-least
 if is-at-least 4.3.10; then
+  # バージョン管理システムとの連携を有効にする 
+  autoload -Uz vcs_info
+  autoload -Uz add-zsh-hook
+
   zstyle ':vcs_info:*' enable git
   zstyle ':vcs_info:git:*' check-for-changes true
   zstyle ':vcs_info:git:*' stagedstr "+"
   zstyle ':vcs_info:git:*' unstagedstr "-"
   zstyle ':vcs_info:git:*' formats '@%b%u%c'
   zstyle ':vcs_info:git:*' actionformats '@%b|%a%u%c'
-fi
 
-# VCSの更新時にPROMPTを自動更新する
-function _update_vcs_info_msg() {
-  psvar=()
-  LANG=en_US.UTF-8 vcs_info
-  [[ -n "$vcs_info_msg_0_" ]] && psvar[1]="$vcs_info_msg_0_"
-  psvar[2]=$(_git_not_pushed)
-}
-function _git_not_pushed()
-{
-  if [ "$(git rev-parse --is-inside-work-tree 2>/dev/null)" = "true" ]; then
-    head="$(git rev-parse HEAD)"
-    for x in $(git rev-parse --remotes)
-    do
-      if [ "$head" = "$x" ]; then
-        return 0
-      fi
-    done
-    echo "?"
-  fi
-  return 0
-}
-add-zsh-hook precmd _update_vcs_info_msg
+  # VCSの更新時にPROMPTを自動更新する
+  function _update_vcs_info_msg() {
+    psvar=()
+    LANG=en_US.UTF-8 vcs_info
+    [[ -n "$vcs_info_msg_0_" ]] && psvar[1]="$vcs_info_msg_0_"
+    psvar[2]=$(_git_not_pushed)
+  }
+  function _git_not_pushed() {
+    if [ "$(git rev-parse --is-inside-work-tree 2>/dev/null)" = "true" ]; then
+      head="$(git rev-parse HEAD)"
+      for x in $(git rev-parse --remotes)
+      do
+        if [ "$head" = "$x" ]; then
+          return 0
+        fi
+      done
+      echo "?"
+    fi
+    return 0
+  }
+  add-zsh-hook precmd _update_vcs_info_msg
+fi
 
 ####### option ########
 
