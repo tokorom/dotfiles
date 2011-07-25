@@ -11,8 +11,8 @@
 [alias]
     co = checkout
     cob = checkout -b
-    cm = commit -a
-    cmn = commit
+    cm = commit
+    cma = commit -a
     cmi = commit --interactive
     amend = commit --amend -a
     st = status ./
@@ -20,6 +20,7 @@
     rmc = rm --cached
     br = branch
     brr = branch -a
+    me = merge
     ms = merge --squash
     re = reset --hard
     diffs = diff --staged
