@@ -292,6 +292,9 @@ endif
 " snipMate再読み込み snipMateへのカスタマイズ前提 
 command! ReloadAllSnippets :call ReloadAllSnippets()
 
+" XMLの整形
+command! XmlLint :exe ":silent 1,$!xmllint --format --recover - 2>/dev/null"
+
 " }}}1
 "=============================================================================
 " add file types {{{1
