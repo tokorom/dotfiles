@@ -38,3 +38,5 @@
     color = auto
 [http]
     sslVerify = false
+[core]
+	quotepath = false
