@@ -323,7 +323,7 @@ augroup END
 " project.vim
 
 let g:proj_flags = "imstc"
-nmap <silent> [MyPrefix].p <Plug>ToggleProject
+nmap <silent> [MyDoublePrefix]p <Plug>ToggleProject
 
 " FuzzyFinder
 
