@@ -28,6 +28,7 @@ Bundle 'ZenCoding.vim'
 Bundle 'neocomplcache'
 Bundle 'git://github.com/kana/vim-altr.git'
 Bundle 'project.tar.gz'
+Bundle 'ack.vim'
 
 Bundle 'unite.vim'
 Bundle 'unite-font'

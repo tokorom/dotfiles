@@ -5,7 +5,7 @@
 ####### export ########
 
 export LANG=ja_JP.UTF-8
-export PATH=~/bin/:/opt/local/bin:/opt/local/sbin/:~/bin/clang/:$PATH:~/local/bin:/Applications/android_sdk/tools/:/Applications/android_sdk/platform-tools
+export PATH=~/bin/:/usr/local/bin:/opt/local/bin:/opt/local/sbin/:~/bin/clang/:$PATH:~/local/bin:/Applications/android_sdk/tools/:/Applications/android_sdk/platform-tools
 export MANPATH=/opt/local/man:$MANPATH 
 export EDITOR=vim
 export MAILCHECK=0
