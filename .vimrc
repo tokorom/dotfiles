@@ -27,7 +27,6 @@ Bundle 'git://github.com/Shougo/vimproc.git'
 Bundle 'ZenCoding.vim'
 Bundle 'neocomplcache'
 Bundle 'git://github.com/kana/vim-altr.git'
-Bundle 'project.tar.gz'
 Bundle 'ack.vim'
 
 Bundle 'unite.vim'
@@ -320,11 +319,6 @@ augroup END
 " }}}1
 "=============================================================================
 " plugin settings {{{1
-
-" project.vim
-
-let g:proj_flags = "imstc"
-nmap <silent> [MyDoublePrefix]p <Plug>ToggleProject
 
 " FuzzyFinder
 
