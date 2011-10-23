@@ -210,8 +210,7 @@ snippet dels
 		[super dealloc];
 	}
 	
-	#pragma mark -
-	#pragma mark Application lifecycle
+	#pragma mark - Application lifecycle
 	
 	- (BOOL)application:(UIApplication*)application didFinishLaunchingWithOptions:(NSDictionary*)launchOptions {    
 		CGRect frame = [[UIScreen mainScreen] bounds];
@@ -286,8 +285,7 @@ snippet allocinit
 	[[${1:className} alloc] ${2:init}];${3}
 # define a protocol
 snippet @protocol
-	#pragma mark -
-	#pragma mark ----- $1 -----
+	#pragma mark - $1
 
 	@protocol ${1:protocolName}
 	@required
@@ -295,8 +293,7 @@ snippet @protocol
 	@end 
 # define a protocol for delegate
 snippet @delegate
-	#pragma mark -
-	#pragma mark ----- $1 -----
+	#pragma mark - $1
 	
 	@protocol ${1:`Filename()`Delegate}
 	@required
@@ -304,25 +301,21 @@ snippet @delegate
 	@end 
 # define a interface
 snippet @interface
-	#pragma mark -
-	#pragma mark ----- $1 -----
+	#pragma mark - $1
 	
 	@interface ${1:`Filename()`} : NSObject
 	@end 
 # define a private category
 snippet @private
-	#pragma mark -
-	#pragma mark ----- Private Definition -----
+	#pragma mark - Private Definition
 	
 	@interface ${1:`Filename()`} ()
 	@end 
 	
-	#pragma mark -
-	#pragma mark ----- Main Implementation -----
+	#pragma mark - Main Implementation
 # define a category
 snippet @category
-	#pragma mark -
-	#pragma mark ----- Category $2 -----
+	#pragma mark - Category $2
 
 	@interface ${1:`Filename()`} (${2:categoryName})
 	@end 
@@ -330,26 +323,19 @@ snippet @category
 	@implementation $1 ($2)
 	@end
 snippet #pm
-	#pragma mark -
-	#pragma mark ----- ${1:`Filename()`} -----
-snippet #pmif
-	#pragma mark -
-	#pragma mark ----- Initialization/Finalization -----
+	#pragma mark - ${1:`Filename()`}
+snippet #pmme
+	#pragma mark - Memory Management
 snippet #pmpm
-	#pragma mark -
-	#pragma mark ----- Private Methods -----
+	#pragma mark - Private Methods
 snippet #pmpu
-	#pragma mark -
-	#pragma mark ----- Public Interface -----
+	#pragma mark - Public Interface
 snippet #pmpr
-	#pragma mark -
-	#pragma mark ----- ${1:Protocol} Methods -----
+	#pragma mark - ${1:Protocol} Methods
 snippet #pmom
-	#pragma mark -
-	#pragma mark ----- Override Methods -----
+	#pragma mark - Override Methods
 snippet #pmre
-	#pragma mark -
-	#pragma mark ----- Responder -----
+	#pragma mark - Responder
 # insert a implementation
 snippet @impl
 	@implementation ${1:`Filename()`}
