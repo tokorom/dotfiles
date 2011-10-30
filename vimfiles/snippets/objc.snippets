@@ -347,6 +347,8 @@ snippet #i
 snippet @sel
 	@selector(${1:method})${2}
 # define a property
+snippet iboutlet
+	@property (${1:nonatomic, retain}) IBOutlet ${2:id} ${3:varName};${4}
 snippet @prop
 	@property (${1:nonatomic, retain}) ${2:id} ${3:varName};${4}
 # define a NSString property
