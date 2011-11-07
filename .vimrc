@@ -18,7 +18,6 @@ call vundle#rc()
 " Bundle 'git://git.wincent.com/command-t.git'
 
 Bundle 'surround.vim'
-Bundle 'quickrun'
 Bundle 'L9'
 Bundle 'FuzzyFinder'
 Bundle 'The-NERD-Commenter'
@@ -27,7 +26,9 @@ Bundle 'git://github.com/Shougo/vimproc.git'
 Bundle 'ZenCoding.vim'
 Bundle 'neocomplcache'
 Bundle 'git://github.com/kana/vim-altr.git'
+Bundle 'git://github.com/thinca/vim-ref.git'
 Bundle 'ack.vim'
+Bundle 'quickrun'
 
 Bundle 'unite.vim'
 Bundle 'unite-font'
