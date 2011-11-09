@@ -29,6 +29,7 @@ Bundle 'git://github.com/thinca/vim-quickrun.git'
 Bundle 'git://github.com/kana/vim-altr.git'
 Bundle 'git://github.com/thinca/vim-ref.git'
 Bundle 'ack.vim'
+Bundle 'git://github.com/tpope/vim-rails.git'
 
 Bundle 'unite.vim'
 Bundle 'unite-font'
@@ -340,24 +341,6 @@ nnoremap [MyPrefix].b             :<C-u>FufBuffer<CR>
 nnoremap [MyPrefix].f             :<C-u>FufFile **/<CR>
 nnoremap [MyPrefix].r             :<C-u>FufMruFile<CR>
 
-" quickrun.vim
-
-let g:quickrun_config = {}
-let g:quickrun_config['*'] = {'runmode': "async:remote:vimproc", 'split': 'below'}
-let g:quickrun_config['python.test'] = {'command': 'nosetests', 'exec': ['%c -v %s']}
-"let g:quickrun_config['ruby.rspec'] = {'command': 'rspec', 'exec': ['%c -I . %s']}
-let g:quickrun_config['ruby.rspec'] = {'command': 'rspec', 'exec': ['%c -I ~/develop/ruby/test/spec/ %s']}
-
-let g:quickrun_switcher_config = {}
-let g:quickrun_switcher_config['python.test'] = {}
-let g:quickrun_switcher_config['python.test']['all'] = {'command': 'nosetests', 'exec': ['%c -v %s']}
-let g:quickrun_switcher_config['python.test']['one'] = {'command': 'nosetests', 'exec': ['%c -v %s:{QuickNoseGetCurrentTestCase()}']}
-let g:quickrun_switcher_config['ruby.rspec'] = {}
-let g:quickrun_switcher_config['ruby.rspec']['all'] = {'command': 'rspec', 'exec': ['%c -I . %s']}
-let g:quickrun_switcher_config['ruby.rspec']['one'] = {'command': 'rspec', 'exec': ['%c -I . %s -l {line(".")}']}
-
-silent! map <unique> [MyPrefix]q <Plug>(quickrun)
-
 " snipMate.vim
 
 let g:snippets_dir = '$HOME/vimfiles/snippets'
@@ -395,6 +378,25 @@ let g:neocomplcache_enable_auto_select = 1 "最初の候補を自動選択
 inoremap <expr><C-x><C-f>  neocomplcache#manual_filename_complete()
 " <C-n>でneocomplcacheのキーワード補完を利用する 
 inoremap <expr><C-n>  pumvisible() ? "\<C-n>" : neocomplcache#manual_keyword_complete()
+
+" }}}1
+
+" quickrun settings {{{1
+
+let g:quickrun_config = {}
+let g:quickrun_config['*'] = {'runmode': "async:remote:vimproc", 'split': 'below'}
+let g:quickrun_config['python.test'] = {'command': 'nosetests', 'exec': ['%c -v %s']}
+let g:quickrun_config['ruby.rspec'] = {'command': 'rspec', 'exec': ['%c -I . %s']}
+
+let g:quickrun_switcher_config = {}
+let g:quickrun_switcher_config['python.test'] = {}
+let g:quickrun_switcher_config['python.test']['all'] = {'command': 'nosetests', 'exec': ['%c -v %s']}
+let g:quickrun_switcher_config['python.test']['one'] = {'command': 'nosetests', 'exec': ['%c -v %s:{QuickNoseGetCurrentTestCase()}']}
+let g:quickrun_switcher_config['ruby.rspec'] = {}
+let g:quickrun_switcher_config['ruby.rspec']['all'] = {'command': 'rspec', 'exec': ['%c -I . %s']}
+let g:quickrun_switcher_config['ruby.rspec']['one'] = {'command': 'rspec', 'exec': ['%c -I . %s -l {line(".")}']}
+
+silent! map <unique> [MyPrefix]q <Plug>(quickrun)
 
 " }}}1
 
