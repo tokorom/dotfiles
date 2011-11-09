@@ -25,6 +25,7 @@ Bundle 'git://github.com/tyru/open-browser.vim.git'
 Bundle 'git://github.com/Shougo/vimproc.git'
 Bundle 'ZenCoding.vim'
 Bundle 'neocomplcache'
+Bundle 'git://github.com/thinca/vim-quickrun.git'
 Bundle 'git://github.com/kana/vim-altr.git'
 Bundle 'git://github.com/thinca/vim-ref.git'
 Bundle 'ack.vim'
@@ -38,8 +39,6 @@ Bundle 'git://github.com/tokorom/brew.vim.git'
 Bundle 'git://gist.github.com/997811.git'
 Bundle 'git://github.com/tokorom/snipmate.vim.git'
 Bundle 'git://github.com/tokorom/zoom.vim.git'
-
-Bundle 'quickrun'
 
 " }}}1
 "=============================================================================
