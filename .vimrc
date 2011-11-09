@@ -28,7 +28,6 @@ Bundle 'neocomplcache'
 Bundle 'git://github.com/kana/vim-altr.git'
 Bundle 'git://github.com/thinca/vim-ref.git'
 Bundle 'ack.vim'
-Bundle 'quickrun'
 
 Bundle 'unite.vim'
 Bundle 'unite-font'
@@ -39,6 +38,8 @@ Bundle 'git://github.com/tokorom/brew.vim.git'
 Bundle 'git://gist.github.com/997811.git'
 Bundle 'git://github.com/tokorom/snipmate.vim.git'
 Bundle 'git://github.com/tokorom/zoom.vim.git'
+
+Bundle 'quickrun'
 
 " }}}1
 "=============================================================================
@@ -345,7 +346,8 @@ nnoremap [MyPrefix].r             :<C-u>FufMruFile<CR>
 let g:quickrun_config = {}
 let g:quickrun_config['*'] = {'runmode': "async:remote:vimproc", 'split': 'below'}
 let g:quickrun_config['python.test'] = {'command': 'nosetests', 'exec': ['%c -v %s']}
-let g:quickrun_config['ruby.rspec'] = {'command': 'rspec', 'exec': ['%c -I . %s']}
+"let g:quickrun_config['ruby.rspec'] = {'command': 'rspec', 'exec': ['%c -I . %s']}
+let g:quickrun_config['ruby.rspec'] = {'command': 'rspec', 'exec': ['%c -I ~/develop/ruby/test/spec/ %s']}
 
 let g:quickrun_switcher_config = {}
 let g:quickrun_switcher_config['python.test'] = {}
