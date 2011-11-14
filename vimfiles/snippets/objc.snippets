@@ -89,40 +89,40 @@ snippet vcs
 	//  `expand("Last Change")`: .
 	//
 	
-	#import "RootViewController.h"
+	#import "$1.h"
 	
-	@implementation RootViewController
+	@implementation $1
 	
 	#pragma mark - Memory management
 	
 	- (id)initWithNibName:(NSString*)nibNameOrNil bundle:(NSBundle*)nibBundleOrNil
 	{
-	  if ( self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil] ) {
-    // Custom initialization
-	  }
-	  return self;
+		if ( self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil] ) {
+			// Custom initialization
+		}
+		return self;
 	}
 	
 	- (void)didReceiveMemoryWarning
 	{
-	  [super didReceiveMemoryWarning];
+		[super didReceiveMemoryWarning];
 	}
 	
 	#pragma mark - View lifecycle
 	
 	- (void)viewDidLoad
 	{
-	  [super viewDidLoad];
+		[super viewDidLoad];
 	}
 	
 	- (void)viewDidUnload
 	{
-	  [super viewDidUnload];
+		[super viewDidUnload];
 	}
 	
 	- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 	{
-	  return ( UIInterfaceOrientationPortrait == interfaceOrientation );
+		return ( UIInterfaceOrientationPortrait == interfaceOrientation );
 	}
 	
 	@end
