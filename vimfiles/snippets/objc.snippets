@@ -34,19 +34,6 @@ snippet vch
 	
 	@interface $1 : UIViewController
 	@end
-snippet tableh
-	//
-	//  ${1:`Filename()`}.h
-	//
-	//  Created by ToKoRo on `system("date +%Y-%m-%d")`.
-	//  `expand("Last Change")`: .
-	//
-	
-	@interface $1 : UITableViewController
-	
-	@property (nonatomic, retain) NSArray* dataSource;
-	
-	@end
 snippet singleton for interface
 	//
 	//  ${1:`Filename()`}.h
@@ -75,10 +62,10 @@ snippet delh
 	//
 	
 	@interface $1 : NSObject <UIApplicationDelegate>
-
-	@property (nonatomic, retain) UIWindow* window;
-	@property (nonatomic, retain) UIViewController* rootViewController;
-
+	
+	@property (strong, nonatomic) UIWindow* window;
+	@property (strong, nonatomic) UIViewController* rootViewController;
+	
 	@end
 # template for source
 snippet objcs
@@ -102,76 +89,40 @@ snippet vcs
 	//  `expand("Last Change")`: .
 	//
 	
-	#import "$1.h"
+	#import "RootViewController.h"
 	
-	@implementation $1
+	@implementation RootViewController
 	
-	- (void)viewDidLoad {
-		[super viewDidLoad];
-	}
+	#pragma mark - Memory management
 	
-	- (void)loadView {
-	  [super loadView];
-	}
-	
-	- (void)viewDidUnload {
-	  [super viewDidUnload];
-	  self.view = nil;
-	}
-
-	@end
-snippet tables
-	//
-	//  ${1:`Filename()`}.m
-	//
-	//  Created by ToKoRo on `system("date +%Y-%m-%d")`.
-	//  `expand("Last Change")`: .
-	//
-	
-	#import "$1.h"
-	
-	@implementation $1
-	
-	@synthesize dataSource = dataSource_;
-	
-	- (void)dealloc {
-	  self.dataSource = nil;
-	  [super dealloc];
-	}
-	
-	- (void)viewDidLoad {
-	  [super viewDidLoad];
-	  self.dataSource = [NSArray arrayWithObjects:
-	                                   @"DATA1",
-	                                   nil ];
-	}
-	
-	- (void)loadView {
-	  [super loadView];
-	}
-
-	- (void)viewDidUnload {
-	  self.dataSource = nil;
-	  [super viewDidUnload];
-	  self.view = nil;
-	}
-	
-	- (NSInteger)tableView:(UITableView*)tableView
-	  numberOfRowsInSection:(NSInteger)section
+	- (id)initWithNibName:(NSString*)nibNameOrNil bundle:(NSBundle*)nibBundleOrNil
 	{
-	  return self.dataSource.count;
-	}
-	
-	- (UITableViewCell*)tableView:(UITableView*)tableView
-	  cellForRowAtIndexPath:(NSIndexPath*)indexPath
-	{
-	  static NSString* CellIdentifier = @"CellStyleDefault";
-	  UITableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-	  if ( nil == cell ) {
-	    cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
+	  if ( self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil] ) {
+    // Custom initialization
 	  }
-	  cell.textLabel.text = [self.dataSource objectAtIndex:indexPath.row];
-	  return cell;
+	  return self;
+	}
+	
+	- (void)didReceiveMemoryWarning
+	{
+	  [super didReceiveMemoryWarning];
+	}
+	
+	#pragma mark - View lifecycle
+	
+	- (void)viewDidLoad
+	{
+	  [super viewDidLoad];
+	}
+	
+	- (void)viewDidUnload
+	{
+	  [super viewDidUnload];
+	}
+	
+	- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
+	{
+	  return ( UIInterfaceOrientationPortrait == interfaceOrientation );
 	}
 	
 	@end
@@ -197,39 +148,45 @@ snippet dels
 	//  `expand("Last Change")`: .
 	//
 	
-	#import "$1.h"
-	#import "${2:RootViewController}.h"
+	#import "AppDelegate.h"
+	#import "RootViewController.h"
 	
-	@implementation $1
+	@implementation AppDelegate
 	
 	@synthesize window = window_;
 	@synthesize rootViewController = rootViewController_;
 	
-	- (void)dealloc {
-		self.window = nil;
-		[super dealloc];
+	- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
+	{
+	  self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+	  // Override point for customization after application launch.
+	  self.window.backgroundColor = [UIColor whiteColor];
+	  self.rootViewController = [RootViewController new];
+	  [self.window addSubview:self.rootViewController.view];
+	  [self.window makeKeyAndVisible];
+	  return YES;
 	}
 	
-	#pragma mark - Application lifecycle
-	
-	- (BOOL)application:(UIApplication*)application didFinishLaunchingWithOptions:(NSDictionary*)launchOptions {    
-		CGRect frame = [[UIScreen mainScreen] bounds];
-		self.window = [[[UIWindow alloc] initWithFrame:frame] autorelease];
-		self.rootViewController = [[[$2 alloc] init] autorelease];
-		[self.window addSubview:self.rootViewController.view];
-		[self.window makeKeyAndVisible];
-		return YES;
+	- (void)applicationWillResignActive:(UIApplication*)application
+	{
 	}
 	
-	- (void)applicationWillResignActive:(UIApplication*)application {
+	- (void)applicationDidEnterBackground:(UIApplication*)application
+	{
 	}
 	
-	- (void)applicationDidBecomeActive:(UIApplication*)application {
+	- (void)applicationWillEnterForeground:(UIApplication*)application
+	{
 	}
 	
-	- (void)applicationWillTerminate:(UIApplication*)application {
+	- (void)applicationDidBecomeActive:(UIApplication*)application
+	{
 	}
-
+	
+	- (void)applicationWillTerminate:(UIApplication*)application
+	{
+	}
+	
 	@end
 # temlate for instance variables
 snippet im
@@ -275,14 +232,9 @@ snippet -dealloc
 		${1}
 		[super dealloc];
 	}
-# template for autorelease
-snippet ar
-	${1:self.xxx} = [[[${2:className} alloc] ${3:init}] autorelease];${4}
-snippet autorelease
-	[[[${1:className} alloc] ${2:init}] autorelease];${3}
 # template for alloc&init
-snippet allocinit
-	[[${1:className} alloc] ${2:init}];${3}
+snippet new
+	[${1:className} new]
 # define a protocol
 snippet @protocol
 	#pragma mark - $1
@@ -348,34 +300,33 @@ snippet @sel
 	@selector(${1:method})${2}
 # define a property
 snippet iboutlet
-	@property (${1:nonatomic, retain}) IBOutlet ${2:id} ${3:varName};${4}
+	@property (${1:nonatomic, strong}) IBOutlet ${2:id} ${3:varName};${4}
 snippet @prop
-	@property (${1:nonatomic, retain}) ${2:id} ${3:varName};${4}
+	@property (${1:nonatomic, strong}) ${2:id} ${3:varName};${4}
 # define a NSString property
 snippet @propc
 	@property (${1:nonatomic, copy}) ${2:NSString*} ${3:varName};${4}
 # define a delegate property
 snippet @propa
-	@property (${1:nonatomic, assign}) ${2:id} ${3:delegate};${4}
+	@property (${1:nonatomic, weak}) ${2:id} ${3:delegate};${4}
+snippet @propw
+	@property (${1:nonatomic, weak}) ${2:id} ${3:delegate};${4}
 # prop snippets 
-snippet @p retain
-	@property (${1:nonatomic, retain}) ${2:id} ${3:varName};${4}
+snippet @p strong
+	@property (${1:nonatomic, strong}) ${2:id} ${3:varName};${4}
 	@synthesize $3 = $3_;
 	self.$3 = nil;
 snippet @p copy
 	@property (${1:nonatomic, copy}) ${2:id} ${3:varName};${4}
 	@synthesize $3 = $3_;
 	self.$3 = nil;
-snippet @p assign
-	@property (${1:nonatomic, assign}) ${2:id} ${3:varName};${4}
+snippet @p weak
+	@property (${1:nonatomic, weak}) ${2:id} ${3:varName};${4}
 	@synthesize $3 = $3_;
 	self.$3 = nil;
 # template for synthesize
 snippet @s
 	@synthesize ${1:varName} = $1_${2:;}
-# add release
-snippet rel
-	self.${1:varName} = nil;
 # use respondsToSelector
 snippet responds
 	if ( [${1:(id)delegate_} respondsToSelector:@selector(${2:SEL})] ) {
@@ -413,7 +364,7 @@ snippet add
 # UIImageView
 snippet image
 	UIImage* image = [UIImage imageNamed:${1:@"xxx.png"}];
-	UIImageView* ${2:imageView} = [[[UIImageView alloc] initWithImage:image] autorelease];
+	UIImageView* ${2:imageView} = [[UIImageView alloc] initWithImage:image];
 	// $2_ = [[UIImageView alloc] initWithImage:image];
 # autoresizingMask
 snippet maskwh
@@ -432,7 +383,7 @@ snippet maskall
 															 UIViewAutoresizingFlexibleBottomMargin;
 # UIAlert
 snippet alert
-	UIAlertView* alert = [[[UIAlertView alloc] init] autorelease];
+	UIAlertView* alert = [UIAlertView new];
 	alert.message = ${1:message};
 	// alert.cancelButtonIndex = 0;
 	// [alert addButtonWithTitle:@"${2:Cancel}"];
@@ -469,11 +420,11 @@ snippet button
 # barButton
 snippet barbutton
 	UIBarButtonItem* ${1:barButton} =
-		[[[UIBarButtonItem alloc] initWithBarButtonSystemItem:${2:UIBarButtonSystemItemAction}
-		// [[[UIBarButtonItem alloc] initWithTitle:@"BUTTON"
-		//                                   style:UIBarButtonItemStyleBordered
-		                                               target:self
-		                                               action:@selector(${3:barButtonDidPush})] autorelease];
+		[[UIBarButtonItem alloc] initWithBarButtonSystemItem:${2:UIBarButtonSystemItemAction}
+		// [[UIBarButtonItem alloc] initWithTitle:@"BUTTON"
+		//                                  style:UIBarButtonItemStyleBordered
+		                                              target:self
+		                                              action:@selector(${3:barButtonDidPush})];
 # UIControl
 snippet addtarget
 	[${1:button} addTarget:${2:self}
@@ -481,7 +432,7 @@ snippet addtarget
 	      forControlEvents:${4:UIControlEventTouchUpInside}];
 # UIActionSheet
 snippet actionsheet
-	UIActionSheet* sheet = [[[UIActionSheet alloc] init] autorelease];
+	UIActionSheet* sheet = [UIActionSheet new];
 	sheet.delegate = self;
 	[sheet addButtonWithTitle:@"action1"];
 	[sheet addButtonWithTitle:@"action2"];
@@ -523,7 +474,7 @@ snippet ^
 snippet nettask
 	[ILNet get:${1:urlString}
 		finished:^(NSData* data){
-			${2:UIImage* image = [[[UIImage alloc] initWithData:data] autorelease];}
+			${2:UIImage* image = [[UIImage alloc] initWithData:data];}
 		}
 		failed:^(NSError* error){
 			NSLog( [error localizedDescription] );
@@ -556,19 +507,17 @@ snippet dispatch_once
 		${1}
 	});
 snippet pool
-	NSAutoreleasePool* pool = [[NSAutoreleasePool alloc] init];
-	{
+	@autoreleasepool {
 		${1}
 	}
-	[pool release];
 #gestures
 snippet gesture swipe
 	UISwipeGestureRecognizer* swipeLeftGesture =
-		[[[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(swipeLeftGesture:)] autorelease];
+		[[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(swipeLeftGesture:)];
 	swipeLeftGesture.direction = UISwipeGestureRecognizerDirectionLeft;
 	[${1:self.view} addGestureRecognizer:swipeLeftGesture];
 	UISwipeGestureRecognizer* swipeRightGesture =
-		[[[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(swipeRightGesture:)] autorelease];
+		[[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(swipeRightGesture:)];
 	swipeRightGesture.direction = UISwipeGestureRecognizerDirectionRight;
 	[$1 addGestureRecognizer:swipeRightGesture];
 	
@@ -1858,8 +1807,6 @@ snippet authenticationMethod
 	authenticationMethod
 snippet autoContentAccessingProxyNS_AVAILABLE
 	autoContentAccessingProxy NS_AVAILABLE(10_6, 4_0)
-#snippet autorelease
-#	autorelease
 snippet availableData
 	availableData
 snippet awakeAfterUsingCoder:
@@ -4522,6 +4469,8 @@ snippet result
 	result
 snippet retain
 	retain
+snippet strong
+	strong
 snippet retainArguments
 	retainArguments
 snippet retainCount
