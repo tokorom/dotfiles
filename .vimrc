@@ -240,8 +240,8 @@ nnoremap [MyPrefix].d            :<C-u>bd<CR>
 
 " ---------- grep ----------
 
-nnoremap <expr> [MyPrefix].g      ':%vimgrep/\<' . expand('<cword>') . '\>/ **/*'
-nnoremap [MyDoublePrefix].g       :<C-u>vimgrep // **/*<Left><Left><Left><Left><Left><Left>
+nnoremap <expr> [MyPrefix].g      ':Ack ' . expand('<cword>')
+nnoremap [MyDoublePrefix].g       :<C-u>Ack 
 
 " ---------- substitute ----------
 
