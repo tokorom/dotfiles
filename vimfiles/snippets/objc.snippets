@@ -234,7 +234,7 @@ snippet -dealloc
 	}
 # template for alloc&init
 snippet new
-	[${1:className} new]
+	[${1:className} new]${2}
 # define a protocol
 snippet @protocol
 	#pragma mark - $1
@@ -259,12 +259,12 @@ snippet @interface
 	@end 
 # define a private category
 snippet @private
-	#pragma mark - Private Definition
+	#pragma mark - Private Definition ------------------------------
 	
 	@interface ${1:`Filename()`} ()
 	@end 
 	
-	#pragma mark - Main Implementation
+	#pragma mark - Main Implementation -----------------------------
 # define a category
 snippet @category
 	#pragma mark - Category $2
