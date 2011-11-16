@@ -308,22 +308,22 @@ snippet @propc
 	@property (${1:nonatomic, copy}) ${2:NSString*} ${3:varName};${4}
 # define a delegate property
 snippet @propa
-	@property (${1:nonatomic, weak}) ${2:id} ${3:delegate};${4}
+	@property (${1:nonatomic, assign}) ${2:NSUInteger} ${3:count};${4}
 snippet @propw
 	@property (${1:nonatomic, weak}) ${2:id} ${3:delegate};${4}
 # prop snippets 
 snippet @p strong
 	@property (${1:nonatomic, strong}) ${2:id} ${3:varName};${4}
 	@synthesize $3 = $3_;
-	self.$3 = nil;
 snippet @p copy
 	@property (${1:nonatomic, copy}) ${2:id} ${3:varName};${4}
 	@synthesize $3 = $3_;
-	self.$3 = nil;
 snippet @p weak
 	@property (${1:nonatomic, weak}) ${2:id} ${3:varName};${4}
 	@synthesize $3 = $3_;
-	self.$3 = nil;
+snippet @p assign
+	@property (${1:nonatomic, assign}) ${2:NSUInteger} ${3:varName};${4}
+	@synthesize $3 = $3_;
 # template for synthesize
 snippet @s
 	@synthesize ${1:varName} = $1_${2:;}
