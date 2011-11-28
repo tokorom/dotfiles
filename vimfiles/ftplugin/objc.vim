@@ -1,5 +1,5 @@
 " keymap for Objective-C
 
-nnoremap [MyPrefix]{             A<Space>{<Esc>o}<Esc>
-nnoremap [MyDoublePrefix]{       $xA<Space>{<Esc>o}<Esc>
+nnoremap [MyPrefix]{             o{<Esc>o}<Esc>
+nnoremap [MyDoublePrefix]{       $xo{<Esc>o}<Esc>
 
