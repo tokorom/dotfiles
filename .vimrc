@@ -30,6 +30,7 @@ Bundle 'git://github.com/kana/vim-altr.git'
 Bundle 'git://github.com/thinca/vim-ref.git'
 Bundle 'ack.vim'
 Bundle 'git://github.com/tpope/vim-rails.git'
+Bundle 'git://github.com/mattn/gist-vim.git'
 
 Bundle 'unite.vim'
 Bundle 'unite-font'
