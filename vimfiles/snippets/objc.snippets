@@ -235,6 +235,10 @@ snippet -dealloc
 # template for alloc&init
 snippet new
 	[${1:className} new]${2}
+snippet autorelease
+	[[[${1:className} alloc] init] autorelesae]${2}
+snippet rel
+	self.${1:varName} = nil;${2}
 # define a protocol
 snippet @protocol
 	#pragma mark - $1
