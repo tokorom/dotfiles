@@ -19,6 +19,7 @@ call vundle#rc()
 
 Bundle 'surround.vim'
 Bundle 'autodate.vim'
+Bundle 'git://github.com/kana/vim-fakeclip.git'
 Bundle 'L9'
 Bundle 'FuzzyFinder'
 Bundle 'The-NERD-Commenter'
@@ -121,6 +122,9 @@ let autodate_format="%Y-%m-%d"
 
 " 折り畳み設定
 set foldmethod=marker
+
+" クリップボードを自動で利用 
+set clipboard=unnamed
 
 " }}}1
 "=============================================================================
