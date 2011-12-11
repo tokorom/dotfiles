@@ -309,6 +309,16 @@ command! XmlLint :exe ":silent 1,$!xmllint --format --recover - 2>/dev/null"
 
 " }}}1
 "=============================================================================
+" autocmds {{{1
+
+augroup VimrcAutocmds
+  autocmd!
+  " CdCurrent
+  autocmd VimEnter * cd %:p:h
+augroup END
+
+" }}}1
+"=============================================================================
 " add file types {{{1
 
 augroup AddFileType
