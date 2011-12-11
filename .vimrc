@@ -18,6 +18,7 @@ call vundle#rc()
 " Bundle 'git://git.wincent.com/command-t.git'
 
 Bundle 'surround.vim'
+Bundle 'autodate.vim'
 Bundle 'L9'
 Bundle 'FuzzyFinder'
 Bundle 'The-NERD-Commenter'
@@ -271,6 +272,9 @@ command! MoveToZero :call MoveToZero()
 
 " source % の実行
 command! SU :source %
+
+" カレントファイルのディレクトリに移動 
+command! -nargs=0 CdCurrent cd %:p:h
 
 " 開発中pluginの再読込
 command! ReloadThisPlugin execute("unlet g:loaded_".expand("%:t:r")) | execute("source ".expand("%"))
