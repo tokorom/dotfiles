@@ -108,11 +108,14 @@ set ignorecase smartcase
 " vimgrep時に自動でQuickFixを開く設定
 autocmd QuickfixCmdPost vimgrep cw
 
-"カーソルを行頭、行末で止まらないようにする
+" カーソルを行頭、行末で止まらないようにする
 set whichwrap=b,s,h,l,<,>,[,]
 
-" 記号文字の表示がおかしくならないように
-set ambiwidth=double
+" 日本語の行の連結時には空白を入力しない。
+set formatoptions+=mM
+
+" 画面最後の行をできる限り表示する。
+set display+=lastline
 
 " 補完の設定
 set completeopt=menu,preview,longest
