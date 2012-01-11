@@ -249,7 +249,7 @@ nnoremap [MyPrefix].d            :<C-u>bd<CR>
 
 " ---------- grep ----------
 
-nnoremap <expr> [MyPrefix].g      ':Ack ' . expand('<cword>')
+nnoremap <expr> [MyPrefix].g      ':tabnew<CR>:Ack ' . expand('<cword>')
 nnoremap [MyDoublePrefix].g       :<C-u>Ack 
 
 " ---------- substitute ----------
