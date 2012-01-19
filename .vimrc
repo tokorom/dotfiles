@@ -33,6 +33,7 @@ Bundle 'git://github.com/thinca/vim-ref.git'
 Bundle 'ack.vim'
 Bundle 'git://github.com/tpope/vim-rails.git'
 Bundle 'git://github.com/mattn/gist-vim.git'
+Bundle 'git://github.com/gerw/vim-latex-suite.git'
 
 Bundle 'unite.vim'
 Bundle 'unite-font'
@@ -400,6 +401,37 @@ let g:neocomplcache_enable_auto_select = 1 "最初の候補を自動選択
 inoremap <expr><C-x><C-f>  neocomplcache#manual_filename_complete()
 " <C-n>でneocomplcacheのキーワード補完を利用する 
 inoremap <expr><C-n>  pumvisible() ? "\<C-n>" : neocomplcache#manual_keyword_complete()
+
+" vim-LaTex settings
+
+au BufNewFile,BufRead *.tex,*.latex,*.sty,*.dtx,*.ltx,*.bbl setf tex
+
+set shellslash
+set grepprg=grep\ -nH\ $*
+let g:tex_flavor='latex'
+let g:Imap_UsePlaceHolders = 1
+let g:Imap_DeleteEmptyPlaceHolders = 1
+let g:Imap_StickyPlaceHolders = 0
+let g:Tex_DefaultTargetFormat = 'pdf'
+let g:Tex_FormatDependency_ps = 'dvi,ps'
+let g:Tex_FormatDependency_pdf = 'dvi,pdf'
+let g:Tex_CompileRule_dvi = 'platex -kanji=utf8 -no-guess-input-enc -synctex=1 -src-specials -interaction=nonstopmode $*'
+let g:Tex_CompileRule_ps = 'dvips -Ppdf -t a4 -o $*.ps $*.dvi'
+let g:Tex_CompileRule_pdf = 'dvipdfmx $*.dvi'
+"let g:Tex_BibtexFlavor = 'pbibtex -kanji=utf8'
+let g:Tex_MakeIndexFlavor = 'mendex -U $*.idx'
+
+let g:Tex_ViewRule_pdf = 'open -a /Applications/Preview.app'
+let g:Tex_IgnoredWarnings =
+      \"Underfull\n".
+      \"Overfull\n".
+      \"specifier changed to\n".
+      \"You have requested\n".
+      \"Missing number, treated as zero.\n".
+      \"There were undefined references\n".
+      \"Citation %.%# undefined\n".
+      \'LaTeX Font Warning:'"
+let g:Tex_IgnoreLevel = 8
 
 " }}}1
 
