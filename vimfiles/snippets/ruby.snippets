@@ -1,9 +1,10 @@
 # #!/usr/bin/ruby
 snippet #!
 	#!/usr/bin/ruby
-
 snippet header
-	# encoding: utf-8
+	# -*- encoding: utf-8 -*-
+snippet utf8
+	# -*- encoding: utf-8 -*-
 # New Block
 snippet =b
 	=begin rdoc
@@ -419,4 +420,16 @@ snippet tas
 	desc "${1:Task description\}"
 	task :${2:task_name => [:dependent, :tasks]} do
 		${3}
+	end
+snippet rspec
+	require "${1:`Filename()`}"
+	
+	describe ${2:`Filename()`} do
+		before(:each) do
+			@${3:target} = $2.new
+		end
+	
+		it "return 0" do
+			@$3.do_something.should == 0
+		end
 	end
