@@ -542,6 +542,30 @@ snippet gesture swipe
 	{
 		NSLog( @"#right" );
 	}
+# UITableView
+snippet table
+	#pragma mark - UITableViewDataSource
+	
+	- (NSInteger)tableView:(UITableView*)tableView numberOfRowsInSection:(NSInteger)section
+	{
+		return 1;
+	}
+	
+	- (UITableViewCell*)tableView:(UITableView*)tableView cellForRowAtIndexPath:(NSIndexPath*)indexPath
+	{
+		static NSString* const kTableViewCellIdentifier = @"UITableViewCell";
+		UITableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:kTableViewCellIdentifier];
+		if ( nil == cell ) {
+			cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:kTableViewCellIdentifier];
+		}
+		return cell;
+	}
+	
+	#pragma mark - UITableViewDelegate
+	
+	- (void)tableView:(UITableView*)tableView didSelectRowAtIndexPath:(NSIndexPath*)indexPath
+	{
+	}
 # added from tags
 snippet ISOCountryCodes
 	ISOCountryCodes
