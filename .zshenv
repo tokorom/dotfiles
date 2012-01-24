@@ -5,7 +5,6 @@
 ####### export ########
 
 export LANG=ja_JP.UTF-8
-export PATH=~/bin/:/usr/local/bin:/opt/local/bin:/opt/local/sbin/:~/bin/clang/:$PATH:~/local/bin:/Applications/android_sdk/tools/:/Applications/android_sdk/platform-tools:/Applications/UpTeX.app/teTeX/bin
 export MANPATH=/opt/local/man:$MANPATH 
 export EDITOR=vim
 export MAILCHECK=0
@@ -36,3 +35,6 @@ alias be='bundle exec'
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
 rvm use default 1.9.2 > /dev/null
 
+####### path #########
+
+export PATH=~/bin/:/usr/local/bin:/opt/local/bin:/opt/local/sbin/:~/bin/clang/:$PATH:~/local/bin:/Applications/android_sdk/tools/:/Applications/android_sdk/platform-tools:/Applications/UpTeX.app/teTeX/bin
