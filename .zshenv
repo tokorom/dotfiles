@@ -31,10 +31,10 @@ alias tmux-revertkey='tmux set-option -ag prefix C-t'
 alias bi='bundle install --path vendor/bundler'
 alias be='bundle exec'
 
-# Load RVM into a shell session *as a function*
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
-rvm use default 1.9.2 > /dev/null
-
 ####### path #########
 
 export PATH=~/bin/:/usr/local/bin:/opt/local/bin:/opt/local/sbin/:~/bin/clang/:$PATH:~/local/bin:/Applications/android_sdk/tools/:/Applications/android_sdk/platform-tools:/Applications/UpTeX.app/teTeX/bin
+
+# Load RVM into a shell session *as a function*
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
+rvm use default 1.9.2 > /dev/null
