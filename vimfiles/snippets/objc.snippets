@@ -499,22 +499,23 @@ snippet nettask
 			NSLog( @"finally..." );
 		}
 	];
-snippet taskForCallback
-	taskForCallback:^(ILTaskStatus status, ILTaskResponse* response){
-		if ( ILTaskSuccess == status ) {
-		} else if ( ILTaskFailed == status ) {
-		} else if ( ILTaskCancelled == status ) {
+snippet task
+	${1:ILTask}* ${2:task} = [[$1 alloc] init];
+	[ILTaskManager startTask:$2
+		finished:^{
+			NSLogLine();
 		}
-	}${1:];}
-snippet startTask
-	[ILTaskManager startTask:${1:task} forCallback:^(ILTaskStatus status, ILTaskResponse* response){
-		if ( ILTaskSuccess == status ) {
-		} else if ( ILTaskFailed == status ) {
-		} else if ( ILTaskCancelled == status ) {
+		failed:^( NSError* error ){
+			NSLogLine();
+			NSLog( @"%@", error );
 		}
-	}];
+		cancelled:^{
+		}
+		finally:^{
+		}
+	];
 # dispatch once 
-snippet dispatch_once
+snippet once
 	static dispatch_once_t onceToken;
 	dispatch_once(&onceToken, ^{
 		${1}
