@@ -38,6 +38,8 @@ Bundle 'unite.vim'
 Bundle 'unite-font'
 Bundle 'unite-colorscheme'
 
+Bundle 'git://github.com/tobiassvn/vim-gemfile.git'
+
 " my plugins
 Bundle 'git://github.com/tokorom/brew.vim.git'
 Bundle 'git://gist.github.com/997811.git'
