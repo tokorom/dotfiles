@@ -7,6 +7,7 @@ set tabstop=2
 
 call altr#remove_all()
 call altr#define('%.h', '%.m', '%.mm')
+call altr#define('en.lproj/%', 'ja.lproj/%')
 
 " --- added keybinds ---
 
