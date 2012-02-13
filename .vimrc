@@ -441,7 +441,7 @@ let g:Tex_IgnoreLevel = 8
 let g:quickrun_config = {}
 let g:quickrun_config['*'] = {'runmode': "async:remote:vimproc", 'split': 'below'}
 let g:quickrun_config['python.test'] = {'command': 'nosetests', 'exec': ['%c -v %s']}
-let g:quickrun_config['ruby.rspec'] = {'command': 'rspec', 'exec': ['bundle exec %c -I . %s']}
+let g:quickrun_config['ruby.rspec'] = {'command': 'rspec', 'exec': ['bundle exec %c --format progress -I . %s']}
 
 let g:quickrun_switcher_config = {}
 let g:quickrun_switcher_config['python.test'] = {}
