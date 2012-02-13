@@ -428,24 +428,18 @@ snippet rspec
 		before(:each) do
 			@${3:target} = $2.new
 		end
+		subject { @$3 }
 	
 		it 'return 0' do
-			@$3.do_something.should == 0
+			subject.do_something.should == 0
 		end
 	end
-snippet mock Net::HTTP
-	# create_http_mock(Net::HTTP::Get, 'api.example.com')
-	def create_http_mock(request_class, servername)
-		http = Net::HTTP.new(servername)
-		http.should_receive(:request)
-				.with(kind_of(request_class))
-				.and_return do |request|
-			response = Net::HTTPOK.new(nil, 200, nil)
-			response.stub!(:body).and_return({
-				'result' => true,
-				'arrays' => ['111', '222'],
-			}.to_json)
-			response
-		end
-		Net::HTTP.should_receive(:new).at_least(1).and_return(http)
+snippet it
+	it '${1:description}' do
+		subject.${2:do_something.should == 0}
+	end
+snippet webmock
+	stub_request(:any, '${1:http://}').
+		with(:headers => {}, :body => '').
+		to_return(:status => 200, :body => '${2}', :headers => {})
 	end
