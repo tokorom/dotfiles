@@ -26,7 +26,6 @@ Bundle 'The-NERD-Commenter'
 Bundle 'git://github.com/Shougo/vimproc.git'
 Bundle 'ZenCoding.vim'
 Bundle 'neocomplcache'
-Bundle 'git://github.com/thinca/vim-quickrun.git'
 Bundle 'git://github.com/kana/vim-altr.git'
 Bundle 'git://github.com/thinca/vim-ref.git'
 Bundle 'ack.vim'
@@ -45,6 +44,7 @@ Bundle 'git://github.com/tokorom/brew.vim.git'
 Bundle 'git://gist.github.com/997811.git'
 Bundle 'git://github.com/tokorom/snipmate.vim.git'
 Bundle 'git://github.com/tokorom/zoom.vim.git'
+Bundle 'git://github.com/tokorom/vim-quickrun.git'
 
 " }}}1
 "=============================================================================
@@ -438,10 +438,17 @@ let g:Tex_IgnoreLevel = 8
 
 " quickrun settings {{{1
 
+" initialize
+
 let g:quickrun_config = {}
+
+" config
+
 let g:quickrun_config['*'] = {'runmode': "async:remote:vimproc", 'split': 'below'}
 let g:quickrun_config['python.test'] = {'command': 'nosetests', 'exec': ['%c -v %s']}
-let g:quickrun_config['ruby.rspec'] = {'command': 'rspec', 'exec': ['bundle exec %c --format progress -I . %s %a']}
+let g:quickrun_config['ruby.rspec'] = {'command': 'rspec', 'cmdopt': '--format progress -I .', 'exec': ['bundle exec %c %o %s %a'], 'output_filetype': 'quickrun-rspec'}
+
+" keymap
 
 silent! map <unique> [MyPrefix]q <Plug>(quickrun)
 
