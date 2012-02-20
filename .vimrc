@@ -338,6 +338,8 @@ augroup AddFileType
   autocmd BufWinEnter,BufNewFile *_spec.rb set filetype=ruby.rspec
   " puthon.test
   autocmd BufWinEnter,BufNewFile test*.py set filetype=python.test
+  " objc.test
+  autocmd BufWinEnter,BufNewFile *Test.m set filetype=objc.test
   " hatena
   autocmd BufWinEnter,BufNewFile *.hatena set filetype=hatena
 augroup END
@@ -447,6 +449,7 @@ let g:quickrun_config = {}
 let g:quickrun_config['*'] = {'runmode': "async:remote:vimproc", 'split': 'below'}
 let g:quickrun_config['python.test'] = {'command': 'nosetests', 'exec': ['%c -v %s']}
 let g:quickrun_config['ruby.rspec'] = {'command': 'rspec', 'cmdopt': '--format progress -I .', 'exec': ['bundle exec %c %o %s %a'], 'output_filetype': 'quickrun-rspec'}
+let g:quickrun_config['objc.test'] = {'command': 'make', 'cmdopt': 'test', 'output_filetype': 'objc-test-result'}
 
 " keymap
 

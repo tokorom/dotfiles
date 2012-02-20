@@ -15,3 +15,5 @@ nnoremap [MyPrefix][   ebi[<Esc>ea<Space>]<Esc>i
 nnoremap [MyPrefix]]   F[i[<Esc>f]a]<Esc>i<Space>
 nnoremap [MyPrefix]@   ebi@"<Esc>ea"<Esc>
 nnoremap [MyPrefix];   A;<Return>
+
+silent! map <silent><expr> [MyDoublePrefix]q ':QuickRun -args "TEST=' . expand("%:t:r") . '"<CR>'
