@@ -186,10 +186,32 @@ snippet dels
 	}
 	
 	@end
-# temlate for instance variables
+# template for GHTestCase
+snippet testcase
+	//
+	//  ${1:`Filename()`}.m
+	//
+	//  Created by ToKoRo on `system("date +%Y-%m-%d")`.
+	//  `expand("Last Change")`: .
+	//
+	
+	#import <GHUnitIOS/GHUnit.h> 
+	
+	@interface $1 : GHTestCase
+	@end
+	
+	@implementation $1
+	
+	- (void)testSample
+	{
+		GHAssertEquals( 0, 1, nil );
+	}
+	
+	@end
+# template for instance variables
 snippet im
 	${1:id} ${2:varName}_;
-# temlate for a method call
+# template for a method call
 snippet mc
 	[${1:instance} ${2:method}];
 # input a string literal
