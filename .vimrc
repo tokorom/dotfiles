@@ -448,7 +448,7 @@ let g:quickrun_config = {}
 
 let g:quickrun_config['*'] = {'runmode': "async:remote:vimproc", 'split': 'below'}
 let g:quickrun_config['python.test'] = {'command': 'nosetests', 'exec': ['%c -v %s']}
-let g:quickrun_config['ruby.rspec'] = {'command': 'rspec', 'cmdopt': '--format progress -I .', 'exec': ['bundle exec %c %o %s %a'], 'output_filetype': 'quickrun-rspec'}
+let g:quickrun_config['ruby.rspec'] = {'command': 'rspec', 'cmdopt': '--format progress -I .', 'exec': ['bundle exec %c %o %s %a'], 'output_filetype': 'rspec-result'}
 let g:quickrun_config['objc.test'] = {'command': 'make', 'cmdopt': 'test', 'output_filetype': 'objc-test-result'}
 
 " keymap
