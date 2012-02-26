@@ -3,7 +3,7 @@ if exists("b:current_syntax")
 endif
    
 if !exists("main_syntax")
-  let main_syntax = 'quickrun-rspec'
+  let main_syntax = 'rspec-result'
 endif
 
 syntax case match
@@ -17,8 +17,8 @@ highlight RSpecGreen ctermfg=White ctermbg=Green guifg=White guibg=Green
 highlight RSpecRed   ctermfg=White ctermbg=Red   guifg=White guibg=Red
 
 "unlet b:current_syntax
-let b:current_syntax = 'quickrun-rspec'
+let b:current_syntax = 'rspec-result'
 
-if main_syntax == 'quickrun-rspec'
+if main_syntax == 'rspec-result'
   unlet main_syntax
 endif
