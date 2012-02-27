@@ -60,3 +60,30 @@ function! CreateObjectiveCClass( fname )
 endfunction
 command! -complete=file -nargs=1 CreateObjectiveCClass :call CreateObjectiveCClass(<f-args>)
 
+function! ObjcGetTestNameFromSource(fname)
+  let paths = split(expand(a:fname), '/')
+  call insert(paths, 'Tests', 0)
+  let path = join(paths, '/')
+  let path = substitute(path, '\.m', 'Test.m', '')
+  return path
+endfunction
+
+function! ObjcGetSourceNameFromTest(fname)
+  let paths = split(expand(a:fname), '/')
+  unlet paths[0]
+  let path = join(paths, '/')
+  let path = substitute(path, '\Test.m', '.m', '')
+  return path
+endfunction
+
+function! ObjcOpenTestFromSource(fname, method)
+  let path = ObjcGetTestNameFromSource(a:fname)
+  execute(':' . a:method . ' ' . path)
+endfunction
+command! ObjcOpenTestFromSource :call ObjcOpenTestFromSource('%', 'e')
+
+function! ObjcOpenSourceFromTest(fname, method)
+  let path = ObjcGetSourceNameFromTest(a:fname)
+  execute(':' . a:method . ' ' . path)
+endfunction
+command! ObjcOpenSourceFromTest :call ObjcOpenSourceFromTest('%', 'e')
