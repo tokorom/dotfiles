@@ -16,6 +16,9 @@ syntax match ObjcTestRed   /\*\* BUILD FAILED \*\*/
 highlight ObjcTestGreen ctermfg=White ctermbg=Green guifg=White guibg=Green
 highlight ObjcTestRed   ctermfg=White ctermbg=Red   guifg=White guibg=Red
 
+syntax region ObjcTestBuildResults start=/^GHUNIT_CLI/ end=/Running:.*$/ transparent fold
+syntax region ObjcTestFailBlock start="#0" end="FAIL (" transparent fold
+
 "unlet b:current_syntax
 let b:current_syntax = 'objc-test-result'
 
