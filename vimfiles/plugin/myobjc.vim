@@ -80,10 +80,10 @@ function! ObjcOpenTestFromSource(fname, method)
   let path = ObjcGetTestNameFromSource(a:fname)
   execute(':' . a:method . ' ' . path)
 endfunction
-command! ObjcOpenTestFromSource :call ObjcOpenTestFromSource('%', 'e')
+command! OpenTestFromSource :call ObjcOpenTestFromSource('%', 'vsplit')
 
 function! ObjcOpenSourceFromTest(fname, method)
   let path = ObjcGetSourceNameFromTest(a:fname)
   execute(':' . a:method . ' ' . path)
 endfunction
-command! ObjcOpenSourceFromTest :call ObjcOpenSourceFromTest('%', 'e')
+command! OpenSourceFromTest :call ObjcOpenSourceFromTest('%', 'vsplit')
