@@ -181,3 +181,10 @@ setopt auto_param_slash
 ## スペルチェック
 setopt correct
 
+## autojump
+if [ -f `brew --prefix`/etc/autojump ]; then
+  . `brew --prefix`/etc/autojump
+fi
+
+## fpath
+fpath=(/usr/local/share/zsh/functions(N) $fpath)
