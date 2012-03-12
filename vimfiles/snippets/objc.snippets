@@ -208,6 +208,70 @@ snippet testcase
 	}
 	
 	@end
+snippet ghassertnoerr
+	GHAssertNoErr(${1:a1}, ${2:nil})
+snippet ghasserterr
+	GHAssertErr(${1:a1}, ${2:a2}, ${3:nil})
+snippet ghassertnotnull
+	GHAssertNotNULL(${1:a1}, ${2:nil})
+snippet ghassertnull
+	GHAssertNULL(${1:a1}, ${2:nil})
+snippet ghassertnotequals
+	GHAssertNotEquals(${1:a1}, ${2:a2}, ${3:nil})
+snippet ghassertnotequalobjects
+	GHAssertNotEqualObjects(${1:a1}, ${2:a2}, ${3:desc})
+snippet ghassertoperation
+	GHAssertOperation(${1:a1}, ${2:a2}, ${3:op}, ${4:nil})
+snippet ghassertgreaterthan
+	GHAssertGreaterThan(${1:a1}, ${2:a2}, ${3:nil})
+snippet ghassertgreaterthanorequal
+	GHAssertGreaterThanOrEqual(${1:a1}, ${2:a2}, ${3:nil})
+snippet ghassertlessthan
+	GHAssertLessThan(${1:a1}, ${2:a2}, ${3:nil})
+snippet ghassertlessthanorequal
+	GHAssertLessThanOrEqual(${1:a1}, ${2:a2}, ${3:nil})
+snippet ghassertequalstrings
+	GHAssertEqualStrings(${1:a1}, ${2:a2}, ${3:nil})
+snippet ghassertnotequalstrings
+	GHAssertNotEqualStrings(${1:a1}, ${2:a2}, ${3:nil})
+snippet ghassertequalcstrings
+	GHAssertEqualCStrings(${1:a1}, ${2:a2}, ${3:nil})
+snippet ghassertnotequalcstrings
+	GHAssertNotEqualCStrings(${1:a1}, ${2:a2}, ${3:nil})
+snippet ghassertequalobjects
+	GHAssertEqualObjects(${1:a1}, ${2:a2}, ${3:nil})
+snippet ghassertequals
+	GHAssertEquals(${1:a1}, ${2:a2}, ${3:nil})
+snippet ghabsolutedifference
+	GHAbsoluteDifference(left,right) (MAX(left,right)-MIN(left,right))
+snippet ghassertequalswithaccuracy
+	GHAssertEqualsWithAccuracy(${1:a1}, ${2:a2}, ${3:accuracy}, ${3:nil})
+snippet ghfail
+	GHFail(${1:nil})
+snippet ghassertnil
+	GHAssertNil(${1:a1}, ${2:nil})
+snippet ghassertnotnil
+	GHAssertNotNil(${1:a1}, ${2:nil})
+snippet ghasserttrue
+	GHAssertTrue(${1:expr}, ${2:nil})
+snippet ghasserttruenothrow
+	GHAssertTrueNoThrow(${1:expr}, ${2:nil})
+snippet ghassertfalse
+	GHAssertFalse(${1:expr}, ${2:nil})
+snippet ghassertfalsenothrow
+	GHAssertFalseNoThrow(${1:expr}, ${2:nil})
+snippet ghassertthrows
+	GHAssertThrows(${1:expr}, ${2:nil})
+snippet ghassertthrowsspecific
+	GHAssertThrowsSpecific(${1:expr}, ${2:specificException}, ${3:nil})
+snippet ghassertthrowsspecificnamed
+	GHAssertThrowsSpecificNamed(${1:expr}, ${2:specificException}, ${3:aName}, ${4:nil})
+snippet ghassertnothrow
+	GHAssertNoThrow(${1:expr}, ${2:nil})
+snippet ghassertnothrowspecific
+	GHAssertNoThrowSpecific(${1:expr}, ${2:specificException}, ${3:nil})
+snippet ghassertnothrowspecificnamed
+	GHAssertNoThrowSpecificNamed(${1:expr}, ${2:specificException}, ${3:aName}, ${4:nil})
 # template for instance variables
 snippet im
 	${1:id} ${2:varName}_;
