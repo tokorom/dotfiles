@@ -32,6 +32,7 @@ Bundle 'ack.vim'
 Bundle 'git://github.com/tpope/vim-rails.git'
 Bundle 'git://github.com/mattn/gist-vim.git'
 Bundle 'git://github.com/gerw/vim-latex-suite.git'
+Bundle 'git://github.com/thinca/vim-quickrun.git'
 
 Bundle 'unite.vim'
 Bundle 'unite-font'
@@ -44,7 +45,6 @@ Bundle 'git://github.com/tokorom/brew.vim.git'
 Bundle 'git://gist.github.com/997811.git'
 Bundle 'git://github.com/tokorom/snipmate.vim.git'
 Bundle 'git://github.com/tokorom/zoom.vim.git'
-Bundle 'git://github.com/tokorom/vim-quickrun.git'
 
 " }}}1
 "=============================================================================
@@ -446,10 +446,10 @@ let g:quickrun_config = {}
 
 " config
 
-let g:quickrun_config['*'] = {'runmode': "async:remote:vimproc", 'split': 'below'}
-let g:quickrun_config['python.test'] = {'command': 'nosetests', 'exec': ['%c -v %s']}
-let g:quickrun_config['ruby.rspec'] = {'command': 'rspec', 'cmdopt': '--format progress -I .', 'exec': ['bundle exec %c %o %s %a'], 'output_filetype': 'rspec-result'}
-let g:quickrun_config['objc.test'] = {'command': 'make', 'cmdopt': 'test', 'output_filetype': 'objc-test-result'}
+let g:quickrun_config['*'] = {'split': 'below'}
+let g:quickrun_config['python.test'] = {'command': 'nosetests', 'exec': ['%c -v %s'], 'filetype': 'nosetests-result'}
+let g:quickrun_config['ruby.rspec'] = {'command': 'rspec', 'cmdopt': '--format progress -I .', 'exec': ['bundle exec %c %o %s %a'], 'filetype': 'rspec-result'}
+let g:quickrun_config['objc.test'] = {'command': 'make', 'cmdopt': 'test', 'filetype': 'objc-test-result'}
 
 " keymap
 
