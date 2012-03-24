@@ -32,6 +32,7 @@
     lp = log -p --stat
     type = cat-file -t
     dump = cat-file -p
+    rv = remote -v
 [pager]
     color = true
 [status]
