@@ -63,8 +63,8 @@ snippet delh
 	
 	@interface $1 : NSObject <UIApplicationDelegate>
 	
-	@property (strong, nonatomic) UIWindow* window;
-	@property (strong, nonatomic) UIViewController* rootViewController;
+	@property (strong) UIWindow* window;
+	@property (strong) UIViewController* rootViewController;
 	
 	@end
 # template for source
@@ -390,29 +390,29 @@ snippet @sel
 	@selector(${1:method})${2}
 # define a property
 snippet iboutlet
-	@property (${1:nonatomic, strong}) IBOutlet ${2:id} ${3:varName};${4}
+	@property (${1:strong}) IBOutlet ${2:id} ${3:varName};${4}
 snippet @prop
-	@property (${1:nonatomic, strong}) ${2:id} ${3:varName};${4}
+	@property (${1:strong}) ${2:id} ${3:varName};${4}
 # define a NSString property
 snippet @propc
-	@property (${1:nonatomic, copy}) ${2:NSString*} ${3:varName};${4}
+	@property (${1:copy}) ${2:NSString*} ${3:varName};${4}
 # define a delegate property
 snippet @propa
-	@property (${1:nonatomic, assign}) ${2:NSUInteger} ${3:count};${4}
+	@property (${1:assign}) ${2:NSUInteger} ${3:count};${4}
 snippet @propw
-	@property (${1:nonatomic, weak}) ${2:id} ${3:delegate};${4}
+	@property (${1:weak}) ${2:id} ${3:delegate};${4}
 # prop snippets 
 snippet @p strong
-	@property (${1:nonatomic, strong}) ${2:id} ${3:varName};${4}
+	@property (${1:strong}) ${2:id} ${3:varName};${4}
 	@synthesize $3 = $3_;
 snippet @p copy
-	@property (${1:nonatomic, copy}) ${2:id} ${3:varName};${4}
+	@property (${1:copy}) ${2:id} ${3:varName};${4}
 	@synthesize $3 = $3_;
 snippet @p weak
-	@property (${1:nonatomic, weak}) ${2:id} ${3:varName};${4}
+	@property (${1:weak}) ${2:id} ${3:varName};${4}
 	@synthesize $3 = $3_;
 snippet @p assign
-	@property (${1:nonatomic, assign}) ${2:NSUInteger} ${3:varName};${4}
+	@property (${1:assign}) ${2:NSUInteger} ${3:varName};${4}
 	@synthesize $3 = $3_;
 # template for synthesize
 snippet @s
