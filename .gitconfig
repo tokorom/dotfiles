@@ -9,8 +9,10 @@
 [color] 
     ui = auto
 [alias]
+    ad = add
     co = checkout
     cob = checkout -b
+    com = checkout master
     cm = commit
     cma = commit -a
     cmi = commit --interactive
@@ -23,10 +25,14 @@
     me = merge
     ms = merge --squash
     re = reset --hard
-    diffs = diff --staged
-    diffr = diff origin
-    diffl = diff --name-status
-    difflr = diff --name-status origin
+    rb = rebase
+    rbm = rebase master
+    pl = pull
+    ps = push
+    df = diff
+    dfs = diff --staged
+    dfl = diff --name-status
+    l = log
     ll = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
     lg = log --graph
     lp = log -p --stat
