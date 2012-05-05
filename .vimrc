@@ -448,7 +448,7 @@ let g:quickrun_config = {}
 
 let g:quickrun_config['*'] = {'split': 'below'}
 let g:quickrun_config['python.test'] = {'command': 'nosetests', 'exec': ['%c -v %s'], 'filetype': 'nosetests-result'}
-let g:quickrun_config['ruby.rspec'] = {'command': 'rspec', 'cmdopt': '--format progress -I .', 'exec': ['bundle exec %c %o %s %a'], 'filetype': 'rspec-result'}
+let g:quickrun_config['ruby.rspec'] = {'command': 'rspec', 'cmdopt': '--format progress -I .', 'exec': ['source .rvmrc \&\& %c %o %s %a'], 'filetype': 'rspec-result'}
 let g:quickrun_config['objc.test'] = {'command': 'make', 'cmdopt': 'test', 'filetype': 'objc-test-result'}
 
 " keymap

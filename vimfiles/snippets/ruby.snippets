@@ -62,6 +62,22 @@ snippet until
 	until ${1:condition}
 		${2}
 	end
+snippet class default
+	# -*- encoding: utf-8 -*-
+	
+	class ${1:`substitute(Filename(), '^.', '\u&', '')`}
+		def initialize
+			super
+		end
+	
+		public #-----------------------------------------------------
+	
+		def sample(arg)
+		end
+	
+		private  #----------------------------------------------------
+	
+	end
 snippet class class .. end
 	class ${1:`substitute(Filename(), '^.', '\u&', '')`}
 		${2}
@@ -422,6 +438,8 @@ snippet tas
 		${3}
 	end
 snippet rspec
+	# -*- encoding: utf-8 -*-
+	
 	require '${1:`Filename()`}'
 	
 	describe ${2:`Filename()`} do
