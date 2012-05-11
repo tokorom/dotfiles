@@ -33,6 +33,8 @@ Bundle 'git://github.com/tpope/vim-rails.git'
 Bundle 'git://github.com/mattn/gist-vim.git'
 Bundle 'git://github.com/gerw/vim-latex-suite.git'
 Bundle 'git://github.com/thinca/vim-quickrun.git'
+Bundle 'git://github.com/tpope/vim-fugitive.git'
+Bundle 'git://github.com/gregsexton/gitv.git'
 
 Bundle 'unite.vim'
 Bundle 'unite-font'
