@@ -17,6 +17,7 @@ fpath=(/usr/local/share/zsh/functions(N) $fpath)
 
 ####### alias ########
 
+alias g="git"
 alias sc="screen -UxDR"
 alias sed="gsed"
 alias awk="gawk"
