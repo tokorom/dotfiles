@@ -13,8 +13,6 @@ export MAILCHECK=0
 
 export PATH=/usr/local/bin:/opt/local/bin:/opt/local/sbin/:~/bin/clang/:$PATH:~/local/bin:/Applications/android_sdk/tools/:/Applications/android_sdk/platform-tools:/Applications/UpTeX.app/teTeX/bin
 
-fpath=(/usr/local/share/zsh/functions(N) $fpath)
-
 ####### alias ########
 
 alias g="git"
@@ -48,8 +46,10 @@ fi
 
 ####### autojump #########
 
-if [ -f `brew --prefix`/etc/autojump ]; then
-  . `brew --prefix`/etc/autojump
+if [ -x /usr/local/bin/brew ]; then
+  if [ -f `brew --prefix`/etc/autojump ]; then
+    . `brew --prefix`/etc/autojump
+  fi
 fi
 
 ####### finally #########

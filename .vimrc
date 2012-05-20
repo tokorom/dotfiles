@@ -48,6 +48,7 @@ Bundle 'git://github.com/tokorom/brew.vim.git'
 Bundle 'git://gist.github.com/997811.git'
 Bundle 'git://github.com/tokorom/snipmate.vim.git'
 Bundle 'git://github.com/tokorom/zoom.vim.git'
+Bundle 'git@bitbucket.org:tokorom/vim-quickrun-ghunit.git'
 
 " }}}1
 "=============================================================================
@@ -454,7 +455,7 @@ let g:quickrun_config = {}
 let g:quickrun_config['*'] = {'split': 'below'}
 let g:quickrun_config['python.test'] = {'command': 'nosetests', 'exec': ['%c -v %s'], 'filetype': 'nosetests-result'}
 let g:quickrun_config['ruby.rspec'] = {'command': 'rspec', 'cmdopt': '--format progress -I .', 'exec': ['source .rvmrc \&\& %c %o %s %a'], 'filetype': 'rspec-result'}
-let g:quickrun_config['objc.test'] = {'command': 'make', 'cmdopt': 'test', 'filetype': 'objc-test-result'}
+let g:quickrun_config['objc.test'] = {'command': 'make', 'cmdopt': 'test', 'outputter': 'ghunit'}
 
 " keymap
 
