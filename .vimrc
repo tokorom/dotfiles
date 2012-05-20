@@ -35,6 +35,7 @@ Bundle 'git://github.com/gerw/vim-latex-suite.git'
 Bundle 'git://github.com/thinca/vim-quickrun.git'
 Bundle 'git://github.com/tpope/vim-fugitive.git'
 Bundle 'git://github.com/gregsexton/gitv.git'
+Bundle 'git://github.com/chrismetcalf/vim-markdown.git'
 
 Bundle 'unite.vim'
 Bundle 'unite-font'
@@ -331,19 +332,21 @@ augroup END
 augroup AddFileType
   autocmd!
   " vim
-  autocmd BufWinEnter,BufNewFile *.vimperatorrc set filetype=vim
+  autocmd BufWinEnter,BufNewFile *.vimperatorrc setfiletype vim
   " mayu
-  autocmd BufWinEnter,BufNewFile *.mayu,*.nodoka set filetype=mayu
+  autocmd BufWinEnter,BufNewFile *.mayu,*.nodoka setfiletype mayu
   " ujml
-  autocmd BufWinEnter,BufNewFile *.ujml,*.ujmi,*.ent,*.ujmc set filetype=ujml
+  autocmd BufWinEnter,BufNewFile *.ujml,*.ujmi,*.ent,*.ujmc setfiletype ujml
   " rspec
-  autocmd BufWinEnter,BufNewFile *_spec.rb set filetype=ruby.rspec
+  autocmd BufWinEnter,BufNewFile *_spec.rb setfiletype ruby.rspec
   " puthon.test
-  autocmd BufWinEnter,BufNewFile test*.py set filetype=python.test
+  autocmd BufWinEnter,BufNewFile test*.py setfiletype python.test
   " objc.test
-  autocmd BufWinEnter,BufNewFile *Test.m set filetype=objc.test
+  autocmd BufWinEnter,BufNewFile *Test.m setfiletype objc.test
   " hatena
-  autocmd BufWinEnter,BufNewFile *.hatena set filetype=hatena
+  autocmd BufWinEnter,BufNewFile *.hatena setfiletype hatena
+  " markdown
+  autocmd BufWinEnter,BufNewFile *.md,*.mkd,*.page setfiletype markdown
 augroup END
 
 " }}}1
