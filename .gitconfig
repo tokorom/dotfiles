@@ -29,8 +29,10 @@
     rbm = rebase master
     pl = pull
     plm = pull origin master
+    plu = pull upstream master
     ps = push
     psm = push origin master
+    psu = push upstream master
     df = diff
     dfs = diff --staged
     dfl = diff --name-status
