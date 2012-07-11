@@ -1,55 +1,55 @@
 [user]
-    name = tokorom
-    email = tokorom@gmail.com
+  name = tokorom
+  email = tokorom@gmail.com
 [core]  
-
+  quotepath = false
 [diff]
-    color = auto
-    rename = copy
+  color = auto
+  rename = copy
 [color] 
-    ui = auto
+  ui = auto
 [alias]
-    ad = add
-    co = checkout
-    cob = checkout -b
-    com = checkout master
-    cm = commit
-    cma = commit -a
-    cmi = commit --interactive
-    amend = commit --amend -a
-    st = status ./
-    stn = status --untracked-files=no ./
-    rmc = rm --cached
-    br = branch
-    brr = branch -a
-    me = merge
-    ms = merge --squash
-    re = reset --hard
-    rb = rebase
-    rbm = rebase master
-    pl = pull
-    plm = pull origin master
-    plu = pull upstream master
-    ps = push
-    psm = push origin master
-    psu = push upstream master
-    df = diff
-    dfs = diff --staged
-    dfl = diff --name-status
-    l = log
-    ll = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
-    lg = log --graph
-    ls = log --stat
-    lp = log -p --stat
-    lo = log --oneline
-    type = cat-file -t
-    dump = cat-file -p
-    rv = remote -v
+  ad = add
+  co = checkout
+  cob = checkout -b
+  com = checkout master
+  cm = commit
+  cma = commit -a
+  cmi = commit --interactive
+  amend = commit --amend -a
+  st = status ./
+  stn = status --untracked-files=no ./
+  rmc = rm --cached
+  br = branch
+  brr = branch -a
+  me = merge
+  ms = merge --squash
+  re = reset --hard
+  rb = rebase
+  rbm = rebase master
+  pl = pull
+  plm = pull origin master
+  plh = pull origin HEAD
+  plu = pull upstream master
+  ps = push
+  psm = push origin master
+  psh = push origin HEAD
+  psu = push upstream master
+  df = diff
+  dfs = diff --staged
+  dfl = diff --name-status
+  l = log
+  ll = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
+  lg = log --graph
+  ls = log --stat
+  lp = log -p --stat
+  lo = log --oneline
+  type = cat-file -t
+  dump = cat-file -p
+  rv = remote -v
 [pager]
-    color = true
+  color = true
 [status]
-    color = auto
+  color = auto
 [http]
-    sslVerify = false
-[core]
-	quotepath = false
+  sslVerify = false
