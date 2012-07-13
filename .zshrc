@@ -115,7 +115,7 @@ if [ -x /usr/local/bin/brew ]; then
 fi
 
 autoload -Uz compinit
-compinit
+compinit -u
 
 ####### option ########
 
