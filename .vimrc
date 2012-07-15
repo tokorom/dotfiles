@@ -36,6 +36,7 @@ Bundle 'git://github.com/thinca/vim-quickrun.git'
 Bundle 'git://github.com/tpope/vim-fugitive.git'
 Bundle 'git://github.com/gregsexton/gitv.git'
 Bundle 'git://github.com/chrismetcalf/vim-markdown.git'
+Bundle 'git://github.com/tyru/open-browser.vim.git'
 
 Bundle 'unite.vim'
 Bundle 'unite-font'
@@ -456,6 +457,12 @@ let g:quickrun_config['*'] = {'split': 'below'}
 let g:quickrun_config['python.test'] = {'command': 'nosetests', 'exec': ['%c -v %s'], 'filetype': 'nosetests-result'}
 let g:quickrun_config['ruby.rspec'] = {'command': 'rspec', 'cmdopt': '--format progress -I .', 'exec': ['source .rvmrc \&\& %c %o %s %a'], 'filetype': 'rspec-result'}
 let g:quickrun_config['objc.test'] = {'command': 'make', 'cmdopt': 'test', 'outputter': 'ghunit'}
+
+let g:quickrun_config['markdown'] = {
+  \ 'type': 'markdown/pandoc',
+  \ 'outputter': 'browser',
+  \ 'cmdopt': '-s'
+  \ }
 
 " keymap
 
