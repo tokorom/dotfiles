@@ -55,3 +55,7 @@ fi
 ####### finally #########
 
 export PATH=~/bin:$PATH
+
+####### finally #########
+#
+[ -f ~/.zshenv.specific ] && source ~/.zshenv.specific
