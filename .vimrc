@@ -37,6 +37,7 @@ Bundle 'git://github.com/tpope/vim-fugitive.git'
 Bundle 'git://github.com/gregsexton/gitv.git'
 Bundle 'git://github.com/chrismetcalf/vim-markdown.git'
 Bundle 'git://github.com/tyru/open-browser.vim.git'
+Bundle 'git://github.com/scrooloose/syntastic.git'
 
 Bundle 'unite.vim'
 Bundle 'unite-font'
