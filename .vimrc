@@ -470,5 +470,3 @@ let g:quickrun_config['markdown'] = {
 silent! map <unique> [MyPrefix]q <Plug>(quickrun)
 
 " }}}1
-
-cd ~/
