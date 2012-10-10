@@ -365,7 +365,7 @@ let g:fuf_file_recursiveLimit = 2000
 let g:fuf_dataDir = $HOME.'/vim_fuf_data'
 let g:MRU_File = $HOME.'/vim_fuf_data/_mru_file'
 
-let g:fuf_file_exclude = '\v\~$|\.o$|\.exe$|\.bak$|\.swp$|\.svn$|vendor/'
+let g:fuf_file_exclude = '\v\~$|\.o$|\.exe$|\.bak$|\.swp$|\.svn$|vendor/|\.d$|\.dia$|\.gcda$|\.gcno'
 let g:fuf_mrufile_exclude = g:fuf_file_exclude
 
 let g:fuf_keyOpen = '<Tab>'
