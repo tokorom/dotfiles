@@ -196,15 +196,24 @@ snippet testcase
 	//
 	
 	#import <GHUnitIOS/GHUnit.h> 
+	#import "${2:Subject}.h"
 	
 	@interface $1 : GHTestCase
+	@property (strong) $2* subjectInstance;
 	@end
 	
 	@implementation $1
 	
-	- (void)testSample
+	@synthesize subjectInstance = subject;
+	
+	- (void)setUp
 	{
-		GHAssertEquals( 0, 1, nil );
+		self.subjectInstance = [$2 new];
+	}
+	
+	- (void)testCreateInstance
+	{
+		GHAssertNotNil(subject, nil);
 	}
 	
 	@end
