@@ -4,14 +4,12 @@ snippet headerh
 	//  ${1:`Filename()`}.h
 	//
 	//  Created by ToKoRo on `system("date +%Y-%m-%d")`.
-	//  `expand("Last Change")`: .
 	//
 snippet headers
 	//
 	//  ${1:`Filename()`}.m
 	//
 	//  Created by ToKoRo on `system("date +%Y-%m-%d")`.
-	//  `expand("Last Change")`: .
 	//
 # template for header
 snippet objch
@@ -19,7 +17,6 @@ snippet objch
 	//  ${1:`Filename()`}.h
 	//
 	//  Created by ToKoRo on `system("date +%Y-%m-%d")`.
-	//  `expand("Last Change")`: .
 	//
 	
 	@interface $1 : NSObject
@@ -29,7 +26,6 @@ snippet vch
 	//  ${1:`Filename()`}.h
 	//
 	//  Created by ToKoRo on `system("date +%Y-%m-%d")`.
-	//  `expand("Last Change")`: .
 	//
 	
 	@interface $1 : UIViewController
@@ -39,7 +35,6 @@ snippet singleton for interface
 	//  ${1:`Filename()`}.h
 	//
 	//  Created by ToKoRo on `system("date +%Y-%m-%d")`.
-	//  `expand("Last Change")`: .
 	//
 	
 	#import "ILSingleton.h"
@@ -58,7 +53,6 @@ snippet delh
 	//  ${1:`Filename()`}.h
 	//
 	//  Created by ToKoRo on `system("date +%Y-%m-%d")`.
-	//  `expand("Last Change")`: .
 	//
 	
 	@interface $1 : NSObject <UIApplicationDelegate>
@@ -73,7 +67,6 @@ snippet objcs
 	//  ${1:`Filename()`}.m
 	//
 	//  Created by ToKoRo on `system("date +%Y-%m-%d")`.
-	//  `expand("Last Change")`: .
 	//
 	
 	#import "$1.h"
@@ -86,7 +79,6 @@ snippet vcs
 	//  ${1:`Filename()`}.m
 	//
 	//  Created by ToKoRo on `system("date +%Y-%m-%d")`.
-	//  `expand("Last Change")`: .
 	//
 	
 	#import "$1.h"
@@ -103,24 +95,14 @@ snippet vcs
 		return self;
 	}
 	
-	- (void)didReceiveMemoryWarning
+	- (void)loadView
 	{
-		[super didReceiveMemoryWarning];
+		[super loadView];
 	}
 	
 	- (void)viewDidLoad
 	{
 		[super viewDidLoad];
-	}
-	
-	- (void)viewDidUnload
-	{
-		[super viewDidUnload];
-	}
-	
-	- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
-	{
-		return ( UIInterfaceOrientationPortrait == interfaceOrientation );
 	}
 	
 	@end
@@ -129,7 +111,6 @@ snippet singleton for implemention
 	//  ${1:`Filename()`}.m
 	//
 	//  Created by ToKoRo on `system("date +%Y-%m-%d")`.
-	//  `expand("Last Change")`: .
 	//
 	
 	#import "$1.h"
@@ -143,16 +124,12 @@ snippet dels
 	//  ${1:`Filename()`}.m
 	//
 	//  Created by ToKoRo on `system("date +%Y-%m-%d")`.
-	//  `expand("Last Change")`: .
 	//
 	
 	#import "$1.h"
 	#import "RootViewController.h"
 	
 	@implementation $1
-	
-	@synthesize window = window_;
-	@synthesize rootViewController = rootViewController_;
 	
 	- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 	{
@@ -192,7 +169,6 @@ snippet testcase
 	//  ${1:`Filename()`}.m
 	//
 	//  Created by ToKoRo on `system("date +%Y-%m-%d")`.
-	//  `expand("Last Change")`: .
 	//
 	
 	#import <GHUnitIOS/GHUnit.h> 
@@ -404,16 +380,12 @@ snippet @propw
 # prop snippets 
 snippet @p strong
 	@property (${1:strong}) ${2:id} ${3:varName};${4}
-	@synthesize $3 = $3_;
 snippet @p copy
 	@property (${1:copy}) ${2:id} ${3:varName};${4}
-	@synthesize $3 = $3_;
 snippet @p weak
 	@property (${1:weak}) ${2:id} ${3:varName};${4}
-	@synthesize $3 = $3_;
 snippet @p assign
 	@property (${1:assign}) ${2:NSUInteger} ${3:varName};${4}
-	@synthesize $3 = $3_;
 # template for synthesize
 snippet @s
 	@synthesize ${1:varName} = $1_${2:;}
