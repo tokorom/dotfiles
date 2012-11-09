@@ -86,19 +86,6 @@ snippet vcs
 	@implementation $1
 	
 	#pragma mark - View lifecycle
-
-	- (id)initWithNibName:(NSString*)nibNameOrNil bundle:(NSBundle*)nibBundleOrNil
-	{
-		if ( self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil] ) {
-			// Custom initialization
-		}
-		return self;
-	}
-	
-	- (void)loadView
-	{
-		[super loadView];
-	}
 	
 	- (void)viewDidLoad
 	{
@@ -288,7 +275,7 @@ snippet -action
 snippet -init
 	- (id)init
 	{
-		if ( (self = [super init]) ) {
+		if ((self = [super init])) {
 			${1}
 		}
 		return self;
@@ -400,35 +387,35 @@ snippet @s
 	@synthesize ${1:varName} = $1_${2:;}
 # use respondsToSelector
 snippet responds
-	if ( [${1:(id)delegate_} respondsToSelector:@selector(${2:SEL})] ) {
+	if ([${1:(id)delegate_} respondsToSelector:@selector(${2:SEL})]) {
 		[$1 $2];
 	}
 # use conformsToProtocol
 snippet conforms
-	if ( [${1:(id)delegate_} conformsToProtocol:@protocol(${2:protocol})] ) {
+	if ([${1:(id)delegate_} conformsToProtocol:@protocol(${2:protocol})]) {
 		[$1 ${3:prefix:self} ${4:method:arg}];
 	}
 # use isKindOf
 snippet kindof
-	if ( [${1:sender} isKindOfClass:[${2:UIView} class]] ) {
+	if ([${1:sender} isKindOfClass:[${2:UIView} class]]) {
 		$2* ${3:obj} = $1;
 	} 
 # forreach
 snippet forr
-	for ( ${1:id} ${2:object} in ${3:array} ) {
+	for (${1:id} ${2:object} in ${3:array}) {
 	}
 # NSLog
 snippet log
-	NSLog( @"${1}"${2} );
+	NSLog(@"${1}"${2});
 # NSAssert
 snippet assert
-	NSAssert( ${1}, @"${2}" );
+	NSAssert(${1}, @"${2}");
 snippet assertnil
-	NSAssert( ${1:sender}, @"$1 is nil" );
+	NSAssert(${1:sender}, @"$1 is nil");
 snippet assertequal
-	NSAssert( ${1:lhs} == ${2:rhs}, @"$1 isn't $2" );
+	NSAssert(${1:lhs} == ${2:rhs}, @"$1 isn't $2");
 snippet assertkind
-	NSAssert( [${1:sender} isKindOfClass:[${2:NSString} class]], @"$1 isn't $2" );
+	NSAssert([${1:sender} isKindOfClass:[${2:NSString} class]], @"$1 isn't $2");
 # UIView
 snippet add
 	[${1:self.view} addSubview:${2:subview}];
@@ -463,7 +450,7 @@ snippet alert
 # bundle
 snippet path
 	NSBundle* mainBundle = [NSBundle mainBundle];
-	if ( path = [mainBundle pathForResource:@"${1:sample}" ofType:@"${2:txt}"] ) {
+	if (path = [mainBundle pathForResource:@"${1:sample}" ofType:@"${2:txt}"]) {
 		NSData* data = [NSData dataWithContentsOfFile:path];
 	}
 # viewcontroller
@@ -518,8 +505,8 @@ snippet actionsheet
 
 	- (void)actionSheet:(UIActionSheet*)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
 	{
-		if ( buttonIndex == actionSheet.cancelButtonIndex ) {
-			NSLog( @"pushed Cancel button." );
+		if (buttonIndex == actionSheet.cancelButtonIndex) {
+			NSLog(@"pushed Cancel button.");
 		}
 	}
 # UIResponder
@@ -557,13 +544,13 @@ snippet nettask
 			${2:UIImage* image = [[UIImage alloc] initWithData:data];}
 		}
 		failed:^(NSError* error){
-			NSLog( [error localizedDescription] );
+			NSLog([error localizedDescription]);
 		}
 		cancelled:^{
-			NSLog( @"cancelled" );
+			NSLog(@"cancelled");
 		}
 		finally:^{
-			NSLog( @"finally..." );
+			NSLog(@"finally...");
 		}
 	];
 snippet task
@@ -572,9 +559,9 @@ snippet task
 		finished:^{
 			NSLogLine();
 		}
-		failed:^( NSError* error ){
+		failed:^(NSError* error){
 			NSLogLine();
-			NSLog( @"%@", error );
+			NSLog(@"%@", error);
 		}
 		cancelled:^{
 		}
@@ -604,11 +591,11 @@ snippet gesture swipe
 	
 	- (void)swipeLeftGesture:(id)sender
 	{
-		NSLog( @"#left" );
+		NSLog(@"#left");
 	}
 	- (void)swipeRightGesture:(id)sender
 	{
-		NSLog( @"#right" );
+		NSLog(@"#right");
 	}
 # UITableView
 snippet table
@@ -623,7 +610,7 @@ snippet table
 	{
 		static NSString* const kTableViewCellIdentifier = @"UITableViewCell";
 		UITableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:kTableViewCellIdentifier];
-		if ( nil == cell ) {
+		if (nil == cell) {
 			cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:kTableViewCellIdentifier];
 		}
 		return cell;
