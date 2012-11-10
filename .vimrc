@@ -39,6 +39,7 @@ Bundle 'git://github.com/chrismetcalf/vim-markdown.git'
 Bundle 'git://github.com/tyru/open-browser.vim.git'
 Bundle 'git://github.com/scrooloose/syntastic.git'
 Bundle 'git://github.com/suan/vim-instant-markdown.git'
+Bundle 'git://github.com/sjl/gundo.vim.git'
 
 Bundle 'unite.vim'
 Bundle 'unite-font'
