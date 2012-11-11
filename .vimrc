@@ -38,7 +38,6 @@ Bundle 'git://github.com/gregsexton/gitv.git'
 Bundle 'git://github.com/chrismetcalf/vim-markdown.git'
 Bundle 'git://github.com/tyru/open-browser.vim.git'
 Bundle 'git://github.com/scrooloose/syntastic.git'
-Bundle 'git://github.com/suan/vim-instant-markdown.git'
 Bundle 'git://github.com/sjl/gundo.vim.git'
 
 Bundle 'unite.vim'
@@ -52,6 +51,7 @@ Bundle 'git://github.com/tokorom/brew.vim.git'
 Bundle 'git://gist.github.com/997811.git'
 Bundle 'git://github.com/tokorom/snipmate.vim.git'
 Bundle 'git://github.com/tokorom/zoom.vim.git'
+Bundle 'git://github.com/tokorom/vim-instant-markdown.git'
 Bundle 'git@bitbucket.org:tokorom/vim-quickrun-ghunit.git'
 
 " }}}1
