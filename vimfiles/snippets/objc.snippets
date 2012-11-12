@@ -150,6 +150,11 @@ snippet dels
 	}
 	
 	@end
+snippet enum
+	typedef NS_ENUM(NSUInteger, ${1:Type}) {
+		${2:TypeNone} = 0,
+		${3:TypeDone},
+	};
 # template for GHTestCase
 snippet testcase
 	//
