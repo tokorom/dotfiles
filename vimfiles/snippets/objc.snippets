@@ -1,3 +1,9 @@
+# enum
+snippet enum
+	typedef NS_ENUM(NSInteger, ${1:Type}) {
+		$1Value1 = 0,
+		$1Value2,
+	};
 # file header
 snippet headerh
 	//
@@ -45,7 +51,7 @@ snippet singleton for interface
 	 * + ($1*)sharedInstance;
 	 * + (void)releaseSharedInstance;
 	 */
-	INTERFACE_FOR_SINGLETON( $1 )
+	INTERFACE_FOR_SINGLETON($1)
 	
 	@end
 snippet delh
@@ -103,7 +109,7 @@ snippet singleton for implemention
 	#import "$1.h"
 	
 	@implementation $1
-	IMPLEMENTATION_FOR_SINGLETON( $1 )
+	IMPLEMENTATION_FOR_SINGLETON($1)
 	
 	@end
 snippet dels
@@ -118,7 +124,7 @@ snippet dels
 	
 	@implementation $1
 	
-	- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
+	- (BOOL)application:(UIApplication*)application didFinishLaunchingWithOptions:(NSDictionary*)launchOptions
 	{
 	  self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
 	  // Override point for customization after application launch.
@@ -321,12 +327,8 @@ snippet @interface
 	@end 
 # define a private category
 snippet @private
-	#pragma mark - Private Definition ------------------------------
-	
 	@interface ${1:`Filename()`} ()
 	@end 
-	
-	#pragma mark - Main Implementation -----------------------------
 # define a category
 snippet @category
 	#pragma mark - Category $2
