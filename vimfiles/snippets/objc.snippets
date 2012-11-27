@@ -345,6 +345,8 @@ snippet #pmpm
 	#pragma mark - Private Methods
 snippet #pmpu
 	#pragma mark - Public Interface
+snippet #pmli
+	#pragma mark - Lifecycle
 snippet #pmpr
 	#pragma mark - ${1:Protocol} Methods
 snippet #pmom
@@ -363,7 +365,9 @@ snippet @sel
 	@selector(${1:method})${2}
 # define a property
 snippet iboutlet
-	@property (${1:strong}) IBOutlet ${2:id} ${3:varName};${4}
+	@property (weak) IBOutlet ${1:id} ${2:varName};${3}
+snippet ib
+	@property (weak) IBOutlet ${1:id} ${2:varName};${3}
 snippet @prop
 	@property (${1:strong}) ${2:id} ${3:varName};${4}
 # define a NSString property
@@ -599,7 +603,7 @@ snippet gesture swipe
 		NSLog(@"#right");
 	}
 # UITableView
-snippet table
+snippet table ios5
 	#pragma mark - UITableViewDataSource
 	
 	- (NSInteger)tableView:(UITableView*)tableView numberOfRowsInSection:(NSInteger)section
@@ -614,6 +618,26 @@ snippet table
 		if (nil == cell) {
 			cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:kTableViewCellIdentifier];
 		}
+		return cell;
+	}
+	
+	#pragma mark - UITableViewDelegate
+	
+	- (void)tableView:(UITableView*)tableView didSelectRowAtIndexPath:(NSIndexPath*)indexPath
+	{
+	}
+snippet table ios6
+	#pragma mark - UITableViewDataSource
+	
+	- (NSInteger)tableView:(UITableView*)tableView numberOfRowsInSection:(NSInteger)section
+	{
+		return 1;
+	}
+	
+	- (UITableViewCell*)tableView:(UITableView*)tableView cellForRowAtIndexPath:(NSIndexPath*)indexPath
+	{
+		static NSString* const kTableViewCellIdentifier = @"UITableViewCell";
+		UITableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:kTableViewCellIdentifier forIndexPath:indexPath];
 		return cell;
 	}
 	
@@ -1907,7 +1931,10 @@ snippet availableData
 snippet awakeAfterUsingCoder:
 	awakeAfterUsingCoder:${1:(NSCoder*)aDecoder}
 snippet awakeFromNib
-	awakeFromNib
+	- (void)awakeFromNib
+	{
+		${1}
+	}
 snippet backgroundImageForState:
 	backgroundImageForState:${1:(UIControlState)state}
 snippet backgroundRectForBounds:
