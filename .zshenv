@@ -52,6 +52,11 @@ if [ -x /usr/local/bin/brew ]; then
   fi
 fi
 
+####### etc #########
+
+# Disable ssh-agent
+unset SSH_AUTH_SOCK
+
 ####### finally #########
 
 export PATH=~/bin:$PATH
