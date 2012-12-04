@@ -151,8 +151,7 @@ noremap [MyDoublePrefix] <Nop>
 map <Space><Space> [MyDoublePrefix]
 
 set winaltkeys=no
-noremap  <C-l>   <Esc>
-noremap! <C-l>   <Esc>
+inoremap  <C-l>   <Esc>:<C-u>w<CR>
 
 " ---------- for MacVim ----------
 
