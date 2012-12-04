@@ -31,6 +31,14 @@
           <autogen>--KeyToKey-- KeyCode::K, ModifierFlag::OPTION_L, KeyCode::CURSOR_UP</autogen>
           <autogen>--KeyToKey-- KeyCode::L, ModifierFlag::OPTION_L, KeyCode::CURSOR_RIGHT</autogen>
         </item>
+        <item>
+          <name>LeaveInsMode with EISUU(Terminal)</name>
+          <identifier>private.app_terminal_esc_with_eisuu</identifier>
+          <only>TERMINAL, REMOTEDESKTOPCONNECTION</only>
+          <autogen>--KeyToKey-- KeyCode::ESCAPE, KeyCode::ESCAPE, KeyCode::JIS_EISUU</autogen>
+          <autogen>--KeyToKey-- KeyCode::L, VK_CONTROL, KeyCode::JIS_EISUU, KeyCode::L, VK_CONTROL</autogen>
+          <autogen>--KeyOverlaidModifier-- KeyCode::CONTROL_L, KeyCode::CONTROL_L, KeyCode::ESCAPE, KeyCode::JIS_EISUU</autogen>
+        </item>
       </list>
     </item>
 
