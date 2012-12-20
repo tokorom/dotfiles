@@ -43,7 +43,7 @@
   lg = log --graph
   ls = log --stat
   lp = log -p --stat
-  lo = log --oneline
+  lo = log --oneline --decorate
   type = cat-file -t
   dump = cat-file -p
   rv = remote -v
