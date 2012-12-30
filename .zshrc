@@ -109,11 +109,6 @@ fi
 
 ####### 補完機能 #######
 
-if [ -x /usr/local/bin/brew ]; then
-  BREW_PREFIX=`brew --prefix`
-  fpath=($BREW_PREFIX/share/zsh/functions(N) $BREW_PREFIX/share/zsh/site-functions(N) /usr/local/Cellar/git-now/0.1.0.9/share/zsh/site-functions(N) $fpath)
-fi
-
 autoload -Uz compinit
 compinit -u
 
