@@ -46,11 +46,7 @@ fi
 
 ####### autojump #########
 
-if [ -x /usr/local/bin/brew ]; then
-  if [ -f `brew --prefix`/etc/autojump ]; then
-    . `brew --prefix`/etc/autojump
-  fi
-fi
+[[ -s `brew --prefix`/etc/autojump.sh ]] && . `brew --prefix`/etc/autojump.sh
 
 ####### etc #########
 
