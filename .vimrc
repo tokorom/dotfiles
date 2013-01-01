@@ -25,7 +25,8 @@ Bundle 'FuzzyFinder'
 Bundle 'The-NERD-Commenter'
 Bundle 'git://github.com/Shougo/vimproc.git'
 Bundle 'ZenCoding.vim'
-Bundle 'neocomplcache'
+Bundle 'git://github.com/Shougo/neocomplcache.git'
+Bundle 'git://github.com/Shougo/neosnippet.git'
 Bundle 'git://github.com/kana/vim-altr.git'
 Bundle 'git://github.com/thinca/vim-ref.git'
 Bundle 'ack.vim'
@@ -39,6 +40,7 @@ Bundle 'git://github.com/chrismetcalf/vim-markdown.git'
 Bundle 'git://github.com/tyru/open-browser.vim.git'
 Bundle 'git://github.com/scrooloose/syntastic.git'
 Bundle 'git://github.com/sjl/gundo.vim.git'
+Bundle 'git://github.com/Rip-Rip/clang_complete.git'
 
 Bundle 'unite.vim'
 Bundle 'unite-font'
@@ -49,7 +51,6 @@ Bundle 'git://github.com/tobiassvn/vim-gemfile.git'
 " my plugins
 Bundle 'git://github.com/tokorom/brew.vim.git'
 Bundle 'git://gist.github.com/997811.git'
-Bundle 'git://github.com/tokorom/snipmate.vim.git'
 Bundle 'git://github.com/tokorom/zoom.vim.git'
 Bundle 'git://github.com/tokorom/vim-instant-markdown.git'
 Bundle 'git@bitbucket.org:tokorom/vim-quickrun-ghunit.git'
@@ -223,15 +224,6 @@ nnoremap [MyPrefix]cc            :<C-u>cc<CR>
 nnoremap [MyPrefix]cn            :<C-u>cn<CR>
 nnoremap [MyPrefix]cp            :<C-u>cp<CR>
 
-" ---------- complete ----------
-
-" complete
-inoremap <expr> <Enter>    pumvisible()?"\<C-y>":"\<Enter>"
-
-" omni complete
-inoremap <expr> <C-j>      pumvisible()?"\<Down>":"\<C-x><C-o>"
-inoremap <expr> <C-k>      pumvisible()?"\<Up>":"\<C-k>"
-
 " ---------- original ----------
 
 nnoremap [MyPrefix].  <Nop>
@@ -293,8 +285,8 @@ command! SU :source %
 command! -nargs=0 CdCurrent cd %:p:h
 
 " 開発中pluginの再読込
-command! ReloadThisPlugin execute("unlet g:loaded_".expand("%:t:r")) | execute("source ".expand("%"))
-command! RT ReloadThisPlugin
+"command! ReloadThisPlugin execute("unlet g:loaded_".expand("%:t:r")) | execute("source ".expand("%"))
+"command! RT ReloadThisPlugin
 
 " ctagsの実行（スクリプト名固定）
 command! Ctags :!./maketags.sh
@@ -312,9 +304,6 @@ if has('win32') || has('win64')
 else
     command! FireFox :silent !start firefox %<CR>
 endif
-
-" snipMate再読み込み snipMateへのカスタマイズ前提 
-command! ReloadAllSnippets :call ReloadAllSnippets()
 
 " XMLの整形
 command! XmlLint :exe ":silent 1,$!xmllint --format --recover - 2>/dev/null"
@@ -376,10 +365,6 @@ nnoremap [MyPrefix].b             :<C-u>FufBuffer<CR>
 nnoremap [MyPrefix].f             :<C-u>FufFile **/<CR>
 nnoremap [MyPrefix].r             :<C-u>FufMruFile<CR>
 
-" snipMate.vim
-
-let g:snippets_dir = '$HOME/vimfiles/snippets'
-
 " The-NERD-Commenter
 
 map <space>x <plug>NERDCommenterToggle
@@ -408,11 +393,41 @@ if !exists('g:neocomplcache_keyword_patterns')
 endif
 let g:neocomplcache_keyword_patterns['default'] = '\h\w*'
 let g:neocomplcache_enable_auto_select = 1 "最初の候補を自動選択 
+let g:neocomplcache_max_list = 10000
 
-" <C-x><C-f>でneocomplcacheのファイル名補完を利用する 
-inoremap <expr><C-x><C-f>  neocomplcache#manual_filename_complete()
-" <C-n>でneocomplcacheのキーワード補完を利用する 
-inoremap <expr><C-n>  pumvisible() ? "\<C-n>" : neocomplcache#manual_keyword_complete()
+inoremap <expr><C-x><C-f> neocomplcache#manual_filename_complete()
+inoremap <expr><C-n> pumvisible() ? "\<C-n>" : neocomplcache#start_manual_complete()
+inoremap <expr><C-o> neocomplcache#start_manual_complete()
+inoremap <expr><C-h> neocomplcache#smart_close_popup()."\<C-h>"
+
+let g:neocomplcache_source_rank = {
+\ 'snippets_complete' : 500,
+\ 'abbrev_complete' : 400,
+\ }
+
+" clang_complete settings
+
+if !exists('g:neocomplcache_force_omni_patterns')
+  let g:neocomplcache_force_omni_patterns = {}
+endif
+let g:neocomplcache_force_overwrite_completefunc = 1
+let g:neocomplcache_force_omni_patterns.c =
+  \ '[^.[:digit:] *\t]\%(\.\|->\)'
+let g:neocomplcache_force_omni_patterns.cpp =
+  \ '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
+let g:neocomplcache_force_omni_patterns.objc =
+  \ '[^.[:digit:] *\t]\%(\.\|->\)'
+let g:neocomplcache_force_omni_patterns.objcpp =
+  \ '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
+let g:clang_complete_auto = 0
+let g:clang_auto_select = 0
+
+" neosnippet
+
+let g:neosnippet#enable_snipmate_compatibility = 1
+
+imap <expr><TAB> neosnippet#expandable() ? "\<Plug>(neosnippet_expand_or_jump)" : pumvisible() ? "\<C-n>" : "\<TAB>"
+smap <expr><TAB> neosnippet#expandable() ? "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
 
 " vim-LaTex settings
 
