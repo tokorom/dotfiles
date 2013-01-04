@@ -40,7 +40,6 @@ Bundle 'git://github.com/chrismetcalf/vim-markdown.git'
 Bundle 'git://github.com/tyru/open-browser.vim.git'
 Bundle 'git://github.com/scrooloose/syntastic.git'
 Bundle 'git://github.com/sjl/gundo.vim.git'
-Bundle 'git://github.com/Rip-Rip/clang_complete.git'
 
 Bundle 'unite.vim'
 Bundle 'unite-font'
@@ -54,6 +53,7 @@ Bundle 'git://gist.github.com/997811.git'
 Bundle 'git://github.com/tokorom/zoom.vim.git'
 Bundle 'git://github.com/tokorom/vim-instant-markdown.git'
 Bundle 'git@bitbucket.org:tokorom/vim-quickrun-ghunit.git'
+Bundle 'git@github.com:tokorom/clang_complete.git'
 
 " }}}1
 "=============================================================================
@@ -422,11 +422,13 @@ let g:neocomplcache_force_omni_patterns.objcpp =
 let g:clang_complete_auto = 0
 let g:clang_auto_select = 0
 
+let g:clang_complete_include_current_directory_recursively = 1
+
 " neosnippet
 
 let g:neosnippet#enable_snipmate_compatibility = 1
 
-imap <expr><TAB> neosnippet#expandable() ? "\<Plug>(neosnippet_expand_or_jump)" : pumvisible() ? "\<C-n>" : "\<TAB>"
+imap <expr><TAB> neosnippet#expandable() ? "\<Plug>(neosnippet_expand_or_jump)" : pumvisible() ? "\<CR>" : "\<TAB>"
 smap <expr><TAB> neosnippet#expandable() ? "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
 
 " vim-LaTex settings
