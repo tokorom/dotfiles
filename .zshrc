@@ -181,3 +181,12 @@ setopt auto_param_slash
 
 ## スペルチェック
 setopt correct
+
+
+####### keychain ########
+
+if [ -x "`which keychain`" ]; then
+  keychain ~/.ssh/id_rsa
+  . $HOME/.keychain/$HOST-sh
+fi
+
