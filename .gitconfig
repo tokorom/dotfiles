@@ -35,8 +35,8 @@
   psm = push origin master
   psh = push origin HEAD
   psu = push upstream master
-  df = diff
-  dfs = diff --staged
+  df = diff --ignore-space-change
+  dfs = diff --staged --ignore-space-change
   dfl = diff --name-status
   l = log
   ll = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
