@@ -21,7 +21,7 @@ Bundle 'surround.vim'
 Bundle 'autodate.vim'
 Bundle 'git://github.com/kana/vim-fakeclip.git'
 Bundle 'L9'
-Bundle 'FuzzyFinder'
+Bundle 'git://github.com/kien/ctrlp.vim.git'
 Bundle 'The-NERD-Commenter'
 Bundle 'git://github.com/Shougo/vimproc.git'
 Bundle 'ZenCoding.vim'
@@ -345,24 +345,22 @@ augroup END
 "=============================================================================
 " plugin settings {{{1
 
-" FuzzyFinder
+" ctrlp
 
-let g:fuf_modesDisable = ['mrucmd']
-let g:fuf_mrufile_maxItem = 1000
-let g:fuf_enumeratingLimit = 50
-let g:fuf_file_recursiveLimit = 2000
-let g:fuf_dataDir = $HOME.'/vim_fuf_data'
-let g:MRU_File = $HOME.'/vim_fuf_data/_mru_file'
+let g:ctrlp_by_filename = 1
 
-let g:fuf_file_exclude = '\v\~$|\.o$|\.exe$|\.bak$|\.swp$|\.svn$|vendor/|\.d$|\.dia$|\.gcda$|\.gcno'
-let g:fuf_mrufile_exclude = g:fuf_file_exclude
+let g:ctrlp_prompt_mappings = {
+  \ 'AcceptSelection("e")': ['<C-x>', '<2-LeftMouse>'],
+  \ 'AcceptSelection("t")': ['<CR>'],
+  \ 'AcceptSelection("h")': ['<c-cr>', '<c-s>'],
+  \ }
 
-let g:fuf_keyOpen = '<Tab>'
-let g:fuf_keyOpenTabpage = '<CR>'
+let g:ctrlp_custom_ignore = '\v\~$|\.o$|\.exe$|\.bak$|\.swp$|\.svn$|vendor/|\.d$|\.dia$|\.gcda$|\.gcno'
+let g:ctrlp_mruf_exclude = '/tmp/.*\|/temp/.*|/backup/*'
 
-nnoremap [MyPrefix].b             :<C-u>FufBuffer<CR>
-nnoremap [MyPrefix].f             :<C-u>FufFile **/<CR>
-nnoremap [MyPrefix].r             :<C-u>FufMruFile<CR>
+nnoremap [MyPrefix].f :<C-u>CtrlP<CR>
+nnoremap [MyPrefix].b :<C-u>CtrlPBuffer<CR>
+nnoremap [MyPrefix].r :<C-u>CtrlPMRU<CR>
 
 " The-NERD-Commenter
 
