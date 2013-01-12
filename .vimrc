@@ -425,10 +425,21 @@ let g:clang_complete_include_current_directory_recursively = 1
 
 " neosnippet
 
+let g:neosnippet#snippets_directory = "$HOME/vimfiles/snippets"
 let g:neosnippet#enable_snipmate_compatibility = 1
 
-imap <expr><TAB> neosnippet#expandable() ? "\<Plug>(neosnippet_expand_or_jump)" : pumvisible() ? "\<CR>" : "\<TAB>"
-smap <expr><TAB> neosnippet#expandable() ? "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
+imap <expr><TAB> neosnippet#expandable() ?
+  \ "\<Plug>(neosnippet_expand_or_jump)" : pumvisible() ? "\<CR>" : "\<TAB>"
+smap <expr><TAB> neosnippet#expandable() ?
+  \ "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
+imap <expr><M-Y> neosnippet#jumpable() ?
+  \ "\<Plug>(neosnippet_jump)" : ""
+smap <expr><M-Y> neosnippet#jumpable() ?
+  \ "\<Plug>(neosnippet_jump)" : ""
+imap <expr><Esc> neosnippet#expandable() ?
+  \ "\<M-Y>\<M-Y>\<M-Y>\<M-Y>\<M-Y>\<M-Y>\<M-Y>\<M-Y>\<M-Y>\<M-Y>\<M-Y>\<Esc>" : "\<Esc>"
+smap <expr><Esc> neosnippet#expandable() ?
+  \ "\<M-Y>\<M-Y>\<M-Y>\<M-Y>\<M-Y>\<M-Y>\<M-Y>\<M-Y>\<M-Y>\<M-Y>\<M-Y>\<Esc>" : "\<Esc>"
 
 " vim-LaTex settings
 

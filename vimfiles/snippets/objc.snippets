@@ -1,3 +1,5 @@
+include c.snippets
+
 # file header
 snippet headerh
 	//
@@ -5,12 +7,16 @@ snippet headerh
 	//
 	//  Created by ToKoRo on `strftime("%Y-%m-%d")`.
 	//
+	 
+	${0}
 snippet headers
 	//
 	//  ${1:`Filename()`}.m
 	//
 	//  Created by ToKoRo on `strftime("%Y-%m-%d")`.
 	//
+	 
+	${0}
 # template for header
 snippet objch
 	//
@@ -20,7 +26,7 @@ snippet objch
 	//
 	
 	@interface $1 : NSObject
-	@end
+	@end${0}
 snippet vch
 	//
 	//  ${1:`Filename()`}.h
@@ -29,7 +35,7 @@ snippet vch
 	//
 	
 	@interface $1 : UIViewController
-	@end
+	@end${0}
 snippet singleton for interface
 	//
 	//  ${1:`Filename()`}.h
@@ -46,20 +52,7 @@ snippet singleton for interface
 	 * + (void)releaseSharedInstance;
 	 */
 	INTERFACE_FOR_SINGLETON($1)
-	
-	@end
-snippet delh
-	//
-	//  ${1:`Filename()`}.h
-	//
-	//  Created by ToKoRo on `strftime("%Y-%m-%d")`.
-	//
-	
-	@interface $1 : NSObject <UIApplicationDelegate>
-	
-	@property (strong) UIWindow* window;
-	@property (strong) UIViewController* rootViewController;
-	
+		${0}
 	@end
 # template for source
 snippet objcs
@@ -72,7 +65,7 @@ snippet objcs
 	#import "$1.h"
 	
 	@implementation $1
-	
+		${0}
 	@end
 snippet vcs
 	//
@@ -91,7 +84,7 @@ snippet vcs
 	{
 		[super viewDidLoad];
 	}
-	
+		${0}
 	@end
 snippet singleton for implemention
 	//
@@ -104,51 +97,7 @@ snippet singleton for implemention
 	
 	@implementation $1
 	IMPLEMENTATION_FOR_SINGLETON($1)
-	
-	@end
-snippet dels
-	//
-	//  ${1:`Filename()`}.m
-	//
-	//  Created by ToKoRo on `strftime("%Y-%m-%d")`.
-	//
-	
-	#import "$1.h"
-	#import "RootViewController.h"
-	
-	@implementation $1
-	
-	- (BOOL)application:(UIApplication*)application didFinishLaunchingWithOptions:(NSDictionary*)launchOptions
-	{
-	  self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-	  // Override point for customization after application launch.
-	  self.window.backgroundColor = [UIColor whiteColor];
-	  self.rootViewController = [RootViewController new];
-	  [self.window addSubview:self.rootViewController.view];
-	  [self.window makeKeyAndVisible];
-	  return YES;
-	}
-	
-	- (void)applicationWillResignActive:(UIApplication*)application
-	{
-	}
-	
-	- (void)applicationDidEnterBackground:(UIApplication*)application
-	{
-	}
-	
-	- (void)applicationWillEnterForeground:(UIApplication*)application
-	{
-	}
-	
-	- (void)applicationDidBecomeActive:(UIApplication*)application
-	{
-	}
-	
-	- (void)applicationWillTerminate:(UIApplication*)application
-	{
-	}
-	
+		${0}
 	@end
 snippet enum
 	typedef NS_ENUM(NSUInteger, ${1:Type}) {
@@ -413,7 +362,7 @@ snippet forr
 	}
 # NSLog
 snippet log
-	NSLog(@"${1}"${2});
+	NSLog(@"${1}"${2:#:,});${0}
 # NSAssert
 snippet assert
 	NSAssert(${1}, @"${2}");
