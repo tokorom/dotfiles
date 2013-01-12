@@ -51,7 +51,6 @@ Bundle 'git://github.com/tobiassvn/vim-gemfile.git'
 Bundle 'git://github.com/tokorom/brew.vim.git'
 Bundle 'git://gist.github.com/997811.git'
 Bundle 'git://github.com/tokorom/zoom.vim.git'
-Bundle 'git://github.com/tokorom/vim-instant-markdown.git'
 Bundle 'git@bitbucket.org:tokorom/vim-quickrun-ghunit.git'
 Bundle 'git@github.com:tokorom/clang_complete.git'
 
@@ -478,13 +477,16 @@ let g:quickrun_config['ruby.rspec'] = {'command': 'rspec', 'cmdopt': '--format p
 let g:quickrun_config['objc.test'] = {'command': 'make', 'cmdopt': 'test', 'outputter': 'ghunit'}
 
 let g:quickrun_config['markdown'] = {
-  \ 'type': 'markdown/pandoc',
-  \ 'outputter': 'browser',
-  \ 'cmdopt': '-s'
+  \ 'outputter' : 'null',
+  \ 'command' : 'open',
+  \ 'cmdopt' : '-a',
+  \ 'args' : 'Marked',
+  \ 'exec' : '%c %o %a %s',
   \ }
 
 " keymap
 
-silent! map <unique> [MyPrefix]q <Plug>(quickrun)
+map [MyPrefix]q <Nop>
+map [MyPrefix]q <Plug>(quickrun)
 
 " }}}1
