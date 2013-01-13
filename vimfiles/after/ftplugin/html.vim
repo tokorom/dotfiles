@@ -6,6 +6,3 @@ setl tabstop=8 expandtab shiftwidth=2 softtabstop=2
 
 " ZenCoding
 imap <C-j>  <C-y>,
-
-" Preview
-silent! nmap [MyPrefix]q :!open "%"<CR><CR>

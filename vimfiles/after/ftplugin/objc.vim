@@ -9,15 +9,22 @@ call altr#remove_all()
 call altr#define('%.h', '%.m', '%.mm')
 call altr#define('en.lproj/%', 'ja.lproj/%')
 
+" --- clang_complete settings ---
+
+let g:clang_auto_user_options = 'path, .clang_complete, clang, ios'
+
 " --- added keybinds ---
 
-nnoremap [MyPrefix][   ebi[<Esc>ea<Space>]<Esc>i
-nnoremap [MyPrefix]]   F[i[<Esc>f]a]<Esc>i<Space>
-nnoremap [MyPrefix]@   ebi@"<Esc>ea"<Esc>
-nnoremap [MyPrefix];   A;<Return>
+nnoremap <buffer> [MyPrefix]{             o{<Esc>o}<Esc>
+nnoremap <buffer> [MyDoublePrefix]{       $xo{<Esc>o}<Esc>
 
-inoremap <C-a> <Esc>0f:a
-inoremap <C-b> <Esc>F:a
-inoremap <C-f> <Esc>f:a
+nnoremap <buffer> [MyPrefix][   ebi[<Esc>ea<Space>]<Esc>i
+nnoremap <buffer> [MyPrefix]]   F[i[<Esc>f]a]<Esc>i<Space>
+nnoremap <buffer> [MyPrefix]@   ebi@"<Esc>ea"<Esc>
+nnoremap <buffer> [MyPrefix];   A;<Return>
 
-silent! map <silent><expr> [MyDoublePrefix]q ':QuickRun -args "TEST=' . expand("%:t:r") . '"<CR>'
+inoremap <buffer> <C-a> <Esc>0f:a
+inoremap <buffer> <C-b> <Esc>F:a
+inoremap <buffer> <C-f> <Esc>f:a
+
+map <silent> <buffer> <expr> [MyDoublePrefix]q ':QuickRun -args "TEST=' . expand("%:t:r") . '"<CR>'

@@ -50,12 +50,14 @@ Bundle 'git://github.com/mattn/ctrlp-mark.git'
 
 Bundle 'git://github.com/tobiassvn/vim-gemfile.git'
 
+Bundle 'git@github.com:tokorom/clang_complete.git'
+Bundle 'git://github.com/tokorom/clang_complete-getopts-ios.git'
+
 " my plugins
 Bundle 'git://github.com/tokorom/brew.vim.git'
 Bundle 'git://gist.github.com/997811.git'
 Bundle 'git://github.com/tokorom/zoom.vim.git'
 Bundle 'git@bitbucket.org:tokorom/vim-quickrun-ghunit.git'
-Bundle 'git@github.com:tokorom/clang_complete.git'
 
 " }}}1
 "=============================================================================
@@ -423,8 +425,6 @@ let g:neocomplcache_force_omni_patterns.objcpp =
   \ '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
 let g:clang_complete_auto = 0
 let g:clang_auto_select = 0
-
-let g:clang_complete_include_current_directory_recursively = 1
 
 " neosnippet
 
