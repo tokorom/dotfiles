@@ -21,7 +21,6 @@ Bundle 'surround.vim'
 Bundle 'autodate.vim'
 Bundle 'git://github.com/kana/vim-fakeclip.git'
 Bundle 'L9'
-Bundle 'git://github.com/kien/ctrlp.vim.git'
 Bundle 'The-NERD-Commenter'
 Bundle 'git://github.com/Shougo/vimproc.git'
 Bundle 'ZenCoding.vim'
@@ -44,6 +43,10 @@ Bundle 'git://github.com/sjl/gundo.vim.git'
 Bundle 'unite.vim'
 Bundle 'unite-font'
 Bundle 'unite-colorscheme'
+
+Bundle 'git://github.com/kien/ctrlp.vim.git'
+Bundle 'git://github.com/mattn/ctrlp-register.git'
+Bundle 'git://github.com/mattn/ctrlp-mark.git'
 
 Bundle 'git://github.com/tobiassvn/vim-gemfile.git'
 
@@ -361,6 +364,8 @@ let g:ctrlp_mruf_exclude = '/tmp/.*\|/temp/.*|/backup/*'
 nnoremap [MyPrefix].f :<C-u>CtrlP<CR>
 nnoremap [MyPrefix].b :<C-u>CtrlPBuffer<CR>
 nnoremap [MyPrefix].r :<C-u>CtrlPMRU<CR>
+nnoremap [MyPrefix].m :<C-u>CtrlPMark<CR>
+nnoremap [MyPrefix]." :<C-u>CtrlPRegister<CR>
 
 " The-NERD-Commenter
 
