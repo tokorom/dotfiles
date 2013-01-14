@@ -39,6 +39,7 @@ Bundle 'git://github.com/chrismetcalf/vim-markdown.git'
 Bundle 'git://github.com/tyru/open-browser.vim.git'
 Bundle 'git://github.com/scrooloose/syntastic.git'
 Bundle 'git://github.com/sjl/gundo.vim.git'
+Bundle 'git://github.com/yuratomo/w3m.vim.git'
 
 Bundle 'unite.vim'
 Bundle 'unite-font'
@@ -47,6 +48,7 @@ Bundle 'unite-colorscheme'
 Bundle 'git://github.com/kien/ctrlp.vim.git'
 Bundle 'git://github.com/mattn/ctrlp-register.git'
 Bundle 'git://github.com/mattn/ctrlp-mark.git'
+Bundle 'git@github.com:tokorom/ctrlp-docset.git'
 
 Bundle 'git://github.com/tobiassvn/vim-gemfile.git'
 
@@ -239,18 +241,15 @@ nnoremap [MyPrefix].p :<C-u>edit $HOME/vimfiles/snippets/<Enter>
 " ---------- file ----------
 
 nnoremap [MyPrefix]w             :<C-u>w<CR>
-nnoremap [MyPrefix].w            :<C-u>w<CR>
 nnoremap [MyPrefix].e            :<C-u>e .<CR>
 nnoremap <silent> <C-w><C-e>     :<C-u>vs<CR>:<C-u>e .<CR>
 
 nnoremap [MyPrefix]t             :<C-u>tabnew 
-nnoremap [MyPrefix].t            :<C-u>tabnew .<CR>
 
 " ---------- tab ----------
 
 nnoremap <C-n>                   :<C-u>tabn<CR>
 nnoremap <C-p>                   :<C-u>tabp<CR>
-nnoremap [MyPrefix].d            :<C-u>bd<CR>
 
 " ---------- grep ----------
 
@@ -352,7 +351,7 @@ augroup END
 
 " ctrlp
 
-let g:ctrlp_by_filename = 1
+let g:ctrlp_by_filename = 0
 
 let g:ctrlp_prompt_mappings = {
   \ 'AcceptSelection("e")': ['<C-x>', '<2-LeftMouse>'],
@@ -363,11 +362,17 @@ let g:ctrlp_prompt_mappings = {
 let g:ctrlp_custom_ignore = '\v\~$|\.o$|\.exe$|\.bak$|\.swp$|\.svn$|vendor/|\.d$|\.dia$|\.gcda$|\.gcno'
 let g:ctrlp_mruf_exclude = '/tmp/.*\|/temp/.*|/backup/*'
 
+let g:ctrlp_docset_docsetutil_command = '/Applications/Xcode.app/Contents/Developer/usr/bin/docsetutil'
+let g:ctrlp_docset_filepaths = {}
+let g:ctrlp_docset_filepaths['objc'] = '~/Library/Developer/Shared/Documentation/DocSets/com.apple.adc.documentation.AppleiOS6.0.iOSLibrary.docset'
+let g:ctrlp_docset_accept_command = ':W3mSplit local %s'
+
 nnoremap [MyPrefix].f :<C-u>CtrlP<CR>
 nnoremap [MyPrefix].b :<C-u>CtrlPBuffer<CR>
 nnoremap [MyPrefix].r :<C-u>CtrlPMRU<CR>
 nnoremap [MyPrefix].m :<C-u>CtrlPMark<CR>
 nnoremap [MyPrefix]." :<C-u>CtrlPRegister<CR>
+nnoremap [MyPrefix].d :<C-u>CtrlPDocset<CR>
 
 " The-NERD-Commenter
 
