@@ -351,6 +351,7 @@ augroup END
 
 " ctrlp
 
+let g:ctrlp_map = ''
 let g:ctrlp_by_filename = 0
 
 let g:ctrlp_prompt_mappings = {
