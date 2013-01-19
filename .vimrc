@@ -52,7 +52,7 @@ Bundle 'git@github.com:tokorom/ctrlp-docset.git'
 
 Bundle 'git://github.com/tobiassvn/vim-gemfile.git'
 
-Bundle 'git@github.com:tokorom/clang_complete.git'
+Bundle 'git://github.com/Rip-Rip/clang_complete.git'
 Bundle 'git://github.com/tokorom/clang_complete-getopts-ios.git'
 
 " my plugins
@@ -417,6 +417,8 @@ let g:neocomplcache_source_rank = {
 
 " clang_complete settings
 
+let g:clang_use_library = 1
+
 if !exists('g:neocomplcache_force_omni_patterns')
   let g:neocomplcache_force_omni_patterns = {}
 endif
@@ -445,9 +447,9 @@ imap <expr><M-Y> neosnippet#jumpable() ?
   \ "\<Plug>(neosnippet_jump)" : ""
 smap <expr><M-Y> neosnippet#jumpable() ?
   \ "\<Plug>(neosnippet_jump)" : ""
-imap <expr><Esc> neosnippet#expandable() ?
+imap <expr><Esc> neosnippet#jumpable() ?
   \ "\<M-Y>\<M-Y>\<M-Y>\<M-Y>\<M-Y>\<M-Y>\<M-Y>\<M-Y>\<M-Y>\<M-Y>\<M-Y>\<Esc>" : "\<Esc>"
-smap <expr><Esc> neosnippet#expandable() ?
+smap <expr><Esc> neosnippet#jumpable() ?
   \ "\<M-Y>\<M-Y>\<M-Y>\<M-Y>\<M-Y>\<M-Y>\<M-Y>\<M-Y>\<M-Y>\<M-Y>\<M-Y>\<Esc>" : "\<Esc>"
 
 " vim-LaTex settings
