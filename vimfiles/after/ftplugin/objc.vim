@@ -26,5 +26,6 @@ nnoremap <buffer> [MyPrefix];   A;<Return>
 inoremap <buffer> <C-a> <Esc>0f:a
 inoremap <buffer> <C-b> <Esc>F:a
 inoremap <buffer> <C-f> <Esc>f:a
+inoremap <buffer> <C-]> <Esc>F[i[<Esc>A<Space>
 
 map <silent> <buffer> <expr> [MyDoublePrefix]q ':QuickRun -args "TEST=' . expand("%:t:r") . '"<CR>'

@@ -54,6 +54,9 @@ NeoBundleLazy 'git://github.com/tobiassvn/vim-gemfile.git', {'autoload': {'filet
 " markdown
 NeoBundleLazy 'git://github.com/chrismetcalf/vim-markdown.git', {'autoload': {'filetypes': ['markdown']}}
 
+" objc
+NeoBundle 'git@github.com:tokorom/cocoa.vim.git', 'syntax-only'
+
 " ctrlp
 NeoBundle 'git://github.com/kien/ctrlp.vim.git'
 NeoBundle 'git://github.com/mattn/ctrlp-register.git'
