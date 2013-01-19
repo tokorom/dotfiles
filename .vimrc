@@ -2,71 +2,71 @@
 
 autocmd!
 
-"=============================================================================
-" Bundle (Vundle) {{{1
-
 set nocompatible
 filetype off
-set rtp+=$HOME/vimfiles/vundle.git/
-call vundle#rc()
 
-" original repos on github
-" Bundle 'tpope/vim-fugitive'
-" vim-scripts repos
-" Bundle 'rails.vim'
-" non github repos
-" Bundle 'git://git.wincent.com/command-t.git'
+"=============================================================================
+" Bundle (NeoBundle) {{{1
 
-Bundle 'surround.vim'
-Bundle 'autodate.vim'
-Bundle 'git://github.com/kana/vim-fakeclip.git'
-Bundle 'L9'
-Bundle 'The-NERD-Commenter'
-Bundle 'git://github.com/Shougo/vimproc.git'
-Bundle 'ZenCoding.vim'
-Bundle 'git://github.com/Shougo/neocomplcache.git'
-Bundle 'git://github.com/Shougo/neosnippet.git'
-Bundle 'git://github.com/kana/vim-altr.git'
-Bundle 'git://github.com/thinca/vim-ref.git'
-Bundle 'ack.vim'
-Bundle 'git://github.com/tpope/vim-rails.git'
-Bundle 'git://github.com/mattn/gist-vim.git'
-Bundle 'git://github.com/gerw/vim-latex-suite.git'
-Bundle 'git://github.com/thinca/vim-quickrun.git'
-Bundle 'git://github.com/tpope/vim-fugitive.git'
-Bundle 'git://github.com/gregsexton/gitv.git'
-Bundle 'git://github.com/chrismetcalf/vim-markdown.git'
-Bundle 'git://github.com/tyru/open-browser.vim.git'
-Bundle 'git://github.com/scrooloose/syntastic.git'
-Bundle 'git://github.com/sjl/gundo.vim.git'
-Bundle 'git://github.com/yuratomo/w3m.vim.git'
+if has('vim_starting')
+  set runtimepath+=$HOME/vimfiles/bundle/neobundle.vim/
+endif
+call neobundle#rc(expand('$HOME/vimfiles/bundle/'))
+NeoBundleFetch 'Shougo/neobundle.vim'
 
-Bundle 'unite.vim'
-Bundle 'unite-font'
-Bundle 'unite-colorscheme'
+NeoBundle 'surround.vim'
+NeoBundle 'autodate.vim'
+NeoBundle 'git://github.com/kana/vim-fakeclip.git'
+NeoBundle 'L9'
+NeoBundle 'The-NERD-Commenter'
+NeoBundle 'ZenCoding.vim'
+NeoBundle 'git://github.com/Shougo/neocomplcache.git'
+NeoBundle 'git://github.com/Shougo/neosnippet.git'
+NeoBundle 'git://github.com/kana/vim-altr.git'
+NeoBundle 'git://github.com/thinca/vim-ref.git'
+NeoBundle 'ack.vim'
+NeoBundle 'git://github.com/tpope/vim-rails.git'
+NeoBundle 'git://github.com/mattn/gist-vim.git'
+NeoBundle 'git://github.com/gerw/vim-latex-suite.git'
+NeoBundle 'git://github.com/thinca/vim-quickrun.git'
+NeoBundle 'git://github.com/tpope/vim-fugitive.git'
+NeoBundle 'git://github.com/gregsexton/gitv.git'
+NeoBundle 'git://github.com/chrismetcalf/vim-markdown.git'
+NeoBundle 'git://github.com/tyru/open-browser.vim.git'
+NeoBundle 'git://github.com/scrooloose/syntastic.git'
+NeoBundle 'git://github.com/sjl/gundo.vim.git'
+NeoBundle 'git://github.com/yuratomo/w3m.vim.git'
+NeoBundle 'git://github.com/tobiassvn/vim-gemfile.git'
 
-Bundle 'git://github.com/kien/ctrlp.vim.git'
-Bundle 'git://github.com/mattn/ctrlp-register.git'
-Bundle 'git://github.com/mattn/ctrlp-mark.git'
-Bundle 'git@github.com:tokorom/ctrlp-docset.git'
+" unite
+NeoBundle 'unite.vim'
+NeoBundle 'unite-font'
+NeoBundle 'unite-colorscheme'
 
-Bundle 'git://github.com/tobiassvn/vim-gemfile.git'
+" ctrlp
+NeoBundle 'git://github.com/kien/ctrlp.vim.git'
+NeoBundle 'git://github.com/mattn/ctrlp-register.git'
+NeoBundle 'git://github.com/mattn/ctrlp-mark.git'
+NeoBundle 'git://github.com/tokorom/ctrlp-docset.git'
 
-Bundle 'git://github.com/Rip-Rip/clang_complete.git'
-Bundle 'git://github.com/tokorom/clang_complete-getopts-ios.git'
+" clang
+NeoBundle 'git://github.com/Rip-Rip/clang_complete.git'
+NeoBundle 'git://github.com/tokorom/clang_complete-getopts-ios.git'
 
-" my plugins
-Bundle 'git://github.com/tokorom/brew.vim.git'
-Bundle 'git://gist.github.com/997811.git'
-Bundle 'git://github.com/tokorom/zoom.vim.git'
-Bundle 'git@bitbucket.org:tokorom/vim-quickrun-ghunit.git'
+" customize
+NeoBundle 'git://github.com/tokorom/brew.vim.git'
+NeoBundle 'git://gist.github.com/997811.git'
+NeoBundle 'git://github.com/tokorom/zoom.vim.git'
+NeoBundle 'git@bitbucket.org:tokorom/vim-quickrun-ghunit.git'
+
+" ファイルタイプ別セッティングON
+filetype plugin indent on 
+
+NeoBundleCheck
 
 " }}}1
 "=============================================================================
 " 基本設定 {{{1
-
-" ファイルタイプ別セッティングON
-filetype plugin indent on 
 
 " 日本語入力設定
 set imsearch=0
