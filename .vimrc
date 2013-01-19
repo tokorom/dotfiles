@@ -368,7 +368,7 @@ let g:ctrlp_docset_filepaths = {}
 let g:ctrlp_docset_filepaths['objc'] = '~/Library/Developer/Shared/Documentation/DocSets/com.apple.adc.documentation.AppleiOS6.0.iOSLibrary.docset'
 let g:ctrlp_docset_accept_command = ':W3mSplit local %s'
 
-nnoremap [MyPrefix].f :<C-u>CtrlP<CR>
+nnoremap [MyPrefix].f :<C-u>CtrlP .<CR>
 nnoremap [MyPrefix].b :<C-u>CtrlPBuffer<CR>
 nnoremap [MyPrefix].r :<C-u>CtrlPMRU<CR>
 nnoremap [MyPrefix].m :<C-u>CtrlPMark<CR>
