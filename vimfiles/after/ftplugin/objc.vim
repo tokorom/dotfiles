@@ -11,7 +11,7 @@ call altr#define('en.lproj/%', 'ja.lproj/%')
 
 " --- clang_complete settings ---
 
-let g:clang_auto_user_options = 'path, .clang_complete, clang, ios'
+let g:clang_auto_user_options = 'path, .clang_complete, ios'
 
 " --- added keybinds ---
 

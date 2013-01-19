@@ -14,49 +14,62 @@ endif
 call neobundle#rc(expand('$HOME/vimfiles/bundle/'))
 NeoBundleFetch 'Shougo/neobundle.vim'
 
+NeoBundle 'Shougo/vimproc', {
+\ 'build' : {
+\     'windows' : 'echo "Sorry, cannot update vimproc binary file in Windows."',
+\     'cygwin' : 'make -f make_cygwin.mak',
+\     'mac' : 'make -f make_mac.mak',
+\     'unix' : 'make -f make_unix.mak',
+\    },
+\ }
+
 NeoBundle 'surround.vim'
 NeoBundle 'autodate.vim'
 NeoBundle 'git://github.com/kana/vim-fakeclip.git'
 NeoBundle 'L9'
-NeoBundle 'The-NERD-Commenter'
-NeoBundle 'ZenCoding.vim'
-NeoBundle 'git://github.com/Shougo/neocomplcache.git'
-NeoBundle 'git://github.com/Shougo/neosnippet.git'
 NeoBundle 'git://github.com/kana/vim-altr.git'
 NeoBundle 'git://github.com/thinca/vim-ref.git'
 NeoBundle 'ack.vim'
-NeoBundle 'git://github.com/tpope/vim-rails.git'
-NeoBundle 'git://github.com/mattn/gist-vim.git'
-NeoBundle 'git://github.com/gerw/vim-latex-suite.git'
-NeoBundle 'git://github.com/thinca/vim-quickrun.git'
-NeoBundle 'git://github.com/tpope/vim-fugitive.git'
-NeoBundle 'git://github.com/gregsexton/gitv.git'
-NeoBundle 'git://github.com/chrismetcalf/vim-markdown.git'
 NeoBundle 'git://github.com/tyru/open-browser.vim.git'
 NeoBundle 'git://github.com/scrooloose/syntastic.git'
 NeoBundle 'git://github.com/sjl/gundo.vim.git'
 NeoBundle 'git://github.com/yuratomo/w3m.vim.git'
-NeoBundle 'git://github.com/tobiassvn/vim-gemfile.git'
+NeoBundle 'The-NERD-Commenter'
 
-" unite
-NeoBundle 'unite.vim'
-NeoBundle 'unite-font'
-NeoBundle 'unite-colorscheme'
+" Git
+NeoBundle 'git://github.com/tpope/vim-fugitive.git'
+NeoBundle 'git://github.com/gregsexton/gitv.git'
+
+" neocomplcache
+NeoBundle 'git://github.com/Shougo/neocomplcache.git'
+NeoBundle 'git://github.com/Shougo/neosnippet.git'
+
+" html
+NeoBundleLazy 'ZenCoding.vim', {'autoload': {'filetypes': ['html']}}
+
+" ruby
+NeoBundleLazy 'git://github.com/tpope/vim-rails.git', {'autoload': {'filetypes': ['ruby']}}
+NeoBundleLazy 'git://github.com/tobiassvn/vim-gemfile.git', {'autoload': {'filetypes': ['ruby']}}
+
+" markdown
+NeoBundleLazy 'git://github.com/chrismetcalf/vim-markdown.git', {'autoload': {'filetypes': ['markdown']}}
 
 " ctrlp
 NeoBundle 'git://github.com/kien/ctrlp.vim.git'
 NeoBundle 'git://github.com/mattn/ctrlp-register.git'
 NeoBundle 'git://github.com/mattn/ctrlp-mark.git'
+"NeoBundleLazy 'git://github.com/tokorom/ctrlp-docset.git', {'autoload': {'filetypes': ['objc']}}
 NeoBundle 'git://github.com/tokorom/ctrlp-docset.git'
 
 " clang
-NeoBundle 'git://github.com/Rip-Rip/clang_complete.git'
+"NeoBundleLazy 'git://github.com/Rip-Rip/clang_complete.git', {'autoload': {'filetypes': ['c', 'cpp', 'objc']}}
+NeoBundle 'git@github.com:tokorom/clang_complete.git', 'for-ios'
+"NeoBundleLazy 'git://github.com/tokorom/clang_complete-getopts-ios.git', {'autoload': {'filetypes': ['objc']}}
 NeoBundle 'git://github.com/tokorom/clang_complete-getopts-ios.git'
 
-" customize
-NeoBundle 'git://github.com/tokorom/brew.vim.git'
-NeoBundle 'git://gist.github.com/997811.git'
-NeoBundle 'git://github.com/tokorom/zoom.vim.git'
+" quickrun
+NeoBundle 'git://github.com/thinca/vim-quickrun.git'
+"NeoBundleLazy 'git@bitbucket.org:tokorom/vim-quickrun-ghunit.git', {'autoload': {'filetypes': ['objc']}}
 NeoBundle 'git@bitbucket.org:tokorom/vim-quickrun-ghunit.git'
 
 " ファイルタイプ別セッティングON
@@ -291,22 +304,8 @@ command! -nargs=0 CdCurrent cd %:p:h
 "command! ReloadThisPlugin execute("unlet g:loaded_".expand("%:t:r")) | execute("source ".expand("%"))
 "command! RT ReloadThisPlugin
 
-" ctagsの実行（スクリプト名固定）
-command! Ctags :!./maketags.sh
-
 " カレントバッファのファイル名を変更 by vim-users.jp
 command! -nargs=1 -complete=file Rename f <args>|call delete(expand('#'))
-
-" FireFoxで開く
-if has('win32') || has('win64')
-"    if @%[0] != 'c'
-        command! FireFox :silent !start firefox c:%<CR>
-"    else
-"        command! FireFox :silent !start firefox %<CR>
-"    endif
-else
-    command! FireFox :silent !start firefox %<CR>
-endif
 
 " XMLの整形
 command! XmlLint :exe ":silent 1,$!xmllint --format --recover - 2>/dev/null"
