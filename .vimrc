@@ -89,7 +89,8 @@ set imsearch=0
 set iminsert=0
 set encoding=utf-8
 set fileencodings=utf-8,cp932,euc-jp,iso-2022-jp,ucs-2,latin1
-set fileformats=unix,dos,mac
+set fileformats=unix,mac,dos
+set ambiwidth=double
 
 " 挿入モードでのバックスペースの挙動設定
 set backspace=indent,eol,start
