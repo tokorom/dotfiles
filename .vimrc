@@ -485,6 +485,10 @@ let g:Tex_IgnoredWarnings =
       \'LaTeX Font Warning:'"
 let g:Tex_IgnoreLevel = 8
 
+" w3m.vim
+
+let g:w3m#disable_vimproc = 1
+
 " }}}1
 
 " quickrun settings {{{1
