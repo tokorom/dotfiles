@@ -426,13 +426,13 @@ if !exists('g:neocomplcache_force_omni_patterns')
 endif
 let g:neocomplcache_force_overwrite_completefunc = 1
 let g:neocomplcache_force_omni_patterns.c =
-  \ '[^.[:digit:] *\t]\%(\.\|->\)'
+\ '[^.[:digit:] *\t]\%(\.\|->\)'
 let g:neocomplcache_force_omni_patterns.cpp =
-  \ '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
+\ '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
 let g:neocomplcache_force_omni_patterns.objc =
-  \ '[^.[:digit:] *\t]\%(\.\|->\)'
+\ '[^.[:digit:] *\t]\%(\.\|->\)'
 let g:neocomplcache_force_omni_patterns.objcpp =
-  \ '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
+\ '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
 let g:clang_complete_auto = 0
 let g:clang_auto_select = 0
 
@@ -441,18 +441,19 @@ let g:clang_auto_select = 0
 let g:neosnippet#snippets_directory = "$HOME/vimfiles/snippets"
 let g:neosnippet#enable_snipmate_compatibility = 1
 
-imap <expr><TAB> neosnippet#expandable() ?
-  \ "\<Plug>(neosnippet_expand_or_jump)" : pumvisible() ? "\<CR>" : "\<TAB>"
-smap <expr><TAB> neosnippet#expandable() ?
-  \ "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
-imap <expr><M-Y> neosnippet#jumpable() ?
-  \ "\<Plug>(neosnippet_jump)" : ""
-smap <expr><M-Y> neosnippet#jumpable() ?
-  \ "\<Plug>(neosnippet_jump)" : ""
+imap <expr><TAB> neosnippet#expandable() ? "\<Plug>(neosnippet_expand_or_jump)"
+\ : neosnippet#jumpable() ? "\<Plug>(neosnippet_jump)"
+\ : pumvisible() ? "\<CR>"
+\ : "\<TAB>"
+smap <expr><TAB> neosnippet#expandable() ? "\<Plug>(neosnippet_expand_or_jump)"
+\ : neosnippet#jumpable() ? "\<Plug>(neosnippet_jump)"
+\ : "\<TAB>"
+imap <expr><M-Y> neosnippet#jumpable() ? "\<Plug>(neosnippet_jump)" : ""
+smap <expr><M-Y> neosnippet#jumpable() ? "\<Plug>(neosnippet_jump)" : ""
 imap <expr><Esc> neosnippet#jumpable() ?
-  \ "\<M-Y>\<M-Y>\<M-Y>\<M-Y>\<M-Y>\<M-Y>\<M-Y>\<M-Y>\<M-Y>\<M-Y>\<M-Y>\<Esc>" : "\<Esc>"
+\ "\<M-Y>\<M-Y>\<M-Y>\<M-Y>\<M-Y>\<M-Y>\<M-Y>\<M-Y>\<M-Y>\<M-Y>\<M-Y>\<Esc>" : "\<Esc>"
 smap <expr><Esc> neosnippet#jumpable() ?
-  \ "\<M-Y>\<M-Y>\<M-Y>\<M-Y>\<M-Y>\<M-Y>\<M-Y>\<M-Y>\<M-Y>\<M-Y>\<M-Y>\<Esc>" : "\<Esc>"
+\ "\<M-Y>\<M-Y>\<M-Y>\<M-Y>\<M-Y>\<M-Y>\<M-Y>\<M-Y>\<M-Y>\<M-Y>\<M-Y>\<Esc>" : "\<Esc>"
 
 " vim-LaTex settings
 
