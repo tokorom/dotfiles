@@ -61,19 +61,15 @@ NeoBundle 'git@github.com:tokorom/cocoa.vim.git', 'syntax-only'
 NeoBundle 'git://github.com/kien/ctrlp.vim.git'
 NeoBundle 'git://github.com/mattn/ctrlp-register.git'
 NeoBundle 'git://github.com/mattn/ctrlp-mark.git'
-"NeoBundleLazy 'git://github.com/tokorom/ctrlp-docset.git', {'autoload': {'filetypes': ['objc']}}
-NeoBundle 'git://github.com/tokorom/ctrlp-docset.git'
+NeoBundleLazy 'git://github.com/tokorom/ctrlp-docset.git', {'autoload': {'filetypes': ['objc']}}
 
 " clang
-"NeoBundleLazy 'git://github.com/Rip-Rip/clang_complete.git', {'autoload': {'filetypes': ['c', 'cpp', 'objc']}}
-NeoBundle 'git@github.com:tokorom/clang_complete.git', 'for-ios'
-"NeoBundleLazy 'git://github.com/tokorom/clang_complete-getopts-ios.git', {'autoload': {'filetypes': ['objc']}}
-NeoBundle 'git://github.com/tokorom/clang_complete-getopts-ios.git'
+NeoBundleLazy 'git@github.com:tokorom/clang_complete.git', 'for-ios', {'autoload': {'filetypes': ['c', 'cpp', 'objc']}}
+NeoBundleLazy 'git://github.com/tokorom/clang_complete-getopts-ios.git', {'autoload': {'filetypes': ['objc']}}
 
 " quickrun
 NeoBundle 'git://github.com/thinca/vim-quickrun.git'
-"NeoBundleLazy 'git@bitbucket.org:tokorom/vim-quickrun-ghunit.git', {'autoload': {'filetypes': ['objc']}}
-NeoBundle 'git@bitbucket.org:tokorom/vim-quickrun-ghunit.git'
+NeoBundleLazy 'git@bitbucket.org:tokorom/vim-quickrun-ghunit.git', {'autoload': {'filetypes': ['objc']}}
 
 " ファイルタイプ別セッティングON
 filetype plugin indent on 
