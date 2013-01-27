@@ -30,19 +30,30 @@ NeoBundle 'L9'
 NeoBundle 'git://github.com/kana/vim-altr.git'
 NeoBundle 'git://github.com/thinca/vim-ref.git'
 NeoBundle 'ack.vim'
-NeoBundle 'git://github.com/tyru/open-browser.vim.git'
-NeoBundle 'git://github.com/scrooloose/syntastic.git'
-NeoBundle 'git://github.com/sjl/gundo.vim.git'
-NeoBundle 'git://github.com/yuratomo/w3m.vim.git'
 NeoBundle 'The-NERD-Commenter'
+NeoBundle 'git://github.com/tyru/open-browser.vim.git'
 
-" Git
-NeoBundle 'git://github.com/tpope/vim-fugitive.git'
-NeoBundle 'git://github.com/gregsexton/gitv.git'
+NeoBundleLazy 'git://github.com/sjl/gundo.vim.git', {'autoload': {'commands': ['GundoShow', 'GundoHide', 'GundoToggle', 'GundoRenderGraph']}}
+NeoBundleLazy 'git://github.com/yuratomo/w3m.vim.git', {'autoload': {'commands': ['W3m', 'W3mTab', 'W3mSplit', 'W3mLocal', 'W3mHistory', 'W3mHistoryClear']}}
+
+" ctrlp
+NeoBundle 'git://github.com/kien/ctrlp.vim.git'
+NeoBundle 'git://github.com/mattn/ctrlp-register.git'
+NeoBundle 'git://github.com/mattn/ctrlp-mark.git'
 
 " neocomplcache
 NeoBundle 'git://github.com/Shougo/neocomplcache.git'
 NeoBundle 'git://github.com/Shougo/neosnippet.git'
+
+" clang
+NeoBundleLazy 'git@github.com:tokorom/clang_complete.git', 'for-ios', {'autoload': {'filetypes': ['c', 'cpp', 'objc']}}
+
+" syntax check
+NeoBundleLazy 'git://github.com/scrooloose/syntastic.git', {'autoload': {'filetypes': ['xml', 'html', 'sass', 'css', 'js', 'yaml', 'json', 'xslt', 'python', 'perl', 'c']}}
+
+" git
+NeoBundle 'git://github.com/tpope/vim-fugitive.git'
+NeoBundleLazy 'git://github.com/gregsexton/gitv.git', {'autoload': {'commands': ['GitV']}}
 
 " html
 NeoBundleLazy 'ZenCoding.vim', {'autoload': {'filetypes': ['html']}}
@@ -55,16 +66,8 @@ NeoBundleLazy 'git://github.com/tobiassvn/vim-gemfile.git', {'autoload': {'filet
 NeoBundleLazy 'git://github.com/chrismetcalf/vim-markdown.git', {'autoload': {'filetypes': ['markdown']}}
 
 " objc
-NeoBundle 'git@github.com:tokorom/cocoa.vim.git', 'syntax-only'
-
-" ctrlp
-NeoBundle 'git://github.com/kien/ctrlp.vim.git'
-NeoBundle 'git://github.com/mattn/ctrlp-register.git'
-NeoBundle 'git://github.com/mattn/ctrlp-mark.git'
+NeoBundleLazy 'git@github.com:tokorom/cocoa.vim.git', 'syntax-only', {'autoload': {'filetypes': ['objc']}}
 NeoBundleLazy 'git://github.com/tokorom/ctrlp-docset.git', {'autoload': {'filetypes': ['objc']}}
-
-" clang
-NeoBundleLazy 'git@github.com:tokorom/clang_complete.git', 'for-ios', {'autoload': {'filetypes': ['c', 'cpp', 'objc']}}
 NeoBundleLazy 'git://github.com/tokorom/clang_complete-getopts-ios.git', {'autoload': {'filetypes': ['objc']}}
 
 " quickrun
