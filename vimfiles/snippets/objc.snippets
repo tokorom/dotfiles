@@ -225,8 +225,11 @@ snippet +(
 snippet +((
 	+ (${1:void})${2:methodName}:(${3:argType})${4:argName};${5}
 # define a action method 
-snippet -action
-	- (IBAction)${1:action}${2::(id)sender}${3: forEvent:(UIEvent*)event};${4}
+snippet action
+	- (IBAction)${1:action}${2::(id)sender}
+	{
+		${0}
+	}
 # override a init 
 snippet -init
 	- (id)init
