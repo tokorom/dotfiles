@@ -68,7 +68,7 @@ NeoBundleLazy 'git://github.com/chrismetcalf/vim-markdown.git', {'autoload': {'f
 " objc
 NeoBundleLazy 'git@github.com:tokorom/cocoa.vim.git', 'syntax-only', {'autoload': {'filetypes': ['objc']}}
 NeoBundleLazy 'git://github.com/tokorom/ctrlp-docset.git', {'autoload': {'filetypes': ['objc']}}
-NeoBundleLazy 'git://github.com/tokorom/clang_complete-getopts-ios.git', {'autoload': {'filetypes': ['objc']}}
+NeoBundleLazy 'git@github.com:tokorom/clang_complete-getopts-ios.git', {'autoload': {'filetypes': ['objc']}}
 
 " quickrun
 NeoBundle 'git://github.com/thinca/vim-quickrun.git'
