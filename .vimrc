@@ -38,8 +38,9 @@ NeoBundleLazy 'git://github.com/yuratomo/w3m.vim.git', {'autoload': {'commands':
 
 " ctrlp
 NeoBundle 'git://github.com/kien/ctrlp.vim.git'
-NeoBundle 'git://github.com/mattn/ctrlp-register.git'
-NeoBundle 'git://github.com/mattn/ctrlp-mark.git'
+NeoBundleLazy 'git://github.com/mattn/ctrlp-register.git', {'autoload': {'commands': ['CtrlPRegister']}}
+NeoBundleLazy 'git://github.com/mattn/ctrlp-mark.git', {'autoload': {'commands': ['CtrlPMark']}}
+NeoBundleLazy 'git://github.com/tacahiroy/ctrlp-funky.git', {'autoload': {'commands': ['CtrlPFunky']}}
 
 " neocomplcache
 NeoBundle 'git://github.com/Shougo/neocomplcache.git'
@@ -355,6 +356,7 @@ augroup END
 
 let g:ctrlp_map = ''
 let g:ctrlp_by_filename = 0
+let g:ctrlp_switch_buffer = 'ET'
 
 let g:ctrlp_prompt_mappings = {
   \ 'AcceptSelection("e")': ['<C-x>', '<2-LeftMouse>'],
@@ -367,7 +369,7 @@ let g:ctrlp_mruf_exclude = '/tmp/.*\|/temp/.*|/backup/*'
 
 let g:ctrlp_docset_docsetutil_command = '/Applications/Xcode.app/Contents/Developer/usr/bin/docsetutil'
 let g:ctrlp_docset_filepaths = {}
-let g:ctrlp_docset_filepaths['objc'] = '~/Library/Developer/Shared/Documentation/DocSets/com.apple.adc.documentation.AppleiOS6.0.iOSLibrary.docset'
+let g:ctrlp_docset_filepaths['objc'] = '~/Library/Developer/Shared/Documentation/DocSets/com.apple.adc.documentation.AppleiOS6.1.iOSLibrary.docset'
 let g:ctrlp_docset_accept_command = ':W3mSplit local %s'
 
 nnoremap [MyPrefix].f :<C-u>CtrlP .<CR>
@@ -376,6 +378,7 @@ nnoremap [MyPrefix].r :<C-u>CtrlPMRU<CR>
 nnoremap [MyPrefix].m :<C-u>CtrlPMark<CR>
 nnoremap [MyPrefix]." :<C-u>CtrlPRegister<CR>
 nnoremap [MyPrefix].d :<C-u>CtrlPDocset<CR>
+nnoremap [MyPrefix].l :<C-u>CtrlPFunky<CR>
 
 " The-NERD-Commenter
 
@@ -419,7 +422,7 @@ let g:neocomplcache_source_rank = {
 
 " clang_complete settings
 
-let g:clang_use_library = 1
+let g:clang_use_library = 0
 
 if !exists('g:neocomplcache_force_omni_patterns')
   let g:neocomplcache_force_omni_patterns = {}
