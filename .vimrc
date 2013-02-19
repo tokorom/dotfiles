@@ -71,6 +71,9 @@ NeoBundleLazy 'git@github.com:tokorom/cocoa.vim.git', 'syntax-only', {'autoload'
 NeoBundleLazy 'git://github.com/tokorom/ctrlp-docset.git', {'autoload': {'filetypes': ['objc']}}
 NeoBundleLazy 'git@github.com:tokorom/clang_complete-getopts-ios.git', {'autoload': {'filetypes': ['objc']}}
 
+" coffee
+NeoBundleLazy 'git://github.com/kchmck/vim-coffee-script.git', {'autoload': {'filetypes': ['coffee']}}
+
 " quickrun
 NeoBundle 'git://github.com/thinca/vim-quickrun.git'
 NeoBundleLazy 'git@bitbucket.org:tokorom/vim-quickrun-ghunit.git', {'autoload': {'filetypes': ['objc']}}
