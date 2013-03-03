@@ -54,3 +54,7 @@
   color = auto
 [http]
   sslVerify = false
+[push]
+  default = simple
+[merge]
+  ff = false
