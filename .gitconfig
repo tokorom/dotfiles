@@ -55,6 +55,6 @@
 [http]
   sslVerify = false
 [push]
-  default = simple
+  default = current
 [merge]
   ff = false
