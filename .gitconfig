@@ -56,5 +56,3 @@
   sslVerify = false
 [push]
   default = current
-[merge]
-  ff = false
