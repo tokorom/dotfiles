@@ -48,6 +48,7 @@
   type = cat-file -t
   dump = cat-file -p
   rv = remote -v
+  ru = remote update
 [pager]
   color = true
 [status]
