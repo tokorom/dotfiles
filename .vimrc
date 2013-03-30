@@ -317,6 +317,9 @@ command! -nargs=1 -complete=file Rename f <args>|call delete(expand('#'))
 " XMLの整形
 command! XmlLint :exe ":silent 1,$!xmllint --format --recover - 2>/dev/null"
 
+" CtrlPのCacheクリア
+command! CC :CtrlPClearAllCaches
+
 " }}}1
 "=============================================================================
 " autocmds {{{1
