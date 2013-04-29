@@ -24,11 +24,6 @@ alias awk="gawk"
 alias ls="ls -G"
 alias ll="ls -la"
 
-alias svndel="svn st | grep '^!' | sed -e 's/\![ ]*/svn del /g' | sh"
-alias svnadd="svn st | grep '^?' | sed -e 's/\?[ ]*/svn add /g' | sh"
-alias svncommit='svn commit -m ""'
-
-alias clang-scan-build="/usr/local/lib/checker-0.186/scan-build -o ./check_result xcodebuild -alltargets"
 alias mvim='mvim -c "cd ${PWD}"'
 alias mkcd='source ~/bin/mkcd'
 
