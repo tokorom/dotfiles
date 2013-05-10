@@ -53,7 +53,7 @@ fi
 ####### etc #########
 
 # Disable ssh-agent
-unset SSH_AUTH_SOCK
+#unset SSH_AUTH_SOCK
 
 ####### finally #########
 
