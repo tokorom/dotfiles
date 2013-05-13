@@ -61,4 +61,4 @@ export PATH=~/bin:$PATH
 
 ####### finally #########
 #
-[ -f ~/.zshenv.specific ] && source ~/.zshenv.specific
+[ -f ~/.zshenv.local ] && source ~/.zshenv.local
