@@ -1,7 +1,7 @@
 "シフト移動幅
-set shiftwidth=4
+set shiftwidth=2
 "ファイル内の <Tab> が対応する空白の数
-set tabstop=4
+set tabstop=2
 
 " --- altr settings ---
 
@@ -29,3 +29,7 @@ inoremap <buffer> <C-f> <Esc>f:a
 inoremap <buffer> <C-]> <Esc>F[i[<Esc>A<Space>
 
 map <silent> <buffer> <expr> [MyDoublePrefix]q ':QuickRun -args "TEST=' . expand("%:t:r") . '"<CR>'
+
+if filereadable(expand('~/vimfiles/after/ftplugin/objc.vim.local'))
+  source ~/vimfiles/after/ftplugin/objc.vim.local
+endif

@@ -21,3 +21,5 @@
 .svn
 *.pyc
 .netrwhist
+# add local files
+*.local
