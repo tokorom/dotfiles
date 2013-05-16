@@ -600,3 +600,12 @@ snippet table ios6
 	- (void)tableView:(UITableView*)tableView didSelectRowAtIndexPath:(NSIndexPath*)indexPath
 	{
 	}
+snippet notification
+	[[NSNotificationCenter defaultCenter] postNotificationName:${1:name} object:${2:nil}];${0}
+snippet observer
+	[[NSNotificationCenter defaultCenter] addObserver:self
+		selector:@selector(${1:_xxxNotification:})
+		name:${2:name}
+		object:${3:nil}];
+
+
