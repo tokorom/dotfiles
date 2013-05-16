@@ -1,6 +1,6 @@
 [user]
   name = tokorom
-  email = yuta-tokoro@cookpad.com
+  email = tokorom@gmail.com
 [core]  
   quotepath = false
 [diff]
@@ -57,3 +57,5 @@
   sslVerify = false
 [push]
   default = current
+[include]
+  path = ~/.gitconfig.local
