@@ -1,0 +1,4 @@
+--ignore-dir=build
+
+--type-set=DAT=.dat
+--noDAT
