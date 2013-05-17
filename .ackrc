@@ -3,3 +3,5 @@
 
 --type-set=DAT=.dat
 --noDAT
+--type-set=PBXPROJ=.pbxproj
+--noPBXPROJ
