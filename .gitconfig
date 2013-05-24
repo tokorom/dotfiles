@@ -49,6 +49,7 @@
   dump = cat-file -p
   rv = remote -v
   ru = remote update
+  cancel = !git add . && git commit -a -m 'Temporary commit for cancel' && git reset --hard HEAD~
 [pager]
   color = true
 [status]
