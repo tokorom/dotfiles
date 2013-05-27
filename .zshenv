@@ -28,7 +28,7 @@ alias mkcd='source ~/bin/mkcd'
 alias tmux-changekey='tmux set-option -ag prefix C-b'
 alias tmux-revertkey='tmux set-option -ag prefix C-t'
 
-alias bi='bundle install'
+alias bi='bundle install --path vendor/bundler'
 alias be='bundle exec'
 
 if [ -f /Applications/MacVim.app/Contents/MacOS/Vim ]; then
