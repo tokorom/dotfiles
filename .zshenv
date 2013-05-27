@@ -13,8 +13,6 @@ export MAILCHECK=0
 
 export PATH=/usr/local/bin:/opt/local/bin:/opt/local/sbin/:~/bin/clang/:$PATH:~/local/bin:/Applications/android_sdk/tools/:/Applications/android_sdk/platform-tools:/Applications/UpTeX.app/teTeX/bin:/usr/local/share/npm/bin/
 
-export PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
-
 ####### alias ########
 
 alias g="git"
@@ -38,17 +36,13 @@ if [ -f /Applications/MacVim.app/Contents/MacOS/Vim ]; then
   alias vim='env LANG=ja_JP.UTF-8 /Applications/MacVim.app/Contents/MacOS/Vim "$@"'
 fi
 
-####### RVM #########
-
-if [ -s "$HOME/.rvm/scripts/rvm" ]; then
-  source "$HOME/.rvm/scripts/rvm"
-  rvm use default 1.9.3 > /dev/null
-fi
-
-
 ####### autojump #########
 
 [[ -s `brew --prefix`/etc/autojump.sh ]] && . `brew --prefix`/etc/autojump.sh
+
+####### rbenv #########
+
+eval "$(rbenv init -)"
 
 ####### etc #########
 
@@ -58,7 +52,4 @@ fi
 ####### finally #########
 
 export PATH=~/bin:$PATH
-
-####### finally #########
-#
 [ -f ~/.zshenv.local ] && source ~/.zshenv.local
