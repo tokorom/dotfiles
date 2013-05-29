@@ -51,5 +51,5 @@ eval "$(rbenv init -)"
 
 ####### finally #########
 
-export PATH=~/bin:$PATH
 [ -f ~/.zshenv.local ] && source ~/.zshenv.local
+export PATH=~/bin:$PATH
