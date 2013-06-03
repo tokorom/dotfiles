@@ -32,6 +32,7 @@ NeoBundle 'git://github.com/thinca/vim-ref.git'
 NeoBundle 'ack.vim'
 NeoBundle 'The-NERD-Commenter'
 NeoBundle 'git://github.com/tyru/open-browser.vim.git'
+NeoBundle 'git://github.com/w0ng/vim-hybrid.git'
 
 NeoBundleLazy 'git://github.com/sjl/gundo.vim.git', {'autoload': {'commands': ['GundoShow', 'GundoHide', 'GundoToggle', 'GundoRenderGraph']}}
 NeoBundleLazy 'git://github.com/yuratomo/w3m.vim.git', {'autoload': {'commands': ['W3m', 'W3mTab', 'W3mSplit', 'W3mLocal', 'W3mHistory', 'W3mHistoryClear']}}
@@ -99,7 +100,7 @@ set ambiwidth=double
 set backspace=indent,eol,start
 
 " カラースキーマを設定
-colorscheme neon
+colorscheme hybrid
 " hilight
 syntax on
 " 行番号を表示する
