@@ -4,6 +4,7 @@
 # require files
 !/Library/Application Support/KeyRemap4MacBook/*.xml
 !/Library/Developer/Xcode/Templates/
+!/Documents/terminal/*.terminal
 !/bin
 !/vimfiles
 !/.gitconfig
