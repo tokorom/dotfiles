@@ -106,33 +106,48 @@ snippet enum
 		${2:TypeNone} = 0,
 		${3:TypeDone},
 	};
-# template for GHTestCase
-snippet testcase
+# template for TestCase
+snippet testcaseh
+	//
+	//  ${1:`Filename()`}.h
+	//
+	//  Created by ToKoRo on `strftime("%Y-%m-%d")`.
+	//
+	
+	#import <SenTestingKit/SenTestingKit.h>
+	
+	@interface $1 : SenTestCase
+	@end
+snippet testcases
 	//
 	//  ${1:`Filename()`}.m
 	//
 	//  Created by ToKoRo on `strftime("%Y-%m-%d")`.
 	//
 	
-	#import <GHUnitIOS/GHUnit.h> 
+	#import "$1.h"
 	#import "${2:Subject}.h"
 	
-	@interface $1 : GHTestCase
-	@property (strong) $2* subjectInstance;
-	@end
+	@interface $1 ()
+	@property (strong) $2* subject;
+	@end 
 	
 	@implementation $1
 	
-	@synthesize subjectInstance = subject;
-	
 	- (void)setUp
 	{
-		self.subjectInstance = [$2 new];
+		[super setUp];
+		self.subject = [$2 new];
 	}
 	
-	- (void)testCreateInstance
+	- (void)tearDown
 	{
-		GHAssertNotNil(subject, nil);
+		[super tearDown];
+	}
+	
+	- (void)testExample
+	{
+		STAssertEquals(0, 1, nil);
 	}
 	
 	@end
