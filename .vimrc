@@ -77,7 +77,7 @@ NeoBundleLazy 'git://github.com/kchmck/vim-coffee-script.git', {'autoload': {'fi
 
 " quickrun
 NeoBundle 'git://github.com/thinca/vim-quickrun.git'
-NeoBundleLazy 'git@bitbucket.org:tokorom/vim-quickrun-ghunit.git', {'autoload': {'filetypes': ['objc']}}
+NeoBundleLazy 'git://github.com/tokorom/vim-quickrun-xctool.git', {'autoload': {'filetypes': ['objc']}}
 
 " ファイルタイプ別セッティングON
 filetype plugin indent on 
@@ -127,6 +127,8 @@ set smarttab
 set tabstop=2
 " 新しい行を作ったときに高度な自動インデントを行う
 set smartindent
+" 自動改行しない
+set textwidth=0
 
 " スワップファイル＆バックアップファイルを作るディレクトリ
 set backupdir=$HOME/backup
@@ -513,7 +515,7 @@ let g:quickrun_config = {}
 let g:quickrun_config['*'] = {'split': 'below'}
 let g:quickrun_config['python.test'] = {'command': 'nosetests', 'exec': ['%c -v %s'], 'filetype': 'nosetests-result'}
 let g:quickrun_config['ruby.rspec'] = {'command': 'rspec', 'cmdopt': '--format progress -I .', 'exec': ['source .rvmrc \&\& %c %o %s %a'], 'filetype': 'rspec-result'}
-let g:quickrun_config['objc.test'] = {'command': 'make', 'cmdopt': 'test', 'outputter': 'ghunit'}
+let g:quickrun_config['objc.test'] = {'command': 'xctool', 'cmdopt': 'test', 'outputter': 'xctool', 'exec': ['%c %o %a']}
 
 let g:quickrun_config['markdown'] = {
   \ 'outputter' : 'null',
