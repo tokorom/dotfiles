@@ -169,6 +169,12 @@ set foldmethod=marker
 " クリップボードを自動で利用 
 set clipboard=unnamed
 
+" cursorline
+
+set cursorline
+highlight clear CursorLine
+highlight CursorLine ctermbg=black guibg=black
+
 " }}}1
 "=============================================================================
 " keybindings {{{1

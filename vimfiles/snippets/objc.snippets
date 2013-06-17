@@ -151,6 +151,49 @@ snippet testcases
 	}
 	
 	@end
+# template for CKDTestCase
+snippet ckdtestcaseh
+	//
+	//  ${1:`Filename()`}.h
+	//
+	//  Created by ToKoRo on `strftime("%Y-%m-%d")`.
+	//
+	
+	#import "CKDTestCase.h"
+	
+	@interface $1 : CKDTestCase
+	@end
+snippet ckdtestcases
+	//
+	//  ${1:`Filename()`}.m
+	//
+	//  Created by ToKoRo on `strftime("%Y-%m-%d")`.
+	//
+	
+	#import "$1.h"
+	#import "${2:Subject}.h"
+	
+	#define subject (($2*)self.subject)
+	
+	@implementation $1
+	
+	- (void)setUp
+	{
+		[super setUp];
+		[self setSubject:[$2 new]];
+	}
+	
+	- (void)tearDown
+	{
+		[super tearDown];
+	}
+	
+	- (void)testExample
+	{
+		expect(0).to.equal(1);
+	}
+	
+	@end
 snippet SELF
 	__weak ${1:id} ${2:SELF} = ${3:self};
 snippet ghassertnoerr
@@ -658,3 +701,36 @@ snippet observer
 		object:${3:nil}];
 snippet lstr
 	NSLocalizedString(@"${1:KEY}", nil)${0}
+# expecta
+snippet expect equal
+	expect(${1:subject}).${2:to}.equal(${3:expect});${0}
+snippet expect beIdenticalTo
+	expect(${1:subject}).${2:to}.beIdenticalTo(${3:expect});${0}
+snippet expect beNil
+	expect(${1:subject}).${2:to}.beNil();${0}
+snippet expect beTruthy
+	expect(${1:subject}).${2:to}.beTruthy();${0}
+snippet expect beFalsy
+	expect(${1:subject}).${2:to}.beFalsy();${0}
+snippet expect contain
+	expect(${1:subject}).${2:to}.contain(${3:expect});${0}
+snippet expect haveCountOf
+	expect(${1:subject}).${2:to}.haveCountOf(${3:expect});${0}
+snippet expect beEmpty
+	expect(${1:subject}).${2:to}.beEmpty();${0}
+snippet expect beInstanceOf
+	expect(${1:subject}).${2:to}.beInstanceOf([${3:expect} class]);${0}
+snippet expect beKindOf
+	expect(${1:subject}).${2:to}.beKindOf([${3:expect} class]);${0}
+snippet expect beSubclassOf
+	expect([${1:subject} class]).${2:to}.beSubclassOf([${3:expect} class]);${0}
+snippet expect beInTheRangeOf
+	expect(${1:subject}).${2:to}.beInTheRangeOf(${3:from}, ${4:to});${0}
+snippet expect beCloseTo
+	expect(${1:subject}).${2:to}.beCloseTo(${3:expect});${0}
+snippet expect beCloseToWithin
+	expect(${1:subject}).${2:to}.beCloseToWithin(${3:from}, ${4:to});${0}
+snippet expect raise
+	expect(^{${1:/* code */}}).${2:to}.raise(@"${3:ExceptionName}");${0}
+snippet expect raiseAny
+	expect(^{${1:/* code */}}).${2:to}.raiseAny();${0}
