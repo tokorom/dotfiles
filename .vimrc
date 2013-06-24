@@ -175,6 +175,10 @@ set cursorline
 highlight clear CursorLine
 highlight CursorLine ctermbg=black guibg=black
 
+" 115文字以降をハイライト
+highlight ColorColumn ctermbg=black guibg=black
+execute "set colorcolumn=" . join(range(115, 300), ',')
+
 " }}}1
 "=============================================================================
 " keybindings {{{1
