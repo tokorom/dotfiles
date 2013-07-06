@@ -31,7 +31,6 @@ NeoBundle 'git://github.com/kana/vim-altr.git'
 NeoBundle 'git://github.com/thinca/vim-ref.git'
 NeoBundle 'ack.vim'
 NeoBundle 'The-NERD-Commenter'
-NeoBundle 'git://github.com/tyru/open-browser.vim.git'
 NeoBundle 'git://github.com/w0ng/vim-hybrid.git'
 
 NeoBundleLazy 'git://github.com/sjl/gundo.vim.git', {'autoload': {'commands': ['GundoShow', 'GundoHide', 'GundoToggle', 'GundoRenderGraph']}}
@@ -330,9 +329,6 @@ command! -nargs=1 -complete=file Rename f <args>|call delete(expand('#'))
 " XMLの整形
 command! XmlLint :exe ":silent 1,$!xmllint --format --recover - 2>/dev/null"
 
-" CtrlPのCacheクリア
-command! CC :CtrlPClearAllCaches
-
 " }}}1
 "=============================================================================
 " autocmds {{{1
@@ -371,7 +367,10 @@ augroup END
 "=============================================================================
 " plugin settings {{{1
 
-" ctrlp
+" ctrlp {{{2
+let s:hooks = neobundle#get_hooks("ctrlp.vim")
+function! s:hooks.on_source(bundle)
+"-----------------------------------------------------------------------------
 
 let g:ctrlp_map = ''
 let g:ctrlp_by_filename = 0
@@ -399,22 +398,43 @@ nnoremap [MyPrefix]." :<C-u>CtrlPRegister<CR>
 nnoremap [MyPrefix].d :<C-u>CtrlPDocset<CR>
 nnoremap [MyPrefix].l :<C-u>CtrlPFunky<CR>
 
-" The-NERD-Commenter
+" CtrlPのCacheクリア
+command! CC :CtrlPClearAllCaches
+
+nnoremap <C-p>                   :<C-u>tabp<CR>
+
+"-----------------------------------------------------------------------------
+endfunction
+" }}}2
+
+" The-NERD-Commenter {{{2
+let s:hooks = neobundle#get_hooks("The-NERD-Commenter")
+function! s:hooks.on_source(bundle)
+"-----------------------------------------------------------------------------
 
 map <space>x <plug>NERDCommenterToggle
 
-" openbrowser.vim
+"-----------------------------------------------------------------------------
+endfunction
+" }}}2
 
-nmap [MyPrefix]bs <Plug>(openbrowser-smart-search)
-nmap [MyPrefix]bo <Plug>(openbrowser-open)
-
-" ZenCoding.vim
+" ZenCoding {{{2
+let s:hooks = neobundle#get_hooks("ZenCoding.vim")
+function! s:hooks.on_source(bundle)
+"-----------------------------------------------------------------------------
 
 let g:user_zen_settings = {
 \  'indentation' : '  '
 \}
 
-" neocomplcache.vim
+"-----------------------------------------------------------------------------
+endfunction
+" }}}2
+
+" neocomplcache {{{2
+let s:hooks = neobundle#get_hooks("neocomplcache")
+function! s:hooks.on_source(bundle)
+"-----------------------------------------------------------------------------
 
 let g:neocomplcache_enable_at_startup = 1 "自動起動
 let g:neocomplcache_disable_auto_complete = 1 "自動補完はしない（手動補完のみとする)
@@ -439,7 +459,14 @@ let g:neocomplcache_source_rank = {
 \ 'abbrev_complete' : 400,
 \ }
 
-" clang_complete settings
+"-----------------------------------------------------------------------------
+endfunction
+" }}}2
+
+" clang_complete {{{2
+let s:hooks = neobundle#get_hooks("clang_complete")
+function! s:hooks.on_source(bundle)
+"-----------------------------------------------------------------------------
 
 let g:clang_use_library = 0
 
@@ -458,7 +485,14 @@ let g:neocomplcache_force_omni_patterns.objcpp =
 let g:clang_complete_auto = 0
 let g:clang_auto_select = 0
 
-" neosnippet
+"-----------------------------------------------------------------------------
+endfunction
+" }}}2
+
+" neosnippet {{{2
+let s:hooks = neobundle#get_hooks("neosnippet")
+function! s:hooks.on_source(bundle)
+"-----------------------------------------------------------------------------
 
 let g:neosnippet#snippets_directory = "$HOME/vimfiles/snippets"
 let g:neosnippet#enable_snipmate_compatibility = 1
@@ -477,44 +511,25 @@ imap <expr><Esc> neosnippet#jumpable() ?
 smap <expr><Esc> neosnippet#jumpable() ?
 \ "\<M-Y>\<M-Y>\<M-Y>\<M-Y>\<M-Y>\<M-Y>\<M-Y>\<M-Y>\<M-Y>\<M-Y>\<M-Y>\<Esc>" : "\<Esc>"
 
-" vim-LaTex settings
+"-----------------------------------------------------------------------------
+endfunction
+" }}}2
 
-au BufNewFile,BufRead *.tex,*.latex,*.sty,*.dtx,*.ltx,*.bbl setf tex
-
-set shellslash
-set grepprg=grep\ -nH\ $*
-let g:tex_flavor='latex'
-let g:Imap_UsePlaceHolders = 1
-let g:Imap_DeleteEmptyPlaceHolders = 1
-let g:Imap_StickyPlaceHolders = 0
-let g:Tex_DefaultTargetFormat = 'pdf'
-let g:Tex_FormatDependency_ps = 'dvi,ps'
-let g:Tex_FormatDependency_pdf = 'dvi,pdf'
-let g:Tex_CompileRule_dvi = 'platex -kanji=utf8 -no-guess-input-enc -synctex=1 -src-specials -interaction=nonstopmode $*'
-let g:Tex_CompileRule_ps = 'dvips -Ppdf -t a4 -o $*.ps $*.dvi'
-let g:Tex_CompileRule_pdf = 'dvipdfmx $*.dvi'
-"let g:Tex_BibtexFlavor = 'pbibtex -kanji=utf8'
-let g:Tex_MakeIndexFlavor = 'mendex -U $*.idx'
-
-let g:Tex_ViewRule_pdf = 'open -a /Applications/Preview.app'
-let g:Tex_IgnoredWarnings =
-      \"Underfull\n".
-      \"Overfull\n".
-      \"specifier changed to\n".
-      \"You have requested\n".
-      \"Missing number, treated as zero.\n".
-      \"There were undefined references\n".
-      \"Citation %.%# undefined\n".
-      \'LaTeX Font Warning:'"
-let g:Tex_IgnoreLevel = 8
-
-" w3m.vim
+" w3m {{{2
+let s:hooks = neobundle#get_hooks("w3m.vim")
+function! s:hooks.on_source(bundle)
+"-----------------------------------------------------------------------------
 
 let g:w3m#disable_vimproc = 1
 
-" }}}1
+"-----------------------------------------------------------------------------
+endfunction
+" }}}2
 
-" quickrun settings {{{1
+" quickrun {{{2
+let s:hooks = neobundle#get_hooks("vim-quickrun")
+function! s:hooks.on_source(bundle)
+"-----------------------------------------------------------------------------
 
 " initialize
 
@@ -539,5 +554,9 @@ let g:quickrun_config['markdown'] = {
 
 map [MyPrefix]q <Nop>
 map [MyPrefix]q <Plug>(quickrun)
+
+"-----------------------------------------------------------------------------
+endfunction
+" }}}2
 
 " }}}1
