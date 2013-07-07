@@ -435,8 +435,8 @@ endfunction
 " }}}2
 
 " neocomplcache {{{2
-let s:hooks = neobundle#get_hooks("neocomplcache")
-function! s:hooks.on_source(bundle)
+"let s:hooks = neobundle#get_hooks("neocomplcache")
+"function! s:hooks.on_source(bundle)
 "-----------------------------------------------------------------------------
 
 let g:neocomplcache_enable_at_startup = 1 "自動起動
@@ -463,7 +463,7 @@ let g:neocomplcache_source_rank = {
 \ }
 
 "-----------------------------------------------------------------------------
-endfunction
+"endfunction
 " }}}2
 
 " clang_complete {{{2
