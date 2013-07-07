@@ -151,10 +151,10 @@
 	<key>BackgroundColor</key>
 	<data>
 	YnBsaXN0MDDUAQIDBAUGFRZYJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3AS
-	AAGGoKMHCA9VJG51bGzTCQoLDA0OVU5TUkdCXE5TQ29sb3JTcGFjZVYkY2xhc3NKMCAw
-	IDAgMC44ABABgALSEBESE1okY2xhc3NuYW1lWCRjbGFzc2VzV05TQ29sb3KiEhRYTlNP
-	YmplY3RfEA9OU0tleWVkQXJjaGl2ZXLRFxhUcm9vdIABCBEaIy0yNztBSE5bYm1vcXaB
-	ipKVnrCzuAAAAAAAAAEBAAAAAAAAABkAAAAAAAAAAAAAAAAAAAC6
+	AAGGoKMHCA9VJG51bGzTCQoLDA0OVU5TUkdCXE5TQ29sb3JTcGFjZVYkY2xhc3NLMCAw
+	IDAgMC45NQAQAYAC0hAREhNaJGNsYXNzbmFtZVgkY2xhc3Nlc1dOU0NvbG9yohIUWE5T
+	T2JqZWN0XxAPTlNLZXllZEFyY2hpdmVy0RcYVHJvb3SAAQgRGiMtMjc7QUhOW2JucHJ3
+	gouTlp+xtLkAAAAAAAABAQAAAAAAAAAZAAAAAAAAAAAAAAAAAAAAuw==
 	</data>
 	<key>BackgroundSettingsForInactiveWindows</key>
 	<false/>
@@ -204,11 +204,11 @@
 	<key>ShouldLimitScrollback</key>
 	<integer>0</integer>
 	<key>ShowActiveProcessInTitle</key>
-	<false/>
-	<key>ShowCommandKeyInTitle</key>
 	<true/>
-	<key>ShowDimensionsInTitle</key>
+	<key>ShowCommandKeyInTitle</key>
 	<false/>
+	<key>ShowDimensionsInTitle</key>
+	<true/>
 	<key>ShowShellCommandInTitle</key>
 	<false/>
 	<key>ShowTTYNameInTitle</key>

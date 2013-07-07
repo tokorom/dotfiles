@@ -31,6 +31,7 @@ NeoBundle 'git://github.com/kana/vim-altr.git'
 NeoBundle 'git://github.com/thinca/vim-ref.git'
 NeoBundle 'ack.vim'
 NeoBundle 'The-NERD-Commenter'
+
 NeoBundle 'git://github.com/w0ng/vim-hybrid.git'
 
 NeoBundleLazy 'git://github.com/sjl/gundo.vim.git', {'autoload': {'commands': ['GundoShow', 'GundoHide', 'GundoToggle', 'GundoRenderGraph']}}
@@ -99,6 +100,7 @@ set ambiwidth=double
 set backspace=indent,eol,start
 
 " カラースキーマを設定
+set t_Co=256
 colorscheme hybrid
 " hilight
 syntax on
@@ -169,7 +171,6 @@ set foldmethod=marker
 set clipboard=unnamed
 
 " cursorline
-
 set cursorline
 highlight clear CursorLine
 highlight CursorLine ctermbg=black guibg=black
