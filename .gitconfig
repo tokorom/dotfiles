@@ -3,9 +3,7 @@
   email = tokorom@gmail.com
 [core]  
   quotepath = false
-[diff]
-  color = auto
-  rename = copy
+  excludesfile = ~/.global_gitignore
 [color] 
   ui = auto
 [alias]
@@ -50,6 +48,8 @@
   rv = remote -v
   ru = remote update
   cancel = !git add . && git commit -a -m 'Temporary commit for cancel' && git reset --hard HEAD~
+  dft = difftool
+  met = mergetool
 [pager]
   color = true
 [status]
@@ -58,5 +58,22 @@
   sslVerify = false
 [push]
   default = current
+
+[diff]
+  color = auto
+  rename = copy
+  tool = Kaleidoscope
+[difftool "Kaleidoscope"]
+  cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
+[difftool]
+  prompt = false
+[mergetool "Kaleidoscope"]
+  cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
+  trustExitCode = true
+[mergetool]
+  prompt = false
+[merge]
+  tool = Kaleidoscope
+
 [include]
   path = ~/.gitconfig.local
