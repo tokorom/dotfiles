@@ -1,7 +1,0 @@
---ignore-dir=build
---ignore-dir=xcuserdata
-
---type-set=DAT=.dat
---noDAT
---type-set=PBXPROJ=.pbxproj
---noPBXPROJ

@@ -29,13 +29,15 @@ NeoBundle 'git://github.com/kana/vim-fakeclip.git'
 NeoBundle 'L9'
 NeoBundle 'git://github.com/kana/vim-altr.git'
 NeoBundle 'git://github.com/thinca/vim-ref.git'
-NeoBundle 'ack.vim'
 NeoBundle 'The-NERD-Commenter'
 
 NeoBundle 'git://github.com/w0ng/vim-hybrid.git'
 
 NeoBundleLazy 'git://github.com/sjl/gundo.vim.git', {'autoload': {'commands': ['GundoShow', 'GundoHide', 'GundoToggle', 'GundoRenderGraph']}}
 NeoBundleLazy 'git://github.com/yuratomo/w3m.vim.git', {'autoload': {'commands': ['W3m', 'W3mTab', 'W3mSplit', 'W3mLocal', 'W3mHistory', 'W3mHistoryClear']}}
+
+" ag
+NeoBundleLazy 'rking/ag.vim', {'autoload': {'commands': ['Ag']}}
 
 " ctrlp
 NeoBundle 'git://github.com/kien/ctrlp.vim.git'
@@ -286,8 +288,8 @@ nnoremap <C-p>                   :<C-u>tabp<CR>
 
 " ---------- grep ----------
 
-nnoremap <expr> [MyPrefix].g      ':tabnew<CR>:Ack ' . expand('<cword>')
-nnoremap [MyDoublePrefix].g       :<C-u>Ack 
+nnoremap <expr> [MyPrefix].g      ':tabnew<CR>:Ag ' . expand('<cword>')
+nnoremap [MyDoublePrefix].g       :<C-u>Ag 
 
 " ---------- substitute ----------
 

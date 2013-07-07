@@ -16,7 +16,7 @@
 !/.vimrc
 !/.zshenv
 !/.zshrc
-!/.ackrc
+!/.agignore
 !/dot.nodoka
 # add ignore files
 .DS_Store
