@@ -30,6 +30,7 @@ NeoBundle 'L9'
 NeoBundle 'git://github.com/kana/vim-altr.git'
 NeoBundle 'git://github.com/thinca/vim-ref.git'
 NeoBundle 'The-NERD-Commenter'
+NeoBundle 'anekos/char-counter-vim'
 
 NeoBundle 'git://github.com/w0ng/vim-hybrid.git'
 
@@ -113,7 +114,7 @@ set showmatch
 " ステータスラインを常に表示
 set laststatus=2
 " ステータスライン表示設定
-set statusline=%<%f\ %m%r%h%w%y%{'\ \ \/'.(&fenc!=''?&fenc:&enc).'\/'.&ff.'\/'}%=%l,%c%V%8P
+set statusline=%<%f\ %m%r%h%w%y%{'\ \ \/'.(&fenc!=''?&fenc:&enc).'\/'.&ff.'\/'}%=%l,%c%V,%{b:charCounterCount}%8P
 " 不可視文字を表示
 set list
 set lcs=tab:>\ 
