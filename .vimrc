@@ -51,7 +51,7 @@ NeoBundle 'git://github.com/Shougo/neocomplcache.git'
 NeoBundle 'git://github.com/Shougo/neosnippet.git'
 
 " clang
-NeoBundleLazy 'git@github.com:tokorom/clang_complete.git', 'for-ios', {'autoload': {'filetypes': ['c', 'cpp', 'objc']}}
+NeoBundleLazy 'git://github.com/tokorom/clang_complete.git', {'autoload': {'filetypes': ['c', 'cpp', 'objc']}}
 
 " syntax check
 NeoBundleLazy 'git://github.com/scrooloose/syntastic.git', {'autoload': {'filetypes': ['xml', 'html', 'sass', 'css', 'js', 'yaml', 'json', 'xslt', 'python', 'perl', 'c']}}
@@ -71,7 +71,7 @@ NeoBundleLazy 'git://github.com/tobiassvn/vim-gemfile.git', {'autoload': {'filet
 NeoBundleLazy 'git://github.com/chrismetcalf/vim-markdown.git', {'autoload': {'filetypes': ['markdown']}}
 
 " objc
-NeoBundleLazy 'git@github.com:tokorom/cocoa.vim.git', 'syntax-only', {'autoload': {'filetypes': ['objc']}}
+NeoBundleLazy 'git://github.com/tokorom/cocoa.vim.git', 'syntax-only', {'autoload': {'filetypes': ['objc']}}
 NeoBundleLazy 'git://github.com/tokorom/ctrlp-docset.git', {'autoload': {'filetypes': ['objc']}}
 NeoBundleLazy 'git@github.com:tokorom/clang_complete-getopts-ios.git', {'autoload': {'filetypes': ['objc']}}
 
@@ -472,8 +472,6 @@ let s:hooks = neobundle#get_hooks("clang_complete")
 function! s:hooks.on_source(bundle)
 "-----------------------------------------------------------------------------
 
-let g:clang_use_library = 0
-
 if !exists('g:neocomplcache_force_omni_patterns')
   let g:neocomplcache_force_omni_patterns = {}
 endif
@@ -488,6 +486,17 @@ let g:neocomplcache_force_omni_patterns.objcpp =
 \ '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
 let g:clang_complete_auto = 0
 let g:clang_auto_select = 0
+
+"-----------------------------------------------------------------------------
+endfunction
+" }}}2
+
+" clang_complete {{{2
+let s:hooks = neobundle#get_hooks("clang_complete-getopts-ios")
+function! s:hooks.on_source(bundle)
+"-----------------------------------------------------------------------------
+
+let g:clang_auto_user_options = 'path, .clang_complete, ios'
 
 "-----------------------------------------------------------------------------
 endfunction
