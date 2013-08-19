@@ -9,10 +9,6 @@ call altr#remove_all()
 call altr#define('%.h', '%.m', '%.mm')
 call altr#define('en.lproj/%', 'ja.lproj/%')
 
-" --- clang_complete settings ---
-
-let g:clang_auto_user_options = 'path, .clang_complete, ios'
-
 " --- added keybinds ---
 
 nnoremap <buffer> [MyPrefix]{             o{<Esc>o}<Esc>
