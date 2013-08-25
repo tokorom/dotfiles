@@ -18,6 +18,7 @@
 !/.zshrc
 !/.agignore
 !/dot.nodoka
+!/clear_backups
 # add ignore files
 .DS_Store
 .svn
