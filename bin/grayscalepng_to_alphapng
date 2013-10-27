@@ -1,0 +1,15 @@
+#/bin/sh
+
+# grayscalepng_to_alphapng pngfilename width height outputname
+# grayscalepng_to_alphapng xxx.png 32 50 output.png
+
+pngtopnm $1 > temp.pgm
+ppmmake black $2 $3 > black.pgm
+pnminvert temp.pgm > invert.pgm
+pnmtopng -alpha=invert.pgm black.pgm > $4
+
+# clean
+rm temp.pgm 
+rm invert.pgm 
+rm black.pgm
+
