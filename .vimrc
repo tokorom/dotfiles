@@ -497,6 +497,7 @@ function! s:hooks.on_source(bundle)
 "-----------------------------------------------------------------------------
 
 let g:clang_auto_user_options = 'path, .clang_complete, ios'
+let g:clang_complete_getopts_ios_sdk_directory = '/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.0.sdk'
 
 "-----------------------------------------------------------------------------
 endfunction
