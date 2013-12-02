@@ -34,6 +34,8 @@ NeoBundle 'anekos/char-counter-vim'
 
 NeoBundle 'git://github.com/w0ng/vim-hybrid.git'
 
+NeoBundle 'https://github.com/itchyny/lightline.vim.git'
+
 NeoBundleLazy 'git://github.com/sjl/gundo.vim.git', {'autoload': {'commands': ['GundoShow', 'GundoHide', 'GundoToggle', 'GundoRenderGraph']}}
 NeoBundleLazy 'git://github.com/yuratomo/w3m.vim.git', {'autoload': {'commands': ['W3m', 'W3mTab', 'W3mSplit', 'W3mLocal', 'W3mHistory', 'W3mHistoryClear']}}
 
@@ -115,9 +117,9 @@ set number
 " 閉じ括弧が入力されたとき、対応する括弧を表示する
 set showmatch
 " ステータスラインを常に表示
-set laststatus=2
+"set laststatus=2
 " ステータスライン表示設定
-set statusline=%<%f\ %m%r%h%w%y%{'\ \ \/'.(&fenc!=''?&fenc:&enc).'\/'.&ff.'\/'}%=%l,%c%V,%{b:charCounterCount}%8P
+"set statusline=%<%f\ %m%r%h%w%y%{'\ \ \/'.(&fenc!=''?&fenc:&enc).'\/'.&ff.'\/'}%=%l,%c%V,%{b:charCounterCount}%8P
 " 不可視文字を表示
 set list
 set lcs=tab:>\ 
@@ -373,6 +375,17 @@ augroup END
 " }}}1
 "=============================================================================
 " plugin settings {{{1
+
+" ctrlp {{{2
+"let s:hooks = neobundle#get_hooks("lightline.vim")
+"function! s:hooks.on_source(bundle)
+"-----------------------------------------------------------------------------
+"
+let g:lightline = {'colorscheme': 'wombat'}
+
+"-----------------------------------------------------------------------------
+"endfunction
+" }}}2
 
 " ctrlp {{{2
 let s:hooks = neobundle#get_hooks("ctrlp.vim")
