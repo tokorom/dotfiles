@@ -107,28 +107,17 @@ snippet enum
 		${3:TypeDone},
 	};
 # template for TestCase
-snippet testcaseh
-	//
-	//  ${1:`Filename()`}.h
-	//
-	//  Created by ToKoRo on `strftime("%Y-%m-%d")`.
-	//
-	
-	#import <SenTestingKit/SenTestingKit.h>
-	
-	@interface $1 : SenTestCase
-	@end
-snippet testcases
+snippet testcase
 	//
 	//  ${1:`Filename()`}.m
 	//
 	//  Created by ToKoRo on `strftime("%Y-%m-%d")`.
 	//
 	
-	#import "$1.h"
+	#import <XCTest/XCTest.h>
 	#import "${2:Subject}.h"
 	
-	@interface $1 ()
+	@interface $1 : XCTestCase
 	@property (strong) $2* subject;
 	@end 
 	
@@ -147,7 +136,7 @@ snippet testcases
 	
 	- (void)testExample
 	{
-		STAssertEquals(0, 1, nil);
+		XCTFail(@"No implementation for \"%s\"", __PRETTY_FUNCTION__);
 	}
 	
 	@end
