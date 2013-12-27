@@ -1,0 +1,5 @@
+#!/bin/sh
+
+input_fname=$1
+fname=${input_fname%.*}
+java -jar ~/local/bin/plantuml.jar $1 & open ${fname}.png

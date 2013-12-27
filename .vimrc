@@ -83,6 +83,9 @@ NeoBundleLazy 'git://github.com/kchmck/vim-coffee-script.git', {'autoload': {'fi
 " json
 NeoBundleLazy 'https://github.com/elzr/vim-json.git', {'autoload': {'filetypes': ['json']}}
 
+" uml
+NeoBundle 'https://github.com/aklt/plantuml-syntax.git'
+
 " quickrun
 NeoBundle 'git://github.com/thinca/vim-quickrun.git'
 NeoBundleLazy 'git://github.com/tokorom/vim-quickrun-xctool.git', {'autoload': {'filetypes': ['objc']}}
