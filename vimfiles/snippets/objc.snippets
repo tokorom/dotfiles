@@ -281,7 +281,7 @@ snippet action
 	}
 # override a init 
 snippet -init
-	- (id)init
+	- (instancetype)init
 	{
 		if ((self = [super init])) {
 			${1}
@@ -290,7 +290,7 @@ snippet -init
 	}
 # add  a initWithXXX method 
 snippet -initw
-	- (id)initWith${1:X}:(${2:argType}):${3:argName};${4}
+	- (instancetype)initWith${1:X}:(${2:argType}):${3:argName};${4}
 # override a dealloc
 snippet -dealloc
 	- (void)dealloc
