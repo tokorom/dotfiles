@@ -723,3 +723,43 @@ snippet expect raise
 	expect(^{${1:/* code */}}).${2:to}.raise(@"${3:ExceptionName}");${0}
 snippet expect raiseAny
 	expect(^{${1:/* code */}}).${2:to}.raiseAny();${0}
+snippet main
+	#!/usr/bin/env objc-run
+	
+	@import Foundation;
+	
+	//----------------------------------------------------------------------------//
+	#pragma mark - interface
+	//----------------------------------------------------------------------------//
+	
+	@interface Sample : NSObject
+	
+	- (NSString *)say;
+	
+	@end 
+	
+	//----------------------------------------------------------------------------//
+	#pragma mark - implementation
+	//----------------------------------------------------------------------------//
+	
+	@implementation Sample
+	
+	- (NSString *)say
+	{
+	    return @"hello!";
+	}
+	
+	@end
+	
+	//----------------------------------------------------------------------------//
+	#pragma mark - main
+	//----------------------------------------------------------------------------//
+	
+	int main(int argc, const char *argv[])
+	{
+	    Sample *sample = [Sample new];
+	    NSLog(@"say: %@", [sample say]);
+	    return 0;
+	}
+snippet stringf
+	[NSString stringWithFormat:@"${1:%@}", ${2:x}]${0}

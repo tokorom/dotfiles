@@ -573,6 +573,7 @@ let g:quickrun_config = {}
 let g:quickrun_config['*'] = {'split': 'below'}
 let g:quickrun_config['python.test'] = {'command': 'nosetests', 'exec': ['%c -v %s'], 'filetype': 'nosetests-result'}
 let g:quickrun_config['ruby.rspec'] = {'command': 'rspec', 'cmdopt': '--format progress -I .', 'exec': ['source .rvmrc \&\& %c %o %s %a'], 'filetype': 'rspec-result'}
+let g:quickrun_config['objc'] = {'command': 'objc-run', 'exec': ['%c %s %a']}
 let g:quickrun_config['objc.test'] = {'command': 'xctool', 'cmdopt': 'test', 'outputter': 'xctool', 'exec': ['%c %o %a']}
 
 let g:quickrun_config['markdown'] = {
