@@ -606,6 +606,10 @@ snippet once
 	dispatch_once(&onceToken, ^{
 		${1}
 	});
+snippet main_queue
+	dispatch_async(dispatch_get_main_queue(), ^{
+		${1}
+	});
 snippet pool
 	@autoreleasepool {
 		${1}
