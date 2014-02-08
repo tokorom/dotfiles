@@ -399,7 +399,7 @@ snippet @prop
 	@property (${1:strong}) ${2:id} ${3:varName};${4}
 # define a NSString property
 snippet @propc
-	@property (${1:copy}) ${2:NSString*} ${3:varName};${4}
+	@property (${1:copy}) ${2:NSString} ${3:*varName};${4}
 # define a delegate property
 snippet @propa
 	@property (${1:assign}) ${2:NSUInteger} ${3:count};${4}
@@ -453,8 +453,8 @@ snippet add
 	[${1:self.view} addSubview:${2:subview}];
 # UIImageView
 snippet image
-	UIImage* image = [UIImage imageNamed:${1:@"xxx.png"}];
-	UIImageView* ${2:imageView} = [[UIImageView alloc] initWithImage:image];
+	UIImage *image = [UIImage imageNamed:${1:@"xxx.png"}];
+	UIImageView *${2:imageView} = [[UIImageView alloc] initWithImage:image];
 	// $2_ = [[UIImageView alloc] initWithImage:image];
 # autoresizingMask
 snippet maskwh
@@ -473,7 +473,7 @@ snippet maskall
 															 UIViewAutoresizingFlexibleBottomMargin;
 # UIAlert
 snippet alert
-	UIAlertView* alert = [UIAlertView new];
+	UIAlertView *alert = [UIAlertView new];
 	alert.message = ${1:message};
 	// alert.cancelButtonIndex = 0;
 	// [alert addButtonWithTitle:@"${2:Cancel}"];
@@ -481,9 +481,9 @@ snippet alert
 	[alert show];
 # bundle
 snippet path
-	NSBundle* mainBundle = [NSBundle mainBundle];
+	NSBundle *mainBundle = [NSBundle mainBundle];
 	if (path = [mainBundle pathForResource:@"${1:sample}" ofType:@"${2:txt}"]) {
-		NSData* data = [NSData dataWithContentsOfFile:path];
+		NSData *data = [NSData dataWithContentsOfFile:path];
 	}
 # viewcontroller
 snippet viewWillAppear
@@ -508,12 +508,12 @@ snippet viewDidDisappear
 	}
 # button
 snippet button
-	UIButton* ${1:button} = [UIButton buttonWithType:${2:UIButtonTypeRoundedRect}];
+	UIButton *${1:button} = [UIButton buttonWithType:${2:UIButtonTypeRoundedRect}];
 	[$1 setTitle:@"${3:BUTTON}" forState:UIControlStateNormal];
 	[$1 sizeToFit];
 # barButton
 snippet barbutton
-	UIBarButtonItem* ${1:barButton} =
+	UIBarButtonItem *${1:barButton} =
 		[[UIBarButtonItem alloc] initWithBarButtonSystemItem:${2:UIBarButtonSystemItemAction}
 		// [[UIBarButtonItem alloc] initWithTitle:@"BUTTON"
 		//                                  style:UIBarButtonItemStyleBordered
@@ -526,7 +526,7 @@ snippet addtarget
 	      forControlEvents:${4:UIControlEventTouchUpInside}];
 # UIActionSheet
 snippet actionsheet
-	UIActionSheet* sheet = [UIActionSheet new];
+	UIActionSheet *sheet = [UIActionSheet new];
 	sheet.delegate = self;
 	[sheet addButtonWithTitle:@"action1"];
 	[sheet addButtonWithTitle:@"action2"];
@@ -535,7 +535,7 @@ snippet actionsheet
 	[sheet showInView:self.view];
 	// [sheet showFromToolbar:self.navigationController.toolbar];
 
-	- (void)actionSheet:(UIActionSheet*)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
+	- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
 	{
 		if (buttonIndex == actionSheet.cancelButtonIndex) {
 			NSLog(@"pushed Cancel button.");
@@ -543,19 +543,19 @@ snippet actionsheet
 	}
 # UIResponder
 snippet touches
-	- (void)touchesBegan:(NSSet*)touches withEvent:(UIEvent*)event
+	- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 	{
 		// [self.nextResponder touchesBegan:touches withEvent:event];
 	}
-	- (void)touchesEnded:(NSSet*)touches withEvent:(UIEvent*)event
+	- (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
 	{
 		// [self.nextResponder touchesEnded:touches withEvent:event];
 	}
-	- (void)touchesMoved:(NSSet*)touches withEvent:(UIEvent*)event
+	- (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event
 	{
 		// [self.nextResponder touchesMoved:touches withEvent:event];
 	}
-	- (void)touchesCancelled:(NSSet*)touches withEvent:(UIEvent*)event
+	- (void)touchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event
 	{
 		// [self.nextResponder touchesCancelled:touches withEvent:event];
 	}
@@ -572,10 +572,10 @@ snippet ^
 	}${2:];}
 snippet nettask
 	[ILNet get:${1:urlString}
-		finished:^(NSData* data){
-			${2:UIImage* image = [[UIImage alloc] initWithData:data];}
+		finished:^(NSData *data){
+			${2:UIImage *image = [[UIImage alloc] initWithData:data];}
 		}
-		failed:^(NSError* error){
+		failed:^(NSError *error){
 			NSLog([error localizedDescription]);
 		}
 		cancelled:^{
@@ -591,7 +591,7 @@ snippet task
 		finished:^{
 			NSLogLine();
 		}
-		failed:^(NSError* error){
+		failed:^(NSError *error){
 			NSLogLine();
 			NSLog(@"%@", error);
 		}
@@ -612,11 +612,11 @@ snippet pool
 	}
 #gestures
 snippet gesture swipe
-	UISwipeGestureRecognizer* swipeLeftGesture =
+	UISwipeGestureRecognizer *swipeLeftGesture =
 		[[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(swipeLeftGesture:)];
 	swipeLeftGesture.direction = UISwipeGestureRecognizerDirectionLeft;
 	[${1:self.view} addGestureRecognizer:swipeLeftGesture];
-	UISwipeGestureRecognizer* swipeRightGesture =
+	UISwipeGestureRecognizer *swipeRightGesture =
 		[[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(swipeRightGesture:)];
 	swipeRightGesture.direction = UISwipeGestureRecognizerDirectionRight;
 	[$1 addGestureRecognizer:swipeRightGesture];
@@ -635,15 +635,15 @@ snippet table ios5
 	#pragma mark - UITableViewDataSource
 	//----------------------------------------------------------------------------//
 	
-	- (NSInteger)tableView:(UITableView*)tableView numberOfRowsInSection:(NSInteger)section
+	- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 	{
 		return 1;
 	}
 	
-	- (UITableViewCell*)tableView:(UITableView*)tableView cellForRowAtIndexPath:(NSIndexPath*)indexPath
+	- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 	{
-		static NSString* const kTableViewCellIdentifier = @"UITableViewCell";
-		UITableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:kTableViewCellIdentifier];
+		static NSString *const kTableViewCellIdentifier = @"UITableViewCell";
+		UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kTableViewCellIdentifier];
 		if (nil == cell) {
 			cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:kTableViewCellIdentifier];
 		}
@@ -654,7 +654,7 @@ snippet table ios5
 	#pragma mark - UITableViewDelegate
 	//----------------------------------------------------------------------------//
 	
-	- (void)tableView:(UITableView*)tableView didSelectRowAtIndexPath:(NSIndexPath*)indexPath
+	- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 	{
 	}
 snippet table ios6
@@ -662,15 +662,15 @@ snippet table ios6
 	#pragma mark - UITableViewDataSource
 	//----------------------------------------------------------------------------//
 	
-	- (NSInteger)tableView:(UITableView*)tableView numberOfRowsInSection:(NSInteger)section
+	- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 	{
 		return 1;
 	}
 	
-	- (UITableViewCell*)tableView:(UITableView*)tableView cellForRowAtIndexPath:(NSIndexPath*)indexPath
+	- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 	{
-		static NSString* const kTableViewCellIdentifier = @"UITableViewCell";
-		UITableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:kTableViewCellIdentifier forIndexPath:indexPath];
+		static NSString *const kTableViewCellIdentifier = @"UITableViewCell";
+		UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kTableViewCellIdentifier forIndexPath:indexPath];
 		return cell;
 	}
 	
@@ -678,7 +678,7 @@ snippet table ios6
 	#pragma mark - UITableViewDelegate
 	//----------------------------------------------------------------------------//
 	
-	- (void)tableView:(UITableView*)tableView didSelectRowAtIndexPath:(NSIndexPath*)indexPath
+	- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 	{
 	}
 snippet notification
