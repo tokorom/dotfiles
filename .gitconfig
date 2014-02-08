@@ -74,6 +74,9 @@
   prompt = false
 [merge]
   tool = Kaleidoscope
+[merge "mergepbx"]
+  name = XCode project files merger
+  driver = mergepbx %O %A %B
 
 [include]
   path = ~/.gitconfig.local
