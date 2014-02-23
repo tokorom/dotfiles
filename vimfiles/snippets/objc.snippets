@@ -610,6 +610,10 @@ snippet main_queue
 	dispatch_async(dispatch_get_main_queue(), ^{
 		${1}
 	});
+snippet global_queue
+	dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+		${1}
+	});
 snippet pool
 	@autoreleasepool {
 		${1}
@@ -774,3 +778,5 @@ snippet awakeFromNib
 	    
 	    ${0}
 	}
+snippet wself
+	__weak typeof(self) wself = self;
