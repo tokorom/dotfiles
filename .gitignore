@@ -18,7 +18,6 @@
 !/.zshrc
 !/.agignore
 !/.clang-format
-!/.uncrustify
 !/dot.nodoka
 !/clear_backups
 # add ignore files
