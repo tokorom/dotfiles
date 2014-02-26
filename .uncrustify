@@ -170,75 +170,75 @@ align_var_def_star_style = 2
 # 変数定義での参照の'&'位置揃えの方法 { 0: 型の一部、1: 変数名の一部、2: ダングリング }
 align_var_def_amp_style = 2
 # 構造体ビットフィールドの':'を位置揃えするかどうか { true, false }
-align_var_def_colon = true
+align_var_def_colon = false
 # 変数名の後の属性を位置揃えするかどうか { true, false }
-align_var_def_attribute = true
+align_var_def_attribute = false
 # struct/enum/unionのメンバ変数定義を位置揃えするかどうか { true, false }
-align_var_def_inline = true
+align_var_def_inline = false
 # 変数定義の位置揃えに対するラインスパン (0: 揃えない) { number }
-align_var_def_span = 1
+align_var_def_span = 0
 # 変数定義の位置揃えのカラム閾値 (0: 制限無し) { number }
 align_var_def_thresh = 0
 # 変数定義の位置揃えのカラムギャップ { number }
 align_var_def_gap = 0
 # 代入式の'='の位置揃えをするラインスパン (0: 揃えない) { number }
-align_assign_span = 1
+align_assign_span = 0
 # 代入式の'='の位置揃えをするカラム閾値 (0: 制限無し) { number }
 align_assign_thresh = 0
 # enumの'='の位置揃えをするラインスパン (0: 揃えない) { number }
-align_enum_equ_span = 1
+align_enum_equ_span = 0
 # enumの'='の位置揃えをするカラム閾値 (0: 制限無し) { number }
 align_enum_equ_thresh = 0
 # struct/unionのメンバー定義の位置揃えをするラインスパン (0: 揃えない) { number }
-align_var_struct_span = 1
+align_var_struct_span = 0
 # struct/unionのメンバー定義の位置揃えをするカラム閾値 (0: 制限無し) { number }
 align_var_struct_thresh = 0
 # struct/unionのメンバー定義のカラムギャップ { number }
 align_var_struct_gap = 0
 # structのメンバ変数の指定初期化の位置揃えのラインスパン (0: 揃えない) { number }
-align_struct_init_span = 1
+align_struct_init_span = 0
 # typedefの型とシノニムの間の空白の最小数 { number }
 align_typedef_gap = 0
 # 一行typedefの位置揃えをするラインスパン (0: 揃えない) { number }
-align_typedef_span = 1
+align_typedef_span = 0
 # typedefされた関数とその他typedefの位置揃えの方法 { 0: ミックスして位置を揃えない、1: 開丸括弧と型の位置を揃える、2: 関数の型名とその他の型名の位置を揃える }
-align_typedef_func = 1
+align_typedef_func = 0
 # typedefの''の位置揃えの方法 { 0: typedef typeで揃える、1: ''を型名の一部とする、2: '*'を型名の一部としてダングリングする }
 align_typedef_star_style = 2
 # typedefの'&'の位置揃えの方法 { 0: typedef typeで揃える、1: '&'を型名の一部とする、2: '&'を型名の一部としてダングリングする }
 align_typedef_amp_style = 2
 # 行末コメントを位置揃えするラインスパン (0: 揃えない) { number }
-align_right_cmt_span = 1
+align_right_cmt_span = 0
 # If aligning comments, mix with comments after '}' and #endif with less than 3 spaces before the comment { true, false }
 align_right_cmt_mix = false
 # 行末コメントがこの桁数以上コードと離れている場合、位置揃えする (0: 揃えない) { number }
-align_right_cmt_gap = 1
+align_right_cmt_gap = 0
 # 行末コメントの位置揃えするカラム位置 (嬉しい副産物 'pulls in' コメント) (0: 揃えない) { number }
 align_right_cmt_at_col = 0
 # プロトタイプ宣言の位置揃えのラインスパン (0: 揃えない) { number }
-align_func_proto_span = 2
+align_func_proto_span = 0
 # プロトタイプ宣言の返値型と関数名の間のギャップカラム { number }
 align_func_proto_gap = 0
 # 'operator'キーワードでプロトタイプ宣言を位置揃えするかどうか { number }
-align_on_operator = true
+align_on_operator = false
 # プロトタイプと変数宣言のミックス整形するかどうか (trueの場合、align_var_def_XXXオプションがalign_func_proto_XXXオプションの代わりに使用される。) { true, false }
 align_mix_var_proto = false
 # 一行関数を関数プロトタイプと同様に位置揃えするかどうか (align_func_proto_spanを使用) { true, false }
-align_single_line_func = true
+align_single_line_func = false
 # 一行関数のオープンブレースを位置揃えするかどうか (align_single_line_func=trueの場合のみ) (align_func_proto_spanを使用) { true, false }
-align_single_line_brace = true
+align_single_line_brace = false
 # align_single_line_braceに対するギャップ { number }
 align_single_line_brace_gap = 0
 # バックスラッシュ-改行で囲われた複数行マクロを位置揃えするかどうか (ただし、マクロが複数行コメントを内包している場合、うまく動かない) { true, false }
-align_nl_cont = true
+align_nl_cont = false
 # プリプロセッサ定義のボディの位置揃えのスパン (0: 揃えない) { number }
-align_pp_define_span = 1
+align_pp_define_span = 0
 # プリプロセッサ定義のラベルと値の間の空白の最小幅 { number }
 align_pp_define_gap = 0
 # マクロ関数とマクロ変数を一緒に位置揃えするかどうか { true, false }
 align_pp_define_together = false
 # '<<'で開始する行を前の行の'<<'の位置に揃えるかどうか (デフォルト: true) { true, false }
-align_left_shift = true
+align_left_shift = false
 # Objective-Cのメッセージ仕様宣言のスパン (0: 揃えない) { number }
 align_oc_msg_spec_span = 1
 # Objective-Cのメッセージコールにおけるパラメータ':'の位置揃えのスパン (0: 揃えない) { number }
