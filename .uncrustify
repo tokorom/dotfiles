@@ -145,7 +145,7 @@ indent_preserve_sql = false
 # '='に続くステートメントをインデントするか、位置揃えするか (falseもしくは'='直後に改行場合、インデントする) { true, false }
 indent_align_assign = true
 # Objective-Cブロックを通常ルールの代わりブレースレベルまでインデントするかどうか { true, false }
-indent_oc_block = false
+indent_oc_block = true
 # メッセージ内のObjective-Cブロックをパラメータ名に相対的にインデントする (0: indent_oc_blockルール >0: インデント半角空白数) { number }
 indent_oc_block_msg = 0
 # 継続するパラメータの最小インデント数 {number}
