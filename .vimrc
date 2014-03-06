@@ -31,6 +31,7 @@ NeoBundle 'git://github.com/kana/vim-altr.git'
 NeoBundle 'git://github.com/thinca/vim-ref.git'
 NeoBundle 'The-NERD-Commenter'
 NeoBundle 'anekos/char-counter-vim'
+NeoBundle 'https://github.com/kana/vim-operator-user.git'
 
 NeoBundle 'git://github.com/w0ng/vim-hybrid.git'
 
@@ -54,6 +55,7 @@ NeoBundle 'git://github.com/Shougo/neosnippet.git'
 
 " clang
 NeoBundleLazy 'git://github.com/tokorom/clang_complete.git', {'autoload': {'filetypes': ['c', 'cpp', 'objc']}}
+NeoBundleLazy 'https://github.com/rhysd/vim-clang-format.git', {'autoload': {'filetypes': ['c', 'cpp', 'objc']}}
 
 " syntax check
 NeoBundleLazy 'git://github.com/scrooloose/syntastic.git', {'autoload': {'filetypes': ['xml', 'html', 'sass', 'css', 'js', 'yaml', 'json', 'xslt', 'python', 'perl', 'c']}}

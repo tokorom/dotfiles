@@ -26,6 +26,9 @@ inoremap <buffer> <C-]> <Esc>F[i[<Esc>A<Space>
 
 map <silent> <buffer> <expr> [MyDoublePrefix]q ':QuickRun -args "TEST=' . expand("%:t:r") . '"<CR>'
 
+" clang-format
+map = <Plug>(operator-clang-format)
+
 if filereadable(expand('~/vimfiles/after/ftplugin/objc.vim.local'))
   source ~/vimfiles/after/ftplugin/objc.vim.local
 endif
