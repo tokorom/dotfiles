@@ -407,7 +407,7 @@ let g:ctrlp_prompt_mappings = {
   \ 'AcceptSelection("h")': ['<c-cr>', '<c-s>'],
   \ }
 
-let g:ctrlp_custom_ignore = '\v\~$|\.o$|\.exe$|\.bak$|\.swp$|\.svn$|vendor/|\.d$|\.dia$|\.gcda$|\.gcno'
+let g:ctrlp_custom_ignore = '\v\~$|\.o$|\.exe$|\.bak$|\.swp$|\.svn$|\.d$|\.dia$|\.gcda$|\.gcno'
 let g:ctrlp_mruf_exclude = '/tmp/.*\|/temp/.*|/backup/*'
 
 let g:ctrlp_docset_docsetutil_command = '/Applications/Xcode.app/Contents/Developer/usr/bin/docsetutil'
