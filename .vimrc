@@ -90,6 +90,9 @@ NeoBundle 'https://github.com/aklt/plantuml-syntax.git'
 
 " quickrun
 NeoBundle 'git://github.com/thinca/vim-quickrun.git'
+NeoBundle 'https://github.com/osyo-manga/shabadou.vim.git'
+NeoBundleLazy 'https://github.com/osyo-manga/vim-watchdogs.git', {'autoload': {'filetypes': ['objc']}}
+NeoBundleLazy 'https://github.com/jceb/vim-hier.git', {'autoload': {'filetypes': ['objc']}}
 NeoBundleLazy 'git://github.com/tokorom/vim-quickrun-xctool.git', {'autoload': {'filetypes': ['objc']}}
 
 " ファイルタイプ別セッティングON
@@ -586,10 +589,38 @@ let g:quickrun_config['markdown'] = {
   \ 'exec' : '%c %o %a %s',
   \ }
 
+" watchdogs
+
+let g:quickrun_config['watchdogs_checker/xcodebuild'] = {
+  \ 'command'  : 'xcodebuild',
+  \ 'exec'     : '%c %o',
+  \ 'quickfix/errorformat' : "%f:%l:%c:{%*[^}]}: error: %m,%f:%l:%c:{%*[^}]}: fatal error: %m,%f:%l:%c:{%*[^}]}: warning: %m,%f:%l:%c: error: %m,%f:%l:%c: fatal error: %m,%f:%l:%c: warning: %m,%f:%l: Error: %m,%f:%l: error: %m,%f:%l: fatal error: %m,%f:%l: warning: %m",
+  \ }
+
+let g:quickrun_config['objc/watchdogs_checker'] = {
+  \ 'type' : 'watchdogs_checker/xcodebuild',
+  \ }
+
+call watchdogs#setup(g:quickrun_config)
+
 " keymap
 
 map [MyPrefix]q <Nop>
 map [MyPrefix]q <Plug>(quickrun)
+
+"-----------------------------------------------------------------------------
+endfunction
+" }}}2
+
+" quickrun {{{2
+let s:hooks = neobundle#get_hooks("vim-watchdogs")
+function! s:hooks.on_source(bundle)
+"-----------------------------------------------------------------------------
+
+" バッファ書き込み後にWatchdogsRunSilent
+let g:watchdogs_check_BufWritePost_enable = 1
+" 一定時間キー入力がなかった場合にWatchdogsRunSilent
+let g:watchdogs_check_CursorHold_enable = 1
 
 "-----------------------------------------------------------------------------
 endfunction
