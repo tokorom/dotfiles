@@ -28,6 +28,9 @@ map <silent> <buffer> <expr> [MyDoublePrefix]q ':QuickRun -args "TEST=' . expand
 
 " clang-format
 map = <Plug>(operator-clang-format)
+if filereadable(expand('.clang-format'))
+    autocmd BufWrite *.m,*.h :ClangFormat
+endif
 
 if filereadable(expand('~/vimfiles/after/ftplugin/objc.vim.local'))
   source ~/vimfiles/after/ftplugin/objc.vim.local
