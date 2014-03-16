@@ -76,7 +76,38 @@ function! textobj#objc#select_literal_i() "{{{3
   return ['v', head_pos, tail_pos]
 endfunction
 
+" blocks "{{{2
 
-" __END__
+function! textobj#objc#select_block_a() "{{{3
+  normal! l?\^[[:alnum:]()-_[:space:][:return:]\n]*{[[:space:][:return:]\n]*
+  let head_pos = getpos('.')
+  echo head_pos
+
+  normal! /{%
+  let tail_pos = getpos('.')
+  echo tail_pos
+
+  if tail_pos[1] <= head_pos[1] && tail_pos[2] <= head_pos[2]
+    return 0
+  endif
+
+  return ['v', head_pos, tail_pos]
+endfunction
+
+function! textobj#objc#select_block_i() "{{{3
+  normal! l?\^[[:alnum:]()-_[:space:][:return:]\n]*{[[:space:][:return:]\n]*/{w
+  let head_pos = getpos('.')
+
+  normal! ?{%?[^[:space:][:return:]\n]
+  let tail_pos = getpos('.')
+  echo tail_pos
+
+  if tail_pos[1] <= head_pos[1] && tail_pos[2] < head_pos[2]
+    return 0
+  endif
+
+  return ['v', head_pos, tail_pos]
+endfunction
+
 " __END__  "{{{1
 " vim: foldmethod=marker

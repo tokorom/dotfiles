@@ -37,13 +37,14 @@ call textobj#user#plugin('objc', {
 \   },
 \
 \   'blocks': {
-\     'pattern': ['\^{[[:space:][:return:]\n]*', '[[:space:][:return:]\n]*}'],
+\     'select-a-function': 'textobj#objc#select_block_a',
+\     'select-i-function': 'textobj#objc#select_block_i',
 \     'select-a': 'a^',
 \     'select-i': 'i^',
 \   }
 \ })
 
-" \     'pattern': ['[[:alnum:]-_]+:[[:space:][:return:]\n]*', '[^[:alnum:]-_]'],
+" \     'pattern': ['\^[[:alnum:]()-_[:space:][:return:]\n]*{[[:space:][:return:]\n]*', '[[:space:][:return:]\n]*}'],
 " Fin. "{{{1
 
 let g:loaded_textobj_objc = 1
