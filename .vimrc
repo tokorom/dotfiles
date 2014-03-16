@@ -109,6 +109,9 @@ NeoBundleLazy 'https://github.com/osyo-manga/vim-watchdogs.git', {'autoload': {'
 NeoBundleLazy 'https://github.com/jceb/vim-hier.git', {'autoload': {'filetypes': ['objc']}}
 NeoBundleLazy 'git://github.com/tokorom/vim-quickrun-xctool.git', {'autoload': {'filetypes': ['objc']}}
 
+" local
+NeoBundleLocal ~/vimfiles_local/
+
 " ファイルタイプ別セッティングON
 filetype plugin indent on 
 
