@@ -329,9 +329,15 @@ nnoremap [MyPrefix]k       :<C-u>bp<CR>
 " ---------- operator ----------
 
 nmap <Space>r <Plug>(operator-replace)
+vmap <Space>r <Plug>(operator-replace)
+nmap <Space>rr <Plug>(operator-replace)iw
 
 nmap <Space>x <Plug>(operator-comment)
 nmap <Space>z <Plug>(operator-uncomment)
+vmap <Space>x <Plug>(operator-comment)
+vmap <Space>z <Plug>(operator-uncomment)
+nmap <Space>xx <Plug>(operator-comment)l
+nmap <Space>zz <Plug>(operator-uncomment)l
 
 " ---------- textobj ----------
 
