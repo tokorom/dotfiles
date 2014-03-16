@@ -23,22 +23,36 @@ NeoBundle 'Shougo/vimproc', {
 \    },
 \ }
 
-NeoBundle 'surround.vim'
 NeoBundle 'autodate.vim'
+NeoBundle 'surround.vim'
 NeoBundle 'git://github.com/kana/vim-fakeclip.git'
 NeoBundle 'L9'
 NeoBundle 'git://github.com/kana/vim-altr.git'
 NeoBundle 'git://github.com/thinca/vim-ref.git'
-NeoBundle 'The-NERD-Commenter'
 NeoBundle 'anekos/char-counter-vim'
-NeoBundle 'https://github.com/kana/vim-operator-user.git'
-
-NeoBundle 'git://github.com/w0ng/vim-hybrid.git'
-
-NeoBundle 'https://github.com/itchyny/lightline.vim.git'
 
 NeoBundleLazy 'git://github.com/sjl/gundo.vim.git', {'autoload': {'commands': ['GundoShow', 'GundoHide', 'GundoToggle', 'GundoRenderGraph']}}
 NeoBundleLazy 'git://github.com/yuratomo/w3m.vim.git', {'autoload': {'commands': ['W3m', 'W3mTab', 'W3mSplit', 'W3mLocal', 'W3mHistory', 'W3mHistoryClear']}}
+
+" color
+NeoBundle 'git://github.com/w0ng/vim-hybrid.git'
+
+" status line
+NeoBundle 'https://github.com/itchyny/lightline.vim.git'
+
+" operator
+NeoBundle 'https://github.com/kana/vim-operator-user.git'
+NeoBundle 'https://github.com/kana/vim-operator-replace.git'
+NeoBundle 'https://github.com/emonkak/vim-operator-comment.git'
+
+" textobj
+NeoBundle 'https://github.com/kana/vim-textobj-user.git'
+NeoBundle 'https://github.com/kana/vim-textobj-line.git'
+NeoBundle 'https://github.com/kana/vim-textobj-entire.git'
+NeoBundle 'https://github.com/kana/vim-textobj-indent.git'
+NeoBundle 'https://github.com/kana/vim-textobj-function.git'
+NeoBundle 'https://github.com/osyo-manga/vim-textobj-multiblock.git'
+NeoBundle 'https://github.com/thinca/vim-textobj-between.git'
 
 " ag
 NeoBundleLazy 'rking/ag.vim', {'autoload': {'commands': ['Ag']}}
@@ -258,10 +272,7 @@ nnoremap [MyPrefix]P "yP
 " クリップボードの内容を名前付きレジスタに逃がす
 nnoremap [MyPrefix]" :<C-u>let @y=@*<CR>:echo @y<CR>
 " 単語の置き換え(クリップボードの内容を保つ)
-nnoremap [MyPrefix]r "rciw<C-r>*<Esc>
-
-" 全選択
-nnoremap [MyPrefix]<C-a> ggVG
+" nnoremap [MyPrefix]r "rciw<C-r>*<Esc>
 
 " -- exchange source <--> header --
 
@@ -314,6 +325,28 @@ nnoremap [MyDoublePrefix].s       :<C-u>%substitute///gc<Left><Left><Left><Left>
 
 nnoremap [MyPrefix]j       :<C-u>bn<CR>
 nnoremap [MyPrefix]k       :<C-u>bp<CR>
+
+" ---------- operator ----------
+
+nmap <Space>r <Plug>(operator-replace)
+
+nmap <Space>x <Plug>(operator-comment)
+nmap <Space>z <Plug>(operator-uncomment)
+
+" ---------- textobj ----------
+
+omap l <Plug>(textobj-line-a)
+vmap l <Plug>(textobj-line-a)
+
+omap ib <Plug>(textobj-multiblock-i)
+omap ab <Plug>(textobj-multiblock-a)
+vmap ab <Plug>(textobj-multiblock-a)
+vmap ib <Plug>(textobj-multiblock-i)
+
+omap i<Space> <Plug>(textobj-between-i)
+omap a<Space> <Plug>(textobj-between-a)
+vmap i<Space> <Plug>(textobj-between-i)
+vmap a<Space> <Plug>(textobj-between-a)
 
 " }}}1
 "=============================================================================
@@ -435,17 +468,6 @@ nnoremap <C-p>                   :<C-u>tabp<CR>
 endfunction
 " }}}2
 
-" The-NERD-Commenter {{{2
-let s:hooks = neobundle#get_hooks("The-NERD-Commenter")
-function! s:hooks.on_source(bundle)
-"-----------------------------------------------------------------------------
-
-map <space>x <plug>NERDCommenterToggle
-
-"-----------------------------------------------------------------------------
-endfunction
-" }}}2
-
 " ZenCoding {{{2
 let s:hooks = neobundle#get_hooks("ZenCoding.vim")
 function! s:hooks.on_source(bundle)
@@ -477,7 +499,7 @@ let g:neocomplcache_keyword_patterns['default'] = '\h\w*'
 let g:neocomplcache_enable_auto_select = 1 "最初の候補を自動選択 
 let g:neocomplcache_max_list = 10000
 
-inoremap <expr><C-x><C-f> neocomplcache#manual_filename_complete()
+inoremap <expr><C-x><C-f neocomplcache#manual_filename_complete()
 inoremap <expr><C-n> pumvisible() ? "\<C-n>" : neocomplcache#start_manual_complete()
 inoremap <expr><C-o> neocomplcache#start_manual_complete()
 inoremap <expr><C-h> neocomplcache#smart_close_popup()."\<C-h>"
