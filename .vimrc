@@ -57,6 +57,9 @@ NeoBundle 'https://github.com/thinca/vim-textobj-between.git'
 " ag
 NeoBundleLazy 'rking/ag.vim', {'autoload': {'commands': ['Ag']}}
 
+" unite
+NeoBundleLazy 'Shougo/unite.vim', {'autoload': {'commands': ['Unite']}}
+
 " ctrlp
 NeoBundle 'git://github.com/kien/ctrlp.vim.git'
 NeoBundleLazy 'git://github.com/mattn/ctrlp-register.git', {'autoload': {'commands': ['CtrlPRegister']}}
@@ -408,16 +411,12 @@ augroup AddFileType
   autocmd BufWinEnter,BufNewFile *.vimperatorrc setfiletype vim
   " mayu
   autocmd BufWinEnter,BufNewFile *.mayu,*.nodoka setfiletype mayu
-  " ujml
-  autocmd BufWinEnter,BufNewFile *.ujml,*.ujmi,*.ent,*.ujmc setfiletype ujml
   " rspec
   autocmd BufWinEnter,BufNewFile *_spec.rb setfiletype ruby.rspec
   " puthon.test
   autocmd BufWinEnter,BufNewFile test*.py setfiletype python.test
   " objc.test
   autocmd BufWinEnter,BufNewFile *Test.m setfiletype objc.test
-  " hatena
-  autocmd BufWinEnter,BufNewFile *.hatena setfiletype hatena
   " markdown
   autocmd BufWinEnter,BufNewFile *.md,*.mkd,*.page setfiletype markdown
 augroup END
