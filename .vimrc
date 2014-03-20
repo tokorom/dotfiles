@@ -63,6 +63,7 @@ NeoBundleLazy 'Shougo/unite.vim', {
       \ 'complete' : 'customlist,unite#complete_source'},
       \ 'UniteWithCursorWord', 'UniteWithInput']
       \ }
+NeoBundle 'Shougo/neomru.vim'
 
 " ctrlp
 NeoBundle 'git://github.com/kien/ctrlp.vim.git'
@@ -321,7 +322,11 @@ nnoremap [MyPrefix]t             :<C-u>tabnew
 nnoremap <C-n>                   :<C-u>tabn<CR>
 nnoremap <C-p>                   :<C-u>tabp<CR>
 
-" ---------- grep ----------
+" ---------- unite ----------
+
+nnoremap [MyPrefix].f :<C-u>Unite -start-insert file_rec<CR>
+nnoremap [MyPrefix].b :<C-u>Unite buffer<CR>
+nnoremap [MyPrefix].r :<C-u>Unite file_mru:short<CR>
 
 nnoremap [MyPrefix]g              :<C-u>Unite grep:. -default-action=tabopen<CR>
 nnoremap <expr> [MyPrefix].g      ':Unite grep:. -default-action=tabopen -input=' . expand('<cword>')
@@ -450,6 +455,8 @@ function! s:hooks.on_source(bundle)
 
 let g:unite_update_time = 10
 
+call unite#custom_source('file_rec', 'ignore_pattern', 'build\|\.\%(git\|o\|exe\|dll\|bak\|sw[po]\|class\|d\|dia\|gcda\|gcno\|png\|gif\|jpe?g\)$')
+
 " use `ag` for grep
 if executable('ag')
   let g:unite_source_grep_command = 'ag'
@@ -495,9 +502,9 @@ let g:ctrlp_docset_filepaths = {}
 let g:ctrlp_docset_filepaths['objc'] = '~/Library/Developer/Shared/Documentation/DocSets/com.apple.adc.documentation.AppleiOS6.1.iOSLibrary.docset'
 let g:ctrlp_docset_accept_command = ':W3mSplit local %s'
 
-nnoremap [MyPrefix].f :<C-u>CtrlP .<CR>
-nnoremap [MyPrefix].b :<C-u>CtrlPBuffer<CR>
-nnoremap [MyPrefix].r :<C-u>CtrlPMRU<CR>
+" nnoremap [MyPrefix].f :<C-u>CtrlP .<CR>
+" nnoremap [MyPrefix].b :<C-u>CtrlPBuffer<CR>
+" nnoremap [MyPrefix].r :<C-u>CtrlPMRU<CR>
 nnoremap [MyPrefix].m :<C-u>CtrlPMark<CR>
 nnoremap [MyPrefix]." :<C-u>CtrlPRegister<CR>
 nnoremap [MyPrefix].d :<C-u>CtrlPDocset<CR>
