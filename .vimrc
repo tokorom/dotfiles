@@ -65,12 +65,6 @@ NeoBundleLazy 'Shougo/unite.vim', {
       \ }
 NeoBundle 'Shougo/neomru.vim'
 
-" ctrlp
-NeoBundle 'git://github.com/kien/ctrlp.vim.git'
-NeoBundleLazy 'git://github.com/mattn/ctrlp-register.git', {'autoload': {'commands': ['CtrlPRegister']}}
-NeoBundleLazy 'git://github.com/mattn/ctrlp-mark.git', {'autoload': {'commands': ['CtrlPMark']}}
-NeoBundleLazy 'git://github.com/tacahiroy/ctrlp-funky.git', {'autoload': {'commands': ['CtrlPFunky']}}
-
 " neocomplcache
 NeoBundle 'git://github.com/Shougo/neocomplcache.git'
 NeoBundle 'git://github.com/Shougo/neosnippet.git'
@@ -98,8 +92,7 @@ NeoBundleLazy 'git://github.com/chrismetcalf/vim-markdown.git', {'autoload': {'f
 
 " objc
 NeoBundleLazy 'git://github.com/tokorom/cocoa.vim.git', 'syntax-only', {'autoload': {'filetypes': ['objc']}}
-NeoBundleLazy 'git://github.com/tokorom/ctrlp-docset.git', {'autoload': {'filetypes': ['objc']}}
-NeoBundleLazy 'git@github.com:tokorom/clang_complete-getopts-ios.git', {'autoload': {'filetypes': ['objc']}}
+" NeoBundleLazy 'git@github.com:tokorom/clang_complete-getopts-ios.git', {'autoload': {'filetypes': ['objc']}}
 
 " coffee
 NeoBundleLazy 'git://github.com/kchmck/vim-coffee-script.git', {'autoload': {'filetypes': ['coffee']}}
@@ -324,15 +317,15 @@ nnoremap <C-p>                   :<C-u>tabp<CR>
 
 " ---------- unite ----------
 
-nnoremap [MyPrefix].f :<C-u>Unite -start-insert file_rec<CR>
-nnoremap [MyPrefix].b :<C-u>Unite buffer<CR>
-nnoremap [MyPrefix].r :<C-u>Unite file_mru:short<CR>
+nnoremap [MyPrefix].f :<C-u>Unite -start-insert -default-action=tabopen buffer file_rec<CR>
+nnoremap [MyPrefix].b :<C-u>Unite -default-action=tabopen buffer<CR>
+nnoremap [MyPrefix].r :<C-u>Unite -default-action=tabopen file_mru<CR>
 
-nnoremap [MyPrefix]g              :<C-u>Unite grep:. -default-action=tabopen<CR>
-nnoremap <expr> [MyPrefix].g      ':Unite grep:. -default-action=tabopen -input=' . expand('<cword>')
+nnoremap [MyPrefix]g :<C-u>Unite grep:. -default-action=tabopen<CR>
+nnoremap <expr> [MyPrefix].g ':Unite grep:. -default-action=tabopen -input=' . expand('<cword>')
 
 let g:ios_framework_dir = "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/System/Library/Frameworks"
-nnoremap <expr> [MyPrefix].i      ':Unite grep:"' . g:ios_framework_dir . '" -default-action=tabopen -input=' . expand('<cword>')
+nnoremap <expr> [MyPrefix].i ':Unite grep:"' . g:ios_framework_dir . '" -default-action=tabopen -input=' . expand('<cword>')
 
 " ---------- substitute ----------
 
@@ -453,7 +446,7 @@ let s:hooks = neobundle#get_hooks("unite.vim")
 function! s:hooks.on_source(bundle)
 "-----------------------------------------------------------------------------
 
-let g:unite_update_time = 10
+let g:unite_update_time = 50
 
 call unite#custom_source('file_rec', 'ignore_pattern', 'build\|\.\%(git\|o\|exe\|dll\|bak\|sw[po]\|class\|d\|dia\|gcda\|gcno\|png\|gif\|jpe?g\)$')
 
@@ -480,43 +473,43 @@ endfunction
 " }}}2
 
 " ctrlp {{{2
-let s:hooks = neobundle#get_hooks("ctrlp.vim")
-function! s:hooks.on_source(bundle)
-"-----------------------------------------------------------------------------
-
-let g:ctrlp_map = ''
-let g:ctrlp_by_filename = 0
-let g:ctrlp_switch_buffer = 'ET'
-
-let g:ctrlp_prompt_mappings = {
-  \ 'AcceptSelection("e")': ['<C-x>', '<2-LeftMouse>'],
-  \ 'AcceptSelection("t")': ['<CR>'],
-  \ 'AcceptSelection("h")': ['<c-cr>', '<c-s>'],
-  \ }
-
-let g:ctrlp_custom_ignore = '\v\~$|\.o$|\.exe$|\.bak$|\.swp$|\.svn$|\.d$|\.dia$|\.gcda$|\.gcno'
-let g:ctrlp_mruf_exclude = '/tmp/.*\|/temp/.*|/backup/*'
-
-let g:ctrlp_docset_docsetutil_command = '/Applications/Xcode.app/Contents/Developer/usr/bin/docsetutil'
-let g:ctrlp_docset_filepaths = {}
-let g:ctrlp_docset_filepaths['objc'] = '~/Library/Developer/Shared/Documentation/DocSets/com.apple.adc.documentation.AppleiOS6.1.iOSLibrary.docset'
-let g:ctrlp_docset_accept_command = ':W3mSplit local %s'
-
-" nnoremap [MyPrefix].f :<C-u>CtrlP .<CR>
-" nnoremap [MyPrefix].b :<C-u>CtrlPBuffer<CR>
-" nnoremap [MyPrefix].r :<C-u>CtrlPMRU<CR>
-nnoremap [MyPrefix].m :<C-u>CtrlPMark<CR>
-nnoremap [MyPrefix]." :<C-u>CtrlPRegister<CR>
-nnoremap [MyPrefix].d :<C-u>CtrlPDocset<CR>
-nnoremap [MyPrefix].l :<C-u>CtrlPFunky<CR>
-
-" CtrlPのCacheクリア
-command! CC :CtrlPClearAllCaches
-
-nnoremap <C-p>                   :<C-u>tabp<CR>
-
-"-----------------------------------------------------------------------------
-endfunction
+" let s:hooks = neobundle#get_hooks("ctrlp.vim")
+" function! s:hooks.on_source(bundle)
+" "-----------------------------------------------------------------------------
+"
+" let g:ctrlp_map = ''
+" let g:ctrlp_by_filename = 0
+" let g:ctrlp_switch_buffer = 'ET'
+"
+" let g:ctrlp_prompt_mappings = {
+"   \ 'AcceptSelection("e")': ['<C-x>', '<2-LeftMouse>'],
+"   \ 'AcceptSelection("t")': ['<CR>'],
+"   \ 'AcceptSelection("h")': ['<c-cr>', '<c-s>'],
+"   \ }
+"
+" let g:ctrlp_custom_ignore = '\v\~$|\.o$|\.exe$|\.bak$|\.swp$|\.svn$|\.d$|\.dia$|\.gcda$|\.gcno'
+" let g:ctrlp_mruf_exclude = '/tmp/.*\|/temp/.*|/backup/*'
+"
+" let g:ctrlp_docset_docsetutil_command = '/Applications/Xcode.app/Contents/Developer/usr/bin/docsetutil'
+" let g:ctrlp_docset_filepaths = {}
+" let g:ctrlp_docset_filepaths['objc'] = '~/Library/Developer/Shared/Documentation/DocSets/com.apple.adc.documentation.AppleiOS6.1.iOSLibrary.docset'
+" let g:ctrlp_docset_accept_command = ':W3mSplit local %s'
+"
+" " nnoremap [MyPrefix].f :<C-u>CtrlP .<CR>
+" " nnoremap [MyPrefix].b :<C-u>CtrlPBuffer<CR>
+" " nnoremap [MyPrefix].r :<C-u>CtrlPMRU<CR>
+" nnoremap [MyPrefix].m :<C-u>CtrlPMark<CR>
+" nnoremap [MyPrefix]." :<C-u>CtrlPRegister<CR>
+" nnoremap [MyPrefix].d :<C-u>CtrlPDocset<CR>
+" nnoremap [MyPrefix].l :<C-u>CtrlPFunky<CR>
+"
+" " CtrlPのCacheクリア
+" command! CC :CtrlPClearAllCaches
+"
+" nnoremap <C-p>                   :<C-u>tabp<CR>
+"
+" "-----------------------------------------------------------------------------
+" endfunction
 " }}}2
 
 " ZenCoding {{{2
