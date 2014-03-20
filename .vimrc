@@ -58,7 +58,11 @@ NeoBundle 'https://github.com/thinca/vim-textobj-between.git'
 NeoBundleLazy 'rking/ag.vim', {'autoload': {'commands': ['Ag']}}
 
 " unite
-NeoBundleLazy 'Shougo/unite.vim', {'autoload': {'commands': ['Unite']}}
+NeoBundleLazy 'Shougo/unite.vim', {
+      \ 'commands' : [{ 'name' : 'Unite',
+      \ 'complete' : 'customlist,unite#complete_source'},
+      \ 'UniteWithCursorWord', 'UniteWithInput']
+      \ }
 
 " ctrlp
 NeoBundle 'git://github.com/kien/ctrlp.vim.git'
@@ -71,7 +75,7 @@ NeoBundle 'git://github.com/Shougo/neocomplcache.git'
 NeoBundle 'git://github.com/Shougo/neosnippet.git'
 
 " clang
-NeoBundleLazy 'git://github.com/tokorom/clang_complete.git', {'autoload': {'filetypes': ['c', 'cpp', 'objc']}}
+" NeoBundleLazy 'git://github.com/tokorom/clang_complete.git', {'autoload': {'filetypes': ['c', 'cpp', 'objc']}}
 NeoBundleLazy 'https://github.com/rhysd/vim-clang-format.git', {'autoload': {'filetypes': ['c', 'cpp', 'objc']}}
 
 " syntax check
@@ -319,8 +323,8 @@ nnoremap <C-p>                   :<C-u>tabp<CR>
 
 " ---------- grep ----------
 
-nnoremap <expr> [MyPrefix].g      ':tabnew<CR>:Ag ' . expand('<cword>')
-nnoremap [MyDoublePrefix].g       :<C-u>Ag 
+nnoremap [MyPrefix]g              :<C-u>Unite grep:. -default-action=tabopen<CR>
+nnoremap <expr> [MyPrefix].g      ':Unite grep:. -default-action=tabopen -input=' . expand('<cword>')
 
 " ---------- substitute ----------
 
@@ -425,7 +429,7 @@ augroup END
 "=============================================================================
 " plugin settings {{{1
 
-" ctrlp {{{2
+" lightline {{{2
 "let s:hooks = neobundle#get_hooks("lightline.vim")
 "function! s:hooks.on_source(bundle)
 "-----------------------------------------------------------------------------
@@ -434,6 +438,35 @@ let g:lightline = {'colorscheme': 'wombat'}
 
 "-----------------------------------------------------------------------------
 "endfunction
+" }}}2
+
+" unite {{{2
+let s:hooks = neobundle#get_hooks("unite.vim")
+function! s:hooks.on_source(bundle)
+"-----------------------------------------------------------------------------
+
+let g:unite_update_time = 10
+
+" use `ag` for grep
+if executable('ag')
+  let g:unite_source_grep_command = 'ag'
+  let g:unite_source_grep_default_opts = '--smart-case --nogroup --nocolor --column'
+  let g:unite_source_grep_recursive_opt = ''
+  let g:unite_source_grep_max_candidates = 0
+endif
+
+" close preview window
+autocmd FileType unite call s:unite_my_settings()
+function! s:unite_my_settings()
+  nnoremap <silent><buffer><expr> c
+        \ empty(filter(range(1, winnr('$')),
+        \ 'getwinvar(v:val, "&previewwindow") != 0')) ?
+        \ unite#do_action('preview') : ":\<C-u>pclose!\<CR>"
+  nmap <silent><buffer> / i<Space>
+endfunction
+
+"-----------------------------------------------------------------------------
+endfunction
 " }}}2
 
 " ctrlp {{{2
