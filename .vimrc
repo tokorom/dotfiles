@@ -326,6 +326,9 @@ nnoremap <C-p>                   :<C-u>tabp<CR>
 nnoremap [MyPrefix]g              :<C-u>Unite grep:. -default-action=tabopen<CR>
 nnoremap <expr> [MyPrefix].g      ':Unite grep:. -default-action=tabopen -input=' . expand('<cword>')
 
+let g:ios_framework_dir = "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/System/Library/Frameworks"
+nnoremap <expr> [MyPrefix].i      ':Unite grep:"' . g:ios_framework_dir . '" -default-action=tabopen -input=' . expand('<cword>')
+
 " ---------- substitute ----------
 
 nnoremap <expr> [MyPrefix].s      ':%substitute/\<' . expand('<cword>') . '\>//gc<Left><Left><Left>'
