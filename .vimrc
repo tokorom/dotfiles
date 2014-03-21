@@ -459,8 +459,8 @@ if executable('ag')
 endif
 
 " close preview window
-autocmd FileType unite call s:unite_my_settings()
-function! s:unite_my_settings()
+autocmd FileType unite call s:unite_settings()
+function! s:unite_settings()
   nnoremap <silent><buffer><expr> c
         \ empty(filter(range(1, winnr('$')),
         \ 'getwinvar(v:val, "&previewwindow") != 0')) ?
@@ -579,6 +579,39 @@ let g:clang_auto_select = 0
 
 "-----------------------------------------------------------------------------
 endfunction
+" }}}2
+
+" vim-clang-format {{{2
+if neobundle#tap('vim-clang-format')
+"-----------------------------------------------------------------------------
+
+autocmd FileType objc call s:clang_format_settings()
+function! s:clang_format_settings()
+  " key mapping
+  map = <Plug>(operator-clang-format)
+  nnoremap [MyPrefix].w :call SaveWithFormat()<CR>
+
+  " etc
+  if filereadable(expand('.clang-format'))
+  endif
+endfunction
+
+function! SaveWithFormat()
+  augroup SaveWithFormat
+    autocmd!
+    autocmd BufWritePre * if &ft ==# 'objc' | call clang_format#replace(1, line('$')) | endif
+  augroup END
+
+  execute ':w'
+
+  augroup SaveWithFormat
+    autocmd!
+  augroup END
+endfunction
+
+
+"-----------------------------------------------------------------------------
+endif
 " }}}2
 
 " clang_complete {{{2
