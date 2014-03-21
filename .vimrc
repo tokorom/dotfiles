@@ -311,16 +311,16 @@ nnoremap <C-p>                   :<C-u>tabp<CR>
 
 " ---------- unite ----------
 
-nnoremap [MyPrefix].f :<C-u>Unite -start-insert -default-action=tabopen buffer file_rec<CR>
-nnoremap [MyPrefix].b :<C-u>Unite -default-action=tabopen buffer<CR>
-nnoremap [MyPrefix].r :<C-u>Unite -default-action=tabopen file_mru<CR>
+nnoremap [MyPrefix].f :<C-u>Unite -start-insert buffer file_rec<CR>
+nnoremap [MyPrefix].b :<C-u>Unite buffer<CR>
+nnoremap [MyPrefix].r :<C-u>Unite file_mru<CR>
 nnoremap [MyPrefix].o :<C-u>Unite outline<CR>
 
-nnoremap [MyPrefix]g :<C-u>Unite grep:. -default-action=tabopen<CR>
-nnoremap <expr> [MyPrefix].g ':Unite grep:. -default-action=tabopen -input=' . expand('<cword>')
+nnoremap [MyPrefix]g :<C-u>Unite grep:.<CR>
+nnoremap <expr> [MyPrefix].g ':Unite grep:. -input=' . expand('<cword>')
 
 let g:ios_framework_dir = "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/System/Library/Frameworks"
-nnoremap <expr> [MyPrefix].i ':Unite grep:"' . g:ios_framework_dir . '" -default-action=tabopen -input=' . expand('<cword>')
+nnoremap <expr> [MyPrefix].i ':Unite grep:"' . g:ios_framework_dir . '" -input=' . expand('<cword>')
 
 " ---------- substitute ----------
 
@@ -436,6 +436,8 @@ if neobundle#tap('unite.vim')
 "-----------------------------------------------------------------------------
 
 let g:unite_update_time = 50
+
+call unite#custom#default_action('jump_list,file,buffer,openable', 'tabopen')
 
 call unite#custom_source('file_rec', 'ignore_pattern', 'build\|\.\%(git\|o\|exe\|dll\|bak\|sw[po]\|class\|d\|dia\|gcda\|gcno\|png\|gif\|jpe?g\)$')
 
