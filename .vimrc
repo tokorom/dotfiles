@@ -221,8 +221,6 @@ execute "set colorcolumn=" . join(range(115, 300), ',')
 
 noremap [MyPrefix] <Nop>
 map <Space> [MyPrefix]
-noremap [MyDoublePrefix] <Nop>
-map <Space><Space> [MyDoublePrefix]
 
 set winaltkeys=no
 inoremap  <C-l>   <Esc>:<C-u>w<CR>
@@ -282,14 +280,11 @@ nnoremap [MyPrefix]" :<C-u>let @y=@*<CR>:echo @y<CR>
 
 nmap [MyPrefix]a             <Plug>(altr-forward)
 nmap [MyPrefix]A             <Plug>(altr-back)
-nmap [MyDoublePrefix]a       :<C-u>vs<CR><C-w><C-w><Plug>(altr-forward)
-nmap [MyDoublePrefix]A       :<C-u>vs<CR><C-w><C-w><Plug>(altr-back)
 
 " ---------- quick-fix ----------
 
 nnoremap [MyPrefix]cm            :<C-u>w<CR>:<C-u>make<CR>
 nnoremap [MyPrefix]cl            :<C-u>clist<CR>
-nnoremap [MyDoublePrefix]cl      :<C-u>clist!<CR>
 nnoremap [MyPrefix]cc            :<C-u>cc<CR>
 nnoremap [MyPrefix]cn            :<C-u>cn<CR>
 nnoremap [MyPrefix]cp            :<C-u>cp<CR>
@@ -299,7 +294,6 @@ nnoremap [MyPrefix]cp            :<C-u>cp<CR>
 nnoremap [MyPrefix].  <Nop>
 nnoremap [MyPrefix].. :<C-u>edit %:h<CR>
 nnoremap [MyPrefix].v :<C-u>edit $MYVIMRC<Enter>
-nnoremap [MyDoublePrefix].v :<C-u>source $MYVIMRC<Enter>:echo "source .vimrc"<Enter>
 nnoremap [MyPrefix].p :<C-u>edit $HOME/vimfiles/snippets/<Enter>
 
 " ---------- file ----------
@@ -331,7 +325,6 @@ nnoremap <expr> [MyPrefix].i ':Unite grep:"' . g:ios_framework_dir . '" -default
 " ---------- substitute ----------
 
 nnoremap <expr> [MyPrefix].s      ':%substitute/\<' . expand('<cword>') . '\>//gc<Left><Left><Left>'
-nnoremap [MyDoublePrefix].s       :<C-u>%substitute///gc<Left><Left><Left><Left>
 
 " ---------- buffer ----------
 
