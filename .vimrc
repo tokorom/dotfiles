@@ -70,7 +70,6 @@ NeoBundle 'git://github.com/Shougo/neocomplcache.git'
 NeoBundle 'git://github.com/Shougo/neosnippet.git'
 
 " clang
-" NeoBundleLazy 'git://github.com/tokorom/clang_complete.git', {'autoload': {'filetypes': ['c', 'cpp', 'objc']}}
 NeoBundleLazy 'https://github.com/rhysd/vim-clang-format.git', {'autoload': {'filetypes': ['c', 'cpp', 'objc']}}
 
 " syntax check
@@ -79,9 +78,6 @@ NeoBundleLazy 'git://github.com/scrooloose/syntastic.git', {'autoload': {'filety
 " git
 NeoBundle 'git://github.com/tpope/vim-fugitive.git'
 NeoBundleLazy 'git://github.com/gregsexton/gitv.git', {'autoload': {'commands': ['GitV']}}
-
-" html
-NeoBundleLazy 'ZenCoding.vim', {'autoload': {'filetypes': ['html']}}
 
 " ruby
 NeoBundleLazy 'git://github.com/tpope/vim-rails.git', {'autoload': {'filetypes': ['ruby']}}
@@ -92,7 +88,6 @@ NeoBundleLazy 'git://github.com/chrismetcalf/vim-markdown.git', {'autoload': {'f
 
 " objc
 NeoBundleLazy 'git://github.com/tokorom/cocoa.vim.git', 'syntax-only', {'autoload': {'filetypes': ['objc']}}
-" NeoBundleLazy 'git@github.com:tokorom/clang_complete-getopts-ios.git', {'autoload': {'filetypes': ['objc']}}
 
 " coffee
 NeoBundleLazy 'git://github.com/kchmck/vim-coffee-script.git', {'autoload': {'filetypes': ['coffee']}}
@@ -353,7 +348,6 @@ nmap <Space>zz <Plug>(operator-uncomment)l
 " ---------- textobj ----------
 
 omap l <Plug>(textobj-line-a)
-vmap l <Plug>(textobj-line-a)
 
 omap ib <Plug>(textobj-multiblock-i)
 omap ab <Plug>(textobj-multiblock-a)
@@ -431,19 +425,15 @@ augroup END
 " plugin settings {{{1
 
 " lightline {{{2
-"let s:hooks = neobundle#get_hooks("lightline.vim")
-"function! s:hooks.on_source(bundle)
 "-----------------------------------------------------------------------------
 "
 let g:lightline = {'colorscheme': 'wombat'}
 
 "-----------------------------------------------------------------------------
-"endfunction
 " }}}2
 
-" unite {{{2
-let s:hooks = neobundle#get_hooks("unite.vim")
-function! s:hooks.on_source(bundle)
+" unite.vim {{{2
+if neobundle#tap('unite.vim')
 "-----------------------------------------------------------------------------
 
 let g:unite_update_time = 50
@@ -469,65 +459,11 @@ function! s:unite_settings()
 endfunction
 
 "-----------------------------------------------------------------------------
-endfunction
-" }}}2
-
-" ctrlp {{{2
-" let s:hooks = neobundle#get_hooks("ctrlp.vim")
-" function! s:hooks.on_source(bundle)
-" "-----------------------------------------------------------------------------
-"
-" let g:ctrlp_map = ''
-" let g:ctrlp_by_filename = 0
-" let g:ctrlp_switch_buffer = 'ET'
-"
-" let g:ctrlp_prompt_mappings = {
-"   \ 'AcceptSelection("e")': ['<C-x>', '<2-LeftMouse>'],
-"   \ 'AcceptSelection("t")': ['<CR>'],
-"   \ 'AcceptSelection("h")': ['<c-cr>', '<c-s>'],
-"   \ }
-"
-" let g:ctrlp_custom_ignore = '\v\~$|\.o$|\.exe$|\.bak$|\.swp$|\.svn$|\.d$|\.dia$|\.gcda$|\.gcno'
-" let g:ctrlp_mruf_exclude = '/tmp/.*\|/temp/.*|/backup/*'
-"
-" let g:ctrlp_docset_docsetutil_command = '/Applications/Xcode.app/Contents/Developer/usr/bin/docsetutil'
-" let g:ctrlp_docset_filepaths = {}
-" let g:ctrlp_docset_filepaths['objc'] = '~/Library/Developer/Shared/Documentation/DocSets/com.apple.adc.documentation.AppleiOS6.1.iOSLibrary.docset'
-" let g:ctrlp_docset_accept_command = ':W3mSplit local %s'
-"
-" " nnoremap [MyPrefix].f :<C-u>CtrlP .<CR>
-" " nnoremap [MyPrefix].b :<C-u>CtrlPBuffer<CR>
-" " nnoremap [MyPrefix].r :<C-u>CtrlPMRU<CR>
-" nnoremap [MyPrefix].m :<C-u>CtrlPMark<CR>
-" nnoremap [MyPrefix]." :<C-u>CtrlPRegister<CR>
-" nnoremap [MyPrefix].d :<C-u>CtrlPDocset<CR>
-" nnoremap [MyPrefix].l :<C-u>CtrlPFunky<CR>
-"
-" " CtrlPのCacheクリア
-" command! CC :CtrlPClearAllCaches
-"
-" nnoremap <C-p>                   :<C-u>tabp<CR>
-"
-" "-----------------------------------------------------------------------------
-" endfunction
-" }}}2
-
-" ZenCoding {{{2
-let s:hooks = neobundle#get_hooks("ZenCoding.vim")
-function! s:hooks.on_source(bundle)
-"-----------------------------------------------------------------------------
-
-let g:user_zen_settings = {
-\  'indentation' : '  '
-\}
-
-"-----------------------------------------------------------------------------
-endfunction
+endif
 " }}}2
 
 " neocomplcache {{{2
-"let s:hooks = neobundle#get_hooks("neocomplcache")
-"function! s:hooks.on_source(bundle)
+if neobundle#tap('neocomplcache')
 "-----------------------------------------------------------------------------
 
 let g:neocomplcache_enable_at_startup = 1 "自動起動
@@ -554,31 +490,7 @@ let g:neocomplcache_source_rank = {
 \ }
 
 "-----------------------------------------------------------------------------
-"endfunction
-" }}}2
-
-" clang_complete {{{2
-let s:hooks = neobundle#get_hooks("clang_complete")
-function! s:hooks.on_source(bundle)
-"-----------------------------------------------------------------------------
-
-if !exists('g:neocomplcache_force_omni_patterns')
-  let g:neocomplcache_force_omni_patterns = {}
 endif
-let g:neocomplcache_force_overwrite_completefunc = 1
-let g:neocomplcache_force_omni_patterns.c =
-\ '[^.[:digit:] *\t]\%(\.\|->\)'
-let g:neocomplcache_force_omni_patterns.cpp =
-\ '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
-let g:neocomplcache_force_omni_patterns.objc =
-\ '[^.[:digit:] *\t]\%(\.\|->\)'
-let g:neocomplcache_force_omni_patterns.objcpp =
-\ '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
-let g:clang_complete_auto = 0
-let g:clang_auto_select = 0
-
-"-----------------------------------------------------------------------------
-endfunction
 " }}}2
 
 " vim-clang-format {{{2
@@ -590,17 +502,15 @@ function! s:clang_format_settings()
   " key mapping
   map = <Plug>(operator-clang-format)
   nnoremap [MyPrefix].w :call SaveWithFormat()<CR>
-
-  " etc
-  if filereadable(expand('.clang-format'))
-  endif
 endfunction
 
 function! SaveWithFormat()
-  augroup SaveWithFormat
-    autocmd!
-    autocmd BufWritePre * if &ft ==# 'objc' | call clang_format#replace(1, line('$')) | endif
-  augroup END
+  if filereadable(expand('.clang-format'))
+    augroup SaveWithFormat
+      autocmd!
+      autocmd BufWritePre * if &ft ==# 'objc' | call clang_format#replace(1, line('$')) | endif
+    augroup END
+  endif
 
   execute ':w'
 
@@ -614,21 +524,8 @@ endfunction
 endif
 " }}}2
 
-" clang_complete {{{2
-let s:hooks = neobundle#get_hooks("clang_complete-getopts-ios")
-function! s:hooks.on_source(bundle)
-"-----------------------------------------------------------------------------
-
-let g:clang_auto_user_options = 'path, .clang_complete, ios'
-let g:clang_complete_getopts_ios_sdk_directory = '/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.0.sdk'
-
-"-----------------------------------------------------------------------------
-endfunction
-" }}}2
-
 " neosnippet {{{2
-let s:hooks = neobundle#get_hooks("neosnippet")
-function! s:hooks.on_source(bundle)
+if neobundle#tap('neosnippet')
 "-----------------------------------------------------------------------------
 
 let g:neosnippet#snippets_directory = "$HOME/vimfiles/snippets"
@@ -649,23 +546,11 @@ smap <expr><Esc> neosnippet#jumpable() ?
 \ "\<M-Y>\<M-Y>\<M-Y>\<M-Y>\<M-Y>\<M-Y>\<M-Y>\<M-Y>\<M-Y>\<M-Y>\<M-Y>\<Esc>" : "\<Esc>"
 
 "-----------------------------------------------------------------------------
-endfunction
+endif
 " }}}2
 
-" w3m {{{2
-let s:hooks = neobundle#get_hooks("w3m.vim")
-function! s:hooks.on_source(bundle)
-"-----------------------------------------------------------------------------
-
-let g:w3m#disable_vimproc = 1
-
-"-----------------------------------------------------------------------------
-endfunction
-" }}}2
-
-" quickrun {{{2
-let s:hooks = neobundle#get_hooks("vim-quickrun")
-function! s:hooks.on_source(bundle)
+" vim-quickrun {{{2
+if neobundle#tap('vim-quickrun')
 "-----------------------------------------------------------------------------
 
 " initialize
@@ -708,12 +593,11 @@ map [MyPrefix]q <Nop>
 map [MyPrefix]q <Plug>(quickrun)
 
 "-----------------------------------------------------------------------------
-endfunction
+endif
 " }}}2
 
-" quickrun {{{2
-let s:hooks = neobundle#get_hooks("vim-watchdogs")
-function! s:hooks.on_source(bundle)
+" vim-watchdogs {{{2
+if neobundle#tap('vim-watchdogs')
 "-----------------------------------------------------------------------------
 
 " バッファ書き込み後にWatchdogsRunSilent
@@ -722,7 +606,7 @@ let g:watchdogs_check_BufWritePost_enable = 1
 let g:watchdogs_check_CursorHold_enable = 1
 
 "-----------------------------------------------------------------------------
-endfunction
+endif
 " }}}2
 
 " }}}1
