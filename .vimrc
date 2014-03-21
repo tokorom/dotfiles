@@ -320,7 +320,8 @@ nnoremap [MyPrefix]g :<C-u>Unite grep:.<CR>
 nnoremap <expr> [MyPrefix].g ':Unite grep:. -input=' . expand('<cword>')
 
 let g:ios_framework_dir = "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/System/Library/Frameworks"
-nnoremap <expr> [MyPrefix].i ':Unite grep:"' . g:ios_framework_dir . '" -input=' . expand('<cword>')
+nnoremap <expr> [MyPrefix].i ':Unite grep:' . g:ios_framework_dir . ' -input=' . expand('<cword>')
+nnoremap <expr> [MyPrefix].I ':Unite file_rec:' . g:ios_framework_dir . ' -input=' . expand('<cword>')
 
 " ---------- substitute ----------
 
@@ -460,6 +461,26 @@ function! s:unite_settings()
   nmap <silent><buffer> <C-n> j
   nmap <silent><buffer> <C-p> k
 endfunction
+
+" custom filters
+let s:filters = {
+    \   "name" : "converter_filepath_filename",
+    \   "description" : "filepath to filename"
+\}
+
+function! s:filters.filter(candidates, context)
+    for candidate in a:candidates
+      let items = split(candidate.word, ':')
+      let items[0] = fnamemodify(items[0], ':t')
+      let candidate.word = join(items, ':')
+    endfor
+    return a:candidates
+endfunction
+
+call unite#define_filter(s:filters)
+unlet s:filters
+
+call unite#custom#source('grep', 'converters', ["converter_filepath_filename"])
 
 "-----------------------------------------------------------------------------
 endif
