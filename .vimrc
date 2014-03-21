@@ -64,6 +64,7 @@ NeoBundleLazy 'Shougo/unite.vim', {
       \ 'UniteWithCursorWord', 'UniteWithInput']
       \ }
 NeoBundle 'Shougo/neomru.vim'
+NeoBundle 'h1mesuke/unite-outline', {'depends' : 'Shougo/unite.vim'}
 
 " neocomplcache
 NeoBundle 'git://github.com/Shougo/neocomplcache.git'
@@ -456,6 +457,8 @@ function! s:unite_settings()
         \ 'getwinvar(v:val, "&previewwindow") != 0')) ?
         \ unite#do_action('preview') : ":\<C-u>pclose!\<CR>"
   nmap <silent><buffer> / i<Space>
+  nmap <silent><buffer> <C-n> j
+  nmap <silent><buffer> <C-p> k
 endfunction
 
 "-----------------------------------------------------------------------------
