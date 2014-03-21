@@ -59,10 +59,10 @@ NeoBundleLazy 'rking/ag.vim', {'autoload': {'commands': ['Ag']}}
 
 " unite
 NeoBundleLazy 'Shougo/unite.vim', {
-      \ 'commands' : [{ 'name' : 'Unite',
-      \ 'complete' : 'customlist,unite#complete_source'},
-      \ 'UniteWithCursorWord', 'UniteWithInput']
-      \ }
+  \ 'commands' : [{ 'name' : 'Unite',
+  \ 'complete' : 'customlist,unite#complete_source'},
+  \ 'UniteWithCursorWord', 'UniteWithInput']
+  \ }
 NeoBundle 'Shougo/neomru.vim'
 NeoBundle 'h1mesuke/unite-outline', {'depends' : 'Shougo/unite.vim'}
 
@@ -89,6 +89,10 @@ NeoBundleLazy 'git://github.com/chrismetcalf/vim-markdown.git', {'autoload': {'f
 
 " objc
 NeoBundleLazy 'git://github.com/tokorom/cocoa.vim.git', 'syntax-only', {'autoload': {'filetypes': ['objc']}}
+NeoBundleLazy 'ryotakato/unite-outline-objc', {
+  \ 'depends' : 'h1mesuke/unite-outline',
+  \ 'filetypes' : ['objc']
+  \ }
 
 " coffee
 NeoBundleLazy 'git://github.com/kchmck/vim-coffee-script.git', {'autoload': {'filetypes': ['coffee']}}
@@ -316,6 +320,7 @@ nnoremap <C-p>                   :<C-u>tabp<CR>
 nnoremap [MyPrefix].f :<C-u>Unite -start-insert -default-action=tabopen buffer file_rec<CR>
 nnoremap [MyPrefix].b :<C-u>Unite -default-action=tabopen buffer<CR>
 nnoremap [MyPrefix].r :<C-u>Unite -default-action=tabopen file_mru<CR>
+nnoremap [MyPrefix].o :<C-u>Unite outline<CR>
 
 nnoremap [MyPrefix]g :<C-u>Unite grep:. -default-action=tabopen<CR>
 nnoremap <expr> [MyPrefix].g ':Unite grep:. -default-action=tabopen -input=' . expand('<cword>')
