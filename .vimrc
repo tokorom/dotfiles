@@ -196,7 +196,8 @@ set display+=lastline
 set completeopt=menu,preview,longest
 
 " 日付の自動入力のフォーマット
-let autodate_format="%Y-%m-%d"
+let autodate_format='%Y-%m-%d'
+let autodate_keyword_pre='Last Modified:'
 
 " 折り畳み設定
 set foldmethod=marker
