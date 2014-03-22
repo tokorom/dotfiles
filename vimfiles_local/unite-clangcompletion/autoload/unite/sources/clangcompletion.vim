@@ -59,12 +59,9 @@ function! s:source.hooks.on_init(args, context) "{{{
   let a:context.source__filename = tmp_filename
   let a:context.source__line = line
 
-  let space_idx = strridx(text, '[^a-zA-Z0-9_-]', col)
-  let dot_idx = strridx(text, '.', col)
-  let colon_idx = strridx(text, ':', col)
-  let sep_idx = max([space_idx, dot_idx, colon_idx])
+  let sep_idx = match(text, '[a-zA-Z0-9_-]\+$')
   if 0 < sep_idx
-    let compl_idx = sep_idx + 1
+    let compl_idx = sep_idx
   else 
     let compl_idx = col
   endif
@@ -145,106 +142,112 @@ function! s:initialize(args, context) "{{{
   let a:context.source__extra_opts = []
   let a:context.source__debugs = []
 
-  if executable('xcodebuild')
-    let dic = {}
-    let check_keys = [
-      \ 'SDK_DIR',
-      \ 'HEADER_SEARCH_PATHS',
-      \ 'LIBRARY_SEARCH_PATHS',
-      \ 'GCC_PREFIX_HEADER',
-      \ 'CLANG_ENABLE_OBJC_ARC',
-      \ 'CLANG_ENABLE_MODULES',
-      \]
-    let suffix = ' | grep ''^\s*\(' . join(check_keys, '\|') . '\)\s*=\s*'''
-    let cmdline = 'xcodebuild -showBuildSettings' . suffix
-    let lines = split(system(cmdline), "\n")
-    for line in lines
-      let line = substitute(line, '\(^\s\+\)\|\(\s\+$\)', '', 'g')
-      let items = split(line, ' = ')
-      if 1 < len(items)
-        let [key, value] = split(line, ' = ')
-        let dic[key] = value
-      endif
-    endfor
+  if !executable('xcodebuild')
+    return
+  endif
 
-    let foptions = []
-    let pchs = []
-    let framework_paths = []
-    let include_paths = []
-
-    let key = 'SDK_DIR'
-    if has_key(dic, key)
-      call add(framework_paths,
-        \ dic[key] . '/System/Library/Frameworks')
-      call add(include_paths,
-        \ dic[key] . '/usr/include')
+  let dic = {}
+  let check_keys = [
+        \ 'SDK_DIR',
+        \ 'HEADER_SEARCH_PATHS',
+        \ 'LIBRARY_SEARCH_PATHS',
+        \ 'GCC_PREFIX_HEADER',
+        \ 'CLANG_ENABLE_OBJC_ARC',
+        \ 'CLANG_ENABLE_MODULES',
+        \]
+  let suffix = ' | grep ''^\s*\(' . join(check_keys, '\|') . '\)\s*=\s*'''
+  let cmdline = 'xcodebuild -showBuildSettings' . suffix
+  let lines = split(system(cmdline), "\n")
+  for line in lines
+    let line = substitute(line, '\(^\s\+\)\|\(\s\+$\)', '', 'g')
+    let items = split(line, ' = ')
+    if 1 < len(items)
+      let [key, value] = split(line, ' = ')
+      let dic[key] = value
     endif
+  endfor
 
-    let key = 'HEADER_SEARCH_PATHS'
-    if has_key(dic, key)
-      let paths = split(dic[key], ' ')
-      for path in paths
-        if 0 > stridx(path, '*') && 0 > index(include_paths, path)
+  let foptions = []
+  let pchs = []
+  let framework_paths = []
+  let include_paths = []
+
+  let key = 'SDK_DIR'
+  if has_key(dic, key)
+    call add(framework_paths,
+          \ dic[key] . '/System/Library/Frameworks')
+    call add(include_paths,
+          \ dic[key] . '/usr/include')
+  endif
+
+  let key = 'HEADER_SEARCH_PATHS'
+  if has_key(dic, key)
+    let paths = split(dic[key], ' ')
+    for path in paths
+      if 0 > index(include_paths, path)
+        if 0 > stridx(path, '*')
           call add(include_paths, path)
+        elseif -1 < match(path, '/\*\*$')
+          call s:add_header_dir_rec(path . '/*.h', include_paths, a:args, a:context)
         endif
-      endfor
-    endif
-
-    let key = 'LIBRARY_SEARCH_PATHS'
-    if has_key(dic, key)
-      let paths = split(dic[key], ' ')
-      for path in paths
-        if 0 > stridx(path, '*') && 0 > index(include_paths, path)
-          call add(include_paths, path)
-        endif
-      endfor
-    endif
-
-    let key = 'GCC_PREFIX_HEADER'
-    if has_key(dic, key)
-      let pch = dic[key]
-      if 0 > index(pchs, pch)
-        call add(pchs, dic[key])
       endif
-    endif
-
-    let key = 'CLANG_ENABLE_OBJC_ARC'
-    if has_key(dic, key)
-      let value = 'objc-arc'
-      if 'NO' == dic[key]
-        let value = 'no-' . value
-      endif
-      if 0 > index(foptions, value)
-        call add(foptions, value)
-      endif
-    endif
-
-    let key = 'CLANG_ENABLE_MODULES'
-    if has_key(dic, key)
-      let value = 'modules'
-      if 'NO' == dic[key]
-        let value = 'no-' . value
-      endif
-      if 0 > index(foptions, value)
-        call add(foptions, value)
-      endif
-    endif
-
-    call s:add_header_dir_rec('./**/*.h', include_paths, a:args, a:context)
-
-    for foption in foptions
-      call add(a:context.source__extra_opts, '-f' . foption)
-    endfor
-    for path in pchs
-      call add(a:context.source__extra_opts, '-include ' . path)
-    endfor
-    for path in framework_paths
-      call add(a:context.source__extra_opts, '-F' . path)
-    endfor
-    for path in include_paths
-      call add(a:context.source__extra_opts, '-I' . path)
     endfor
   endif
+
+  let key = 'LIBRARY_SEARCH_PATHS'
+  if has_key(dic, key)
+    let paths = split(dic[key], ' ')
+    for path in paths
+      if 0 > stridx(path, '*') && 0 > index(include_paths, path)
+        call add(include_paths, path)
+      endif
+    endfor
+  endif
+
+  let key = 'GCC_PREFIX_HEADER'
+  if has_key(dic, key)
+    let pch = dic[key]
+    if 0 > index(pchs, pch)
+      call add(pchs, dic[key])
+    endif
+  endif
+
+  let key = 'CLANG_ENABLE_OBJC_ARC'
+  if has_key(dic, key)
+    let value = 'objc-arc'
+    if 'NO' == dic[key]
+      let value = 'no-' . value
+    endif
+    if 0 > index(foptions, value)
+      call add(foptions, value)
+    endif
+  endif
+
+  let key = 'CLANG_ENABLE_MODULES'
+  if has_key(dic, key)
+    let value = 'modules'
+    if 'NO' == dic[key]
+      let value = 'no-' . value
+    endif
+    if 0 > index(foptions, value)
+      call add(foptions, value)
+    endif
+  endif
+
+  call s:add_header_dir_rec('./**/*.h', include_paths, a:args, a:context)
+
+  for foption in foptions
+    call add(a:context.source__extra_opts, '-f' . foption)
+  endfor
+  for path in pchs
+    call add(a:context.source__extra_opts, '-include ' . path)
+  endfor
+  for path in framework_paths
+    call add(a:context.source__extra_opts, '-F' . path)
+  endfor
+  for path in include_paths
+    call add(a:context.source__extra_opts, '-I' . path)
+  endfor
 endfunction "}}}
 
 function! s:add_header_dir_rec(regex, include_paths, args, context) "{{{
