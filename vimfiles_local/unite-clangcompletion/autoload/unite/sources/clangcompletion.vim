@@ -25,12 +25,18 @@
 "=============================================================================
 
 " Variables "{{{
+
 call unite#util#set_default(
   \ 'g:unite_source_clangcompletion_command', 'clang')
 call unite#util#set_default(
   \ 'g:unite_source_clangcompletion_default_opts', '-cc1 -w -fblocks -D__IPHONE_OS_VERSION_MIN_REQUIRED=40300')
 call unite#util#set_default(
+  \ 'g:unite_source_clangcompletion_user_opts', '')
+call unite#util#set_default(
   \ 'g:unite_source_clangcompletion_suffix', '2> /dev/null | grep ''^COMPLETION: '' | cut -c13-')
+
+let s:unite_source_clangcompletion_auto_opts = ''
+
 "}}}
 
 function! unite#sources#clangcompletion#define() "{{{
@@ -48,8 +54,9 @@ let s:source = {
   \}
 
 function! s:source.hooks.on_init(args, context) "{{{
-  call s:initialize(a:args, a:context)
-
+  let a:context.source__extra_opts = ''
+  let a:context.source__debugs = []
+  
   let tmp_filename = unite#util#substitute_path_separator(expand('%:p:h') . '/~' . expand('%:t'))
   call writefile(getline(1, '$'), tmp_filename)
 
@@ -81,6 +88,8 @@ function! s:source.gather_candidates(args, context) "{{{
   let verbose = a:context.verbose
   let variables = unite#get_source_variables(a:context)
 
+  call s:prepare_build_opts(a:args, a:context)
+
   if !executable(variables.command)
     call unite#print_source_message(printf(
           \ 'command "%s" is not executable.',
@@ -91,7 +100,7 @@ function! s:source.gather_candidates(args, context) "{{{
   let cmdline = printf('%s %s %s -code-completion-at=%s:%s:%s %s %s',
     \ unite#util#substitute_path_separator(variables.command),
     \ variables.default_opts,
-    \ join(a:context.source__extra_opts, ' '),
+    \ a:context.source__extra_opts,
     \ a:context.source__filename,
     \ string(a:context.source__line),
     \ string(a:context.source__col),
@@ -138,14 +147,33 @@ function! unite#sources#clangcompletion#get_cur_text() "{{{
   return matchstr(getline('.'), '[a-zA-Z0-9_-]\+$')
 endfunction "}}}
 
-function! s:initialize(args, context) "{{{
-  let a:context.source__extra_opts = []
-  let a:context.source__debugs = []
+function! s:prepare_build_opts(args, context) "{{{
+  if has_key(a:context, 'is_redraw') && 1 == a:context.is_redraw
+    let s:unite_source_clangcompletion_auto_opts = ''
+  endif
 
-  if !executable('xcodebuild')
+  if 0 < strlen(g:unite_source_clangcompletion_user_opts)
+    let a:context.source__extra_opts = g:unite_source_clangcompletion_user_opts
     return
   endif
 
+  if 0 < strlen(s:unite_source_clangcompletion_auto_opts)
+    let a:context.source__extra_opts = s:unite_source_clangcompletion_auto_opts
+    return
+  endif
+
+  let opts = s:collect_xcodebuild_settings(a:args, a:context)
+  let opts_string = join(opts, ' ')
+  let s:unite_source_clangcompletion_auto_opts = opts_string
+  let a:context.source__extra_opts = opts_string
+endfunction "}}}
+
+function! s:collect_xcodebuild_settings(args, context) "{{{
+  if !executable('xcodebuild')
+    return []
+  endif
+
+  let opts = []
   let dic = {}
   let check_keys = [
         \ 'SDK_DIR',
@@ -237,17 +265,19 @@ function! s:initialize(args, context) "{{{
   call s:add_header_dir_rec('./**/*.h', include_paths, a:args, a:context)
 
   for foption in foptions
-    call add(a:context.source__extra_opts, '-f' . foption)
+    call add(opts, '-f' . foption)
   endfor
   for path in pchs
-    call add(a:context.source__extra_opts, '-include ' . path)
+    call add(opts, '-include ' . path)
   endfor
   for path in framework_paths
-    call add(a:context.source__extra_opts, '-F' . path)
+    call add(opts, '-F' . path)
   endfor
   for path in include_paths
-    call add(a:context.source__extra_opts, '-I' . path)
+    call add(opts, '-I' . path)
   endfor
+
+  return opts
 endfunction "}}}
 
 function! s:add_header_dir_rec(regex, include_paths, args, context) "{{{

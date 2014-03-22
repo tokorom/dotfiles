@@ -498,7 +498,6 @@ autocmd FileType objc inoremap <expr><C-n>
   \   unite#start_complete(
   \     ['clangcompletion'],
   \     {
-  \       'verbose' : 1,
   \       'start_insert' : 1,
   \       'input' : unite#sources#clangcompletion#get_cur_text(),
   \     },
