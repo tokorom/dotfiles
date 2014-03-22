@@ -37,7 +37,7 @@ call unite#util#set_default(
 call unite#util#set_default(
   \ 'g:unite_source_clangcompletion_cache_filename_for_opts', '~clangcompletion')
 call unite#util#set_default(
-  \ 'g:unite_source_clangcompletion_default_opts', '-cc1 -w -fblocks -D__IPHONE_OS_VERSION_MIN_REQUIRED=40300')
+  \ 'g:unite_source_clangcompletion_default_opts', '-cc1 -w -x objective-c -fblocks -D__IPHONE_OS_VERSION_MIN_REQUIRED=40300')
 call unite#util#set_default(
   \ 'g:unite_source_clangcompletion_suffix', '2> /dev/null | grep ''^COMPLETION: '' | cut -c13-')
 
@@ -147,6 +147,7 @@ function! s:source.gather_candidates(args, context) "{{{
 
   if verbose
     call unite#print_source_message('Command-line: ' . cmdline, s:source.name)
+    call writefile([cmdline], '~clangcompletion.log')
   endif
 
   " debug
@@ -246,7 +247,6 @@ function! s:collect_xcodebuild_settings(args, context) "{{{
         \ 'DEVELOPER_FRAMEWORKS_DIR',
         \ 'GCC_PREFIX_HEADER',
         \ 'CLANG_ENABLE_OBJC_ARC',
-        \ 'CLANG_ENABLE_MODULES',
         \]
   let suffix = ' | grep ''^\s*\(' . join(check_keys, '\|') . '\)\s*=\s*'''
   let cmdline = 'xcodebuild -showBuildSettings' . suffix
@@ -313,17 +313,6 @@ function! s:collect_xcodebuild_settings(args, context) "{{{
   let key = 'CLANG_ENABLE_OBJC_ARC'
   if has_key(dic, key)
     let value = 'objc-arc'
-    if 'NO' == dic[key]
-      let value = 'no-' . value
-    endif
-    if 0 > index(foptions, value)
-      call add(foptions, value)
-    endif
-  endif
-
-  let key = 'CLANG_ENABLE_MODULES'
-  if has_key(dic, key)
-    let value = 'modules'
     if 'NO' == dic[key]
       let value = 'no-' . value
     endif
