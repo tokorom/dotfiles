@@ -224,7 +224,7 @@ noremap [MyPrefix] <Nop>
 map <Space> [MyPrefix]
 
 set winaltkeys=no
-inoremap  <C-l>   <Esc>:<C-u>w<CR>
+inoremap  <C-l>   <Esc>
 
 " ---------- for MacVim ----------
 
