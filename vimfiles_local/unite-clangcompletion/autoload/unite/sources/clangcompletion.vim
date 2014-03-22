@@ -58,9 +58,10 @@ function! s:source.hooks.on_init(args, context) "{{{
   let a:context.source__filename = tmp_filename
   let a:context.source__line = line
 
-  let space_idx = strridx(text, ' ')
-  let dot_idx = strridx(text, '.')
-  let sep_idx = max([space_idx, dot_idx])
+  let space_idx = strridx(text, ' ', col)
+  let dot_idx = strridx(text, '.', col)
+  let colon_idx = strridx(text, ':', col)
+  let sep_idx = max([space_idx, dot_idx, colon_idx])
   if 0 < sep_idx
     let compl_idx = sep_idx + 1
   else 
@@ -119,6 +120,21 @@ function! s:source.gather_candidates(args, context) "{{{
   endfor
 
   return candidates
+endfunction "}}}
+
+function! unite#sources#clangcompletion#get_cur_text() "{{{
+  let text =  unite#get_cur_text()
+  let col = col('.')
+
+  let space_idx = strridx(text, ' ', col)
+  let dot_idx = strridx(text, '.', col)
+  let colon_idx = strridx(text, ':', col)
+  let sep_idx = max([space_idx, dot_idx, colon_idx])
+  if 0 < sep_idx
+    return text[sep_idx : ]
+  else
+    return text
+  endif
 endfunction "}}}
 
 " vim: foldmethod=marker

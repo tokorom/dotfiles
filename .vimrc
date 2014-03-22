@@ -495,7 +495,13 @@ if neobundle#tap('unite-clangcompletion')
 autocmd FileType objc inoremap <expr><C-n>
   \ pumvisible() ?
   \   "\<C-n>" :
-  \   unite#start_complete(['clangcompletion'], {'clangcompletion' : 1})
+  \   unite#start_complete(
+  \     ['clangcompletion'],
+  \     {
+  \       'start_insert' : 1,
+  \       'input' : unite#sources#clangcompletion#get_cur_text(),
+  \     },
+  \   )
 
 "-----------------------------------------------------------------------------
 endif
