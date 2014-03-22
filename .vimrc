@@ -441,7 +441,7 @@ let g:unite_update_time = 50
 
 call unite#custom#default_action('jump_list,file,buffer,openable', 'tabopen')
 
-call unite#custom_source('file_rec', 'ignore_pattern', 'build\|\.\%(git\|o\|exe\|dll\|bak\|sw[po]\|class\|d\|dia\|gcda\|gcno\|png\|gif\|jpe?g\)$')
+call unite#custom_source('file_rec', 'ignore_pattern', '\%(^\|/\)\%(build\|te?mp\)/\|\.\%(git\|o\|exe\|dll\|bak\|sw[po]\|class\|d\|dia\|gcda\|gcno\|png\|gif\|jpe?g\)$')
 
 " use `ag` for grep
 if executable('ag')
@@ -498,6 +498,7 @@ autocmd FileType objc inoremap <expr><C-n>
   \   unite#start_complete(
   \     ['clangcompletion'],
   \     {
+  \       'verbose' : 1,
   \       'start_insert' : 1,
   \       'input' : unite#sources#clangcompletion#get_cur_text(),
   \     },
