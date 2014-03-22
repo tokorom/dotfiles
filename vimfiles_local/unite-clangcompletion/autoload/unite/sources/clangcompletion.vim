@@ -45,13 +45,12 @@ let s:unite_source_clangcompletion_auto_opts = ''
 
 "}}}
 
-function! unite#sources#clangcompletion#define() "{{{
-  return s:source
-endfunction "}}}
+" Defaults "{{{
 
 let s:source = {
   \ 'name' : 'clangcompletion',
   \ 'hooks' : {},
+  \ 'action_table' : {},
   \ 'variables' : {
   \   'command' : g:unite_source_clangcompletion_command,
   \   'user_opts' : g:unite_source_clangcompletion_user_opts,
@@ -62,6 +61,29 @@ let s:source = {
   \   'suffix' : g:unite_source_clangcompletion_suffix,
   \ },
   \}
+
+function! unite#sources#clangcompletion#define() "{{{
+  return s:source
+endfunction "}}}
+
+"}}}
+
+" Actions "{{{
+
+let s:source.action_table.insert = {
+  \ 'description' : 'insert the completion result',
+  \}
+
+function! s:source.action_table.insert.func(candidate) "{{{
+  let text = s:before_text . a:candidate.word
+  let line = line('.')
+  let col = strlen(text) + 1
+  let text = text . s:after_text
+  call setline(line, text)
+  call cursor(line, col)
+endfunction "}}}
+
+"}}}
 
 function! s:source.hooks.on_init(args, context) "{{{
   let a:context.source__build_opts = ''
@@ -90,8 +112,8 @@ function! s:source.hooks.on_init(args, context) "{{{
   let a:context.source__filename = tmp_filename
   let a:context.source__line = line
   let a:context.source__col = compl_idx
-  let a:context.source__before_text = before_text
-  let a:context.source__after_text = after_text
+  let s:before_text = before_text
+  let s:after_text = after_text
 endfunction "}}}
 
 function! s:source.hooks.on_close(args, context) "{{{
@@ -153,7 +175,6 @@ function! s:source.gather_candidates(args, context) "{{{
       \ 'abbr' : line,
       \ 'kind' : 'word',
       \})
-"       \ 'word' : a:context.source__before_text . compl . a:context.source__after_text,
   endfor
 
   return candidates
