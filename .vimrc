@@ -488,6 +488,19 @@ call unite#custom#source('grep', 'converters', ["converter_filepath_filename"])
 endif
 " }}}2
 
+" unite-clangcompletion {{{2
+if neobundle#tap('unite-clangcompletion')
+"-----------------------------------------------------------------------------
+
+autocmd FileType objc inoremap <expr><C-n>
+  \ pumvisible() ?
+  \   "\<C-n>" :
+  \   unite#start_complete(['clangcompletion'], {'clangcompletion' : 1})
+
+"-----------------------------------------------------------------------------
+endif
+" }}}2
+
 " neocomplcache {{{2
 if neobundle#tap('neocomplcache')
 "-----------------------------------------------------------------------------
@@ -505,9 +518,8 @@ let g:neocomplcache_keyword_patterns['default'] = '\h\w*'
 let g:neocomplcache_enable_auto_select = 1 "最初の候補を自動選択 
 let g:neocomplcache_max_list = 10000
 
-inoremap <expr><C-x><C-f neocomplcache#manual_filename_complete()
-inoremap <expr><C-n> pumvisible() ? "\<C-n>" : neocomplcache#start_manual_complete()
-inoremap <expr><C-o> neocomplcache#start_manual_complete()
+inoremap <expr><C-x><C-f> neocomplcache#manual_filename_complete()
+" inoremap <expr><C-n> pumvisible() ? "\<C-n>" : neocomplcache#start_manual_complete()
 inoremap <expr><C-h> neocomplcache#smart_close_popup()."\<C-h>"
 
 let g:neocomplcache_source_rank = {
