@@ -492,7 +492,7 @@ endif
 if neobundle#tap('unite-clangcompletion')
 "-----------------------------------------------------------------------------
 
-autocmd FileType objc inoremap <expr><C-n>
+autocmd FileType objc inoremap <silent><expr> <C-n>
   \ pumvisible() ?
   \   "\<C-n>" :
   \   unite#start_complete(
