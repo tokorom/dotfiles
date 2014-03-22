@@ -313,9 +313,9 @@ nnoremap <C-p>                   :<C-u>tabp<CR>
 " ---------- unite ----------
 
 nnoremap [MyPrefix].f :<C-u>Unite -start-insert buffer file_rec<CR>
-nnoremap [MyPrefix].b :<C-u>Unite buffer<CR>
-nnoremap [MyPrefix].r :<C-u>Unite file_mru<CR>
-nnoremap [MyPrefix].o :<C-u>Unite outline<CR>
+nnoremap [MyPrefix].b :<C-u>Unite -start-insert buffer<CR>
+nnoremap [MyPrefix].r :<C-u>Unite -start-insert file_mru<CR>
+nnoremap [MyPrefix].o :<C-u>Unite -start-insert outline<CR>
 
 nnoremap [MyPrefix]g :<C-u>Unite grep:.<CR>
 nnoremap <expr> [MyPrefix].g ':Unite grep:. -input=' . expand('<cword>')

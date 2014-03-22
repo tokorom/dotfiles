@@ -67,25 +67,31 @@ function! s:source.hooks.on_init(args, context) "{{{
   let a:context.source__build_opts = ''
   let a:context.source__debugs = []
   
-  let tmp_filename = unite#util#substitute_path_separator(expand('%:p:h') . '/~' . expand('%:t'))
-  call writefile(getline(1, '$'), tmp_filename)
-
   let text = getline('.')
   let line = line('.')
   let col = col('.')
-  let a:context.source__filename = tmp_filename
-  let a:context.source__line = line
 
-  let sep_idx = match(text, '[a-zA-Z0-9_-]\+$')
+  let before_text = text[ : max([col - 1, 0])]
+  let after_text = text[col : ]
+
+  let sep_idx = match(before_text, '[a-zA-Z0-9_-]\+$')
   if 0 < sep_idx
     let compl_idx = sep_idx
   else 
     let compl_idx = col
   endif
+  let before_text = before_text[ : max([compl_idx - 1, 0])]
 
+  let tmp_filename = unite#util#substitute_path_separator(expand('%:p:h') . '/~' . expand('%:t'))
+  let lines = getline(1, '$')
+  let lines[line - 1] = before_text
+  call writefile(lines, tmp_filename)
+
+  let a:context.source__filename = tmp_filename
+  let a:context.source__line = line
   let a:context.source__col = compl_idx
-  let a:context.source__before_text = text[ : max([compl_idx - 1, 0])]
-  let a:context.source__after_text = text[col : ]
+  let a:context.source__before_text = before_text
+  let a:context.source__after_text = after_text
 endfunction "}}}
 
 function! s:source.hooks.on_close(args, context) "{{{
@@ -143,17 +149,19 @@ function! s:source.gather_candidates(args, context) "{{{
     let space_idx = stridx(line, ' ')
     let compl = line[0 : space_idx - 1]
     call add(candidates, {
-      \ 'word' : a:context.source__before_text . compl . a:context.source__after_text,
+      \ 'word' : compl,
       \ 'abbr' : line,
       \ 'kind' : 'word',
       \})
+"       \ 'word' : a:context.source__before_text . compl . a:context.source__after_text,
   endfor
 
   return candidates
 endfunction "}}}
 
 function! unite#sources#clangcompletion#get_cur_text() "{{{
-  return matchstr(getline('.'), '[a-zA-Z0-9_-]\+$')
+  let text = getline('.')[ : max([col('.') - 2, 0])]
+  return matchstr(text, '[a-zA-Z0-9_-]\+$')
 endfunction "}}}
 
 function! s:prepare_build_opts(args, context) "{{{
