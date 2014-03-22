@@ -496,7 +496,7 @@ autocmd FileType objc inoremap <silent><expr> <C-n>
   \ pumvisible() ?
   \   "\<C-n>" :
   \   unite#start_complete(
-  \     ['clangcompletion'],
+  \     ['clangcompletion', 'snippet'],
   \     {
   \       'start_insert' : 1,
   \       'input' : unite#sources#clangcompletion#get_cur_text(),

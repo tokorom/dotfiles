@@ -214,6 +214,7 @@ function! s:collect_xcodebuild_settings(args, context) "{{{
         \ 'SDK_DIR',
         \ 'HEADER_SEARCH_PATHS',
         \ 'LIBRARY_SEARCH_PATHS',
+        \ 'DEVELOPER_FRAMEWORKS_DIR',
         \ 'GCC_PREFIX_HEADER',
         \ 'CLANG_ENABLE_OBJC_ARC',
         \ 'CLANG_ENABLE_MODULES',
@@ -265,6 +266,11 @@ function! s:collect_xcodebuild_settings(args, context) "{{{
         call add(include_paths, path)
       endif
     endfor
+  endif
+
+  let key = 'DEVELOPER_FRAMEWORKS_DIR'
+  if has_key(dic, key)
+    call add(framework_paths, dic[key])
   endif
 
   let key = 'GCC_PREFIX_HEADER'
