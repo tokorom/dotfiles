@@ -458,6 +458,7 @@ function! s:unite_settings()
         \ empty(filter(range(1, winnr('$')),
         \ 'getwinvar(v:val, "&previewwindow") != 0')) ?
         \ unite#do_action('preview') : ":\<C-u>pclose!\<CR>"
+  nmap <silent><buffer> <Esc> <Plug>(unite_exit)
   nmap <silent><buffer> / i<Space>
   nmap <silent><buffer> <C-n> j
   nmap <silent><buffer> <C-p> k
