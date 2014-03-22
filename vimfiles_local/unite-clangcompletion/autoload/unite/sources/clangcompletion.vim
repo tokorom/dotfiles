@@ -200,8 +200,6 @@ function! s:initialize(args, context) "{{{
       endfor
     endif
 
-    call add(include_paths, '/Users/ytokoro/develop/cookpad/ios-cookpad/Tsukuru/model')
-
     let key = 'GCC_PREFIX_HEADER'
     if has_key(dic, key)
       let pch = dic[key]
@@ -232,6 +230,8 @@ function! s:initialize(args, context) "{{{
       endif
     endif
 
+    call s:add_header_dir_rec('./**/*.h', include_paths, a:args, a:context)
+
     for foption in foptions
       call add(a:context.source__extra_opts, '-f' . foption)
     endfor
@@ -245,6 +245,23 @@ function! s:initialize(args, context) "{{{
       call add(a:context.source__extra_opts, '-I' . path)
     endfor
   endif
+endfunction "}}}
+
+function! s:add_header_dir_rec(regex, include_paths, args, context) "{{{
+  let dirs = []
+  let headers = split(glob(a:regex), "\n")
+  for header in headers
+    let path = fnamemodify(header, ':p:h')
+    if 0 > index(dirs, path)
+      call add(dirs, path)
+    endif
+  endfor
+  for dir in dirs
+    let path = '"' . dir . '"'
+    if 0 > index(a:include_paths, path) && 0 > index(a:include_paths, dir)
+      call add(a:include_paths, path)
+    endif
+  endfor
 endfunction "}}}
 
 " vim: foldmethod=marker
