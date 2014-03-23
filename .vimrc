@@ -646,6 +646,7 @@ let g:quickrun_config['watchdogs_checker/xcodebuild'] = {
 
 let g:quickrun_config['objc/watchdogs_checker'] = {
   \ 'type' : 'watchdogs_checker/xcodebuild',
+  \ 'outputter/quickfix/open_cmd' : '',
   \ }
 
 call watchdogs#setup(g:quickrun_config)
