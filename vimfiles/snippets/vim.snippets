@@ -11,9 +11,9 @@ snippet guard
 	endif
 	let g:$1 = 1${3}
 snippet function
-	function! ${1:function_name}(${2})
+	function! ${1:function_name}(${2}) "{{{
 		${3:" code}
-	endfunction
+	endfunction "}}}
 snippet command
 	command! ${1:CommandName} :call ${2:FuctionName}(${3})
 snippet for

@@ -443,7 +443,7 @@ function! neobundle#tapped.hooks.on_source(bundle) " }}}3
 
 let g:unite_update_time = 50
 
-call unite#custom#default_action('jump_list,file,buffer,openable', 'tabopen')
+call unite#custom#default_action('jump_list,file,buffer,openable', 'tabselect')
 
 call unite#custom_source('file_rec', 'ignore_pattern', '\%(^\|/\)\%(build\|te?mp\)/\|\.\%(git\|o\|exe\|dll\|bak\|sw[po]\|class\|d\|dia\|gcda\|gcno\|png\|gif\|jpe?g\)$')
 
