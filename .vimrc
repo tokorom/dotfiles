@@ -495,8 +495,8 @@ call neobundle#untap()
 endif " }}}3
 " }}}2
 
-" unite-clangcompletion {{{2
-if neobundle#tap('unite-clangcompletion') " {{{3
+" unite-xcode_complete {{{2
+if neobundle#tap('unite-xcode_complete') " {{{3
 function! neobundle#tapped.hooks.on_source(bundle) " }}}3
 "-----------------------------------------------------------------------------
 
