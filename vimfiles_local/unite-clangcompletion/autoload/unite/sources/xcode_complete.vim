@@ -51,6 +51,7 @@ let s:source = {
   \ 'name' : 'xcode_complete',
   \ 'hooks' : {},
   \ 'action_table' : {},
+  \ 'sorters' : 'sorter_rank',
   \ 'variables' : {
   \   'command' : g:unite_source_xcode_complete_command,
   \   'user_opts' : g:unite_source_xcode_complete_user_opts,
