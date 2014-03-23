@@ -1,7 +1,7 @@
 "=============================================================================
-" FILE: clangcompletion.vim
+" FILE: xcode_complete.vim
 " AUTHOR: Yuta ToKoRo <tokorom at gmail.com>
-" Last Modified: 2014-03-22.
+" Last Modified: 2014-03-23.
 " License: MIT license {{{
 " Permission is hereby granted, free of charge, to any person obtaining
 " a copy of this software and associated documentation files (the
@@ -27,42 +27,42 @@
 " Variables "{{{
 
 call unite#util#set_default(
-  \ 'g:unite_source_clangcompletion_command', 'clang')
+  \ 'g:unite_source_xcode_complete_command', 'clang')
 call unite#util#set_default(
-  \ 'g:unite_source_clangcompletion_user_opts', '')
+  \ 'g:unite_source_xcode_complete_user_opts', '')
 call unite#util#set_default(
-  \ 'g:unite_source_clangcompletion_clang_opts_filename', '.clang_opts')
+  \ 'g:unite_source_xcode_complete_clang_opts_filename', '.clang_opts')
 call unite#util#set_default(
-  \ 'g:unite_source_clangcompletion_use_cache_file_for_opts', 1)
+  \ 'g:unite_source_xcode_complete_use_cache_file_for_opts', 1)
 call unite#util#set_default(
-  \ 'g:unite_source_clangcompletion_cache_filename_for_opts', '~clangcompletion')
+  \ 'g:unite_source_xcode_complete_cache_filename_for_opts', '~xcode_complete')
 call unite#util#set_default(
-  \ 'g:unite_source_clangcompletion_default_opts', '-cc1 -w -x objective-c -fblocks -D__IPHONE_OS_VERSION_MIN_REQUIRED=40300')
+  \ 'g:unite_source_xcode_complete_default_opts', '-cc1 -w -x objective-c -fblocks -D__IPHONE_OS_VERSION_MIN_REQUIRED=40300')
 call unite#util#set_default(
-  \ 'g:unite_source_clangcompletion_suffix', '2> /dev/null | grep ''^COMPLETION: '' | cut -c13-')
+  \ 'g:unite_source_xcode_complete_suffix', '2> /dev/null | grep ''^COMPLETION: '' | cut -c13-')
 
-let s:unite_source_clangcompletion_auto_opts = ''
+let s:unite_source_xcode_complete_auto_opts = ''
 
 "}}}
 
 " Defaults "{{{
 
 let s:source = {
-  \ 'name' : 'clangcompletion',
+  \ 'name' : 'xcode_complete',
   \ 'hooks' : {},
   \ 'action_table' : {},
   \ 'variables' : {
-  \   'command' : g:unite_source_clangcompletion_command,
-  \   'user_opts' : g:unite_source_clangcompletion_user_opts,
-  \   'clang_opts_filename' : g:unite_source_clangcompletion_clang_opts_filename,
-  \   'use_cache_file_for_opts' : g:unite_source_clangcompletion_use_cache_file_for_opts,
-  \   'cache_filename_for_opts' : g:unite_source_clangcompletion_cache_filename_for_opts,
-  \   'default_opts' : g:unite_source_clangcompletion_default_opts,
-  \   'suffix' : g:unite_source_clangcompletion_suffix,
+  \   'command' : g:unite_source_xcode_complete_command,
+  \   'user_opts' : g:unite_source_xcode_complete_user_opts,
+  \   'clang_opts_filename' : g:unite_source_xcode_complete_clang_opts_filename,
+  \   'use_cache_file_for_opts' : g:unite_source_xcode_complete_use_cache_file_for_opts,
+  \   'cache_filename_for_opts' : g:unite_source_xcode_complete_cache_filename_for_opts,
+  \   'default_opts' : g:unite_source_xcode_complete_default_opts,
+  \   'suffix' : g:unite_source_xcode_complete_suffix,
   \ },
   \}
 
-function! unite#sources#clangcompletion#define() "{{{
+function! unite#sources#xcode_complete#define() "{{{
   return s:source
 endfunction "}}}
 
@@ -147,7 +147,7 @@ function! s:source.gather_candidates(args, context) "{{{
 
   if verbose
     call unite#print_source_message('Command-line: ' . cmdline, s:source.name)
-    call writefile([cmdline], '~clangcompletion.log')
+    call writefile([cmdline], '~xcode_complete.log')
   endif
 
   " debug
@@ -181,7 +181,7 @@ function! s:source.gather_candidates(args, context) "{{{
   return candidates
 endfunction "}}}
 
-function! unite#sources#clangcompletion#get_cur_text() "{{{
+function! unite#sources#xcode_complete#get_cur_text() "{{{
   let text = getline('.')[ : max([col('.') - 2, 0])]
   return matchstr(text, '[a-zA-Z0-9_-]\+$')
 endfunction "}}}
@@ -190,12 +190,12 @@ function! s:prepare_build_opts(args, context) "{{{
   let variables = unite#get_source_variables(a:context)
 
   if has_key(a:context, 'is_redraw') && 1 == a:context.is_redraw
-    let s:unite_source_clangcompletion_auto_opts = ''
+    let s:unite_source_xcode_complete_auto_opts = ''
     call delete(variables.cache_filename_for_opts)
   endif
 
-  if 0 < strlen(s:unite_source_clangcompletion_auto_opts)
-    let a:context.source__build_opts = s:unite_source_clangcompletion_auto_opts
+  if 0 < strlen(s:unite_source_xcode_complete_auto_opts)
+    let a:context.source__build_opts = s:unite_source_xcode_complete_auto_opts
     return
   endif
 
@@ -208,7 +208,7 @@ function! s:prepare_build_opts(args, context) "{{{
   \  && filereadable(variables.clang_opts_filename)
     let lines = readfile(variables.clang_opts_filename)
     let opts_string = join(lines, ' ')
-    let s:unite_source_clangcompletion_auto_opts = opts_string
+    let s:unite_source_xcode_complete_auto_opts = opts_string
     let a:context.source__build_opts = opts_string
     return
   endif
@@ -217,20 +217,20 @@ function! s:prepare_build_opts(args, context) "{{{
   \  && filereadable(variables.cache_filename_for_opts)
     let lines = readfile(variables.cache_filename_for_opts)
     let opts_string = join(lines, ' ')
-    let s:unite_source_clangcompletion_auto_opts = opts_string
+    let s:unite_source_xcode_complete_auto_opts = opts_string
     let a:context.source__build_opts = opts_string
     return
   endif
 
   let opts = s:collect_xcodebuild_settings(a:args, a:context)
   let opts_string = join(opts, ' ')
-  let s:unite_source_clangcompletion_auto_opts = variables.default_opts . ' ' . opts_string
+  let s:unite_source_xcode_complete_auto_opts = variables.default_opts . ' ' . opts_string
   if variables.use_cache_file_for_opts &&
   \  0 < strlen(variables.cache_filename_for_opts)
-    call writefile(split(s:unite_source_clangcompletion_auto_opts, ' '),
+    call writefile(split(s:unite_source_xcode_complete_auto_opts, ' '),
       \     variables.cache_filename_for_opts)
   endif
-  let a:context.source__build_opts = s:unite_source_clangcompletion_auto_opts
+  let a:context.source__build_opts = s:unite_source_xcode_complete_auto_opts
 endfunction "}}}
 
 function! s:collect_xcodebuild_settings(args, context) "{{{

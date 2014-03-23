@@ -68,13 +68,16 @@ NeoBundle 'h1mesuke/unite-outline', {'depends' : 'Shougo/unite.vim'}
 
 " neocomplcache
 NeoBundle 'git://github.com/Shougo/neocomplcache.git'
-NeoBundle 'git://github.com/Shougo/neosnippet.git'
+
+" neosnippet
+NeoBundle 'Shougo/neosnippet'
+NeoBundle 'Shougo/neosnippet-snippets', {'depends' : 'Shougo/neosnippet'}
 
 " clang
 NeoBundleLazy 'https://github.com/rhysd/vim-clang-format.git', {'filetypes': ['c', 'cpp', 'objc']}
 
 " syntax check
-NeoBundleLazy 'git://github.com/scrooloose/syntastic.git', {'filetypes': ['xml', 'html', 'sass', 'css', 'js', 'yaml', 'json', 'xslt', 'python', 'perl', 'c']}
+" NeoBundleLazy 'git://github.com/scrooloose/syntastic.git', {'filetypes': ['xml', 'html', 'sass', 'css', 'js', 'yaml', 'json', 'xslt', 'python', 'perl', 'c']}
 
 " git
 NeoBundle 'git://github.com/tpope/vim-fugitive.git'
@@ -326,7 +329,7 @@ nnoremap <expr> [MyPrefix].I ':Unite file_rec:' . g:ios_framework_dir . ' -input
 
 " ---------- substitute ----------
 
-nnoremap <expr> [MyPrefix].s      ':%substitute/\<' . expand('<cword>') . '\>//gc<Left><Left><Left>'
+" nnoremap <expr> [MyPrefix].s      ':%substitute/\<' . expand('<cword>') . '\>//gc<Left><Left><Left>'
 
 " ---------- buffer ----------
 
@@ -427,14 +430,15 @@ augroup END
 
 " lightline {{{2
 "-----------------------------------------------------------------------------
-"
+
 let g:lightline = {'colorscheme': 'wombat'}
 
 "-----------------------------------------------------------------------------
 " }}}2
 
 " unite.vim {{{2
-if neobundle#tap('unite.vim')
+if neobundle#tap('unite.vim') " {{{3
+function! neobundle#tapped.hooks.on_source(bundle) " }}}3
 "-----------------------------------------------------------------------------
 
 let g:unite_update_time = 50
@@ -462,6 +466,7 @@ function! s:unite_settings()
   nmap <silent><buffer> / i<Space>
   nmap <silent><buffer> <C-n> j
   nmap <silent><buffer> <C-p> k
+  imap <silent><buffer> <C-l> <Esc>q
 endfunction
 
 " custom filters
@@ -485,30 +490,36 @@ unlet s:filters
 call unite#custom#source('grep', 'converters', ["converter_filepath_filename"])
 
 "-----------------------------------------------------------------------------
-endif
+endfunction " {{{3
+call neobundle#untap()
+endif " }}}3
 " }}}2
 
 " unite-clangcompletion {{{2
-if neobundle#tap('unite-clangcompletion')
+if neobundle#tap('unite-clangcompletion') " {{{3
+function! neobundle#tapped.hooks.on_source(bundle) " }}}3
 "-----------------------------------------------------------------------------
 
 autocmd FileType objc inoremap <silent><expr> <C-n>
   \ pumvisible() ?
   \   "\<C-n>" :
   \   unite#start_complete(
-  \     ['clangcompletion', 'snippet'],
+  \     ['xcode_complete', 'neosnippet'],
   \     {
   \       'start_insert' : 1,
-  \       'input' : unite#sources#clangcompletion#get_cur_text(),
+  \       'input' : unite#sources#xcode_complete#get_cur_text(),
   \     },
   \   )
 
 "-----------------------------------------------------------------------------
-endif
+endfunction " {{{3
+call neobundle#untap()
+endif " }}}3
 " }}}2
 
 " neocomplcache {{{2
-if neobundle#tap('neocomplcache')
+if neobundle#tap('neocomplcache') " {{{3
+function! neobundle#tapped.hooks.on_source(bundle) " }}}3
 "-----------------------------------------------------------------------------
 
 let g:neocomplcache_enable_at_startup = 1 "自動起動
@@ -534,11 +545,14 @@ let g:neocomplcache_source_rank = {
 \ }
 
 "-----------------------------------------------------------------------------
-endif
+endfunction " {{{3
+call neobundle#untap()
+endif " }}}3
 " }}}2
 
 " vim-clang-format {{{2
-if neobundle#tap('vim-clang-format')
+if neobundle#tap('vim-clang-format') " {{{3
+function! neobundle#tapped.hooks.on_source(bundle) " }}}3
 "-----------------------------------------------------------------------------
 
 autocmd FileType objc call s:clang_format_settings()
@@ -563,13 +577,15 @@ function! SaveWithFormat()
   augroup END
 endfunction
 
-
 "-----------------------------------------------------------------------------
-endif
+endfunction " {{{3
+call neobundle#untap()
+endif " }}}3
 " }}}2
 
 " neosnippet {{{2
-if neobundle#tap('neosnippet')
+if neobundle#tap('neosnippet') " {{{3
+function! neobundle#tapped.hooks.on_source(bundle) " }}}3
 "-----------------------------------------------------------------------------
 
 let g:neosnippet#snippets_directory = "$HOME/vimfiles/snippets"
@@ -590,11 +606,14 @@ smap <expr><Esc> neosnippet#jumpable() ?
 \ "\<M-Y>\<M-Y>\<M-Y>\<M-Y>\<M-Y>\<M-Y>\<M-Y>\<M-Y>\<M-Y>\<M-Y>\<M-Y>\<Esc>" : "\<Esc>"
 
 "-----------------------------------------------------------------------------
-endif
+endfunction " {{{3
+call neobundle#untap()
+endif " }}}3
 " }}}2
 
 " vim-quickrun {{{2
-if neobundle#tap('vim-quickrun')
+if neobundle#tap('vim-quickrun') " {{{3
+function! neobundle#tapped.hooks.on_source(bundle) " }}}3
 "-----------------------------------------------------------------------------
 
 " initialize
@@ -637,11 +656,14 @@ map [MyPrefix]q <Nop>
 map [MyPrefix]q <Plug>(quickrun)
 
 "-----------------------------------------------------------------------------
-endif
+endfunction " {{{3
+call neobundle#untap()
+endif " }}}3
 " }}}2
 
 " vim-watchdogs {{{2
-if neobundle#tap('vim-watchdogs')
+if neobundle#tap('vim-watchdogs') " {{{3
+function! neobundle#tapped.hooks.on_source(bundle) " }}}3
 "-----------------------------------------------------------------------------
 
 " バッファ書き込み後にWatchdogsRunSilent
@@ -650,7 +672,9 @@ let g:watchdogs_check_BufWritePost_enable = 1
 let g:watchdogs_check_CursorHold_enable = 1
 
 "-----------------------------------------------------------------------------
-endif
+endfunction " {{{3
+call neobundle#untap()
+endif " }}}3
 " }}}2
 
 " }}}1

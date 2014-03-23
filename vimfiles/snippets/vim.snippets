@@ -48,13 +48,16 @@ snippet line
 	" }}}1
 snippet tap
 	" ${1:plugin} {{{2
-	if neobundle#tap('$1')
+	if neobundle#tap('$1') " {{{3
+	function! neobundle#tapped.hooks.on_source(bundle) " }}}3
 	"-----------------------------------------------------------------------------
 	
 	${0}
 	
 	"-----------------------------------------------------------------------------
-	endif
+	endfunction " {{{3
+	call neobundle#untap()
+	endif " }}}3
 	" }}}2
 snippet python
 	python <<EOM
