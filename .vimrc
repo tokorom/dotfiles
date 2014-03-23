@@ -31,8 +31,8 @@ NeoBundle 'git://github.com/kana/vim-altr.git'
 NeoBundle 'git://github.com/thinca/vim-ref.git'
 NeoBundle 'anekos/char-counter-vim'
 
-NeoBundleLazy 'git://github.com/sjl/gundo.vim.git', {'autoload': {'commands': ['GundoShow', 'GundoHide', 'GundoToggle', 'GundoRenderGraph']}}
-NeoBundleLazy 'git://github.com/yuratomo/w3m.vim.git', {'autoload': {'commands': ['W3m', 'W3mTab', 'W3mSplit', 'W3mLocal', 'W3mHistory', 'W3mHistoryClear']}}
+NeoBundleLazy 'git://github.com/sjl/gundo.vim.git', {'commands': ['GundoShow', 'GundoHide', 'GundoToggle', 'GundoRenderGraph']}
+NeoBundleLazy 'git://github.com/yuratomo/w3m.vim.git', {'commands': ['W3m', 'W3mTab', 'W3mSplit', 'W3mLocal', 'W3mHistory', 'W3mHistoryClear']}
 
 " color
 NeoBundle 'git://github.com/w0ng/vim-hybrid.git'
@@ -55,7 +55,7 @@ NeoBundle 'https://github.com/osyo-manga/vim-textobj-multiblock.git'
 NeoBundle 'https://github.com/thinca/vim-textobj-between.git'
 
 " ag
-NeoBundleLazy 'rking/ag.vim', {'autoload': {'commands': ['Ag']}}
+NeoBundleLazy 'rking/ag.vim', {'commands': ['Ag']}
 
 " unite
 NeoBundleLazy 'Shougo/unite.vim', {
@@ -71,34 +71,34 @@ NeoBundle 'git://github.com/Shougo/neocomplcache.git'
 NeoBundle 'git://github.com/Shougo/neosnippet.git'
 
 " clang
-NeoBundleLazy 'https://github.com/rhysd/vim-clang-format.git', {'autoload': {'filetypes': ['c', 'cpp', 'objc']}}
+NeoBundleLazy 'https://github.com/rhysd/vim-clang-format.git', {'filetypes': ['c', 'cpp', 'objc']}
 
 " syntax check
-NeoBundleLazy 'git://github.com/scrooloose/syntastic.git', {'autoload': {'filetypes': ['xml', 'html', 'sass', 'css', 'js', 'yaml', 'json', 'xslt', 'python', 'perl', 'c']}}
+NeoBundleLazy 'git://github.com/scrooloose/syntastic.git', {'filetypes': ['xml', 'html', 'sass', 'css', 'js', 'yaml', 'json', 'xslt', 'python', 'perl', 'c']}
 
 " git
 NeoBundle 'git://github.com/tpope/vim-fugitive.git'
-NeoBundleLazy 'git://github.com/gregsexton/gitv.git', {'autoload': {'commands': ['GitV']}}
+NeoBundleLazy 'git://github.com/gregsexton/gitv.git', {'commands': ['GitV']}
 
 " ruby
-NeoBundleLazy 'git://github.com/tpope/vim-rails.git', {'autoload': {'filetypes': ['ruby']}}
-NeoBundleLazy 'git://github.com/tobiassvn/vim-gemfile.git', {'autoload': {'filetypes': ['ruby']}}
+NeoBundleLazy 'git://github.com/tpope/vim-rails.git', {'filetypes': ['ruby']}
+NeoBundleLazy 'git://github.com/tobiassvn/vim-gemfile.git', {'filetypes': ['ruby']}
 
 " markdown
-NeoBundleLazy 'git://github.com/chrismetcalf/vim-markdown.git', {'autoload': {'filetypes': ['markdown']}}
+NeoBundleLazy 'git://github.com/chrismetcalf/vim-markdown.git', {'filetypes': ['markdown']}
 
 " objc
-NeoBundleLazy 'git://github.com/tokorom/cocoa.vim.git', 'syntax-only', {'autoload': {'filetypes': ['objc']}}
+NeoBundleLazy 'git://github.com/tokorom/cocoa.vim.git', 'syntax-only', {'filetypes': ['objc']}
 NeoBundleLazy 'ryotakato/unite-outline-objc', {
   \ 'depends' : 'h1mesuke/unite-outline',
   \ 'filetypes' : ['objc']
   \ }
 
 " coffee
-NeoBundleLazy 'git://github.com/kchmck/vim-coffee-script.git', {'autoload': {'filetypes': ['coffee']}}
+NeoBundleLazy 'git://github.com/kchmck/vim-coffee-script.git', {'filetypes': ['coffee']}
 
 " json
-NeoBundleLazy 'https://github.com/elzr/vim-json.git', {'autoload': {'filetypes': ['json']}}
+NeoBundleLazy 'https://github.com/elzr/vim-json.git', {'filetypes': ['json']}
 
 " uml
 NeoBundle 'https://github.com/aklt/plantuml-syntax.git'
@@ -106,9 +106,9 @@ NeoBundle 'https://github.com/aklt/plantuml-syntax.git'
 " quickrun
 NeoBundle 'git://github.com/thinca/vim-quickrun.git'
 NeoBundle 'https://github.com/osyo-manga/shabadou.vim.git'
-NeoBundleLazy 'https://github.com/osyo-manga/vim-watchdogs.git', {'autoload': {'filetypes': ['objc']}}
-NeoBundleLazy 'https://github.com/jceb/vim-hier.git', {'autoload': {'filetypes': ['objc']}}
-NeoBundleLazy 'git://github.com/tokorom/vim-quickrun-xctool.git', {'autoload': {'filetypes': ['objc']}}
+NeoBundleLazy 'https://github.com/osyo-manga/vim-watchdogs.git', {'filetypes': ['objc']}
+NeoBundleLazy 'https://github.com/jceb/vim-hier.git', {'filetypes': ['objc']}
+NeoBundleLazy 'git://github.com/tokorom/vim-quickrun-xctool.git', {'filetypes': ['objc']}
 
 " local
 NeoBundleLocal ~/vimfiles_local/
