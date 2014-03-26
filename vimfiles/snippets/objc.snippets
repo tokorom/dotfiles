@@ -141,29 +141,21 @@ snippet testcase
 	
 	@end
 # template for CKDTestCase
-snippet ckdtestcaseh
-	//
-	//  ${1:`Filename()`}.h
-	//
-	//  Created by ToKoRo on `strftime("%Y-%m-%d")`.
-	//
-	
-	#import "CKDTestCase.h"
-	
-	@interface $1 : CKDTestCase
-	@end
-snippet ckdtestcases
+snippet ckdtestcase
 	//
 	//  ${1:`Filename()`}.m
 	//
 	//  Created by ToKoRo on `strftime("%Y-%m-%d")`.
 	//
 	
-	#import "$1.h"
+	#import "CKDTestCase.h"
 	#import "${2:Subject}.h"
 	
 	#define subject (($2*)self.subject)
 	
+	@interface $1 : CKDTestCase
+	@end 
+
 	@implementation $1
 	
 	- (void)setUp
