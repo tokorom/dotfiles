@@ -80,3 +80,6 @@
 
 [include]
   path = ~/.gitconfig.local
+
+[hub]
+  host = github.cookpad.com
