@@ -1,4 +1,4 @@
-" textobj-objc - Text objects for Objective-C literals and blocks {{{
+" urldecoder - The utility for url encode/decode {{{
 " Version: 0.0.1
 " Copyright (C) 2014 Yuta ToKoRo <https://github.com/tokorom/>
 " License: MIT license {{{
@@ -23,31 +23,26 @@
 " }}}
 " }}}
 
-if exists('g:loaded_textobj_objc') "{{{
+if exists('g:loaded_urldecoder') "{{{
   finish
 endif "}}}
 
-" Interface "{{{
+" functions {{{
 
-call textobj#user#plugin('objc', {
-\   'literals': {
-\     'select-a-function': 'textobj#objc#select_literal_a',
-\     'select-i-function': 'textobj#objc#select_literal_i',
-\     'select-a': 'a@',
-\     'select-i': 'i@',
-\   },
-\
-\   'blocks': {
-\     'select-a-function': 'textobj#objc#select_block_a',
-\     'select-i-function': 'textobj#objc#select_block_i',
-\     'select-a': 'a^',
-\     'select-i': 'i^',
-\   }
-\ })
+"}}}
+
+" commands {{
+
+command! -nargs=0 -range URLEncode :<line1>,<line2>call urldecoder#urlencode_and_replace_line()
+command! -nargs=0 -range URLDecode :<line1>,<line2>call urldecoder#urldecode_and_replace_line()
+  
+command! -nargs=0 -range UnicodeCharacterNamesDecode :<line1>,<line2>call urldecoder#ucndecode_and_replace_line()
+
+"}}}
 
 " Fin. "{{{
 
-let g:loaded_textobj_objc = 1
+let g:loaded_urldecoder = 1
 
 " __END__
 " vim: foldmethod=marker
