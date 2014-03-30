@@ -30,7 +30,6 @@ NeoBundle 'L9'
 NeoBundle 'git://github.com/kana/vim-altr.git'
 NeoBundle 'git://github.com/thinca/vim-ref.git'
 NeoBundle 'anekos/char-counter-vim'
-NeoBundle 'Lokaltog/vim-easymotion.git'
 
 NeoBundleLazy 'git://github.com/sjl/gundo.vim.git', {'commands': ['GundoShow', 'GundoHide', 'GundoToggle', 'GundoRenderGraph']}
 NeoBundleLazy 'git://github.com/yuratomo/w3m.vim.git', {'commands': ['W3m', 'W3mTab', 'W3mSplit', 'W3mLocal', 'W3mHistory', 'W3mHistoryClear']}
@@ -673,28 +672,6 @@ function! neobundle#tapped.hooks.on_source(bundle) " }}}3
 let g:watchdogs_check_BufWritePost_enable = 1
 " 一定時間キー入力がなかった場合にWatchdogsRunSilent
 let g:watchdogs_check_CursorHold_enable = 1
-
-"-----------------------------------------------------------------------------
-endfunction " {{{3
-call neobundle#untap()
-endif " }}}3
-" }}}2
-
-" vim-easymotion {{{2
-if neobundle#tap('vim-easymotion') " {{{3
-function! neobundle#tapped.hooks.on_source(bundle) " }}}3
-"-----------------------------------------------------------------------------
-
-let g:EasyMotion_do_mapping = 0
-
-omap f <Plug>(easymotion-fl)
-omap t <Plug>(easymotion-tl)
-omap F <Plug>(easymotion-Fl)
-omap T <Plug>(easymotion-Tl)
-vmap f <Plug>(easymotion-fl)
-vmap t <Plug>(easymotion-tl)
-vmap F <Plug>(easymotion-Fl)
-vmap T <Plug>(easymotion-Tl)
 
 "-----------------------------------------------------------------------------
 endfunction " {{{3
