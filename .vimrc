@@ -30,6 +30,7 @@ NeoBundle 'L9'
 NeoBundle 'git://github.com/kana/vim-altr.git'
 NeoBundle 'git://github.com/thinca/vim-ref.git'
 NeoBundle 'anekos/char-counter-vim'
+NeoBundle 'kana/vim-smartinput'
 
 NeoBundleLazy 'git://github.com/sjl/gundo.vim.git', {'commands': ['GundoShow', 'GundoHide', 'GundoToggle', 'GundoRenderGraph']}
 NeoBundleLazy 'git://github.com/yuratomo/w3m.vim.git', {'commands': ['W3m', 'W3mTab', 'W3mSplit', 'W3mLocal', 'W3mHistory', 'W3mHistoryClear']}
