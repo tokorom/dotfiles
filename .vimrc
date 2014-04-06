@@ -316,7 +316,7 @@ nnoremap <C-p>                   :<C-u>tabp<CR>
 
 " ---------- unite ----------
 
-nnoremap [MyPrefix].f :<C-u>Unite -start-insert buffer file_rec<CR>
+nnoremap [MyPrefix].f :<C-u>Unite -start-insert buffer file_rec file/new<CR>
 nnoremap [MyPrefix].b :<C-u>Unite -start-insert buffer<CR>
 nnoremap [MyPrefix].r :<C-u>Unite -start-insert file_mru<CR>
 nnoremap [MyPrefix].o :<C-u>Unite -start-insert outline<CR>
