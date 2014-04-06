@@ -437,6 +437,25 @@ let g:lightline = {'colorscheme': 'wombat'}
 "-----------------------------------------------------------------------------
 " }}}2
 
+" vim-smartinput {{{2
+if neobundle#tap('vim-smartinput') " {{{3
+function! neobundle#tapped.hooks.on_source(bundle) " }}}3
+"-----------------------------------------------------------------------------
+
+call smartinput#clear_rules()
+call smartinput#define_rule({
+  \ 'at': '{\%#',
+  \ 'char': '<Enter>',
+  \ 'input': '<Enter><Enter>}<Up><Esc>"_S',
+  \ 'filetype': ['c', 'cpp', 'objc'],
+  \ })
+
+"-----------------------------------------------------------------------------
+endfunction " {{{3
+call neobundle#untap()
+endif " }}}3
+" }}}2
+
 " unite.vim {{{2
 if neobundle#tap('unite.vim') " {{{3
 function! neobundle#tapped.hooks.on_source(bundle) " }}}3
