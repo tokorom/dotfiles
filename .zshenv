@@ -22,7 +22,8 @@ alias awk="gawk"
 alias ls="ls -G"
 alias ll="ls -la"
 
-alias mvim='mvim -c "cd ${PWD}"'
+alias tigs="tig status"
+
 alias mkcd='source ~/bin/mkcd'
 
 alias tmux-changekey='tmux set-option -ag prefix C-b'
