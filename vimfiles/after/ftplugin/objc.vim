@@ -11,7 +11,7 @@ call altr#define('en.lproj/%', 'ja.lproj/%')
 " --- added keybinds ---
 
 nnoremap <buffer> [MyPrefix]{             o{<Esc>o}<Esc>
-nnoremap <buffer> [MyDoublePrefix]{       $xo{<Esc>o}<Esc>
+nnoremap <buffer> <Space><Space>{       $xo{<Esc>o}<Esc>
 
 nnoremap <buffer> [MyPrefix][   ebi[<Esc>ea<Space>]<Esc>i
 nnoremap <buffer> [MyPrefix]]   F[i[<Esc>f]a]<Esc>i<Space>
@@ -23,4 +23,4 @@ inoremap <buffer> <C-b> <Esc>F:a
 inoremap <buffer> <C-f> <Esc>f:a
 inoremap <buffer> <C-]> <Esc>F[i[<Esc>A<Space>
 
-map <silent> <buffer> <expr> [MyDoublePrefix]q ':QuickRun -args "TEST=' . expand("%:t:r") . '"<CR>'
+map <silent> <buffer> <expr> [MyPrefix][MyPrefix]q ':QuickRun -args "TEST=' . expand("%:t:r") . '"<CR>'
