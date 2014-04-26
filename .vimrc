@@ -67,8 +67,8 @@ NeoBundleLazy 'Shougo/unite.vim', {
 NeoBundle 'Shougo/neomru.vim'
 NeoBundle 'h1mesuke/unite-outline', {'depends' : 'Shougo/unite.vim'}
 
-" neocomplcache
-NeoBundle 'git://github.com/Shougo/neocomplcache.git'
+" neocomplete
+NeoBundle 'Shougo/neocomplete.vim'
 
 " neosnippet
 NeoBundle 'Shougo/neosnippet'
@@ -197,6 +197,7 @@ set formatoptions+=mM
 set display+=lastline
 
 " 補完の設定
+set complete+=k
 set completeopt=menu,preview,longest
 
 " 日付の自動入力のフォーマット
@@ -521,9 +522,9 @@ if neobundle#tap('unite-xcode_complete') " {{{3
 function! neobundle#tapped.hooks.on_source(bundle) " }}}3
 "-----------------------------------------------------------------------------
 
-autocmd FileType objc inoremap <silent><expr> <C-n>
+autocmd FileType objc inoremap <silent><expr> <C-p>
   \ pumvisible() ?
-  \   "\<C-n>" :
+  \   "\<C-p>" :
   \   unite#start_complete(
   \     ['xcode_complete', 'neosnippet'],
   \     {
@@ -538,32 +539,24 @@ call neobundle#untap()
 endif " }}}3
 " }}}2
 
-" neocomplcache {{{2
-if neobundle#tap('neocomplcache') " {{{3
-function! neobundle#tapped.hooks.on_source(bundle) " }}}3
+" neocomplete {{{2
+if neobundle#tap('neocomplete.vim') " {{{3
+let g:neocomplete#enable_at_startup = 1 "自動起動
+function! neobundle#tapped.hooks.on_post_source(bundle) " }}}3
 "-----------------------------------------------------------------------------
 
-let g:neocomplcache_enable_at_startup = 1 "自動起動
-let g:neocomplcache_disable_auto_complete = 1 "自動補完はしない（手動補完のみとする)
-let g:neocomplcache_enable_smart_case = 1 "大文字小文字無視
-let g:neocomplcache_enable_underbar_completion = 1 " _区切り補完
-let g:neocomplcache_lock_buffer_name_pattern = '\*fuf\*' "fufでは利用しない 
-" Define keyword.
-if !exists('g:neocomplcache_keyword_patterns')
-    let g:neocomplcache_keyword_patterns = {}
+let g:neocomplete#disable_auto_complete = 1 "自動補完はしない（手動補完のみとする)
+let g:neocomplete#enable_smart_case = 1 "大文字小文字無視
+let g:neocomplete#max_list = 10000 "候補の最大数
+
+if !exists('g:neocomplete#keyword_patterns')
+  let g:neocomplete#keyword_patterns = {}
 endif
-let g:neocomplcache_keyword_patterns['default'] = '\h\w*'
-let g:neocomplcache_enable_auto_select = 1 "最初の候補を自動選択 
-let g:neocomplcache_max_list = 10000
+let g:neocomplete#keyword_patterns._ = '\h\w*'
 
-inoremap <expr><C-x><C-f> neocomplcache#manual_filename_complete()
-" inoremap <expr><C-n> pumvisible() ? "\<C-n>" : neocomplcache#start_manual_complete()
-inoremap <expr><C-h> neocomplcache#smart_close_popup()."\<C-h>"
-
-let g:neocomplcache_source_rank = {
-\ 'snippets_complete' : 500,
-\ 'abbrev_complete' : 400,
-\ }
+inoremap <expr> <C-n> pumvisible() ? "\<C-n>" : neocomplete#start_manual_complete()."\<C-n><C-n><C-p>"
+inoremap <expr> <C-h> neocomplete#smart_close_popup()."\<C-h>"
+imap <C-k> <Plug>(neocomplete_start_unite_complete)
 
 "-----------------------------------------------------------------------------
 endfunction " {{{3
