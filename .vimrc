@@ -522,16 +522,14 @@ if neobundle#tap('unite-xcode_complete') " {{{3
 function! neobundle#tapped.hooks.on_source(bundle) " }}}3
 "-----------------------------------------------------------------------------
 
-autocmd FileType objc inoremap <silent><expr> <C-p>
-  \ pumvisible() ?
-  \   "\<C-p>" :
-  \   unite#start_complete(
-  \     ['xcode_complete', 'neosnippet'],
-  \     {
-  \       'start_insert' : 1,
-  \       'input' : unite#sources#xcode_complete#get_cur_text(),
-  \     },
-  \   )
+autocmd FileType objc inoremap <silent><expr> <C-x><C-o>
+  \ unite#start_complete(
+  \   ['xcode_complete'],
+  \   {
+  \     'start_insert' : 1,
+  \     'input' : unite#sources#xcode_complete#get_cur_text(),
+  \   }
+  \ )
 
 "-----------------------------------------------------------------------------
 endfunction " {{{3
