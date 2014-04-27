@@ -60,19 +60,23 @@ NeoBundleLazy 'rking/ag.vim', {'commands': ['Ag']}
 
 " unite
 NeoBundleLazy 'Shougo/unite.vim', {
-  \ 'commands' : [{ 'name' : 'Unite',
-  \ 'complete' : 'customlist,unite#complete_source'},
-  \ 'UniteWithCursorWord', 'UniteWithInput']
+  \   'commands': [
+  \     {'name': 'Unite', 'complete': 'customlist,unite#complete_source'},
+  \     'UniteWithCursorWord',
+  \     'UniteWithInput'
+  \   ]
   \ }
-NeoBundle 'Shougo/neomru.vim'
-NeoBundle 'h1mesuke/unite-outline', {'depends' : 'Shougo/unite.vim'}
+NeoBundleLazy 'Shougo/neomru.vim', {'depends': 'Shougo/unite.vim', 'on_source': 'unite.vim'}
+NeoBundleLazy 'h1mesuke/unite-outline', {'depends': 'Shougo/unite.vim', 'on_source': 'unite.vim'}
+NeoBundleLazy 'tokorom/unite-xcode_complete', {'depends': 'Shougo/unite.vim', 'on_source': 'unite.vim'}
 
 " neocomplete
-NeoBundle 'Shougo/neocomplete.vim'
+NeoBundleLazy 'Shougo/neocomplete.vim',  {'function_prefix': 'neocomplete'}
+NeoBundleLazy 'tokorom/neocomplete-ios-dictionary', {'depends' : 'Shougo/neocomplete.vim', 'on_source': 'neocomplete.vim'}
 
 " neosnippet
 NeoBundle 'Shougo/neosnippet'
-NeoBundle 'Shougo/neosnippet-snippets', {'depends' : 'Shougo/neosnippet'}
+NeoBundle 'Shougo/neosnippet-snippets', {'depends': 'Shougo/neosnippet'}
 
 " clang
 NeoBundleLazy 'https://github.com/rhysd/vim-clang-format.git', {'filetypes': ['c', 'cpp', 'objc']}
@@ -538,9 +542,17 @@ endif " }}}3
 " }}}2
 
 " neocomplete {{{2
-if neobundle#tap('neocomplete.vim') " {{{3
+"-----------------------------------------------------------------------------
+
+" {{{ initialize
 let g:neocomplete#enable_at_startup = 1 "自動起動
-function! neobundle#tapped.hooks.on_post_source(bundle) " }}}3
+inoremap <expr> <C-n> pumvisible() ? "\<C-n>" : neocomplete#start_manual_complete()."\<C-n><C-n><C-p>"
+inoremap <expr> <C-h> neocomplete#smart_close_popup()."\<C-h>"
+imap <C-k> <Plug>(neocomplete_start_unite_complete)
+" }}}
+
+if neobundle#tap('neocomplete.vim') " {{{3
+function! neobundle#tapped.hooks.on_source(bundle) " }}}3
 "-----------------------------------------------------------------------------
 
 let g:neocomplete#disable_auto_complete = 1 "自動補完はしない（手動補完のみとする)
@@ -552,14 +564,18 @@ if !exists('g:neocomplete#keyword_patterns')
 endif
 let g:neocomplete#keyword_patterns._ = '\h\w*'
 
-inoremap <expr> <C-n> pumvisible() ? "\<C-n>" : neocomplete#start_manual_complete()."\<C-n><C-n><C-p>"
-inoremap <expr> <C-h> neocomplete#smart_close_popup()."\<C-h>"
-imap <C-k> <Plug>(neocomplete_start_unite_complete)
-
 "-----------------------------------------------------------------------------
 endfunction " {{{3
 call neobundle#untap()
 endif " }}}3
+" }}}2
+
+" neocomplete-ios-dictionary {{{2
+"-----------------------------------------------------------------------------
+
+call neocomplete_ios_dictionary#configure_ios_dict()
+
+"-----------------------------------------------------------------------------
 " }}}2
 
 " vim-clang-format {{{2
