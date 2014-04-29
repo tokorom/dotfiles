@@ -101,6 +101,7 @@ NeoBundleLazy 'ryotakato/unite-outline-objc', {
   \ 'depends' : 'h1mesuke/unite-outline',
   \ 'filetypes' : ['objc']
   \ }
+NeoBundleLazy 'tokorom/xcode-actions.vim', {'filetypes': ['objc']}
 
 " coffee
 NeoBundleLazy 'git://github.com/kchmck/vim-coffee-script.git', {'filetypes': ['coffee']}
@@ -368,14 +369,6 @@ omap i[MyPrefix] <Plug>(textobj-between-i)
 omap a[MyPrefix] <Plug>(textobj-between-a)
 vmap i[MyPrefix] <Plug>(textobj-between-i)
 vmap a[MyPrefix] <Plug>(textobj-between-a)
-
-" Xcode
-
-nmap [DoublePrefix]b <Plug>(xcode-actions-build)
-nmap [DoublePrefix]r <Plug>(xcode-actions-run)
-nmap [DoublePrefix]c <Plug>(xcode-actions-clean)
-nmap [DoublePrefix]u <Plug>(xcode-actions-test)
-nmap [DoublePrefix]o <Plug>(xcode-actions-openfile)
 
 " }}}1
 "=============================================================================
@@ -707,6 +700,26 @@ function! neobundle#tapped.hooks.on_source(bundle) " }}}3
 let g:watchdogs_check_BufWritePost_enable = 1
 " 一定時間キー入力がなかった場合にWatchdogsRunSilent
 let g:watchdogs_check_CursorHold_enable = 1
+
+"-----------------------------------------------------------------------------
+endfunction " {{{3
+call neobundle#untap()
+endif " }}}3
+" }}}2
+
+" xcode-actions.vim {{{2
+if neobundle#tap('xcode-actions.vim') " {{{3
+function! neobundle#tapped.hooks.on_source(bundle) " }}}3
+"-----------------------------------------------------------------------------
+
+augroup xcode-actions.vim
+  autocmd!
+  autocmd FileType objc nmap [DoublePrefix]b <Plug>(xcode-actions-build)
+  autocmd FileType objc nmap [DoublePrefix]r <Plug>(xcode-actions-run)
+  autocmd FileType objc nmap [DoublePrefix]c <Plug>(xcode-actions-clean)
+  autocmd FileType objc nmap [DoublePrefix]u <Plug>(xcode-actions-test)
+  autocmd FileType objc nmap [DoublePrefix]o <Plug>(xcode-actions-openfile)
+augroup END
 
 "-----------------------------------------------------------------------------
 endfunction " {{{3
