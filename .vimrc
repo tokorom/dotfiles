@@ -231,6 +231,8 @@ execute "set colorcolumn=" . join(range(115, 300), ',')
 
 noremap [MyPrefix] <Nop>
 map <Space> [MyPrefix]
+noremap [DoublePrefix] <Nop>
+map <Space><Space> [DoublePrefix]
 
 set winaltkeys=no
 inoremap  <C-l>   <Esc>
@@ -271,8 +273,6 @@ cnoremap <C-e>    <End>
 cnoremap <C-d>    <Del>
 cnoremap <C-h>    <BackSpace>
 cnoremap <S-Tab>  <C-d>
-
-nnoremap [MyPrefix]o             A;<Esc>o
 
 " 名前付きレジスタにヤンク
 nnoremap [MyPrefix]y "yy
@@ -344,16 +344,16 @@ nnoremap [MyPrefix]k       :<C-u>bp<CR>
 
 " ---------- operator ----------
 
-nmap <Space>r <Plug>(operator-replace)
-vmap <Space>r <Plug>(operator-replace)
-nmap <Space>rr <Plug>(operator-replace)iw
+nmap [MyPrefix]r <Plug>(operator-replace)
+vmap [MyPrefix]r <Plug>(operator-replace)
+nmap [MyPrefix]rr <Plug>(operator-replace)iw
 
-nmap <Space>x <Plug>(operator-comment)
-nmap <Space>z <Plug>(operator-uncomment)
-vmap <Space>x <Plug>(operator-comment)
-vmap <Space>z <Plug>(operator-uncomment)
-nmap <Space>xx <Plug>(operator-comment)l
-nmap <Space>zz <Plug>(operator-uncomment)l
+nmap [MyPrefix]x <Plug>(operator-comment)
+nmap [MyPrefix]z <Plug>(operator-uncomment)
+vmap [MyPrefix]x <Plug>(operator-comment)
+vmap [MyPrefix]z <Plug>(operator-uncomment)
+nmap [MyPrefix]xx <Plug>(operator-comment)l
+nmap [MyPrefix]zz <Plug>(operator-uncomment)l
 
 " ---------- textobj ----------
 
@@ -364,10 +364,18 @@ omap ab <Plug>(textobj-multiblock-a)
 vmap ab <Plug>(textobj-multiblock-a)
 vmap ib <Plug>(textobj-multiblock-i)
 
-omap i<Space> <Plug>(textobj-between-i)
-omap a<Space> <Plug>(textobj-between-a)
-vmap i<Space> <Plug>(textobj-between-i)
-vmap a<Space> <Plug>(textobj-between-a)
+omap i[MyPrefix] <Plug>(textobj-between-i)
+omap a[MyPrefix] <Plug>(textobj-between-a)
+vmap i[MyPrefix] <Plug>(textobj-between-i)
+vmap a[MyPrefix] <Plug>(textobj-between-a)
+
+" Xcode
+
+nmap [DoublePrefix]b <Plug>(xcode-actions-build)
+nmap [DoublePrefix]r <Plug>(xcode-actions-run)
+nmap [DoublePrefix]c <Plug>(xcode-actions-clean)
+nmap [DoublePrefix]u <Plug>(xcode-actions-test)
+nmap [DoublePrefix]o <Plug>(xcode-actions-openfile)
 
 " }}}1
 "=============================================================================
