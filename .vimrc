@@ -47,13 +47,14 @@ NeoBundle 'https://github.com/kana/vim-operator-replace.git'
 NeoBundle 'https://github.com/emonkak/vim-operator-comment.git'
 
 " textobj
-NeoBundle 'https://github.com/kana/vim-textobj-user.git'
-NeoBundle 'https://github.com/kana/vim-textobj-line.git'
-NeoBundle 'https://github.com/kana/vim-textobj-entire.git'
-NeoBundle 'https://github.com/kana/vim-textobj-indent.git'
-NeoBundle 'https://github.com/kana/vim-textobj-function.git'
-NeoBundle 'https://github.com/osyo-manga/vim-textobj-multiblock.git'
-NeoBundle 'https://github.com/thinca/vim-textobj-between.git'
+NeoBundle 'kana/vim-textobj-user'
+NeoBundle 'kana/vim-textobj-line'
+NeoBundle 'kana/vim-textobj-entire'
+NeoBundle 'kana/vim-textobj-indent'
+NeoBundle 'kana/vim-textobj-function'
+NeoBundle 'osyo-manga/vim-textobj-multiblock'
+NeoBundle 'thinca/vim-textobj-between'
+NeoBundle 'tokorom/vim-textobj-objc'
 
 " ag
 NeoBundleLazy 'rking/ag.vim', {'commands': ['Ag']}
