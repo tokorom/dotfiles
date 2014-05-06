@@ -402,6 +402,9 @@ command! -nargs=1 -complete=file Rename f <args>|call delete(expand('#'))
 " XMLの整形
 command! XmlLint :exe ":silent 1,$!xmllint --format --recover - 2>/dev/null"
 
+" Xcodeに現在のファイルを追加 : デバッグ中
+command! -nargs=0 XcodeAddFile echo system('xcode_add_file ' . expand('%'))
+
 " }}}1
 "=============================================================================
 " autocmds {{{1
