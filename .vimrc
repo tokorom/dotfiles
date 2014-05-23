@@ -366,10 +366,10 @@ omap ab <Plug>(textobj-multiblock-a)
 vmap ab <Plug>(textobj-multiblock-a)
 vmap ib <Plug>(textobj-multiblock-i)
 
-omap i[MyPrefix] <Plug>(textobj-between-i)
-omap a[MyPrefix] <Plug>(textobj-between-a)
-vmap i[MyPrefix] <Plug>(textobj-between-i)
-vmap a[MyPrefix] <Plug>(textobj-between-a)
+omap i<Space> <Plug>(textobj-between-i)
+omap a<Space> <Plug>(textobj-between-a)
+vmap i<Space> <Plug>(textobj-between-i)
+vmap a<Space> <Plug>(textobj-between-a)
 
 " }}}1
 "=============================================================================
