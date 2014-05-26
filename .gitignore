@@ -21,6 +21,7 @@
 !/.clang-format
 !/dot.nodoka
 !/clear_backups
+!/Gemfile
 # add ignore files
 .DS_Store
 .svn
