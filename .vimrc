@@ -102,7 +102,12 @@ NeoBundleLazy 'ryotakato/unite-outline-objc', {
   \ 'depends' : 'h1mesuke/unite-outline',
   \ 'filetypes' : ['objc']
   \ }
-NeoBundleLazy 'tokorom/xcode-actions.vim', {'filetypes': ['objc']}
+
+" swift
+NeoBundle 'toyamarinyon/vim-swift'
+
+" xcode
+NeoBundleLazy 'tokorom/xcode-actions.vim', {'filetypes': ['objc', 'swift']}
 
 " coffee
 NeoBundleLazy 'git://github.com/kchmck/vim-coffee-script.git', {'filetypes': ['coffee']}
@@ -718,11 +723,11 @@ function! neobundle#tapped.hooks.on_source(bundle) " }}}3
 
 augroup xcode-actions.vim
   autocmd!
-  autocmd FileType objc nmap [DoublePrefix]b <Plug>(xcode-actions-build)
-  autocmd FileType objc nmap [DoublePrefix]r <Plug>(xcode-actions-run)
-  autocmd FileType objc nmap [DoublePrefix]c <Plug>(xcode-actions-clean)
-  autocmd FileType objc nmap [DoublePrefix]u <Plug>(xcode-actions-test)
-  autocmd FileType objc nmap [DoublePrefix]o <Plug>(xcode-actions-openfile)
+  autocmd FileType objc,swift nmap [DoublePrefix]b <Plug>(xcode-actions-build)
+  autocmd FileType objc,swift nmap [DoublePrefix]r <Plug>(xcode-actions-run)
+  autocmd FileType objc,swift nmap [DoublePrefix]c <Plug>(xcode-actions-clean)
+  autocmd FileType objc,swift nmap [DoublePrefix]u <Plug>(xcode-actions-test)
+  autocmd FileType objc,swift nmap [DoublePrefix]o <Plug>(xcode-actions-openfile)
 augroup END
 
 "-----------------------------------------------------------------------------
