@@ -25,26 +25,27 @@ NeoBundle 'Shougo/vimproc', {
 
 NeoBundle 'autodate.vim'
 NeoBundle 'surround.vim'
-NeoBundle 'git://github.com/kana/vim-fakeclip.git'
+NeoBundle 'kana/vim-fakeclip'
 NeoBundle 'L9'
-NeoBundle 'git://github.com/kana/vim-altr.git'
-NeoBundle 'git://github.com/thinca/vim-ref.git'
+NeoBundle 'kana/vim-altr'
+NeoBundle 'thinca/vim-ref'
 NeoBundle 'anekos/char-counter-vim'
 NeoBundle 'kana/vim-smartinput'
+NeoBundle 'nathanaelkane/vim-indent-guides'
 
-NeoBundleLazy 'git://github.com/sjl/gundo.vim.git', {'commands': ['GundoShow', 'GundoHide', 'GundoToggle', 'GundoRenderGraph']}
-NeoBundleLazy 'git://github.com/yuratomo/w3m.vim.git', {'commands': ['W3m', 'W3mTab', 'W3mSplit', 'W3mLocal', 'W3mHistory', 'W3mHistoryClear']}
+NeoBundleLazy 'sjl/gundo.vim', {'commands': ['GundoShow', 'GundoHide', 'GundoToggle', 'GundoRenderGraph']}
+NeoBundleLazy 'yuratomo/w3m.vim', {'commands': ['W3m', 'W3mTab', 'W3mSplit', 'W3mLocal', 'W3mHistory', 'W3mHistoryClear']}
 
 " color
-NeoBundle 'git://github.com/w0ng/vim-hybrid.git'
+NeoBundle 'w0ng/vim-hybrid'
 
 " status line
-NeoBundle 'https://github.com/itchyny/lightline.vim.git'
+NeoBundle 'itchyny/lightline.vim'
 
 " operator
-NeoBundle 'https://github.com/kana/vim-operator-user.git'
-NeoBundle 'https://github.com/kana/vim-operator-replace.git'
-NeoBundle 'https://github.com/emonkak/vim-operator-comment.git'
+NeoBundle 'kana/vim-operator-user'
+NeoBundle 'kana/vim-operator-replace'
+NeoBundle 'emonkak/vim-operator-comment'
 
 " textobj
 NeoBundle 'kana/vim-textobj-user'
@@ -227,8 +228,8 @@ highlight clear CursorLine
 highlight CursorLine ctermbg=black guibg=black
 
 " 115文字以降をハイライト
-highlight ColorColumn ctermbg=black guibg=black
-execute "set colorcolumn=" . join(range(115, 300), ',')
+" highlight ColorColumn ctermbg=black guibg=black
+" execute "set colorcolumn=" . join(range(115, 300), ',')
 
 " }}}1
 "=============================================================================
@@ -467,6 +468,24 @@ call smartinput#define_rule({
 
 "-----------------------------------------------------------------------------
 endfunction " {{{3
+call neobundle#untap()
+endif " }}}3
+" }}}2
+
+
+" vim-indent-guides {{{2
+if neobundle#tap('vim-indent-guides') " {{{3
+"-----------------------------------------------------------------------------
+
+let g:indent_guides_enable_on_vim_startup = 1
+let g:indent_guides_start_level = 2
+let g:indent_guides_guide_size = 1
+let g:indent_guides_auto_colors = 0
+let g:indent_guides_color_change_percent = 30
+hi IndentGuidesOdd ctermbg=238
+hi IndentGuidesEven ctermbg=236
+
+"-----------------------------------------------------------------------------
 call neobundle#untap()
 endif " }}}3
 " }}}2
