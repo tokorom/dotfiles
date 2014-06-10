@@ -1,0 +1,112 @@
+snippet header
+	//
+	//  ${1:`Filename()`}.swift
+	//
+	//  Created by ToKoRo on `strftime("%Y-%m-%d")`.
+	//
+snippet class
+alias c
+	//
+	//  ${1:`Filename()`}.swift
+	//
+	//  Created by ToKoRo on `strftime("%Y-%m-%d")`.
+	//
+	
+	import UIKit
+	
+	class $1${2} {
+		${0}
+	}
+snippet import
+alias i im
+	import ${1:UIKit}
+snippet let
+alias l
+	let ${1:name} = ${2:val}
+snippet ll
+	let ${1:name}: ${2:val}
+snippet var
+alias v
+	var ${1:name} = ${2:val}
+snippet vv
+	var ${1:name}: ${2:type}
+snippet v?
+	var ${1:name}: ${2:type}?
+snippet vw
+	weak var ${1:name}: ${2:type}?
+snippet iboutlet
+alias ib
+	@IBOutlet var ${1:name}: ${2:type}?
+snippet ibw
+	@IBOutlet weak var ${1:name}: ${2:type}?
+snippet struct
+	struct ${1:name} {
+		var ${2:\#:variant = 0}
+	}
+snippet enum
+	enum ${1:name} {
+		case ${1:definiion}
+	}
+snippet init
+	init(${1:\#:parameters}) {
+		${0}
+	}
+snippet deinit
+	deinit {
+		${0}
+	}
+snippet func
+alias f
+	func ${1:something}(${2:\#:parameters}) ${3:\#:-> Int }{
+		${0}
+	}
+snippet override
+alias o
+	override func ${1:something}(${2:\#:parameters}) ${3:\#:-> Int }{
+		${0}
+	}
+snippet ibaction
+alias action act
+	@IBAction func ${1:someting}(sender: AnyObject) {        
+		${0}
+	}
+snippet closure
+	{ (${1:\#:parameters}) -> ${2:\#:return type} in
+		${0}
+	}
+snippet if
+	if ${1:true} {
+		${0}
+	}
+snippet for
+alias f
+	for ${1:_} in ${2:\#:list} {
+		${0}
+	}
+snippet fori
+alias fi
+	for var ${1:index} = 0; $1 < ${2:\#:max}; ++$1 {
+		${0}
+	}
+snippet while
+alias w
+	while ${1:true} {
+		${0}
+	}
+snippet switch
+alias s
+	switch ${1:val} {
+	case ${2:definition}:
+		${0}
+	default:
+	}
+snippet where
+	switch ${1:tupple} {
+	case let ${2:(x, y)} where ${3:x == y}:
+		${0}
+	}
+snippet alert
+	let alert = UIAlertView()
+	alert.message = "hello"
+	alert.addButtonWithTitle("OK")
+	alert.show()
