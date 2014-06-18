@@ -1,9 +1,10 @@
 source 'https://rubygems.org'
 
 gem 'rake'
+gem 'guard'
 
 gem 'cocoapods'
-gem 'guard'
+gem 'cocoapods-search'
 
 gem 'xcodeproj'
 gem 'xcpretty'
