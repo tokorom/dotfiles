@@ -462,8 +462,8 @@ call smartinput#clear_rules()
 call smartinput#define_rule({
   \ 'at': '{\%#',
   \ 'char': '<Enter>',
-  \ 'input': '<Enter><Enter>}<Up><Esc>"_S',
-  \ 'filetype': ['c', 'cpp', 'objc'],
+  \ 'input': '<Enter>}<Esc>O',
+  \ 'filetype': ['c', 'cpp', 'objc', 'swift'],
   \ })
 
 "-----------------------------------------------------------------------------

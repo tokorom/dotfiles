@@ -5,7 +5,7 @@ snippet header
 	//  Created by ToKoRo on `strftime("%Y-%m-%d")`.
 	//
 snippet class
-alias c
+alias cl
 	//
 	//  ${1:`Filename()`}.swift
 	//
@@ -15,6 +15,20 @@ alias c
 	import UIKit
 	
 	class $1${2} {
+		${0}
+	}
+snippet protocol
+alias pr
+	// MARK: - ${1:`Filename()`}
+	
+	protocol $1${2} {
+		${0}
+	}
+snippet extension
+alias ext
+	// MARK: - ${1:Extension}
+	
+	extension ${2:`Filename()`: }$1 {
 		${0}
 	}
 snippet import
@@ -81,7 +95,6 @@ snippet if
 snippet ifl
 	if let ${1:let} = ${2:true} {
 		${0}
-  } else {
 	}
 snippet for
 alias f
@@ -115,3 +128,45 @@ snippet alert
 	alert.message = "hello"
 	alert.addButtonWithTitle("OK")
 	alert.show()
+snippet #pm
+	// MARK: - ${1:`Filename()`}
+snippet #pmpm
+	// MARK: - Private Methods
+snippet #pmpu
+	// MARK: - Public Interface
+snippet #pmli
+	// MARK: - Lifecycle
+snippet #pmac
+	// MARK: - Actions
+snippet #pmpr
+	// MARK: - Properties
+snippet print
+alias log
+	println("${1}");
+snippet \
+	\(${1})${0}
+snippet iboutlet
+alias ib
+	@IBOutlet weak var ${1:label}: ${2:UILabel}
+snippet ibaction
+alias action
+	@IBAction func ${1:action}(sender: ${2:AnyObject}) {
+		${0}
+	}
+snippet property
+alias prop
+	var ${1:string}: ${2:String}
+snippet propw
+	weak var ${1:string}: ${2:String}
+snippet propr
+	var ${1:string}: ${2:String} { get }
+snippet propl
+alias lazy
+	@lazy var ${1:string} = ${2}
+snippet propg
+alias get
+	var ${1:string} {
+		return ${0}
+	}
+snippet lstr
+	NSLocalizedString("${1:key}", comment: "${2}")
