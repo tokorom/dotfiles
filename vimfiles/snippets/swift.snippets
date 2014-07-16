@@ -12,7 +12,7 @@ alias cl
 	//  Created by ToKoRo on `strftime("%Y-%m-%d")`.
 	//
 	
-	import UIKit
+	${3:#:import UIKit\n}
 	
 	class $1${2} {
 		${0}
@@ -31,6 +31,10 @@ alias ext
 	extension ${2:`Filename()`: }$1 {
 		${0}
 	}
+snippet enum
+	enum ${1:Name}${2} {
+		case ${3:Label}
+	}
 snippet import
 alias i im
 	import ${1:UIKit}
@@ -38,28 +42,19 @@ snippet let
 alias l
 	let ${1:name} = ${2:val}
 snippet ll
-	let ${1:name}: ${2:val}
+	let ${1:name}: ${2:Type} = ${3:value}
 snippet var
 alias v
-	var ${1:name} = ${2:val}
+	var ${1:name} = ${2:value}
 snippet vv
-	var ${1:name}: ${2:type}
-snippet v?
-	var ${1:name}: ${2:type}?
-snippet vw
+	var ${1:name}: ${2:Type} = ${3:value}
+snippet weak
+alias vw
 	weak var ${1:name}: ${2:type}?
-snippet iboutlet
-alias ib
-	@IBOutlet var ${1:name}: ${2:type}?
-snippet ibw
-	@IBOutlet weak var ${1:name}: ${2:type}?
 snippet struct
+alias st
 	struct ${1:name} {
 		var ${2:\#:variant = 0}
-	}
-snippet enum
-	enum ${1:name} {
-		case ${1:definiion}
 	}
 snippet init
 	init(${1:\#:parameters}) {
@@ -75,16 +70,12 @@ alias f
 		${0}
 	}
 snippet override
-alias o
+alias ov
 	override func ${1:something}(${2:\#:parameters}) ${3:\#:-> Int }{
 		${0}
 	}
-snippet ibaction
-alias action act
-	@IBAction func ${1:someting}(sender: AnyObject) {        
-		${0}
-	}
 snippet closure
+alias cl
 	{ (${1:\#:parameters}) -> ${2:\#:return type} in
 		${0}
 	}
@@ -97,22 +88,18 @@ snippet ifl
 		${0}
 	}
 snippet for
-alias f
 	for ${1:_} in ${2:\#:list} {
 		${0}
 	}
 snippet fori
-alias fi
 	for var ${1:index} = 0; $1 < ${2:\#:max}; ++$1 {
 		${0}
 	}
 snippet while
-alias w
 	while ${1:true} {
 		${0}
 	}
 snippet switch
-alias s
 	switch ${1:val} {
 	case ${2:definition}:
 		${0}
@@ -145,14 +132,14 @@ alias log
 	println("${1}");
 snippet \
 	\(${1})${0}
-snippet iboutlet
-alias ib
-	@IBOutlet weak var ${1:label}: ${2:UILabel}
 snippet ibaction
-alias action
+alias action act
 	@IBAction func ${1:action}(sender: ${2:AnyObject}) {
 		${0}
 	}
+snippet iboutlet
+alias ib
+	@IBOutlet weak var ${1:label}: ${2:UILabel}!
 snippet property
 alias prop
 	var ${1:string}: ${2:String}
