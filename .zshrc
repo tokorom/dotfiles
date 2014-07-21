@@ -182,6 +182,9 @@ setopt auto_param_slash
 ## スペルチェック
 setopt correct
 
+####### peco #######
+
+[[ -e ~/zshfiles/peco.zsh ]] && source ~/zshfiles/peco.zsh
 
 ####### keychain ########
 
