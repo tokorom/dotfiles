@@ -69,7 +69,7 @@ NeoBundleLazy 'Shougo/unite.vim', {
   \   ]
   \ }
 NeoBundleLazy 'Shougo/neomru.vim', {'depends': 'Shougo/unite.vim', 'on_source': 'unite.vim'}
-NeoBundleLazy 'h1mesuke/unite-outline', {'depends': 'Shougo/unite.vim', 'on_source': 'unite.vim'}
+" NeoBundleLazy 'h1mesuke/unite-outline', {'depends': 'Shougo/unite.vim', 'on_source': 'unite.vim'}
 NeoBundleLazy 'tokorom/unite-xcode_complete', {'depends': 'Shougo/unite.vim', 'on_source': 'unite.vim'}
 
 " neocomplete
@@ -79,6 +79,13 @@ NeoBundleLazy 'tokorom/neocomplete-ios-dictionary', {'depends' : 'Shougo/neocomp
 " neosnippet
 NeoBundle 'Shougo/neosnippet'
 NeoBundle 'Shougo/neosnippet-snippets', {'depends': 'Shougo/neosnippet'}
+
+" Codic
+NeoBundleLazy 'koron/codic-vim', {
+\  'commands': ['Codic'],
+\  'function_prefix': 'codic',
+\}
+NeoBundleLazy 'rhysd/unite-codic.vim', {'depends': 'Shougo/unite.vim', 'on_source': 'unite.vim'}
 
 " clang
 NeoBundleLazy 'https://github.com/rhysd/vim-clang-format.git', {'filetypes': ['c', 'cpp', 'objc']}
@@ -99,10 +106,10 @@ NeoBundleLazy 'git://github.com/chrismetcalf/vim-markdown.git', {'filetypes': ['
 
 " objc
 NeoBundleLazy 'git://github.com/tokorom/cocoa.vim.git', 'syntax-only', {'filetypes': ['objc']}
-NeoBundleLazy 'ryotakato/unite-outline-objc', {
-  \ 'depends' : 'h1mesuke/unite-outline',
-  \ 'filetypes' : ['objc']
-  \ }
+" NeoBundleLazy 'ryotakato/unite-outline-objc', {
+"   \ 'depends' : 'h1mesuke/unite-outline',
+"   \ 'filetypes' : ['objc']
+"   \ }
 
 " swift
 NeoBundle 'toyamarinyon/vim-swift'
@@ -257,10 +264,8 @@ noremap j gj
 noremap k gk
 noremap gj j
 noremap gk k
-vnoremap L l/)<CR>h
-vnoremap H h?(<CR>l
-nnoremap L l/)<CR>:noh<CR>h
-nnoremap H h?(<CR>:noh<CR>l
+noremap J 5gj
+noremap K 5gk
 
 " ---------- insert mode ----------
 
@@ -332,7 +337,8 @@ nnoremap <C-p>                   :<C-u>tabp<CR>
 nnoremap [MyPrefix].f :<C-u>Unite -start-insert buffer file_rec file/new<CR>
 nnoremap [MyPrefix].b :<C-u>Unite -start-insert buffer<CR>
 nnoremap [MyPrefix].r :<C-u>Unite -start-insert file_mru<CR>
-nnoremap [MyPrefix].o :<C-u>Unite -start-insert outline<CR>
+nnoremap [MyPrefix].c :<C-u>Unite -start-insert codic<CR>
+" nnoremap [MyPrefix].o :<C-u>Unite -start-insert outline<CR>
 
 nnoremap [MyPrefix]g :<C-u>Unite grep:.<CR>
 nnoremap <expr> [MyPrefix].g ':Unite grep:. -input=' . expand('<cword>')
