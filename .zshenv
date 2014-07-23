@@ -32,6 +32,8 @@ alias tmux-revertkey='tmux set-option -ag prefix C-t'
 alias bi='bundle install --path vendor/bundler'
 alias be='bundle exec'
 
+alias vim-buffer='tmux capture-pane -t 0 -S -32768; tmux show-buffer | vim - -c 32768'
+
 if [ -f /Applications/MacVim.app/Contents/MacOS/Vim ]; then
   alias vi='env LANG=ja_JP.UTF-8 /Applications/MacVim.app/Contents/MacOS/Vim "$@"'
   alias vim='env LANG=ja_JP.UTF-8 /Applications/MacVim.app/Contents/MacOS/Vim "$@"'
