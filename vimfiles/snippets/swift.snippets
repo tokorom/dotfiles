@@ -139,7 +139,7 @@ alias action act
 	}
 snippet iboutlet
 alias ib
-	@IBOutlet weak var ${1:label}: ${2:UILabel}!
+	@IBOutlet weak var ${1:label}: ${2:UILabel}?
 snippet property
 alias prop
 	var ${1:string}: ${2:String}
@@ -149,7 +149,7 @@ snippet propr
 	var ${1:string}: ${2:String} { get }
 snippet propl
 alias lazy
-	@lazy var ${1:string} = ${2}
+	lazy var ${1:string} = ${2}
 snippet propg
 alias get
 	var ${1:string} {
