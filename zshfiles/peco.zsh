@@ -12,17 +12,33 @@ bindkey '^r' peco-select-history
 
 # ll
 function ll-peco() {
-    SELECTED=$(ls -la | peco)
-    EXTRACTED=$(${SELECTED} | sed -e "s/.*\s\(\S\+\)*$/\1/")
-    eval echo ${EXTRACTED}
-    eval echo ${EXTRACTED} | tr -d '\n' | pbcopy
+    local SELECTED=$(ls -la | peco | sed -e "s/.*\s\(\S\+\)*$/\1/")
+    if [ 0 -ne ${#SELECTED} ]; then
+      eval echo $SELECTED
+      eval echo $SELECTED | tr -d '\n' | pbcopy
+    fi
 }
 zle -N ll-peco
 
 # vim-mru
 function vim-mru() {
     local mru_path="~/.cache/neomru/file"
-    SELECTED=$(eval more $mru_path | peco)
-    eval vim ${SELECTED}
+    local SELECTED=$(eval more $mru_path | peco)
+    if [ 0 -ne ${#SELECTED} ]; then
+      eval vim $SELECTED
+    fi
 }
 zle -N vim-mru
+alias vm="vim-mru"
+
+# autojump
+function autojump-peco() {
+    local cd_history_path="~/.local/share/autojump/autojump.txt"
+    local SELECTED=$(eval more $cd_history_path | peco | cut -f2)
+    if [ 0 -ne ${#SELECTED} ]; then
+      eval echo "cd $SELECTED"
+      eval cd $SELECTED
+    fi
+}
+zle -N autojump-peco
+alias jj="autojump-peco"
