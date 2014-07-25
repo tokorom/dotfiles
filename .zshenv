@@ -19,6 +19,7 @@ alias g="git"
 alias sc="screen -UxDR"
 alias sed="gsed"
 alias awk="gawk"
+alias tac="gtac"
 alias ls="ls -G"
 alias ll="ls -la"
 
