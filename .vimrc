@@ -584,7 +584,6 @@ endif " }}}3
 let g:neocomplete#enable_at_startup = 1 "自動起動
 " inoremap <expr> <C-n> pumvisible() ? "\<C-n>" : neocomplete#start_manual_complete()
 inoremap <expr> <C-h> neocomplete#smart_close_popup()."\<C-h>"
-inoremap <expr> <C-l> neocomplete#complete_common_string()
 inoremap <expr> <C-g> neocomplete#undo_completion()
 imap <C-k> <Plug>(neocomplete_start_unite_complete)<Esc>A
 " }}}
@@ -597,7 +596,7 @@ let g:neocomplete#disable_auto_complete = 0 "自動補完をする
 let g:neocomplete#auto_completion_start_length = 4 "自動補完開始は4文字打鍵した後
 let g:neocomplete#enable_smart_case = 1 "大文字小文字無視
 let g:neocomplete#max_list = 10000 "候補の最大数
-let g:neocomplete#enable_auto_select = 1 "第一候補を自動選択する
+let g:neocomplete#enable_auto_select = 0 "第一候補を自動選択しない
 let g:neocomplete#enable_fuzzy_completion = 0 "Fuzzy補完しない
 
 let g:neocomplcache_dictionary_filetype_lists = {

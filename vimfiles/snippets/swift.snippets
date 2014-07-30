@@ -166,3 +166,66 @@ alias get
 	}
 snippet lstr
 	NSLocalizedString("${1:key}", comment: "${2}")
+snippet viewDidLoad
+	override func viewDidLoad() {
+		super.viewDidLoad()
+	
+		${0}
+	}
+snippet viewWillAppear
+	override func viewWillAppear(animated: Bool) {
+		super.viewWillAppear(animated)
+	
+		${0}
+	}
+snippet viewWillAppear
+	override func viewWillAppear(animated: Bool) {
+		super.viewWillAppear(animated)
+	
+		${0}
+	}
+snippet viewDidDisappear
+	override func viewDidDisappear(animated: Bool) {
+		super.viewDidDisappear(animated)
+	
+		${0}
+	}
+snippet viewDidDisappear
+	override func viewDidDisappear(animated: Bool) {
+		super.viewDidDisappear(animated)
+	
+		${0}
+	}
+snippet viewWillLayoutSubviews
+	override func viewWillLayoutSubviews() {
+		super.viewWillLayoutSubviews()
+	
+		${0}
+	}
+snippet viewDidLayoutSubviews
+	override func viewDidLayoutSubviews() {
+		super.viewDidLayoutSubviews()
+	
+		${0}
+	}
+snippet UITableViewDelegate
+	// MARK: - UITableViewDelegate
+	
+	extension ${1:`Filename()`}: UITableViewDelegate {
+	
+		func tableView(tableView: UITableView!, didSelectRowAtIndexPath indexPath: NSIndexPath!) {
+		}
+	
+	}
+snippet UITableViewDataSource
+	// MARK: - UITableViewDataSource
+	
+	extension ${1:`Filename()`}: UITableViewDataSource {
+	
+		func tableView(tableView: UITableView!, section: Int) -> Int {
+		}
+	
+		func tableView(tableView: UITableView!, indexPath: NSIndexPath!) -> UITableViewCell! {
+		}
+	
+	}
