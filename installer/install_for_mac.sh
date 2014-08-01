@@ -41,6 +41,7 @@ if [ 0 -ne $? ]; then
   fi
 else
   git pull origin master
+  git submodule update -i
 fi
 
 #####################################

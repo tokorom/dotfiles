@@ -8,6 +8,7 @@ install tmux
 install vim
 install zsh
 install autojump
+install ag
 install rbenv
 install readline
 install ruby-build
