@@ -22,4 +22,5 @@ tap caskroom/cask || true
 install brew-cask
 cask install karabiner
 cask install firefox
+cask install google-chrome
 cask install totalterminal
