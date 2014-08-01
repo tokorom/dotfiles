@@ -77,7 +77,7 @@ echo '### firefox'
 
 ls FireFox > /dev/null
 if [ 0 -ne $? ]; then
-  unzip FireFoxBackup.zip
+  unzip -o FireFoxBackup.zip
   firefox=~/Applications/Firefox.app/Contents/MacOS/firefox
   which $firefox > /dev/null
   if [ 0 -eq $? ]; then
@@ -95,7 +95,7 @@ addfiles=addfiles/addfiles.zip
 ls $addfiles > /dev/null
 if [ 0 -eq $? ]; then
   echo 'Hint: 4'
-  unzip $addfiles
+  unzip -o $addfiles
 fi
 
 #####################################
