@@ -89,6 +89,16 @@ else
 fi
 
 #####################################
+echo '### macvim-kaoriya'
+
+ls ~/Applications/MacVim.app > /dev/null
+if [ 0 -ne $? ]; then
+  ln -s /usr/local/Cellar/macvim-kaoriya/HEAD/MacVim.app ~/Applications/MacVim.app 
+else
+  echo 'SKIPPED'
+fi
+
+#####################################
 echo '### addfiles'
 
 addfiles=addfiles/addfiles.zip
