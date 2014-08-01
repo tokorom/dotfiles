@@ -2,6 +2,7 @@
 /*
 /.*
 # require files
+!README.md
 !/installer
 !/Documents/terminal/*.terminal
 !/bin
