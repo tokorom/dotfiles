@@ -72,7 +72,7 @@ else
 fi
 
 #####################################
-echo '### FireFox'
+echo '### firefox'
 
 which FireFox > /dev/null
 if [ 0 -ne $? ]; then
@@ -81,6 +81,15 @@ if [ 0 -ne $? ]; then
   ~/Applications/Firefox.app/Contents/MacOS/firefox -P
 else
   echo 'SKIPPED'
+fi
+
+#####################################
+echo '### addfiles'
+
+which addfiles > /dev/null
+if [ 0 -eq $? ]; then
+  echo 'Hint: 4'
+  unzip addfiles/addfiles.zip
 fi
 
 # ===================================
