@@ -19,8 +19,8 @@
 !/zshfiles
 !/.agignore
 !/.clang-format
-!/dot.nodoka
 !/clear_backups
+!/Brewfile
 !/Gemfile
 # add ignore files
 .DS_Store
