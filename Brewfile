@@ -1,7 +1,7 @@
 update
 upgrade
 
-install gsed
+install gnu-sed
 install gawk
 install coreutils
 install tmux
