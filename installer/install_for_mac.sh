@@ -75,11 +75,15 @@ fi
 #####################################
 echo '### firefox'
 
-which FireFox > /dev/null
+ls FireFox > /dev/null
 if [ 0 -ne $? ]; then
   unzip FireFoxBackup.zip
-  echo 'Please select the profile directory ~/FireFox'
-  ~/Applications/Firefox.app/Contents/MacOS/firefox -P
+  firefox=~/Applications/Firefox.app/Contents/MacOS/firefox
+  which $firefox > /dev/null
+  if [ 0 -eq $? ]; then
+    echo 'Please select the profile directory ~/FireFox'
+    $firefox -P
+  fi
 else
   echo 'SKIPPED'
 fi
@@ -87,10 +91,11 @@ fi
 #####################################
 echo '### addfiles'
 
-which addfiles > /dev/null
+addfiles=addfiles/addfiles.zip
+ls $addfiles > /dev/null
 if [ 0 -eq $? ]; then
   echo 'Hint: 4'
-  unzip addfiles/addfiles.zip
+  unzip $addfiles
 fi
 
 # ===================================
