@@ -13,7 +13,7 @@ fi
 #####################################
 echo '### dotfiles'
 
-ls installer/installed
+ls installer/installed > /dev/null
 if [ 0 -ne $? ]; then
   workdir=dotfiles_tmp
   zipname=dotfiles.zip
@@ -67,6 +67,18 @@ grep $zshpath /etc/shells > /dev/null
 if [ 0 -ne $? ]; then
   sudo sh -c "echo $zshpath >> /etc/shells"
   chsh -s $zshpath
+else
+  echo 'SKIPPED'
+fi
+
+#####################################
+echo '### FireFox'
+
+which FireFox > /dev/null
+if [ 0 -ne $? ]; then
+  unzip FireFoxBackup.zip
+  echo 'Please select the profile directory ~/FireFox'
+  ~/Applications/Firefox.app/Contents/MacOS/firefox -P
 else
   echo 'SKIPPED'
 fi

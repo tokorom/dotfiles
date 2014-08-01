@@ -36,3 +36,5 @@
 !/Library/Application Support/KeyRemap4MacBook/*.xml
 # Xcode Templates
 !/Library/Developer/Xcode/Templates/
+# FireFox
+!FireFoxBackup.zip
