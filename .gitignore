@@ -3,8 +3,6 @@
 /.*
 # require files
 !/installer
-!/Library/Application Support/KeyRemap4MacBook/*.xml
-!/Library/Developer/Xcode/Templates/
 !/Documents/terminal/*.terminal
 !/bin
 !/vimfiles
@@ -31,3 +29,9 @@
 .netrwhist
 # add local files
 *.local
+# Karabiner
+!karabiner-import.sh
+!/Library/Application Support/Karabiner/*.xml
+!/Library/Application Support/KeyRemap4MacBook/*.xml
+# Xcode Templates
+!/Library/Developer/Xcode/Templates/
