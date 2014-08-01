@@ -1,6 +1,9 @@
 update
 upgrade
 
+install gsed
+install gawk
+install coreutils
 install tmux
 install vim
 install zsh
