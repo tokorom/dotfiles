@@ -18,6 +18,9 @@ install reattach-to-user-namespace
 tap peco/peco
 install peco
 
+tap supermomonga/homebrew-splhack
+install --HEAD macvim-kaoriya --with-lua --with-cscope
+
 tap caskroom/cask || true
 install brew-cask
 cask install karabiner
