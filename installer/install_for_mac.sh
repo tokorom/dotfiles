@@ -98,6 +98,14 @@ if [ 0 -eq $? ]; then
   unzip $addfiles
 fi
 
+#####################################
+echo '### finally'
+
+ls .git/config > /dev/null
+if [ 0 -eq $? ]; then
+  sed -i -e 's/https:\/\/github\.com\/tokorom\/dotfiles\.git/git@github\.com:tokorom\/dotfiles\.git/g' .git/config
+fi
+
 # ===================================
 echo '===== DONE ====='
 
