@@ -27,4 +27,7 @@ cask install karabiner
 cask install firefox
 cask install google-chrome
 cask install dropbox
-cask install totalterminal
+cask install scansnap-manager
+
+# install totalterminal later
+# cask install totalterminal
