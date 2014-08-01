@@ -25,7 +25,10 @@ if [ 0 -ne $? ]; then
     cd
     unzip -o $zipname
 
-    ln -s ~/vimfiles ~/.vim
+    ls ~/.vim > /dev/null
+    if [ 0 -ne $? ]; then
+      ln -s ~/vimfiles ~/.vim
+    fi
 
     mkdir backup
 
