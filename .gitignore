@@ -38,5 +38,6 @@
 !/Library/Developer/Xcode/Templates/
 # FireFox
 !FireFoxBackup.zip
+!firefox-backup.sh
 # addfiles
 !/addfiles
