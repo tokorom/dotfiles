@@ -3,7 +3,7 @@
 #####################################
 echo '### command line tools'
 
-xcode-select -p > /dev/null
+xcode-select -p > /dev/null 2>&1
 if [ 0 -ne $? ]; then
   xcode-select --install
 else
@@ -13,7 +13,7 @@ fi
 #####################################
 echo '### dotfiles'
 
-ls installer/installed > /dev/null
+ls installer/installed > /dev/null 2>&1
 if [ 0 -ne $? ]; then
   workdir=dotfiles_tmp
   zipname=dotfiles.zip
@@ -25,7 +25,7 @@ if [ 0 -ne $? ]; then
     cd
     unzip -o $zipname
 
-    ls ~/.vim > /dev/null
+    ls ~/.vim > /dev/null 2>&1
     if [ 0 -ne $? ]; then
       ln -s ~/vimfiles ~/.vim
     fi
@@ -47,7 +47,7 @@ fi
 #####################################
 echo '### homebrew'
 
-which brew > /dev/null
+which brew > /dev/null 2>&1
 if [ 0 -ne $? ]; then
   ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"
 fi
@@ -64,7 +64,7 @@ echo '### change login shell'
 
 zshpath=/usr/local/bin/zsh
 
-grep $zshpath /etc/shells > /dev/null
+grep $zshpath /etc/shells > /dev/null 2>&1
 if [ 0 -ne $? ]; then
   sudo sh -c "echo $zshpath >> /etc/shells"
   chsh -s $zshpath
@@ -75,11 +75,11 @@ fi
 #####################################
 echo '### firefox'
 
-ls FireFox > /dev/null
+ls FireFox > /dev/null 2>&1
 if [ 0 -ne $? ]; then
   unzip -o FireFoxBackup.zip
   firefox=~/Applications/Firefox.app/Contents/MacOS/firefox
-  which $firefox > /dev/null
+  which $firefox > /dev/null 2>&1
   if [ 0 -eq $? ]; then
     echo 'Please select the profile directory ~/FireFox'
     $firefox -P
@@ -91,7 +91,7 @@ fi
 #####################################
 echo '### macvim-kaoriya'
 
-ls ~/Applications/MacVim.app > /dev/null
+ls ~/Applications/MacVim.app > /dev/null 2>&1
 if [ 0 -ne $? ]; then
   ln -s /usr/local/Cellar/macvim-kaoriya/HEAD/MacVim.app ~/Applications/MacVim.app 
 else
@@ -102,7 +102,7 @@ fi
 echo '### addfiles'
 
 addfiles=addfiles/addfiles.zip
-ls $addfiles > /dev/null
+ls $addfiles > /dev/null 2>&1
 if [ 0 -eq $? ]; then
   echo 'Hint: 4'
   unzip -o $addfiles
@@ -111,7 +111,7 @@ fi
 #####################################
 echo '### finally'
 
-ls .git/config > /dev/null
+ls .git/config > /dev/null 2>&1
 if [ 0 -eq $? ]; then
   sed -i -e 's/https:\/\/github\.com\/tokorom\/dotfiles\.git/git@github\.com:tokorom\/dotfiles\.git/g' .git/config
 fi
