@@ -100,7 +100,6 @@ NeoBundleLazy 'git://github.com/gregsexton/gitv.git', {'commands': ['GitV']}
 
 " ruby
 NeoBundleLazy 'git://github.com/tpope/vim-rails.git', {'filetypes': ['ruby']}
-NeoBundleLazy 'git://github.com/tobiassvn/vim-gemfile.git', {'filetypes': ['ruby']}
 
 " markdown
 NeoBundleLazy 'git://github.com/chrismetcalf/vim-markdown.git', {'filetypes': ['markdown']}
