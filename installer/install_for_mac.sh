@@ -58,7 +58,7 @@ brew bundle
 #####################################
 echo '### karabiner'
 
-karabiner=/Applications/Karabiner.app/Contents/Library/bin/karabiner
+sh ~/karabiner-import.sh
 
 #####################################
 echo '### change login shell'
