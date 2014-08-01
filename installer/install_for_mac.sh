@@ -40,9 +40,7 @@ if [ 0 -ne $? ]; then
     echo 'git clone is failed!' >&2
   fi
 else
-  # git pull origin master
-  git checkout install
-  git pull origin install
+  git pull origin master
 fi
 
 #####################################
