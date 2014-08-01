@@ -13,26 +13,31 @@ fi
 #####################################
 echo '### dotfiles'
 
-workdir=dotfiles_tmp
-zipname=dotfiles.zip
-git clone https://github.com/tokorom/dotfiles $workdir
-ls $workdir
-if [ 0 -eq $? ]; then
-  cd $workdir
-  zip -r ../$zipname ./* ./.*
-  cd
-  unzip -o $zipname
+ls installer/installed
+if [ 0 -ne $? ]; then
+  workdir=dotfiles_tmp
+  zipname=dotfiles.zip
+  git clone https://github.com/tokorom/dotfiles $workdir
+  ls $workdir
+  if [ 0 -eq $? ]; then
+    cd $workdir
+    zip -r ../$zipname ./* ./.*
+    cd
+    unzip -o $zipname
 
-  ln -s ~/vimfiles ~/.vim
+    ln -s ~/vimfiles ~/.vim
 
-  mkdir backup
+    mkdir backup
 
-  rm $zipname
-  rm -rf $workdir
+    rm $zipname
+    rm -rf $workdir
 
-  git submodule update -i
+    git submodule update -i
+  else
+    echo 'git clone is failed!' >&2
+  fi
 else
-  echo 'git clone is failed!' >&2
+  git pull origin master
 fi
 
 #####################################
