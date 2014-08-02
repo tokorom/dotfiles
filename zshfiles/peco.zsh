@@ -43,3 +43,13 @@ function autojump-peco() {
 }
 zle -N autojump-peco
 alias jj="autojump-peco"
+
+# cd-peco
+function cd-peco() {
+  local SELECTED=$(ls -F | grep / | peco --query "$1")
+  if [ 0 -ne ${#SELECTED} ]; then
+    eval cd $SELECTED
+  fi
+}
+zle -N cd-peco
+alias cdd="cd-peco"
