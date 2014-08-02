@@ -227,5 +227,7 @@ snippet UITableViewDataSource
 	
 		func tableView(tableView: UITableView!, indexPath: NSIndexPath!) -> UITableViewCell! {
 		}
-	
+snippet dispatch_after
+	dispatch_after(dispatch_time(DISPATCH_TIME_NOW, Int64(${1:10} * NSEC_PER_SEC)), dispatch_get_main_queue()) {
+		${0}
 	}
