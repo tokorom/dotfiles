@@ -229,6 +229,9 @@ set foldmethod=marker
 " クリップボードを自動で利用 
 set clipboard=unnamed
 
+" undoファイル用のディレクトリを設定
+set undodir=$HOME/vim_undo
+
 " cursorline
 set cursorline
 highlight clear CursorLine
