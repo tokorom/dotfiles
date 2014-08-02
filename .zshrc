@@ -38,6 +38,9 @@ bindkey '^K' kill-line
 bindkey '^R' history-incremental-search-backward
 bindkey '^W' backward-kill-word
 
+# C-d でログアウトさせない
+setopt IGNOREEOF
+
 ####### prompt ########
 
 ## 出力の文字列末尾に改行コードが無い場合でも表示
