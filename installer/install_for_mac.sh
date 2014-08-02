@@ -31,6 +31,7 @@ if [ 0 -ne $? ]; then
     fi
 
     mkdir backup
+    mkdir vim_undo
 
     rm $zipname
     rm -rf $workdir
