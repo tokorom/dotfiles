@@ -595,7 +595,7 @@ function! neobundle#tapped.hooks.on_source(bundle) " }}}3
 "-----------------------------------------------------------------------------
 
 let g:neocomplete#disable_auto_complete = 0 "自動補完をする
-let g:neocomplete#auto_completion_start_length = 4 "自動補完開始は4文字打鍵した後
+let g:neocomplete#auto_completion_start_length = 3 "自動補完開始は3文字打鍵した後
 let g:neocomplete#enable_smart_case = 1 "大文字小文字無視
 let g:neocomplete#max_list = 10000 "候補の最大数
 let g:neocomplete#enable_auto_select = 0 "第一候補を自動選択しない

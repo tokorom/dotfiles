@@ -19,6 +19,10 @@ tap peco/peco
 install peco
 
 tap supermomonga/homebrew-splhack
+install cscope
+install lua
+install --HEAD cmigemo-mk
+install --HEAD ctags-objc-ja
 install --HEAD macvim-kaoriya --with-lua --with-cscope
 
 tap caskroom/cask || true
@@ -31,3 +35,5 @@ cask install scansnap-manager
 
 # install totalterminal later
 # cask install totalterminal
+
+linkapps
