@@ -31,7 +31,6 @@ NeoBundle 'kana/vim-altr'
 NeoBundle 'thinca/vim-ref'
 NeoBundle 'anekos/char-counter-vim'
 NeoBundle 'kana/vim-smartinput'
-NeoBundle 'nathanaelkane/vim-indent-guides'
 
 NeoBundleLazy 'sjl/gundo.vim', {'commands': ['GundoShow', 'GundoHide', 'GundoToggle', 'GundoRenderGraph']}
 NeoBundleLazy 'yuratomo/w3m.vim', {'commands': ['W3m', 'W3mTab', 'W3mSplit', 'W3mLocal', 'W3mHistory', 'W3mHistoryClear']}
@@ -477,24 +476,6 @@ call smartinput#define_rule({
 
 "-----------------------------------------------------------------------------
 endfunction " {{{3
-call neobundle#untap()
-endif " }}}3
-" }}}2
-
-
-" vim-indent-guides {{{2
-if neobundle#tap('vim-indent-guides') " {{{3
-"-----------------------------------------------------------------------------
-
-let g:indent_guides_enable_on_vim_startup = 1
-let g:indent_guides_start_level = 2
-let g:indent_guides_guide_size = 1
-let g:indent_guides_auto_colors = 0
-let g:indent_guides_color_change_percent = 30
-hi IndentGuidesOdd ctermbg=238
-hi IndentGuidesEven ctermbg=236
-
-"-----------------------------------------------------------------------------
 call neobundle#untap()
 endif " }}}3
 " }}}2
