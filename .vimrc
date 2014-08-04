@@ -575,12 +575,14 @@ if neobundle#tap('neocomplete.vim') " {{{3
 function! neobundle#tapped.hooks.on_source(bundle) " }}}3
 "-----------------------------------------------------------------------------
 
-let g:neocomplete#disable_auto_complete = 0 "自動補完をする
+let g:neocomplete#disable_auto_complete = 1 "自動補完をしない
 let g:neocomplete#auto_completion_start_length = 3 "自動補完開始は3文字打鍵した後
 let g:neocomplete#enable_smart_case = 1 "大文字小文字無視
 let g:neocomplete#max_list = 10000 "候補の最大数
 let g:neocomplete#enable_auto_select = 0 "第一候補を自動選択しない
 let g:neocomplete#enable_fuzzy_completion = 0 "Fuzzy補完しない
+
+autocmd FileType vim,swift let g:neocomplete#disable_auto_complete = 0 "一部のfiletypeでは自動補完を有効にする
 
 let g:neocomplcache_dictionary_filetype_lists = {
   \ 'default' : ''
