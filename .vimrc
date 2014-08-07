@@ -111,7 +111,7 @@ NeoBundleLazy 'git://github.com/tokorom/cocoa.vim.git', 'syntax-only', {'filetyp
 "   \ }
 
 " swift
-NeoBundle 'toyamarinyon/vim-swift'
+NeoBundle 'Keithbsmiley/swift.vim'
 
 " xcode
 NeoBundleLazy 'tokorom/xcode-actions.vim', {'filetypes': ['objc', 'swift']}
