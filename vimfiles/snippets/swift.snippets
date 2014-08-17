@@ -241,3 +241,26 @@ snippet dispatch_after
 	dispatch_after(dispatch_time(DISPATCH_TIME_NOW, Int64(${1:10} * NSEC_PER_SEC)), dispatch_get_main_queue()) {
 		${0}
 	}
+snippet quick
+	//
+	//  ${1:`Filename()`}.swift
+	//
+	//  Created by ToKoRo on `strftime("%Y-%m-%d")`.
+	//
+	
+	import Quick
+	import Nimble
+	
+	class $1: QuickSpec {
+		override func spec() {
+	
+			describe("$1") {
+				it("${2:can be created}") {
+					let subject = $1()
+					expect(subject).toNot(beNil())
+				}
+			}
+	
+		}
+	
+	}

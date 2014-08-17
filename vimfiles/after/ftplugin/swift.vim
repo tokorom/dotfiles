@@ -1,5 +1,6 @@
 " override swift.vim
 
+setlocal iskeyword-=?,!,@-@,#
 setlocal completefunc=neocomplete#complete#manual_complete
 
 " --- added keybinds ---

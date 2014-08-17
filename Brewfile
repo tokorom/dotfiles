@@ -13,7 +13,9 @@ install rbenv
 install readline
 install ruby-build
 install tig
+install hub
 install reattach-to-user-namespace
+install jq
 
 tap peco/peco
 install peco
