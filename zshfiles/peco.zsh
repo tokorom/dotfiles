@@ -53,3 +53,16 @@ function cd-peco() {
 }
 zle -N cd-peco
 alias cdd="cd-peco"
+
+# git-add-peco
+function gitadd-peco() {
+  local SELECTED="$(git status --porcelain | \
+                    peco --query "$LBUFFER" | \
+                    awk -F ' ' '{print $NF}')"
+  local SELECTED=$(echo $SELECTED | tr '\n' ' ')
+  if [ 0 -ne ${#SELECTED} ]; then
+    eval git add $SELECTED
+  fi
+}
+zle -N gitadd-peco
+alias gadd="gitadd-peco"
