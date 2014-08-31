@@ -138,7 +138,7 @@ snippet #pmpr
 	// MARK: - Properties
 snippet print
 alias log
-	println("${1}");
+	println("${1}")
 snippet \
 	\(${1})${0}
 snippet ibaction
@@ -263,4 +263,16 @@ snippet quick
 	
 		}
 	
+	}
+snippet awakeFromNib
+	override func awakeFromNib() {
+		super.awakeFromNib()
+		
+		${0}
+	}
+snippet layoutSubviews
+	override func layoutSubviews() {
+		super.layoutSubviews()
+		
+		${0}
 	}
