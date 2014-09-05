@@ -31,6 +31,7 @@ NeoBundle 'kana/vim-altr'
 NeoBundle 'thinca/vim-ref'
 NeoBundle 'anekos/char-counter-vim'
 NeoBundle 'kana/vim-smartinput'
+NeoBundle 'thinca/vim-tabrecent'
 
 NeoBundleLazy 'sjl/gundo.vim', {'commands': ['GundoShow', 'GundoHide', 'GundoToggle', 'GundoRenderGraph']}
 NeoBundleLazy 'yuratomo/w3m.vim', {'commands': ['W3m', 'W3mTab', 'W3mSplit', 'W3mLocal', 'W3mHistory', 'W3mHistoryClear']}
@@ -253,6 +254,7 @@ map <Space><Space> [DoublePrefix]
 
 set winaltkeys=no
 inoremap  <C-l>   <Esc>
+nnoremap  <C-l>   :<C-u>TabRecent<CR>
 
 " ---------- for MacVim ----------
 
@@ -276,8 +278,8 @@ inoremap <C-d>     <Delete>
 " ---------- visual mode ----------
 
 nnoremap gc   '[v']
-vnoremap gc   :<C-u>normal gc<Enter>
-onoremap gc   :<C-u>normal gc<Enter>
+vnoremap gc   :<C-u>normal gc<CR>
+onoremap gc   :<C-u>normal gc<CR>
 
 " ---------- command mode ----------
 
@@ -318,8 +320,8 @@ nnoremap [MyPrefix]cp            :<C-u>cp<CR>
 
 nnoremap [MyPrefix].  <Nop>
 nnoremap [MyPrefix].. :<C-u>edit %:h<CR>
-nnoremap [MyPrefix].v :<C-u>edit $MYVIMRC<Enter>
-nnoremap [MyPrefix].p :<C-u>edit $HOME/vimfiles/snippets/<Enter>
+nnoremap [MyPrefix].v :<C-u>edit $MYVIMRC<CR>
+nnoremap [MyPrefix].p :<C-u>edit $HOME/vimfiles/snippets/<CR>
 
 " ---------- file ----------
 
