@@ -213,7 +213,7 @@ snippet UITableViewDelegate
 	
 	extension ${1:`Filename()`}: UITableViewDelegate {
 	
-		func tableView(tableView: UITableView!, didSelectRowAtIndexPath indexPath: NSIndexPath!) {
+		func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
 		}
 	
 	}
@@ -222,19 +222,19 @@ snippet UITableViewDataSource
 	
 	extension ${1:`Filename()`}: UITableViewDataSource {
 	
-		func tableView(tableView: UITableView!, numberOfRowsInSection section: Int) -> Int {
+		func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 		}
 	
-		func tableView(tableView: UITableView!, cellForRowAtIndexPath indexPath: NSIndexPath!) -> UITableViewCell! {
+		func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
 		}
 	
 	}
 snippet numberOfSectionsInTableView
-	func numberOfSectionsInTableView(tableView: UITableView!) -> Int {
+	func numberOfSectionsInTableView(tableView: UITableView) -> Int {
 		${0}
 	}
 snippet titleForHeaderInSection
-	func tableView(tableView: UITableView!, titleForHeaderInSection section: Int) -> String! {
+	func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
 		${0}
 	}
 snippet dispatch_after
