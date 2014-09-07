@@ -164,6 +164,10 @@ alias get
 	var ${1:string} {
 		return ${0}
 	}
+snippet ibinspectable
+	@IBInspectable
+snippet ibdesignable
+	@IBDesignable
 snippet lstr
 	NSLocalizedString("${1:key}", comment: "${2}")
 snippet viewDidLoad
@@ -239,6 +243,17 @@ snippet titleForHeaderInSection
 	}
 snippet dispatch_after
 	dispatch_after(dispatch_time(DISPATCH_TIME_NOW, Int64(${1:10} * NSEC_PER_SEC)), dispatch_get_main_queue()) {
+		${0}
+	}
+snippet dispatch_async_global
+alias global_queue
+alias async
+	dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {
+		${0}
+	}
+snippet dispatch_async_main
+alias main_queue
+	dispatch_async(dispatch_get_main_queue()) {
 		${0}
 	}
 snippet quick
