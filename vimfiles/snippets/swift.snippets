@@ -291,3 +291,23 @@ snippet layoutSubviews
 		
 		${0}
 	}
+snippet singleton
+	class var sharedInstance: ${1:`Filename()`} { 
+		struct Singleton {
+			static let instance = $1()
+		}
+		return Singleton.instance
+	}
+snippet promise_function
+	func ${1:requestXXX}() -> Promise<${2:Int}> {
+		let promise = Promise<$2>({ fulfiller, rejecter in
+			self.client.GET("/partners/today", parameters: nil).then { (res: APIResponse) -> Void in
+				fulfiller(0)
+			}.catch { (error: NSError) -> Void in
+				rejecter(error)
+			}.finally {
+			}
+			return
+		})
+		return promise
+	}
