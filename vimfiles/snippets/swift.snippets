@@ -213,6 +213,7 @@ snippet viewDidLayoutSubviews
 		${0}
 	}
 snippet UITableViewDelegate
+alias tableviewdelegate
 	// MARK: - UITableViewDelegate
 	
 	extension ${1:`Filename()`}: UITableViewDelegate {
@@ -222,6 +223,7 @@ snippet UITableViewDelegate
 	
 	}
 snippet UITableViewDataSource
+alias tableviewdatasource
 	// MARK: - UITableViewDataSource
 	
 	extension ${1:`Filename()`}: UITableViewDataSource {
@@ -239,6 +241,16 @@ snippet numberOfSectionsInTableView
 	}
 snippet titleForHeaderInSection
 	func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+		${0}
+	}
+snippet viewForHeaderInSection
+alias tableViewDelegate_viewForHeaderInSection
+	func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView {
+		${0}
+	}
+snippet heightForHeaderInSection
+alias tableViewDelegate_heightForHeaderInSection
+	func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
 		${0}
 	}
 snippet dispatch_after
@@ -301,7 +313,7 @@ snippet singleton
 snippet promise_function
 	func ${1:requestXXX}() -> Promise<${2:Int}> {
 		let promise = Promise<$2>({ fulfiller, rejecter in
-			self.client.GET("/partners/today", parameters: nil).then { (res: APIResponse) -> Void in
+			self.client.GET("/partners/today").then { (res: APIResponse) -> Void in
 				fulfiller(0)
 			}.catch { (error: NSError) -> Void in
 				rejecter(error)
@@ -310,4 +322,8 @@ snippet promise_function
 			return
 		})
 		return promise
+	}
+snippet static_struct
+	struct Static {
+		static var targets = [Any]()
 	}
