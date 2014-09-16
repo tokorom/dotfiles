@@ -24,6 +24,7 @@ alias ls="ls -G"
 alias ll="ls -la"
 
 alias tigs="tig status"
+alias gitdiff='git difftool --tool=vimdiff --no-prompt'
 
 alias mkcd='source ~/bin/mkcd'
 
