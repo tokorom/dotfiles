@@ -254,7 +254,7 @@ alias tableViewDelegate_heightForHeaderInSection
 		${0}
 	}
 snippet dispatch_after
-	dispatch_after(dispatch_time(DISPATCH_TIME_NOW, Int64(${1:10} * NSEC_PER_SEC)), dispatch_get_main_queue()) {
+	dispatch_after(dispatch_time(DISPATCH_TIME_NOW, Int64(${1:10} * Double(NSEC_PER_SEC))), dispatch_get_main_queue()) {
 		${0}
 	}
 snippet dispatch_async_global
