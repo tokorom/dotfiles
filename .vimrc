@@ -687,13 +687,13 @@ let g:quickrun_config['python.test'] = {'command': 'nosetests', 'exec': ['%c -v 
 let g:quickrun_config['ruby.rspec'] = {'command': 'rspec', 'cmdopt': '--format progress -I .', 'exec': ['source .rvmrc \&\& %c %o %s %a'], 'filetype': 'rspec-result'}
 let g:quickrun_config['objc'] = {'command': 'objc-run', 'cmdopt': '-fblocks -fobjc-arc', 'exec': ['%c %s %o %a']}
 let g:quickrun_config['objc.test'] = {'command': 'xctool', 'cmdopt': 'test', 'outputter': 'xctool', 'exec': ['%c %o %a']}
-let g:quickrun_config['swift'] = {'command': 'xcrun swift', 'cmdopt': '-i', 'exec': ['%c %s %o %a']}
+let g:quickrun_config['swift'] = {'command': 'xcrun swift', 'cmdopt': '', 'exec': ['%c %s %o %a']}
 
 let g:quickrun_config['markdown'] = {
   \ 'outputter' : 'null',
   \ 'command' : 'open',
   \ 'cmdopt' : '-a',
-  \ 'args' : 'Marked',
+  \ 'args' : 'Marked\ 2',
   \ 'exec' : '%c %o %a %s',
   \ }
 
