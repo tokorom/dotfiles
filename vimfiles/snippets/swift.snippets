@@ -340,7 +340,7 @@ snippet animateWithDuration
 snippet animateWithDuration_with_completion
 	UIView.animateWithDuration(0.25, delay: 0.0, options: .CurveEaseInOut, animations: { () in
 		${0}
-	}, completion: { (Bool: stopped) in
+	}, completion: { (stopped: Bool) in
 		if (stopped) {
 		}
 	})
