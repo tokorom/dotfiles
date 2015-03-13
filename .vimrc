@@ -451,6 +451,8 @@ augroup AddFileType
   autocmd BufWinEnter,BufNewFile *Test.m setfiletype objc.test
   " markdown
   autocmd BufWinEnter,BufNewFile *.md,*.mkd,*.page setfiletype markdown
+  " iOS
+  autocmd BufWinEnter,BufNewFile Podfile,*.podspec setfiletype ruby
 augroup END
 
 " }}}1
