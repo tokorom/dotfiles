@@ -3,6 +3,7 @@ function peco-select-history() {
   local tac="tac"
   BUFFER=$(history -n 1 | \
     eval $tac | \
+    awk '!a[$0]++' | \
     peco --query "$LBUFFER")
   CURSOR=$#BUFFER
   zle clear-screen
@@ -35,7 +36,7 @@ alias vr="vim-mru"
 # autojump
 function autojump-peco() {
   local cd_history_path="~/.local/share/autojump/autojump.txt"
-  local SELECTED=$(eval more $cd_history_path | peco --query "$1" | cut -f2)
+  local SELECTED=$(eval more $cd_history_path | awk '!a[$0]++' | peco --query "$1" | cut -f2)
   if [ 0 -ne ${#SELECTED} ]; then
     eval echo "cd $SELECTED"
     eval cd $SELECTED
