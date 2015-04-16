@@ -257,6 +257,7 @@ map <Space><Space> [DoublePrefix]
 set winaltkeys=no
 inoremap  <C-l>   <Esc>
 nnoremap  [MyPrefix]l   :<C-u>TabRecent<CR>
+nnoremap  <Space><Space><Space> :<C-u>TabRecent<CR>
 
 " ---------- for MacVim ----------
 

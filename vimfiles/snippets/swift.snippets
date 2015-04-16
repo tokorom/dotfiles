@@ -139,8 +139,9 @@ snippet #pmac
 	// MARK: - Actions
 snippet #pmpr
 	// MARK: - Properties
+snippet log
+	NSLog("${1}")
 snippet print
-alias log
 	println("${1}")
 snippet \
 	\(${1})${0}
@@ -256,6 +257,16 @@ alias tableViewDelegate_heightForHeaderInSection
 	func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
 		${0}
 	}
+snippet heightForRowAtIndexPath
+alias tableViewDelegate_heightForRowAtIndexPath
+	func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+		${0}
+	}
+snippet estimatedHeightForRowAtIndexPath
+alias tableViewDelegate_estimatedHeightForRowAtIndexPath
+	func tableView(tableView: UITableView, estimatedHeightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+		${0}
+	}
 snippet dispatch_after
 	dispatch_after(dispatch_time(DISPATCH_TIME_NOW, Int64(${1:10} * Double(NSEC_PER_SEC))), dispatch_get_main_queue()) {
 		${0}
@@ -307,12 +318,7 @@ snippet layoutSubviews
 		${0}
 	}
 snippet singleton
-	class var sharedInstance: ${1:`Filename()`} { 
-		struct Singleton {
-			static let instance = $1()
-		}
-		return Singleton.instance
-	}
+	static let sharedInstance = ${1:`Filename()`}()
 snippet promise_function
 	func ${1:requestXXX}() -> Promise<${2:Int}> {
 		let promise = Promise<$2>({ fulfiller, rejecter in
@@ -325,6 +331,17 @@ snippet promise_function
 			return
 		})
 		return promise
+	}
+snippet task
+	func ${1:requestXXX}() -> Task<Progress, ${2:Int}, NSError> {
+		let task = Task<Progress, $2, NSError> { progress, fulfill, reject, configure in
+			if success {
+				fulfill(0)
+			} else {
+				reject(error)
+			}
+		}
+		return task
 	}
 snippet static_struct
 	struct Static {
