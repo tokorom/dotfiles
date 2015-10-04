@@ -1,41 +1,35 @@
-update
-upgrade
+brew 'gnu-sed'
+brew 'gawk'
+brew 'coreutils'
+brew 'tmux'
+brew 'vim'
+brew 'zsh'
+brew 'autojump'
+brew 'ag'
+brew 'rbenv'
+brew 'readline'
+brew 'ruby-build'
+brew 'tig'
+brew 'hub'
+brew 'reattach-to-user-namespace'
+brew 'jq'
 
-install gnu-sed
-install gawk
-install coreutils
-install tmux
-install vim
-install zsh
-install autojump
-install ag
-install rbenv
-install readline
-install ruby-build
-install tig
-install hub
-install reattach-to-user-namespace
-install jq
+tap 'peco/peco'
+brew 'peco'
 
-tap peco/peco
-install peco
+tap 'supermomonga/homebrew-splhack'
+brew 'cscope'
+brew 'lua'
+brew 'cmigemo-mk', args: ['HEAD']
+brew 'ctags-objc-ja', args: ['HEAD']
+brew 'macvim-kaoriya', args: ['HEAD', 'with-lua', 'with-cscope']
 
-tap supermomonga/homebrew-splhack
-install cscope
-install lua
-install --HEAD cmigemo-mk
-install --HEAD ctags-objc-ja
-install --HEAD macvim-kaoriya --with-lua --with-cscope
+brew 'caskroom/cask/brew-cask'
+cask 'karabiner'
+cask 'firefox'
+cask 'google-chrome'
+cask 'dropbox'
+cask 'scansnap-manager-ix500'
 
-tap caskroom/cask || true
-install brew-cask
-cask install karabiner
-cask install firefox
-cask install google-chrome
-cask install dropbox
-cask install scansnap-manager
-
-# install totalterminal later
-# cask install totalterminal
-
-linkapps
+# totalterminal later
+# cask totalterminal

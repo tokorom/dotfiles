@@ -50,10 +50,13 @@ echo '### homebrew'
 
 which brew > /dev/null 2>&1
 if [ 0 -ne $? ]; then
-  ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"
+  ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 fi
 
-brew bundle
+brew update && brew upgrade
+
+brew tap Homebrew/brewdler
+brew brewdle
 
 #####################################
 echo '### karabiner'
