@@ -160,6 +160,7 @@ set backspace=indent,eol,start
 
 " カラースキーマを設定
 set t_Co=256
+set background=dark
 colorscheme hybrid
 " hilight
 syntax on
