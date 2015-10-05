@@ -76,5 +76,18 @@
         </item>
       </list>
     </item>
+
+    <item>
+      <name>For Terminal</name>
+      <list>
+        <item>
+          <name>Change Control_+Tab to Option_Command_T Keys</name>
+          <identifier>remap.tokorom.control_tab</identifier>
+          <not>VIRTUALMACHINE, REMOTEDESKTOPCONNECTION</not>
+          <autogen>--KeyToKey-- KeyCode::TAB, VK_CONTROL,    KeyCode::T, MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_COMMAND| ModifierFlag::OPTION_L</autogen>
+        </item>
+      </list>
+    </item>
+
   </list>
 </root>
