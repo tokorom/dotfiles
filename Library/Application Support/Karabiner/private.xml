@@ -11,10 +11,16 @@
           <autogen>--KeyToKey-- KeyCode::I, VK_CONTROL, KeyCode::TAB</autogen>
         </item>
         <item>
-          <name>Control+M to Return</name>
+          <name>Control+M to Enter</name>
           <identifier>option.emacsmode_controlM_tokorom</identifier>
-          <not>EMACS, TERMINAL, VIRTUALMACHINE, REMOTEDESKTOPCONNECTION, X11, ECLIPSE</not>
-          <autogen>--KeyToKey-- KeyCode::M, VK_CONTROL, KeyCode::RETURN</autogen>
+          <not>EMACS, TERMINAL, VIRTUALMACHINE, REMOTEDESKTOPCONNECTION, X11, ECLIPSE, ALFRED</not>
+          <autogen>--KeyToKey-- KeyCode::M, VK_CONTROL, KeyCode::ENTER</autogen>
+        </item>
+        <item>
+          <name>Control+M to Enter for Alfred</name>
+          <identifier>option.emacsmode_controlM_alfred_tokorom</identifier>
+          <only>ALFRED</only>
+          <autogen>--KeyToKey-- KeyCode::M, VK_CONTROL, KeyCode::ENTER, VK_CONTROL | VK_SHIFT</autogen>
         </item>
       </list>
     </item>
@@ -67,24 +73,6 @@
           <identifier>remap.hhkmode_optD_to_f11_tokorom</identifier>
           <not>VIRTUALMACHINE, REMOTEDESKTOPCONNECTION</not>
           <autogen>--KeyToKey-- KeyCode::D, ModifierFlag::OPTION_L,     KeyCode::F11</autogen>
-        </item>
-        <item>
-          <name>Change Option_L+T to F9 Keys</name>
-          <identifier>remap.hhkmode_optD_to_f9_tokorom</identifier>
-          <not>VIRTUALMACHINE, REMOTEDESKTOPCONNECTION</not>
-          <autogen>--KeyToKey-- KeyCode::T, ModifierFlag::OPTION_L,     KeyCode::F9</autogen>
-        </item>
-      </list>
-    </item>
-
-    <item>
-      <name>For Terminal</name>
-      <list>
-        <item>
-          <name>Change Control_+Tab to Shift_Option_Command_T Keys</name>
-          <identifier>remap.tokorom.control_tab</identifier>
-          <not>VIRTUALMACHINE, REMOTEDESKTOPCONNECTION</not>
-          <autogen>--KeyToKey-- KeyCode::TAB, VK_CONTROL,    KeyCode::T, VK_SHIFT | MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_COMMAND | ModifierFlag::OPTION_L</autogen>
         </item>
       </list>
     </item>
