@@ -99,12 +99,38 @@ snippet ifl
 	if let ${1:let} = ${2:true} {
 		${0}
 	}
+snippet ifcase
+alias ifc
+	if case let (${1:_}, ${2:value as Int}) = ${3:dicts} {
+		${0}
+	}
+snippet gl
+	guard let ${1:name} = ${2:name} else {
+		return ${3:nil}
+	}
+	${0}
+snippet glself
+alias gls
+	guard let wself = self else {
+		return
+	}
+	${0}
+snippet glcase
+alias glc
+	guard case let (${1:_}, ${2:value as Int}) = ${3:dicts} else {
+		return
+	}
 snippet for
 	for ${1:_} in ${2:\#:list} {
 		${0}
 	}
 snippet fori
 	for ${1:index} in 0..<${2:count} {
+		${0}
+	}
+snippet forcase
+alias forc
+	for case let (${1:_}, ${2:value as Int}) in ${3:dicts} {
 		${0}
 	}
 snippet while
@@ -361,3 +387,11 @@ snippet animateWithDuration_with_completion
 		if (stopped) {
 		}
 	})
+snippet available_if
+alias available ifa
+	if #available(${1:iOS 9.0}, *) {
+		${0}
+	}
+snippet available_annotation
+alias aa
+	@available(${1:iOS 9.0}, *)
