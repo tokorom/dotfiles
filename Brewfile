@@ -17,12 +17,16 @@ brew 'jq'
 tap 'peco/peco'
 brew 'peco'
 
-tap 'supermomonga/homebrew-splhack'
 brew 'cscope'
 brew 'lua'
+
+tap 'splhack/homebrew-splhack'
 brew 'cmigemo-mk', args: ['HEAD']
 brew 'ctags-objc-ja', args: ['HEAD']
-brew 'macvim-kaoriya', args: ['HEAD', 'with-lua', 'with-cscope']
+
+# brew 'macvim-kaoriya', args: ['HEAD', 'with-lua', 'with-cscope']
+tap 'caskroom/homebrew-versions'
+cask 'macvim-kaoriya'
 
 brew 'caskroom/cask/brew-cask'
 cask 'karabiner'
