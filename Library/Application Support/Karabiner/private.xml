@@ -16,12 +16,6 @@
           <not>EMACS, TERMINAL, VIRTUALMACHINE, REMOTEDESKTOPCONNECTION, X11, ECLIPSE, ALFRED</not>
           <autogen>--KeyToKey-- KeyCode::M, VK_CONTROL, KeyCode::ENTER</autogen>
         </item>
-        <item>
-          <name>Control+M to Enter for Alfred</name>
-          <identifier>option.emacsmode_controlM_alfred_tokorom</identifier>
-          <only>ALFRED</only>
-          <autogen>--KeyToKey-- KeyCode::M, VK_CONTROL, KeyCode::ENTER, VK_CONTROL | VK_SHIFT</autogen>
-        </item>
       </list>
     </item>
 
@@ -73,6 +67,30 @@
           <identifier>remap.hhkmode_optD_to_f11_tokorom</identifier>
           <not>VIRTUALMACHINE, REMOTEDESKTOPCONNECTION</not>
           <autogen>--KeyToKey-- KeyCode::D, ModifierFlag::OPTION_L,     KeyCode::F11</autogen>
+        </item>
+      </list>
+    </item>
+
+    <item>
+      <name>Alfred</name>
+      <list>
+        <item>
+          <name>Control+M to Enter</name>
+          <identifier>option.emacsmode_controlM_alfred_tokorom</identifier>
+          <only>ALFRED</only>
+          <autogen>--KeyToKey-- KeyCode::M, VK_CONTROL, KeyCode::ENTER, VK_CONTROL | VK_SHIFT</autogen>
+        </item>
+        <item>
+          <name>Control+W</name>
+          <identifier>option.emacsmode_controlW_alfred_tokorom</identifier>
+          <only>ALFRED</only>
+          <autogen>--KeyToKey-- KeyCode::W, VK_CONTROL,       KeyCode::DELETE, VK_CONTROL, KeyCode::DELETE, VK_OPTION</autogen>
+        </item>
+        <item>
+          <name>Control+U</name>
+          <identifier>option.emacsmode_controlU_alfred_tokorom</identifier>
+          <only>ALFRED</only>
+          <autogen>--KeyToKey-- KeyCode::U, VK_CONTROL,       KeyCode::DELETE, VK_CONTROL, KeyCode::DELETE, VK_COMMAND</autogen>
         </item>
       </list>
     </item>
