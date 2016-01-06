@@ -84,3 +84,4 @@
 
 [hub]
   host = github.cookpad.com
+	host = ghe.ckpd.co
