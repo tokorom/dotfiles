@@ -344,7 +344,8 @@ snippet layoutSubviews
 		${0}
 	}
 snippet singleton
-	static let sharedInstance = ${1:`Filename()`}()
+alias sharedInstance
+	static let sharedInstance = ${1:`Filename()`}()${0}
 snippet promise_function
 	func ${1:requestXXX}() -> Promise<${2:Int}> {
 		let promise = Promise<$2>({ fulfiller, rejecter in
@@ -371,10 +372,11 @@ snippet task
 	}
 snippet static_struct
 	struct Static {
-		static var targets = [Any]()
+		static var targets = [Any]()${0}
 	}
 snippet unwind_segue
 	@IBAction func ${1:unwindToHere}(segue: UIStoryboardSegue) {
+		${0}
 	}
 snippet animateWithDuration
 	UIView.animateWithDuration(0.25, animations: { () in
@@ -395,3 +397,19 @@ alias available ifa
 snippet available_annotation
 alias aa
 	@available(${1:iOS 9.0}, *)${0}
+snippet subscript_int
+	subscript(index: Int) -> ${1:Int} {
+		get {
+			${0}
+		}
+		set {
+		}
+	}
+snippet subscript_any
+	subscript(index: ${1:String}) -> ${2:Any} {
+		get {
+			${0}
+		}
+		set {
+		}
+	}
