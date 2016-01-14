@@ -4,3 +4,6 @@
 [submodule "addfiles"]
 	path = addfiles
 	url = https://tokorom@bitbucket.org/tokorom/addfiles.git
+[submodule "/Users/tokorom/vim_swift"]
+	path = vim_swift
+	url = https://github.com/apple/swift.git
