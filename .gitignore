@@ -10,6 +10,7 @@
 !/vimfiles_local
 !/.gitconfig
 !/.gitignore
+!/.global_gitignore
 !/.gvimrc
 !/.screenrc
 !/.tmux.conf
