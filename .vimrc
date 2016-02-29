@@ -77,7 +77,8 @@ NeoBundleLazy 'tokorom/unite-xcode_complete', {'depends': 'Shougo/unite.vim', 'o
 " neocomplete
 NeoBundleLazy 'Shougo/neocomplete.vim',  {'function_prefix': 'neocomplete'}
 NeoBundleLazy 'tokorom/neocomplete-ios-dictionary', {'depends' : 'Shougo/neocomplete.vim', 'on_source': 'neocomplete.vim'}
-NeoBundleLazy 'tokorom/neocomplete-swift-dictionary', {'depends' : 'Shougo/neocomplete.vim', 'on_source': 'neocomplete.vim'}
+
+NeoBundle 'tokorom/swift-dict.vim'
 
 " neosnippet
 NeoBundle 'Shougo/neosnippet'
@@ -117,9 +118,6 @@ NeoBundleLazy 'git://github.com/tokorom/cocoa.vim.git', 'syntax-only', {'filetyp
 " NeoBundle 'Keithbsmiley/swift.vim'
 " ~/vimfiles_local/swift
 NeoBundle 'tokorom/swift_gyb.vim'
-
-" xcode
-NeoBundleLazy 'tokorom/xcode-actions.vim', {'filetypes': ['objc', 'swift']}
 
 " coffee
 NeoBundleLazy 'git://github.com/kchmck/vim-coffee-script.git', {'filetypes': ['coffee']}
@@ -582,6 +580,8 @@ let g:neocomplete#enable_at_startup = 1 "自動起動
 inoremap <expr> <C-h> neocomplete#smart_close_popup()."\<C-h>"
 inoremap <expr> <C-g> neocomplete#undo_completion()
 imap <C-k> <Plug>(neocomplete_start_unite_complete)<Esc>A
+
+let g:swift_dict_with_neocomplete = 1 "siwft-dictをneocomplete経由で利用する
 " }}}
 
 if neobundle#tap('neocomplete.vim') " {{{3
@@ -597,7 +597,7 @@ let g:neocomplete#enable_fuzzy_completion = 0 "Fuzzy補完しない
 
 autocmd FileType vim,swift let g:neocomplete#disable_auto_complete = 0 "一部のfiletypeでは自動補完を有効にする
 
-let g:neocomplcache_dictionary_filetype_lists = {
+let g:neocomplete#sources#dictionary#dictionaries = {
   \ 'default' : ''
 \ }
 
@@ -616,7 +616,6 @@ endif " }}}3
 "-----------------------------------------------------------------------------
 
 call neocomplete_ios_dictionary#configure_ios_dict()
-call neocomplete_swift_dictionary#configure_swift_dict()
 
 "-----------------------------------------------------------------------------
 " }}}2
@@ -743,26 +742,6 @@ function! neobundle#tapped.hooks.on_source(bundle) " }}}3
 let g:watchdogs_check_BufWritePost_enable = 1
 " 一定時間キー入力がなかった場合にWatchdogsRunSilent
 let g:watchdogs_check_CursorHold_enable = 1
-
-"-----------------------------------------------------------------------------
-endfunction " {{{3
-call neobundle#untap()
-endif " }}}3
-" }}}2
-
-" xcode-actions.vim {{{2
-if neobundle#tap('xcode-actions.vim') " {{{3
-function! neobundle#tapped.hooks.on_source(bundle) " }}}3
-"-----------------------------------------------------------------------------
-
-augroup xcode-actions.vim
-  autocmd!
-  autocmd FileType objc,swift nmap [DoublePrefix]b <Plug>(xcode-actions-build)
-  autocmd FileType objc,swift nmap [DoublePrefix]r <Plug>(xcode-actions-run)
-  autocmd FileType objc,swift nmap [DoublePrefix]c <Plug>(xcode-actions-clean)
-  autocmd FileType objc,swift nmap [DoublePrefix]u <Plug>(xcode-actions-test)
-  autocmd FileType objc,swift nmap [DoublePrefix]o <Plug>(xcode-actions-openfile)
-augroup END
 
 "-----------------------------------------------------------------------------
 endfunction " {{{3
