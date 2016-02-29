@@ -9,3 +9,5 @@ gem 'cocoapods-search'
 gem 'xcodeproj'
 gem 'xcpretty'
 gem 'xctest-runner'
+
+gem 'git-browse-remote'

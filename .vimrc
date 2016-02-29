@@ -427,6 +427,9 @@ command! XmlLint :exe ":silent 1,$!xmllint --format --recover - 2>/dev/null"
 " Xcodeに現在のファイルを追加 : デバッグ中
 command! -nargs=0 XcodeAddFile echo system('xcode_add_file ' . expand('%'))
 
+" 現在のコードをGitHubで開く
+command! -nargs=* -range GitBrowseRemote !git browse-remote --rev -L<line1>,<line2> <f-args> -- %
+
 " }}}1
 "=============================================================================
 " autocmds {{{1
