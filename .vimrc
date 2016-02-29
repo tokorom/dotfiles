@@ -95,7 +95,8 @@ NeoBundleLazy 'rhysd/unite-codic.vim', {'depends': 'Shougo/unite.vim', 'on_sourc
 NeoBundleLazy 'https://github.com/rhysd/vim-clang-format.git', {'filetypes': ['c', 'cpp', 'objc']}
 
 " syntax check
-" NeoBundleLazy 'git://github.com/scrooloose/syntastic.git', {'filetypes': ['xml', 'html', 'sass', 'css', 'js', 'yaml', 'json', 'xslt', 'python', 'perl', 'c']}
+NeoBundle 'scrooloose/syntastic'
+NeoBundleLazy 'tokorom/syntastic-swiftlint.vim', {'filetypes': ['swift'], 'depends': 'scrooloose/syntastic', 'on_source': 'syntastic'}
 
 " git
 NeoBundle 'git://github.com/tpope/vim-fugitive.git'
@@ -742,6 +743,28 @@ function! neobundle#tapped.hooks.on_source(bundle) " }}}3
 let g:watchdogs_check_BufWritePost_enable = 1
 " 一定時間キー入力がなかった場合にWatchdogsRunSilent
 let g:watchdogs_check_CursorHold_enable = 1
+
+"-----------------------------------------------------------------------------
+endfunction " {{{3
+call neobundle#untap()
+endif " }}}3
+" }}}2
+
+" syntastic {{{2
+if neobundle#tap('syntastic') " {{{3
+function! neobundle#tapped.hooks.on_source(bundle) " }}}3
+"-----------------------------------------------------------------------------
+
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+
+let g:syntastic_swift_checkers = ['swiftlint']
 
 "-----------------------------------------------------------------------------
 endfunction " {{{3
