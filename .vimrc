@@ -576,7 +576,7 @@ endif " }}}3
 
 " {{{ initialize
 let g:neocomplete#enable_at_startup = 1 "自動起動
-" inoremap <expr> <C-n> pumvisible() ? "\<C-n>" : neocomplete#start_manual_complete()
+inoremap <expr> <C-n> pumvisible() ? "\<C-n>" : neocomplete#start_manual_complete()
 inoremap <expr> <C-h> neocomplete#smart_close_popup()."\<C-h>"
 inoremap <expr> <C-g> neocomplete#undo_completion()
 imap <C-k> <Plug>(neocomplete_start_unite_complete)<Esc>A
