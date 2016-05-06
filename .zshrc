@@ -196,3 +196,7 @@ if [ -x "`which keychain`" ]; then
   . $HOME/.keychain/$HOST-sh
 fi
 
+####### node.js #######
+
+export NVM_DIR=~/.nvm
+. $(brew --prefix nvm)/nvm.sh
