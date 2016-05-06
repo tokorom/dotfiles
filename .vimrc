@@ -136,6 +136,10 @@ NeoBundleLazy 'https://github.com/osyo-manga/vim-watchdogs.git', {'filetypes': [
 NeoBundleLazy 'https://github.com/jceb/vim-hier.git', {'filetypes': ['objc']}
 NeoBundleLazy 'git://github.com/tokorom/vim-quickrun-xctool.git', {'filetypes': ['objc']}
 
+" Qiita
+NeoBundle 'mattn/qiita-vim'
+NeoBundle 'mattn/webapi-vim'
+
 " local
 NeoBundleLocal ~/vimfiles_local/
 
