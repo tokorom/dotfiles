@@ -99,7 +99,8 @@ NeoBundle 'scrooloose/syntastic'
 NeoBundleLazy 'tokorom/syntastic-swiftlint.vim', {'filetypes': ['swift'], 'depends': 'scrooloose/syntastic', 'on_source': 'syntastic'}
 
 " git
-NeoBundle 'git://github.com/tpope/vim-fugitive.git'
+NeoBundle 'tpope/vim-fugitive.git'
+NeoBundle 'airblade/vim-gitgutter'
 NeoBundleLazy 'git://github.com/gregsexton/gitv.git', {'commands': ['GitV']}
 
 " ruby
