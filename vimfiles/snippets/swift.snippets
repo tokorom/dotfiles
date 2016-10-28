@@ -294,6 +294,10 @@ alias tableViewDelegate_estimatedHeightForRowAtIndexPath
 		${0}
 	}
 snippet dispatch_after
+	DispatchQueue.main.asyncAfter(deadline: .now() + ${1:5}) {
+		${0}
+	}
+snippet dispatch_after_old
 	dispatch_after(dispatch_time(DISPATCH_TIME_NOW, Int64(${1:10} * Double(NSEC_PER_SEC))), dispatch_get_main_queue()) {
 		${0}
 	}
@@ -305,6 +309,11 @@ alias async
 	}
 snippet dispatch_async_main
 alias main_queue
+	DispatchQueue.main.async {
+		${0}
+	}
+snippet dispatch_async_main_old
+alias main_queue_old
 	dispatch_async(dispatch_get_main_queue()) {
 		${0}
 	}
@@ -413,3 +422,52 @@ snippet subscript_any
 		set {
 		}
 	}
+snippet notimplemented
+	fatalError("\(#function) is not implemented")
+snippet assert
+alias xct
+	XCTAssert(${1})${0}
+snippet assertequal
+alias xctassertequal
+	XCTAssertEqual(${1}, ${2})${0}
+snippet assertequalwithaccuracy
+alias xctassertequalwithaccuracy
+	XCTAssertEqualWithAccuracy(${1}, ${2})${0}
+snippet assertfalse
+alias xctassertfalse
+	XCTAssertFalse(${1})${0}
+snippet assertgreaterthan
+alias xctassertgreaterthan
+	XCTAssertGreaterThan(${1}, ${2})${0}
+snippet assertgreaterthanorequal
+alias xctassertgreaterthanorequal
+	XCTAssertGreaterThanOrEqual(${1}, ${2})${0}
+snippet assertlessthan
+alias xctassertlessthan
+	XCTAssertLessThan(${1}, ${2})${0}
+snippet assertlessthanorequal
+alias xctassertlessthanorequal
+	XCTAssertLessThanOrEqual(${1}, ${2})${0}
+snippet assertnil
+alias xctassertnil
+	XCTAssertNil(${1})${0}
+snippet assertnotequal
+alias xctassertnotequal
+	XCTAssertNotEqual(${1}, ${2})${0}
+snippet assertnotequalwithaccuracy
+alias xctassertnotequalwithaccuracy
+	XCTAssertNotEqualWithAccuracy(${1}, ${2})${0}
+snippet assertnotnil
+alias xctassertnotnil
+	XCTAssertNotNil(${1})${0}
+snippet asserthrowserror
+alias xctasserthrowserror
+	XCTAssertThrowsError(${1})${0}
+snippet asserttrue
+alias xctasserttrue
+	XCTAssertTrue(${1})${0}
+snippet assertfail
+alias xctassertfail
+	XCTFail(${1})${0}
+snippet wself
+	[weak self] in${0}

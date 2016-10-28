@@ -1,39 +1,39 @@
-brew 'gnu-sed'
-brew 'gawk'
-brew 'coreutils'
-brew 'tmux'
-brew 'vim'
-brew 'zsh'
-brew 'autojump'
-brew 'ag'
-brew 'rbenv'
-brew 'readline'
-brew 'ruby-build'
-brew 'tig'
-brew 'hub'
-brew 'reattach-to-user-namespace'
-brew 'jq'
+brew install 'gnu-sed'
+brew install 'gawk'
+brew install 'coreutils'
+brew install 'tmux'
+brew install 'vim'
+brew install 'zsh'
+brew install 'autojump'
+brew install 'ag'
+brew install 'rbenv'
+brew install 'readline'
+brew install 'ruby-build'
+brew install 'tig'
+brew install 'hub'
+brew install 'reattach-to-user-namespace'
+brew install 'jq'
 
-tap 'peco/peco'
-brew 'peco'
+brew tap 'peco/peco'
+brew install 'peco'
 
-brew 'cscope'
-brew 'lua'
+brew install 'cscope'
+brew install 'lua'
 
-tap 'splhack/homebrew-splhack'
-brew 'cmigemo-mk', args: ['HEAD']
-brew 'ctags-objc-ja', args: ['HEAD']
+brew tap 'splhack/homebrew-splhack'
+brew install 'cmigemo-mk', args: ['HEAD']
+brew install 'ctags-objc-ja', args: ['HEAD']
 
 # brew 'macvim-kaoriya', args: ['HEAD', 'with-lua', 'with-cscope']
-tap 'caskroom/homebrew-versions'
-cask 'macvim-kaoriya'
+brew tap 'caskroom/homebrew-versions'
 
-brew 'caskroom/cask/brew-cask'
-cask 'karabiner'
-cask 'firefox'
-cask 'google-chrome'
-cask 'dropbox'
-cask 'scansnap-manager-ix500'
+brew install 'caskroom/cask/brew-cask'
+brew cask install 'macvim-kaoriya'
+brew cask install 'karabiner'
+brew cask install 'firefox'
+brew cask install 'google-chrome'
+brew cask install 'dropbox'
+brew cask install 'scansnap-manager-ix500'
 
 # totalterminal later
 # cask totalterminal

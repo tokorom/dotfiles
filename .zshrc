@@ -196,7 +196,25 @@ if [ -x "`which keychain`" ]; then
   . $HOME/.keychain/$HOST-sh
 fi
 
+####### rbenv #########
+
+if [ -x "`which rbenv`" ]; then
+  eval "$(rbenv init -)"
+fi
+
 ####### node.js #######
 
-export NVM_DIR=~/.nvm
-. $(brew --prefix nvm)/nvm.sh
+if [ -x "`which nvm`" ]; then
+  export NVM_DIR=~/.nvm
+  . $(brew --prefix nvm)/nvm.sh
+fi
+
+####### gulp #########
+  
+if [ -x "`which gulp`" ]; then
+  eval "$(gulp --completion=zsh)"
+fi
+
+####### swift #########
+
+if which swiftenv > /dev/null; then eval "$(swiftenv init -)"; fi

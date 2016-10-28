@@ -12,7 +12,7 @@ export MAILCHECK=0
 ####### path #########
 
 export PATH=/usr/local/bin:/opt/local/bin:/opt/local/sbin/:~/bin/clang/:$PATH:~/local/bin:/Applications/android_sdk/tools/:/Applications/android_sdk/platform-tools:/Applications/UpTeX.app/teTeX/bin:/usr/local/share/npm/bin/
-export PATH="$HOME/.rbenv/bin:$PATH"
+# export PATH="$HOME/.rbenv/bin:$PATH"
 
 ####### alias ########
 
@@ -38,8 +38,6 @@ alias be='bundle exec'
 alias vim-buffer='tmux capture-pane -t 0 -S -32768; tmux show-buffer | vim - -c 32768'
 alias vb='vim-buffer'
 
-alias swift='xcrun swift'
-
 if [ -f ~/Applications/MacVim.app/Contents/MacOS/Vim ]; then
   alias vi='env LANG=ja_JP.UTF-8 ~/Applications/MacVim.app/Contents/MacOS/Vim "$@"'
   alias vim='env LANG=ja_JP.UTF-8 ~/Applications/MacVim.app/Contents/MacOS/Vim "$@"'
@@ -48,13 +46,11 @@ elif [ -f /Applications/MacVim.app/Contents/MacOS/Vim ]; then
   alias vim='env LANG=ja_JP.UTF-8 /Applications/MacVim.app/Contents/MacOS/Vim "$@"'
 fi
 
+[ -f ~/.zshenv.swipe ] && source ~/.zshenv.swipe
+
 ####### autojump #########
 
 [[ -s `brew --prefix`/etc/autojump.sh ]] && . `brew --prefix`/etc/autojump.sh
-
-####### rbenv #########
-
-eval "$(rbenv init -)"
 
 ####### etc #########
 
