@@ -200,6 +200,7 @@ fi
 
 if [ -x "`which rbenv`" ]; then
   eval "$(rbenv init -)"
+  unset RBENV_VERSION
 fi
 
 ####### node.js #######

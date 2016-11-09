@@ -130,6 +130,9 @@ NeoBundleLazy 'https://github.com/elzr/vim-json.git', {'filetypes': ['json']}
 " uml
 NeoBundle 'https://github.com/aklt/plantuml-syntax.git'
 
+" html
+NeoBundle 'slim-template/vim-slim'
+
 " quickrun
 NeoBundle 'git://github.com/thinca/vim-quickrun.git'
 NeoBundle 'https://github.com/osyo-manga/shabadou.vim.git'
@@ -464,6 +467,8 @@ augroup AddFileType
   autocmd BufWinEnter,BufNewFile *.md,*.mkd,*.page setfiletype markdown
   " iOS
   autocmd BufWinEnter,BufNewFile Podfile,*.podspec setfiletype ruby
+  " slim
+  autocmd BufWinEnter,BufNewFile *.slim,*.html.slim setfiletype slim
 augroup END
 
 " }}}1
@@ -770,6 +775,7 @@ let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 
 let g:syntastic_swift_checkers = ['swiftlint']
+let g:syntastic_slim_checkers = ['slim_lint']
 
 "-----------------------------------------------------------------------------
 endfunction " {{{3
