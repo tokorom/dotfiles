@@ -279,6 +279,7 @@ nmap [MyPrefix]A             <Plug>(altr-back)
 " ---------- quick-fix ----------
 
 nnoremap [MyPrefix]cm            :<C-u>w<CR>:<C-u>make<CR>
+nnoremap [MyPrefix]cf            :<C-u>cfile .build/errors.txt<CR>
 nnoremap [MyPrefix]cl            :<C-u>clist<CR>
 nnoremap [MyPrefix]co            :<C-u>copen<CR>
 nnoremap [MyPrefix]cc            :<C-u>cc<CR>
