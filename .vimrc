@@ -36,7 +36,6 @@ NeoBundle 'kana/vim-smartinput'
 NeoBundle 'thinca/vim-tabrecent'
 
 NeoBundleLazy 'sjl/gundo.vim', {'commands': ['GundoShow', 'GundoHide', 'GundoToggle', 'GundoRenderGraph']}
-NeoBundleLazy 'yuratomo/w3m.vim', {'commands': ['W3m', 'W3mTab', 'W3mSplit', 'W3mLocal', 'W3mHistory', 'W3mHistoryClear']}
 
 " color
 NeoBundle 'w0ng/vim-hybrid'
@@ -71,13 +70,9 @@ NeoBundleLazy 'Shougo/unite.vim', {
   \   ]
   \ }
 NeoBundleLazy 'Shougo/neomru.vim', {'depends': 'Shougo/unite.vim', 'on_source': 'unite.vim'}
-" NeoBundleLazy 'h1mesuke/unite-outline', {'depends': 'Shougo/unite.vim', 'on_source': 'unite.vim'}
-NeoBundleLazy 'tokorom/unite-xcode_complete', {'depends': 'Shougo/unite.vim', 'on_source': 'unite.vim'}
 
 " neocomplete
 NeoBundleLazy 'Shougo/neocomplete.vim',  {'function_prefix': 'neocomplete'}
-NeoBundleLazy 'tokorom/neocomplete-ios-dictionary', {'depends' : 'Shougo/neocomplete.vim', 'on_source': 'neocomplete.vim'}
-
 NeoBundle 'tokorom/swift-dict.vim'
 
 " neosnippet
@@ -90,9 +85,6 @@ NeoBundleLazy 'koron/codic-vim', {
 \  'function_prefix': 'codic',
 \}
 NeoBundleLazy 'rhysd/unite-codic.vim', {'depends': 'Shougo/unite.vim', 'on_source': 'unite.vim'}
-
-" clang
-NeoBundleLazy 'https://github.com/rhysd/vim-clang-format.git', {'filetypes': ['c', 'cpp', 'objc']}
 
 " syntax check
 NeoBundle 'scrooloose/syntastic'
@@ -111,34 +103,18 @@ NeoBundleLazy 'git://github.com/chrismetcalf/vim-markdown.git', {'filetypes': ['
 
 " objc
 NeoBundleLazy 'git://github.com/tokorom/cocoa.vim.git', 'syntax-only', {'filetypes': ['objc']}
-" NeoBundleLazy 'ryotakato/unite-outline-objc', {
-"   \ 'depends' : 'h1mesuke/unite-outline',
-"   \ 'filetypes' : ['objc']
-"   \ }
 
 " swift
-" NeoBundle 'Keithbsmiley/swift.vim'
-" ~/vimfiles_local/swift
 NeoBundle 'tokorom/swift_gyb.vim'
-
-" coffee
-NeoBundleLazy 'git://github.com/kchmck/vim-coffee-script.git', {'filetypes': ['coffee']}
 
 " json
 NeoBundleLazy 'https://github.com/elzr/vim-json.git', {'filetypes': ['json']}
-
-" uml
-NeoBundle 'https://github.com/aklt/plantuml-syntax.git'
 
 " html
 NeoBundle 'slim-template/vim-slim'
 
 " quickrun
 NeoBundle 'git://github.com/thinca/vim-quickrun.git'
-NeoBundle 'https://github.com/osyo-manga/shabadou.vim.git'
-NeoBundleLazy 'https://github.com/osyo-manga/vim-watchdogs.git', {'filetypes': ['objc']}
-NeoBundleLazy 'https://github.com/jceb/vim-hier.git', {'filetypes': ['objc']}
-NeoBundleLazy 'git://github.com/tokorom/vim-quickrun-xctool.git', {'filetypes': ['objc']}
 
 " Qiita
 NeoBundle 'mattn/qiita-vim'
@@ -177,10 +153,6 @@ syntax on
 set number
 " 閉じ括弧が入力されたとき、対応する括弧を表示する
 set showmatch
-" ステータスラインを常に表示
-"set laststatus=2
-" ステータスライン表示設定
-"set statusline=%<%f\ %m%r%h%w%y%{'\ \ \/'.(&fenc!=''?&fenc:&enc).'\/'.&ff.'\/'}%=%l,%c%V,%{b:charCounterCount}%8P
 " 不可視文字を表示
 set list
 set lcs=tab:>\ 
@@ -249,10 +221,6 @@ set cursorline
 highlight clear CursorLine
 highlight CursorLine ctermbg=black guibg=black
 
-" 115文字以降をハイライト
-" highlight ColorColumn ctermbg=black guibg=black
-" execute "set colorcolumn=" . join(range(115, 300), ',')
-
 " }}}1
 "=============================================================================
 " keybindings {{{1
@@ -302,19 +270,6 @@ cnoremap <C-a>    <Home>
 cnoremap <C-e>    <End>
 cnoremap <C-d>    <Del>
 cnoremap <C-h>    <BackSpace>
-cnoremap <S-Tab>  <C-d>
-
-" 名前付きレジスタにヤンク
-nnoremap [MyPrefix]y "yy
-" 名前付きレジスタにヤンクして削除
-nnoremap [MyPrefix]d "yd
-" 名前付きレジスタからペースト
-nnoremap [MyPrefix]p "yp
-nnoremap [MyPrefix]P "yP
-" クリップボードの内容を名前付きレジスタに逃がす
-nnoremap [MyPrefix]" :<C-u>let @y=@*<CR>:echo @y<CR>
-" 単語の置き換え(クリップボードの内容を保つ)
-" nnoremap [MyPrefix]r "rciw<C-r>*<Esc>
 
 " -- exchange source <--> header --
 
@@ -341,12 +296,10 @@ nnoremap [MyPrefix].p :<C-u>edit $HOME/vimfiles/snippets/<CR>
 
 nnoremap [MyPrefix]w             :<C-u>w<CR>
 nnoremap [MyPrefix].e            :<C-u>e .<CR>
-nnoremap <silent> <C-w><C-e>     :<C-u>vs<CR>:<C-u>e .<CR>
-
-nnoremap [MyPrefix]t             :<C-u>tabnew 
 
 " ---------- tab ----------
 
+nnoremap [MyPrefix]t             :<C-u>tabnew 
 nnoremap <C-n>                   :<C-u>tabn<CR>
 nnoremap <C-p>                   :<C-u>tabp<CR>
 
@@ -356,14 +309,9 @@ nnoremap [MyPrefix].f :<C-u>Unite -start-insert buffer file_rec file/new<CR>
 nnoremap [MyPrefix].b :<C-u>Unite -start-insert buffer<CR>
 nnoremap [MyPrefix].r :<C-u>Unite -start-insert file_mru<CR>
 nnoremap [MyPrefix].c :<C-u>Unite -start-insert codic<CR>
-" nnoremap [MyPrefix].o :<C-u>Unite -start-insert outline<CR>
 
 nnoremap [MyPrefix]g :<C-u>Unite grep:.<CR>
 nnoremap <expr> [MyPrefix].g ':Unite grep:. -input=' . expand('<cword>')
-
-" ---------- substitute ----------
-
-" nnoremap <expr> [MyPrefix].s      ':%substitute/\<' . expand('<cword>') . '\>//gc<Left><Left><Left>'
 
 " ---------- buffer ----------
 
@@ -412,25 +360,6 @@ function! MoveToZero()
 endfunction
 command! MoveToZero :call MoveToZero()
 
-" source % の実行
-command! SU :source %
-
-" カレントファイルのディレクトリに移動 
-command! -nargs=0 CdCurrent cd %:p:h
-
-" 開発中pluginの再読込
-"command! ReloadThisPlugin execute("unlet g:loaded_".expand("%:t:r")) | execute("source ".expand("%"))
-"command! RT ReloadThisPlugin
-
-" カレントバッファのファイル名を変更 by vim-users.jp
-command! -nargs=1 -complete=file Rename f <args>|call delete(expand('#'))
-
-" XMLの整形
-command! XmlLint :exe ":silent 1,$!xmllint --format --recover - 2>/dev/null"
-
-" Xcodeに現在のファイルを追加 : デバッグ中
-command! -nargs=0 XcodeAddFile echo system('xcode_add_file ' . expand('%'))
-
 " 現在のコードをGitHubで開く
 command! -nargs=* -range GitBrowseRemote !git browse-remote --rev -L<line1>,<line2> <f-args> -- %
 
@@ -452,14 +381,10 @@ augroup AddFileType
   autocmd!
   " vim
   autocmd BufWinEnter,BufNewFile *.vimperatorrc setfiletype vim
-  " mayu
-  autocmd BufWinEnter,BufNewFile *.mayu,*.nodoka setfiletype mayu
   " rspec
   autocmd BufWinEnter,BufNewFile *_spec.rb setfiletype ruby.rspec
   " puthon.test
   autocmd BufWinEnter,BufNewFile test*.py setfiletype python.test
-  " objc.test
-  autocmd BufWinEnter,BufNewFile *Test.m setfiletype objc.test
   " markdown
   autocmd BufWinEnter,BufNewFile *.md,*.mkd,*.page setfiletype markdown
   " iOS
@@ -559,26 +484,6 @@ call neobundle#untap()
 endif " }}}3
 " }}}2
 
-" unite-xcode_complete {{{2
-if neobundle#tap('unite-xcode_complete') " {{{3
-function! neobundle#tapped.hooks.on_source(bundle) " }}}3
-"-----------------------------------------------------------------------------
-
-autocmd FileType objc inoremap <silent><expr> <C-x><C-o>
-  \ unite#start_complete(
-  \   ['xcode_complete'],
-  \   {
-  \     'start_insert' : 1,
-  \     'input' : unite#sources#xcode_complete#get_cur_text(),
-  \   }
-  \ )
-
-"-----------------------------------------------------------------------------
-endfunction " {{{3
-call neobundle#untap()
-endif " }}}3
-" }}}2
-
 " neocomplete {{{2
 "-----------------------------------------------------------------------------
 
@@ -613,47 +518,6 @@ if !exists('g:neocomplete#keyword_patterns')
   let g:neocomplete#keyword_patterns = {}
 endif
 let g:neocomplete#keyword_patterns._ = '\h\w*'
-
-"-----------------------------------------------------------------------------
-endfunction " {{{3
-call neobundle#untap()
-endif " }}}3
-" }}}2
-
-" neocomplete-ios-dictionary {{{2
-"-----------------------------------------------------------------------------
-
-call neocomplete_ios_dictionary#configure_ios_dict()
-
-"-----------------------------------------------------------------------------
-" }}}2
-
-" vim-clang-format {{{2
-if neobundle#tap('vim-clang-format') " {{{3
-function! neobundle#tapped.hooks.on_source(bundle) " }}}3
-"-----------------------------------------------------------------------------
-
-autocmd FileType objc call s:clang_format_settings()
-function! s:clang_format_settings()
-  " key mapping
-  map = <Plug>(operator-clang-format)
-  nnoremap [MyPrefix].w :call SaveWithFormat()<CR>
-endfunction
-
-function! SaveWithFormat()
-  if filereadable(expand('.clang-format'))
-    augroup SaveWithFormat
-      autocmd!
-      autocmd BufWritePre * if &ft ==# 'objc' | call clang_format#replace(1, line('$')) | endif
-    augroup END
-  endif
-
-  execute ':w'
-
-  augroup SaveWithFormat
-    autocmd!
-  augroup END
-endfunction
 
 "-----------------------------------------------------------------------------
 endfunction " {{{3
@@ -701,11 +565,6 @@ let g:quickrun_config = {}
 " config
 
 let g:quickrun_config['*'] = {'split': 'below'}
-let g:quickrun_config['python.test'] = {'command': 'nosetests', 'exec': ['%c -v %s'], 'filetype': 'nosetests-result'}
-let g:quickrun_config['ruby.rspec'] = {'command': 'rspec', 'cmdopt': '--format progress -I .', 'exec': ['source .rvmrc \&\& %c %o %s %a'], 'filetype': 'rspec-result'}
-let g:quickrun_config['objc'] = {'command': 'objc-run', 'cmdopt': '-fblocks -fobjc-arc', 'exec': ['%c %s %o %a']}
-let g:quickrun_config['objc.test'] = {'command': 'xctool', 'cmdopt': 'test', 'outputter': 'xctool', 'exec': ['%c %o %a']}
-let g:quickrun_config['swift'] = {'command': 'xcrun swift', 'cmdopt': '', 'exec': ['%c %s %o %a']}
 
 let g:quickrun_config['markdown'] = {
   \ 'outputter' : 'null',
@@ -715,41 +574,10 @@ let g:quickrun_config['markdown'] = {
   \ 'exec' : '%c %o %a %s',
   \ }
 
-" watchdogs
-
-let g:quickrun_config['watchdogs_checker/xcodebuild'] = {
-  \ 'command'  : 'xcodebuild',
-  \ 'exec'     : '%c %o',
-  \ 'quickfix/errorformat' : "%f:%l:%c:{%*[^}]}: error: %m,%f:%l:%c:{%*[^}]}: fatal error: %m,%f:%l:%c:{%*[^}]}: warning: %m,%f:%l:%c: error: %m,%f:%l:%c: fatal error: %m,%f:%l:%c: warning: %m,%f:%l: Error: %m,%f:%l: error: %m,%f:%l: fatal error: %m,%f:%l: warning: %m",
-  \ }
-
-let g:quickrun_config['objc/watchdogs_checker'] = {
-  \ 'type' : 'watchdogs_checker/xcodebuild',
-  \ 'outputter/quickfix/open_cmd' : '',
-  \ }
-
-call watchdogs#setup(g:quickrun_config)
-
 " keymap
 
 map [MyPrefix]q <Nop>
 map [MyPrefix]q <Plug>(quickrun)
-
-"-----------------------------------------------------------------------------
-endfunction " {{{3
-call neobundle#untap()
-endif " }}}3
-" }}}2
-
-" vim-watchdogs {{{2
-if neobundle#tap('vim-watchdogs') " {{{3
-function! neobundle#tapped.hooks.on_source(bundle) " }}}3
-"-----------------------------------------------------------------------------
-
-" バッファ書き込み後にWatchdogsRunSilent
-let g:watchdogs_check_BufWritePost_enable = 1
-" 一定時間キー入力がなかった場合にWatchdogsRunSilent
-let g:watchdogs_check_CursorHold_enable = 1
 
 "-----------------------------------------------------------------------------
 endfunction " {{{3
