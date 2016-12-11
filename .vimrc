@@ -360,10 +360,6 @@ nnoremap [MyPrefix].c :<C-u>Unite -start-insert codic<CR>
 nnoremap [MyPrefix]g :<C-u>Unite grep:.<CR>
 nnoremap <expr> [MyPrefix].g ':Unite grep:. -input=' . expand('<cword>')
 
-let g:ios_framework_dir = "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/System/Library/Frameworks"
-nnoremap <expr> [MyPrefix].i ':Unite grep:' . g:ios_framework_dir . ' -input=' . expand('<cword>')
-nnoremap <expr> [MyPrefix].I ':Unite file_rec:' . g:ios_framework_dir . ' -input=' . expand('<cword>')
-
 " ---------- substitute ----------
 
 " nnoremap <expr> [MyPrefix].s      ':%substitute/\<' . expand('<cword>') . '\>//gc<Left><Left><Left>'
