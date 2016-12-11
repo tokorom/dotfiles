@@ -5,14 +5,20 @@ autocmd!
 set nocompatible
 filetype off
 
+if has('win32') || has ('win64')
+    let $VIMHOME = $VIM."/vimfiles"
+else
+    let $VIMHOME = $HOME."/.vim"
+endif
+
 "=============================================================================
 " Bundle (NeoBundle) {{{1
 
 if has('vim_starting')
-  set runtimepath+=$HOME/vimfiles/bundle/neobundle.vim/
+  set runtimepath+=$VIMHOME/bundle/neobundle.vim/
 endif
 
-call neobundle#begin(expand('$HOME/vimfiles/bundle/'))
+call neobundle#begin(expand('$VIMHOME/bundle/'))
 NeoBundleFetch 'Shougo/neobundle.vim'
 call neobundle#end()
 
@@ -291,7 +297,7 @@ nnoremap [MyPrefix]cp            :<C-u>cp<CR>
 nnoremap [MyPrefix].  <Nop>
 nnoremap [MyPrefix].. :<C-u>edit %:h<CR>
 nnoremap [MyPrefix].v :<C-u>edit $MYVIMRC<CR>
-nnoremap [MyPrefix].p :<C-u>edit $HOME/vimfiles/snippets/<CR>
+nnoremap [MyPrefix].p :<C-u>edit $VIMHOME/snippets/<CR>
 
 " ---------- file ----------
 
@@ -531,7 +537,7 @@ if neobundle#tap('neosnippet') " {{{3
 function! neobundle#tapped.hooks.on_source(bundle) " }}}3
 "-----------------------------------------------------------------------------
 
-let g:neosnippet#snippets_directory = "$HOME/vimfiles/snippets"
+let g:neosnippet#snippets_directory = "$VIMHOME/snippets"
 let g:neosnippet#enable_snipmate_compatibility = 1
 
 imap <expr><TAB> neosnippet#expandable() ? "\<Plug>(neosnippet_expand_or_jump)"
