@@ -325,6 +325,7 @@ nmap [MyPrefix]A             <Plug>(altr-back)
 
 nnoremap [MyPrefix]cm            :<C-u>w<CR>:<C-u>make<CR>
 nnoremap [MyPrefix]cl            :<C-u>clist<CR>
+nnoremap [MyPrefix]co            :<C-u>copen<CR>
 nnoremap [MyPrefix]cc            :<C-u>cc<CR>
 nnoremap [MyPrefix]cn            :<C-u>cn<CR>
 nnoremap [MyPrefix]cp            :<C-u>cp<CR>
@@ -772,6 +773,7 @@ let g:syntastic_check_on_wq = 0
 
 let g:syntastic_swift_checkers = ['swiftlint']
 let g:syntastic_slim_checkers = ['slim_lint']
+let g:syntastic_ruby_checkers = ['rubocop']
 
 "-----------------------------------------------------------------------------
 endfunction " {{{3
