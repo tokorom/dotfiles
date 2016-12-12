@@ -6,8 +6,8 @@
 !/installer
 !/Documents/terminal/*.terminal
 !/bin
-!/vimfiles
-!/vimfiles_local
+!/.vim
+!/.vim.plugins
 !/.gitconfig
 !/.gitignore
 !/.global_gitignore

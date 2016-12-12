@@ -6,17 +6,22 @@ set nocompatible
 filetype off
 
 if has('win32') || has ('win64')
-    let $VIMHOME = $VIM."/vimfiles"
+    let $VIMHOME = $HOME."/vimfiles"
+    let $VIMLOCAL = $HOME."/vim_plugins"
 else
     let $VIMHOME = $HOME."/.vim"
+    let $VIMLOCAL = $HOME."/.vim.plugins"
+endif
+
+if has('vim_starting')
+  set runtimepath+=$VIMHOME/bundle/neobundle.vim/
+  set runtimepath+=$VIMLOCAL/swift/
+  set runtimepath+=$VIMLOCAL/unite-action-tabselect/
+  set runtimepath+=$VIMLOCAL/urldecoder.vim/
 endif
 
 "=============================================================================
 " Bundle (NeoBundle) {{{1
-
-if has('vim_starting')
-  set runtimepath+=$VIMHOME/bundle/neobundle.vim/
-endif
 
 call neobundle#begin(expand('$VIMHOME/bundle/'))
 NeoBundleFetch 'Shougo/neobundle.vim'
@@ -125,9 +130,6 @@ NeoBundle 'git://github.com/thinca/vim-quickrun.git'
 " Qiita
 NeoBundle 'mattn/qiita-vim'
 NeoBundle 'mattn/webapi-vim'
-
-" local
-NeoBundleLocal ~/vimfiles_local/
 
 " ファイルタイプ別セッティングON
 filetype plugin indent on 
