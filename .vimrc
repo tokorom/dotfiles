@@ -5,138 +5,115 @@ autocmd!
 set nocompatible
 filetype off
 
-if has('win32') || has ('win64')
-    let $VIMHOME = $HOME."/vimfiles"
-    let $VIMLOCAL = $HOME."/vim_plugins"
-else
-    let $VIMHOME = $HOME."/.vim"
-    let $VIMLOCAL = $HOME."/.vim.plugins"
-endif
-
-if has('vim_starting')
-  set runtimepath+=$VIMHOME/bundle/neobundle.vim/
-  set runtimepath+=$VIMLOCAL/swift/
-  set runtimepath+=$VIMLOCAL/unite-action-tabselect/
-  set runtimepath+=$VIMLOCAL/urldecoder.vim/
-endif
+let $VIMHOME = $HOME."/.vim"
+let $VIMLOCAL = $HOME."/.vim.local"
 
 "=============================================================================
-" Bundle (NeoBundle) {{{1
+" Plugins (vim-plug) {{{1
 
-call neobundle#begin(expand('$VIMHOME/bundle/'))
-NeoBundleFetch 'Shougo/neobundle.vim'
-call neobundle#end()
+if has('vim_starting')
+  if empty(glob('~/.vim/autoload/plug.vim'))
+    silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+      \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+    autocmd VimEnter * PlugInstall | source $MYVIMRC
+  endif
+endif
 
-NeoBundle 'Shougo/vimproc', {
-\ 'build' : {
-\     'windows' : 'echo "Sorry, cannot update vimproc binary file in Windows."',
-\     'cygwin' : 'make -f make_cygwin.mak',
-\     'mac' : 'make -f make_mac.mak',
-\     'unix' : 'make -f make_unix.mak',
-\    },
-\ }
+call plug#begin('~/.vim/plugged')
 
-NeoBundle 'autodate.vim'
-NeoBundle 'surround.vim'
-NeoBundle 'kana/vim-fakeclip'
-NeoBundle 'L9'
-NeoBundle 'kana/vim-altr'
-NeoBundle 'thinca/vim-ref'
-NeoBundle 'anekos/char-counter-vim'
-NeoBundle 'kana/vim-smartinput'
-NeoBundle 'thinca/vim-tabrecent'
+Plug 'autodate.vim'
+Plug 'surround.vim'
+Plug 'kana/vim-fakeclip'
+Plug 'L9'
+Plug 'kana/vim-altr'
+Plug 'thinca/vim-ref'
+Plug 'anekos/char-counter-vim'
+Plug 'kana/vim-smartinput'
+Plug 'thinca/vim-tabrecent'
 
-NeoBundleLazy 'sjl/gundo.vim', {'commands': ['GundoShow', 'GundoHide', 'GundoToggle', 'GundoRenderGraph']}
+Plug 'sjl/gundo.vim', {'on': ['GundoShow', 'GundoHide', 'GundoToggle', 'GundoRenderGraph']}
 
 " color
-NeoBundle 'w0ng/vim-hybrid'
+Plug 'w0ng/vim-hybrid'
 
 " status line
-NeoBundle 'itchyny/lightline.vim'
+Plug 'itchyny/lightline.vim'
 
 " operator
-NeoBundle 'kana/vim-operator-user'
-NeoBundle 'kana/vim-operator-replace'
-NeoBundle 'emonkak/vim-operator-comment'
+Plug 'kana/vim-operator-user'
+Plug 'kana/vim-operator-replace'
+Plug 'emonkak/vim-operator-comment'
 
 " textobj
-NeoBundle 'kana/vim-textobj-user'
-NeoBundle 'kana/vim-textobj-line'
-NeoBundle 'kana/vim-textobj-entire'
-NeoBundle 'kana/vim-textobj-indent'
-NeoBundle 'kana/vim-textobj-function'
-NeoBundle 'osyo-manga/vim-textobj-multiblock'
-NeoBundle 'thinca/vim-textobj-between'
-NeoBundle 'tokorom/vim-textobj-objc'
+Plug 'kana/vim-textobj-user'
+Plug 'kana/vim-textobj-line'
+Plug 'kana/vim-textobj-entire'
+Plug 'kana/vim-textobj-indent'
+Plug 'kana/vim-textobj-function'
 
 " ag
-NeoBundleLazy 'rking/ag.vim', {'commands': ['Ag']}
+Plug 'rking/ag.vim', {'on': ['Ag']}
 
 " unite
-NeoBundleLazy 'Shougo/unite.vim', {
-  \   'commands': [
-  \     {'name': 'Unite', 'complete': 'customlist,unite#complete_source'},
-  \     'UniteWithCursorWord',
-  \     'UniteWithInput'
-  \   ]
-  \ }
-NeoBundleLazy 'Shougo/neomru.vim', {'depends': 'Shougo/unite.vim', 'on_source': 'unite.vim'}
+Plug 'Shougo/unite.vim', {'on': ['UniteWithCursorWord', 'UniteWithInput']}
+Plug 'Shougo/neomru.vim', {'on': []}
+Plug '$VIMLOCAL/unite-action-tabselect', {'on': []}
 
 " neocomplete
-NeoBundleLazy 'Shougo/neocomplete.vim',  {'function_prefix': 'neocomplete'}
-NeoBundle 'tokorom/swift-dict.vim'
+Plug 'Shougo/neocomplete.vim'
 
 " neosnippet
-NeoBundle 'Shougo/neosnippet'
-NeoBundle 'Shougo/neosnippet-snippets', {'depends': 'Shougo/neosnippet'}
+Plug 'Shougo/neosnippet'
+Plug 'Shougo/neosnippet-snippets'
 
 " Codic
-NeoBundleLazy 'koron/codic-vim', {
-\  'commands': ['Codic'],
-\  'function_prefix': 'codic',
-\}
-NeoBundleLazy 'rhysd/unite-codic.vim', {'depends': 'Shougo/unite.vim', 'on_source': 'unite.vim'}
+Plug 'koron/codic-vim', {'on': 'Codic'}
+Plug 'rhysd/unite-codic.vim', {'on' :[]}
 
 " syntax check
-NeoBundle 'scrooloose/syntastic'
-NeoBundleLazy 'tokorom/syntastic-swiftlint.vim', {'filetypes': ['swift'], 'depends': 'scrooloose/syntastic', 'on_source': 'syntastic'}
+Plug 'scrooloose/syntastic'
+Plug 'tokorom/syntastic-swiftlint.vim', {'for': ['swift']}
 
 " git
-NeoBundle 'tpope/vim-fugitive.git'
-NeoBundle 'airblade/vim-gitgutter'
-NeoBundleLazy 'git://github.com/gregsexton/gitv.git', {'commands': ['GitV']}
+Plug 'tpope/vim-fugitive', {'on': ['Gblame', 'Gstatus']}
+Plug 'gregsexton/gitv', {'on': 'GitV'}
 
 " ruby
-NeoBundleLazy 'git://github.com/tpope/vim-rails.git', {'filetypes': ['ruby']}
+Plug 'tpope/vim-rails', {'for': ['ruby']}
 
 " markdown
-NeoBundleLazy 'git://github.com/chrismetcalf/vim-markdown.git', {'filetypes': ['markdown']}
-
-" objc
-NeoBundleLazy 'git://github.com/tokorom/cocoa.vim.git', 'syntax-only', {'filetypes': ['objc']}
+Plug 'chrismetcalf/vim-markdown', {'for': ['markdown']}
 
 " swift
-NeoBundle 'tokorom/swift_gyb.vim'
+Plug 'apple/swift', {'for': ['swift'], 'rtp': 'utils/vim'}
+Plug 'tokorom/swift_gyb.vim', {'for': ['swift']}
+Plug 'tokorom/swift-dict.vim', {'for': ['swift']}
 
 " json
-NeoBundleLazy 'https://github.com/elzr/vim-json.git', {'filetypes': ['json']}
+Plug 'https://github.com/elzr/vim-json.git', {'filetypes': ['json']}
 
 " html
-NeoBundle 'slim-template/vim-slim'
+Plug 'slim-template/vim-slim', {'for': ['slim']}
 
 " quickrun
-NeoBundle 'git://github.com/thinca/vim-quickrun.git'
+Plug 'thinca/vim-quickrun'
 
-" Qiita
-NeoBundle 'mattn/qiita-vim'
-NeoBundle 'mattn/webapi-vim'
+call plug#end()
 
 " ファイルタイプ別セッティングON
 filetype plugin indent on 
 
-NeoBundleCheck
+" plugin utils {{{2
+function! LoadAndExecPlugin(cmd, ...)
+  if !empty(a:000)
+    call call('plug#load', a:000)
+  endif
+  execute a:cmd
+endfunction
+" }}}2
 
 " }}}1
+
 "=============================================================================
 " 基本設定 {{{1
 
@@ -230,6 +207,7 @@ highlight clear CursorLine
 highlight CursorLine ctermbg=black guibg=black
 
 " }}}1
+
 "=============================================================================
 " keybindings {{{1
 
@@ -316,10 +294,8 @@ nnoremap <C-p>                   :<C-u>tabp<CR>
 
 nnoremap [MyPrefix].f :<C-u>Unite -start-insert buffer file_rec file/new<CR>
 nnoremap [MyPrefix].b :<C-u>Unite -start-insert buffer<CR>
-nnoremap [MyPrefix].r :<C-u>Unite -start-insert file_mru<CR>
-nnoremap [MyPrefix].c :<C-u>Unite -start-insert codic<CR>
-
-nnoremap [MyPrefix]g :<C-u>Unite grep:.<CR>
+nnoremap [MyPrefix].f :<C-u>call LoadAndExecPlugin(':Unite -start-insert file_mru', 'neomru.vim', 'unite.vim', 'unite-action-tabselect')<CR>
+nnoremap [MyPrefix].c :<C-u>call LoadAndExecPlugin(':Unite -start-insert codic', 'unite-codic.vim', 'codic-vim', 'unite.vim')<CR>
 nnoremap <expr> [MyPrefix].g ':Unite grep:. -input=' . expand('<cword>')
 
 " ---------- buffer ----------
@@ -344,17 +320,8 @@ nmap [MyPrefix]zz <Plug>(operator-uncomment)l
 
 omap l <Plug>(textobj-line-a)
 
-omap ib <Plug>(textobj-multiblock-i)
-omap ab <Plug>(textobj-multiblock-a)
-vmap ab <Plug>(textobj-multiblock-a)
-vmap ib <Plug>(textobj-multiblock-i)
-
-omap i<Space> <Plug>(textobj-between-i)
-omap a<Space> <Plug>(textobj-between-a)
-vmap i<Space> <Plug>(textobj-between-i)
-vmap a<Space> <Plug>(textobj-between-a)
-
 " }}}1
+
 "=============================================================================
 " my functions {{{1
 
@@ -373,6 +340,7 @@ command! MoveToZero :call MoveToZero()
 command! -nargs=* -range GitBrowseRemote !git browse-remote --rev -L<line1>,<line2> <f-args> -- %
 
 " }}}1
+
 "=============================================================================
 " autocmds {{{1
 
@@ -383,6 +351,7 @@ augroup VimrcAutocmds
 augroup END
 
 " }}}1
+
 "=============================================================================
 " add file types {{{1
 
@@ -403,6 +372,7 @@ augroup AddFileType
 augroup END
 
 " }}}1
+
 "=============================================================================
 " plugin settings {{{1
 
@@ -415,9 +385,6 @@ let g:lightline = {'colorscheme': 'wombat'}
 " }}}2
 
 " vim-smartinput {{{2
-if neobundle#tap('vim-smartinput') " {{{3
-function! neobundle#tapped.hooks.on_source(bundle) " }}}3
-"-----------------------------------------------------------------------------
 
 call smartinput#clear_rules()
 call smartinput#define_rule({
@@ -427,16 +394,10 @@ call smartinput#define_rule({
   \ 'filetype': ['c', 'cpp', 'objc', 'swift'],
   \ })
 
-"-----------------------------------------------------------------------------
-endfunction " {{{3
-call neobundle#untap()
-endif " }}}3
 " }}}2
 
 " unite.vim {{{2
-if neobundle#tap('unite.vim') " {{{3
-function! neobundle#tapped.hooks.on_source(bundle) " }}}3
-"-----------------------------------------------------------------------------
+function! Loaded_unite()
 
 let g:unite_update_time = 50
 
@@ -487,10 +448,8 @@ unlet s:filters
 
 call unite#custom#source('grep', 'converters', ["converter_filepath_filename"])
 
-"-----------------------------------------------------------------------------
-endfunction " {{{3
-call neobundle#untap()
-endif " }}}3
+endfunction
+command! LoadedUnite :call Loaded_unite()
 " }}}2
 
 " neocomplete {{{2
@@ -506,8 +465,8 @@ imap <C-k> <Plug>(neocomplete_start_unite_complete)<Esc>A
 let g:swift_dict_with_neocomplete = 1 "siwft-dictをneocomplete経由で利用する
 " }}}
 
-if neobundle#tap('neocomplete.vim') " {{{3
-function! neobundle#tapped.hooks.on_source(bundle) " }}}3
+" if neobundle#tap('neocomplete.vim') " {{{3
+" function! neobundle#tapped.hooks.on_source(bundle) " }}}3
 "-----------------------------------------------------------------------------
 
 let g:neocomplete#disable_auto_complete = 1 "自動補完をしない
@@ -529,14 +488,14 @@ endif
 let g:neocomplete#keyword_patterns._ = '\h\w*'
 
 "-----------------------------------------------------------------------------
-endfunction " {{{3
-call neobundle#untap()
-endif " }}}3
+" endfunction " {{{3
+" call neobundle#untap()
+" endif " }}}3
 " }}}2
 
 " neosnippet {{{2
-if neobundle#tap('neosnippet') " {{{3
-function! neobundle#tapped.hooks.on_source(bundle) " }}}3
+" if neobundle#tap('neosnippet') " {{{3
+" function! neobundle#tapped.hooks.on_source(bundle) " }}}3
 "-----------------------------------------------------------------------------
 
 let g:neosnippet#snippets_directory = "$VIMHOME/snippets"
@@ -557,14 +516,14 @@ smap <expr><Esc> neosnippet#jumpable() ?
 \ "\<M-Y>\<M-Y>\<M-Y>\<M-Y>\<M-Y>\<M-Y>\<M-Y>\<M-Y>\<M-Y>\<M-Y>\<M-Y>\<Esc>" : "\<Esc>"
 
 "-----------------------------------------------------------------------------
-endfunction " {{{3
-call neobundle#untap()
-endif " }}}3
+" endfunction " {{{3
+" call neobundle#untap()
+" endif " }}}3
 " }}}2
 
 " vim-quickrun {{{2
-if neobundle#tap('vim-quickrun') " {{{3
-function! neobundle#tapped.hooks.on_source(bundle) " }}}3
+" if neobundle#tap('vim-quickrun') " {{{3
+" function! neobundle#tapped.hooks.on_source(bundle) " }}}3
 "-----------------------------------------------------------------------------
 
 " initialize
@@ -589,14 +548,14 @@ map [MyPrefix]q <Nop>
 map [MyPrefix]q <Plug>(quickrun)
 
 "-----------------------------------------------------------------------------
-endfunction " {{{3
-call neobundle#untap()
-endif " }}}3
+" endfunction " {{{3
+" call neobundle#untap()
+" endif " }}}3
 " }}}2
 
 " syntastic {{{2
-if neobundle#tap('syntastic') " {{{3
-function! neobundle#tapped.hooks.on_source(bundle) " }}}3
+" if neobundle#tap('syntastic') " {{{3
+" function! neobundle#tapped.hooks.on_source(bundle) " }}}3
 "-----------------------------------------------------------------------------
 
 set statusline+=%#warningmsg#
@@ -613,9 +572,11 @@ let g:syntastic_slim_checkers = ['slim_lint']
 let g:syntastic_ruby_checkers = ['rubocop']
 
 "-----------------------------------------------------------------------------
-endfunction " {{{3
-call neobundle#untap()
-endif " }}}3
+" endfunction " {{{3
+" call neobundle#untap()
+" endif " }}}3
 " }}}2
+
+call plug#load('vim-hybrid')
 
 " }}}1

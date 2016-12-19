@@ -1,13 +1,23 @@
 # ignore all files
 /*
 /.*
+
+# add ignore files
+.DS_Store
+.svn
+*.pyc
+.netrwhist
+
+# add local files
+*.local
+
 # require files
 !README.md
 !/installer
 !/Documents/terminal/*.terminal
 !/bin
 !/.vim
-!/.vim.plugins
+!/.vim.local
 !/.gitconfig
 !/.gitignore
 !/.global_gitignore
@@ -24,21 +34,14 @@
 !/clear_backups
 !/Brewfile
 !/Gemfile
-# add ignore files
-.DS_Store
-.svn
-*.pyc
-.netrwhist
-# add local files
-*.local
+
 # Karabiner
 !karabiner-import.sh
 !/Library/Application Support/Karabiner/*.xml
 !/Library/Application Support/KeyRemap4MacBook/*.xml
+
 # Xcode Templates
 !/Library/Developer/Xcode/Templates/
-# FireFox
-!FireFoxBackup.zip
-!firefox-backup.sh
+
 # addfiles
 !/addfiles
