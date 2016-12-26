@@ -19,6 +19,7 @@
 !/.zshenv
 !/.zshrc
 !/zshfiles
+!/.hammerspoon
 !/.agignore
 !/.clang-format
 !/clear_backups
