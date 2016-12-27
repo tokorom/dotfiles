@@ -1,0 +1,181 @@
+# basic
+
+[[plugins]]
+repo = 'autodate.vim'
+
+[[plugins]]
+repo = 'surround.vim'
+
+[[plugins]]
+repo = 'kana/vim-fakeclip'
+
+[[plugins]]
+repo = 'L9'
+
+[[plugins]]
+repo = 'kana/vim-altr'
+
+[[plugins]]
+repo = 'kana/vim-smartinput'
+
+[[plugins]]
+repo = 'thinca/vim-tabrecent'
+
+# color
+
+[[plugins]]
+repo = 'w0ng/vim-hybrid'
+hook_add = '''
+colorscheme hybrid
+'''
+
+# status line
+
+[[plugins]]
+repo = 'itchyny/lightline.vim'
+
+# operator
+
+[[plugins]]
+repo = 'kana/vim-operator-user'
+
+[[plugins]]
+repo = 'kana/vim-operator-replace'
+
+[[plugins]]
+repo = 'emonkak/vim-operator-comment'
+
+# textobj
+
+[[plugins]]
+repo = 'kana/vim-textobj-user'
+
+[[plugins]]
+repo = 'kana/vim-textobj-line'
+
+[[plugins]]
+repo = 'kana/vim-textobj-entire'
+
+[[plugins]]
+repo = 'kana/vim-textobj-indent'
+
+[[plugins]]
+repo = 'kana/vim-textobj-function'
+ 
+# grep
+
+[[plugins]]
+repo = 'rking/ag.vim'
+lazy = 1
+on_cmd = ['Ag']
+
+# undo
+
+[[plugins]]
+repo = 'sjl/gundo.vim'
+lazy = 1
+on_cmd = ['GundoShow', 'GundoHide', 'GundoToggle', 'GundoRenderGraph']
+
+# git
+
+[[plugins]]
+repo = 'tpope/vim-fugitive.git'
+lazy = 1
+on_cmd = ['Gblame', 'Ggrep']
+
+[[plugins]]
+repo = 'airblade/vim-gitgutter'
+ 
+# toml
+
+[[plugins]]
+repo = 'cespare/vim-toml'
+lazy = 1
+on_ft = ['toml']
+
+# # unite
+# 
+# [[plugins]]
+# repo = 'Shougo/unite.vim', {
+# 
+#   \   'lazy': 1,
+#   \   'on_cmd': ['UniteWithCursorWord', 'UniteWithInput'],
+#   \ })
+# [[plugins]]
+# repo = 'Shougo/neomru.vim', {'lazy': 1, 'depends': 'Shougo/unite.vim', 'on_source': 'unite.vim'})
+# 
+# 
+# # neocomplete
+# 
+# [[plugins]]
+# repo = 'Shougo/neocomplete.vim',  {'lazy': 1, 'function_prefix': 'neocomplete'}
+# 
+# [[plugins]]
+# repo = 'tokorom/swift-dict.vim', {'lazy': 1, 'on_ft': ['swift']}
+# 
+# 
+# # neosnippet
+# 
+# [[plugins]]
+# repo = 'Shougo/neosnippet'
+# 
+# [[plugins]]
+# repo = 'Shougo/neosnippet-snippets', {'lazy': 1, 'depends': 'Shougo/neosnippet', 'on_source': 'neosnippet'}
+# 
+# 
+# # Codic
+# 
+# [[plugins]]
+# repo = 'koron/codic-vim', {
+# 
+# \  'on_cmd': ['Codic'],
+# \  'function_prefix': 'codic',
+# \})
+# [[plugins]]
+# repo = 'rhysd/unite-codic.vim', {'lazy': 1, 'depends': 'Shougo/unite.vim', 'on_source': 'unite.vim'}
+# 
+# 
+# # syntax check
+# 
+# [[plugins]]
+# repo = 'scrooloose/syntastic', {'lazy': 1, 'on_ft': ['swift', 'ruby', 'python', 'html', 'css', 'slim', 'json', 'javascript', 'markdown']}
+# 
+# [[plugins]]
+# repo = 'tokorom/syntastic-swiftlint.vim', {'lazy': 1, 'on_ft': ['swift'], 'depends': 'scrooloose/syntastic', 'on_source': 'syntastic'}
+# 
+# 
+# 
+# # ruby
+# 
+# [[plugins]]
+# repo = 'tpope/vim-rails.git', {'lazy': 1, 'on_ft': ['ruby']}
+# 
+# 
+# # markdown
+# 
+# [[plugins]]
+# repo = 'chrismetcalf/vim-markdown.git', {'lazy': 1, 'on_ft': ['markdown']}
+# 
+# 
+# # swift
+# 
+# [[plugins]]
+# repo = 'tokorom/swift_gyb.vim', {'lazy': 1, 'on_ft': ['swift']}
+# 
+# 
+# # json
+# 
+# [[plugins]]
+# repo = 'elzr/vim-json.git', {'lazy': 1, 'on_ft': ['json']}
+# 
+# 
+# # html
+# 
+# [[plugins]]
+# repo = 'slim-template/vim-slim', {'lazy': 1, 'on_ft': ['slim']}
+# 
+# 
+# # quickrun
+# 
+# [[plugins]]
+# repo = 'thinca/vim-quickrun.git'
