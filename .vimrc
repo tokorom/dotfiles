@@ -79,7 +79,7 @@ NeoBundleLazy 'Shougo/neomru.vim', {'depends': 'Shougo/unite.vim', 'on_source': 
 
 " neocomplete
 NeoBundleLazy 'Shougo/neocomplete.vim',  {'function_prefix': 'neocomplete'}
-NeoBundle 'tokorom/swift-dict.vim'
+NeoBundleLazy 'tokorom/swift-dict.vim', {'filetypes': ['swift']}
 
 " neosnippet
 NeoBundle 'Shougo/neosnippet'
@@ -93,7 +93,7 @@ NeoBundleLazy 'koron/codic-vim', {
 NeoBundleLazy 'rhysd/unite-codic.vim', {'depends': 'Shougo/unite.vim', 'on_source': 'unite.vim'}
 
 " syntax check
-NeoBundle 'scrooloose/syntastic'
+NeoBundleLazy 'scrooloose/syntastic', {'filetypes': ['swift', 'ruby', 'python', 'html', 'css', 'slim', 'json', 'javascript', 'markdown']}
 NeoBundleLazy 'tokorom/syntastic-swiftlint.vim', {'filetypes': ['swift'], 'depends': 'scrooloose/syntastic', 'on_source': 'syntastic'}
 
 " git
