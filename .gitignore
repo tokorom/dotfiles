@@ -7,6 +7,7 @@
 !/Documents/terminal/*.terminal
 !/bin
 !/.vim
+/.vim/.*
 !/.vim.plugins
 !/.gitconfig
 !/.gitignore
