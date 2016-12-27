@@ -1,7 +1,3 @@
-" --- indent ---
-set shiftwidth=4
-set tabstop=4
-
 " --- altr settings ---
 
 call altr#remove_all()
