@@ -41,8 +41,6 @@ NeoBundle 'surround.vim'
 NeoBundle 'kana/vim-fakeclip'
 NeoBundle 'L9'
 NeoBundle 'kana/vim-altr'
-NeoBundle 'thinca/vim-ref'
-NeoBundle 'anekos/char-counter-vim'
 NeoBundle 'kana/vim-smartinput'
 NeoBundle 'thinca/vim-tabrecent'
 
@@ -65,9 +63,6 @@ NeoBundle 'kana/vim-textobj-line'
 NeoBundle 'kana/vim-textobj-entire'
 NeoBundle 'kana/vim-textobj-indent'
 NeoBundle 'kana/vim-textobj-function'
-NeoBundle 'osyo-manga/vim-textobj-multiblock'
-NeoBundle 'thinca/vim-textobj-between'
-NeoBundle 'tokorom/vim-textobj-objc'
 
 " ag
 NeoBundleLazy 'rking/ag.vim', {'commands': ['Ag']}
@@ -104,16 +99,12 @@ NeoBundleLazy 'tokorom/syntastic-swiftlint.vim', {'filetypes': ['swift'], 'depen
 " git
 NeoBundle 'tpope/vim-fugitive.git'
 NeoBundle 'airblade/vim-gitgutter'
-NeoBundleLazy 'git://github.com/gregsexton/gitv.git', {'commands': ['GitV']}
 
 " ruby
 NeoBundleLazy 'git://github.com/tpope/vim-rails.git', {'filetypes': ['ruby']}
 
 " markdown
 NeoBundleLazy 'git://github.com/chrismetcalf/vim-markdown.git', {'filetypes': ['markdown']}
-
-" objc
-NeoBundleLazy 'git://github.com/tokorom/cocoa.vim.git', 'syntax-only', {'filetypes': ['objc']}
 
 " swift
 NeoBundle 'tokorom/swift_gyb.vim'
@@ -126,10 +117,6 @@ NeoBundle 'slim-template/vim-slim'
 
 " quickrun
 NeoBundle 'git://github.com/thinca/vim-quickrun.git'
-
-" Qiita
-NeoBundle 'mattn/qiita-vim'
-NeoBundle 'mattn/webapi-vim'
 
 " ファイルタイプ別セッティングON
 filetype plugin indent on 
@@ -344,16 +331,6 @@ nmap [MyPrefix]zz <Plug>(operator-uncomment)l
 
 omap l <Plug>(textobj-line-a)
 
-omap ib <Plug>(textobj-multiblock-i)
-omap ab <Plug>(textobj-multiblock-a)
-vmap ab <Plug>(textobj-multiblock-a)
-vmap ib <Plug>(textobj-multiblock-i)
-
-omap i<Space> <Plug>(textobj-between-i)
-omap a<Space> <Plug>(textobj-between-a)
-vmap i<Space> <Plug>(textobj-between-i)
-vmap a<Space> <Plug>(textobj-between-a)
-
 " }}}1
 "=============================================================================
 " my functions {{{1
@@ -390,10 +367,6 @@ augroup AddFileType
   autocmd!
   " vim
   autocmd BufWinEnter,BufNewFile *.vimperatorrc setfiletype vim
-  " rspec
-  autocmd BufWinEnter,BufNewFile *_spec.rb setfiletype ruby.rspec
-  " puthon.test
-  autocmd BufWinEnter,BufNewFile test*.py setfiletype python.test
   " markdown
   autocmd BufWinEnter,BufNewFile *.md,*.mkd,*.page setfiletype markdown
   " iOS
