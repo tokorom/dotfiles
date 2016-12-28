@@ -41,7 +41,6 @@ nnoremap  <Space><Space><Space> :<C-u>TabRecent<CR>
 [[plugins]]
 repo = 'Shougo/context_filetype.vim'
 #{{{1
-lazy = 1
 on_source = 'neocomplete.vim'
 #1}}}
 
@@ -132,7 +131,6 @@ depends = 'vim-textobj-user'
 [[plugins]]
 repo = 'rking/ag.vim'
 #{{{1
-lazy = 1
 on_cmd = ['Ag']
 #1}}}
 
@@ -141,7 +139,6 @@ on_cmd = ['Ag']
 [[plugins]]
 repo = 'sjl/gundo.vim'
 #{{{1
-lazy = 1
 on_cmd = ['GundoShow', 'GundoHide', 'GundoToggle', 'GundoRenderGraph']
 #1}}}
 
@@ -150,7 +147,6 @@ on_cmd = ['GundoShow', 'GundoHide', 'GundoToggle', 'GundoRenderGraph']
 [[plugins]]
 repo = 'tpope/vim-fugitive.git'
 #{{{1
-lazy = 1
 on_cmd = ['Gblame', 'Ggrep']
 #1}}}
 
@@ -162,7 +158,6 @@ repo = 'airblade/vim-gitgutter'
 [[plugins]]
 repo = 'thinca/vim-quickrun.git'
 #{{{1
-lazy = 1
 on_map = {n = '<Plug>'}
 hook_add = '''
 map [MyPrefix]q <Nop>
@@ -188,7 +183,6 @@ let g:quickrun_config['markdown'] = {
 [[plugins]]
 repo = 'scrooloose/syntastic'
 #{{{1
-lazy = 1
 on_ft = ['swift', 'ruby', 'python', 'html', 'css', 'slim', 'json', 'javascript', 'markdown']
 #1}}}
 
@@ -196,7 +190,6 @@ on_ft = ['swift', 'ruby', 'python', 'html', 'css', 'slim', 'json', 'javascript',
 repo = 'tokorom/syntastic-swiftlint.vim'
 #{{{1
 depends = 'syntastic'
-lazy = 1
 on_ft = ['swift']
 hook_post_source = '''
 set statusline+=%#warningmsg#
@@ -219,7 +212,6 @@ let g:syntastic_ruby_checkers = ['rubocop']
 [[plugins]]
 repo = 'cespare/vim-toml'
 #{{{1
-lazy = 1
 on_ft = ['toml']
 #1}}}
 
@@ -229,7 +221,6 @@ on_ft = ['toml']
 repo = 'Shougo/unite.vim'
 #{{{1
 depends = 'neomru.vim'
-lazy = 1
 on_cmd = ['Unite', 'UniteWithCursorWord', 'UniteWithInput']
 hook_add = '''
 nnoremap [MyPrefix].f :<C-u>Unite -start-insert buffer file_rec file/new<CR>
@@ -292,7 +283,6 @@ call unite#custom#source('grep', 'converters', ["converter_filepath_filename"])
 [[plugins]]
 repo = 'Shougo/neomru.vim'
 #{{{1
-lazy = 1
 on_source = 'unite.vim'
 #1}}}
 
@@ -303,8 +293,7 @@ repo = 'Shougo/neocomplete.vim'
 #{{{1
 depends = 'context_filetype.vim'
 if = "has('lua')"
-lazy = 1
-function_prefix = 'neocomplete'
+on_func = 'neocomplete#'
 hook_source = '''
 let g:neocomplete#enable_at_startup = 1 "自動起動
 inoremap <expr> <C-n> pumvisible() ? "\<C-n>" : neocomplete#start_manual_complete()
@@ -337,7 +326,6 @@ let g:neocomplete#keyword_patterns._ = '\h\w*'
 repo = '$VIMLOCAL/unite-action-tabselect'
 #{{{1
 depends = 'unite.vim'
-lazy = 1
 on_source = 'unite.vim'
 hook_post_source = '''
 call unite#custom#default_action('jump_list,file,buffer,openable', 'tabselect')
@@ -350,7 +338,6 @@ call unite#custom#default_action('jump_list,file,buffer,openable', 'tabselect')
 repo = 'Shougo/neosnippet'
 #{{{1
 depends = 'context_filetype.vim'
-lazy = 1
 on_i = true
 on_ft = 'snippet'
 hook_source = '''
@@ -377,7 +364,6 @@ smap <expr><Esc> neosnippet#jumpable() ?
 repo = 'Shougo/neosnippet-snippets'
 #{{{1
 depends = 'neosnippet'
-lazy = 1
 on_source = 'neosnippet'
 #1}}}
 
@@ -386,7 +372,6 @@ on_source = 'neosnippet'
 [[plugins]]
 repo = 'koron/codic-vim'
 #{{{1
-lazy = 1
 on_cmd = ['Codic']
 on_source = 'unite-codic.vim'
 #1}}}
@@ -395,7 +380,6 @@ on_source = 'unite-codic.vim'
 repo = 'rhysd/unite-codic.vim'
 #{{{1
 depends = 'unite.vim'
-lazy = 1
 on_source = 'unite.vim'
 #1}}}
 
@@ -404,7 +388,6 @@ on_source = 'unite.vim'
 [[plugins]]
 repo = 'tpope/vim-rails.git'
 #{{{1
-lazy = 1
 on_ft = ['ruby']
 #1}}}
 
@@ -413,7 +396,6 @@ on_ft = ['ruby']
 [[plugins]]
 repo = 'chrismetcalf/vim-markdown.git'
 #{{{1
-lazy = 1
 on_ft = ['markdown']
 #1}}}
 
@@ -422,7 +404,6 @@ on_ft = ['markdown']
 [[plugins]]
 repo = 'apple/swift'
 #{{{1
-lazy = 1
 rtp = 'utils/vim'
 on_ft = ['swift']
 #1}}}
@@ -430,14 +411,12 @@ on_ft = ['swift']
 [[plugins]]
 repo = 'tokorom/swift_gyb.vim'
 #{{{1
-lazy = 1
 on_ft = ['swift']
 #1}}}
 
 [[plugins]]
 repo = 'tokorom/swift-dict.vim'
 #{{{1
-lazy = 1
 on_ft = ['swift']
 hook_source = '''
 let g:swift_dict_with_neocomplete = 1 "siwft-dictをneocomplete経由で利用する
@@ -449,7 +428,6 @@ let g:swift_dict_with_neocomplete = 1 "siwft-dictをneocomplete経由で利用�
 [[plugins]]
 repo = 'elzr/vim-json.git'
 #{{{1
-lazy = 1
 on_ft = ['json']
 #1}}}
 
@@ -458,7 +436,6 @@ on_ft = ['json']
 [[plugins]]
 repo = 'slim-template/vim-slim'
 #{{{1
-lazy = 1
 on_ft = ['slim']
 #1}}}
 
@@ -467,6 +444,5 @@ on_ft = ['slim']
 [[plugins]]
 repo = '$VIMLOCAL/urldecoder.vim'
 #{{{1
-lazy = 1
 on_cmd = ['URLEncode', 'URLDecode']
 #1}}}
