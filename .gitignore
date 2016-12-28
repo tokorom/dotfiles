@@ -8,7 +8,6 @@
 !/bin
 !/.vim
 /.vim/.*
-!/.vim.plugins
 !/.gitconfig
 !/.gitignore
 !/.global_gitignore
