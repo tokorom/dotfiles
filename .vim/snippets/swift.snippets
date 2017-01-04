@@ -12,31 +12,39 @@ alias cli
 	
 	 ${0}
 snippet class
-alias cl
+alias cls
 	//
 	//  ${1:`Filename()`}.swift
 	//
 	//  Created by ToKoRo on `strftime("%Y-%m-%d")`.
 	//
 	
-	import ${3:UIKit}
+	import ${2:Foundation}
 	
-	class $1${2} {
-		${0}
+	class $1 {${0}
+	}
+snippet uiclass
+	//
+	//  ${1:`Filename()`}.swift
+	//
+	//  Created by ToKoRo on `strftime("%Y-%m-%d")`.
+	//
+	
+	import UIKit
+	
+	class $1 {${0}
 	}
 snippet protocol
 alias pr
 	// MARK: - ${1:`Filename()`}
 	
-	protocol $1${2} {
-		${0}
+	protocol $1 {${0}
 	}
 snippet extension
 alias ext
 	// MARK: - ${1:Extension}
 	
-	extension ${2:`Filename()`: }$1 {
-		${0}
+	extension ${2:`Filename()`: }$1 {${0}
 	}
 snippet enum
 	enum ${1:Name}${2} {
@@ -354,7 +362,7 @@ snippet layoutSubviews
 	}
 snippet singleton
 alias sharedInstance
-	static let sharedInstance = ${1:`Filename()`}()${0}
+	static let shared = ${1:`Filename()`}()${0}
 snippet promise_function
 	func ${1:requestXXX}() -> Promise<${2:Int}> {
 		let promise = Promise<$2>({ fulfiller, rejecter in

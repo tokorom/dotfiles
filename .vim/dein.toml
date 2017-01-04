@@ -341,6 +341,7 @@ depends = 'context_filetype.vim'
 on_i = true
 on_ft = 'snippet'
 hook_source = '''
+let g:neosnippet#disable_runtime_snippets = {'_': 1}
 let g:neosnippet#snippets_directory = $VIMHOME.'/snippets'
 let g:neosnippet#enable_snipmate_compatibility = 1
 
@@ -358,13 +359,6 @@ imap <expr><Esc> neosnippet#jumpable() ?
 smap <expr><Esc> neosnippet#jumpable() ?
 \ "\<M-Y>\<M-Y>\<M-Y>\<M-Y>\<M-Y>\<M-Y>\<M-Y>\<M-Y>\<M-Y>\<M-Y>\<M-Y>\<Esc>" : "\<Esc>"
 '''
-#1}}}
-
-[[plugins]]
-repo = 'Shougo/neosnippet-snippets'
-#{{{1
-depends = 'neosnippet'
-on_source = 'neosnippet'
 #1}}}
 
 # Codic

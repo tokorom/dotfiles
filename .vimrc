@@ -19,7 +19,7 @@ let $PLUGINSDIR = expand($VIMHOME.'/.plugins')
 
 " dein header {{{2
 " Clone dein if needed {{{3
-let dein_repo = 'tokorom/dein.vim'
+let dein_repo = 'Shougo/dein.vim'
 if &runtimepath !~# dein_repo
   let dein_repo_dir = $PLUGINSDIR.'/repos/github.com/'.dein_repo
   if !isdirectory(dein_repo_dir)
@@ -273,7 +273,8 @@ augroup AddFileType
   " markdown
   autocmd BufWinEnter,BufNewFile *.md,*.mkd,*.page setfiletype markdown
   " iOS
-  autocmd BufWinEnter,BufNewFile Podfile,*.podspec setfiletype ruby
+  autocmd BufWinEnter,BufNewFile Podfile,*.podspec,Fastfile setfiletype ruby
+  autocmd BufWinEnter,BufNewFile apple-app-site-association setfiletype json
   " slim
   autocmd BufWinEnter,BufNewFile *.slim,*.html.slim setfiletype slim
 augroup END
