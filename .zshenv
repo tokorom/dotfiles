@@ -11,8 +11,17 @@ export MAILCHECK=0
 
 ####### path #########
 
-export PATH=/usr/local/bin:/opt/local/bin:/opt/local/sbin/:~/bin/clang/:$PATH:~/local/bin:/Applications/android_sdk/tools/:/Applications/android_sdk/platform-tools:/Applications/UpTeX.app/teTeX/bin:/usr/local/share/npm/bin/
-# export PATH="$HOME/.rbenv/bin:$PATH"
+setopt no_global_rcs
+
+path=(
+  ~/bin # mine
+  /usr/local/bin # brew
+  /usr/bin # default
+  /bin # default
+  /usr/sbin # default
+  /sbin # default
+  $path
+)
 
 ####### alias ########
 
@@ -46,8 +55,6 @@ elif [ -f /Applications/MacVim.app/Contents/MacOS/Vim ]; then
   alias vim='env LANG=ja_JP.UTF-8 /Applications/MacVim.app/Contents/MacOS/Vim "$@"'
 fi
 
-[ -f ~/.zshenv.swipe ] && source ~/.zshenv.swipe
-
 ####### autojump #########
 
 [[ -s `brew --prefix`/etc/autojump.sh ]] && . `brew --prefix`/etc/autojump.sh
@@ -60,4 +67,3 @@ fi
 ####### finally #########
 
 [ -f ~/.zshenv.local ] && source ~/.zshenv.local
-export PATH=~/bin:$PATH
