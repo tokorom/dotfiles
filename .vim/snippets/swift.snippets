@@ -215,25 +215,25 @@ snippet viewDidLoad
 		${0}
 	}
 snippet viewWillAppear
-	override func viewWillAppear(animated: Bool) {
+	override func viewWillAppear(_ animated: Bool) {
 		super.viewWillAppear(animated)
 	
 		${0}
 	}
 snippet viewDidAppear
-	override func viewDidAppear(animated: Bool) {
+	override func viewDidAppear(_ animated: Bool) {
 		super.viewDidAppear(animated)
 	
 		${0}
 	}
 snippet viewWillDisappear
-	override func viewWillDisappear(animated: Bool) {
+	override func viewWillDisappear(_ animated: Bool) {
 		super.viewWillDisappear(animated)
 	
 		${0}
 	}
 snippet viewDidDisappear
-	override func viewDidDisappear(animated: Bool) {
+	override func viewDidDisappear(_ animated: Bool) {
 		super.viewDidDisappear(animated)
 	
 		${0}
@@ -255,24 +255,25 @@ alias tableviewdelegate
 	// MARK: - UITableViewDelegate
 	
 	extension ${1:`Filename()`}: UITableViewDelegate {
-	
-		func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+		func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 		}
-	
 	}
 snippet UITableViewDataSource
 alias tableviewdatasource
 	// MARK: - UITableViewDataSource
 	
 	extension ${1:`Filename()`}: UITableViewDataSource {
-	
-		func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+		func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 		}
 	
-		func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+		func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		}
-	
 	}
+snippet dequeueReusableCell
+alias dequeuereusablecell
+	let cell = tableView.dequeueReusableCell(withIdentifier: "${1:FooCell}", for: indexPath)
+	${2:// cell.textLabel?.text = "bar"}${0}
+	return cell
 snippet numberOfSectionsInTableView
 	func numberOfSectionsInTableView(tableView: UITableView) -> Int {
 		${0}
@@ -293,13 +294,13 @@ alias tableViewDelegate_heightForHeaderInSection
 	}
 snippet heightForRowAtIndexPath
 alias tableViewDelegate_heightForRowAtIndexPath
-	func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-		${0}
+	func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+		return ${1: UITableViewAutomaticDimension}
 	}
 snippet estimatedHeightForRowAtIndexPath
 alias tableViewDelegate_estimatedHeightForRowAtIndexPath
-	func tableView(tableView: UITableView, estimatedHeightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-		${0}
+	func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+		return ${1: UITableViewAutomaticDimension}
 	}
 snippet dispatch_after
 	DispatchQueue.main.asyncAfter(deadline: .now() + ${1:5}) {
