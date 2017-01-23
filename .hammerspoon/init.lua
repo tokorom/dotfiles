@@ -20,6 +20,10 @@ remapKey({'alt'}, 'h', keyCode('left'), true)
 remapKey({'alt'}, 'l', keyCode('right'), true)
 remapKey({'alt'}, 'j', keyCode('down'), true)
 remapKey({'alt'}, 'k', keyCode('up'), true)
+remapKey({'alt', 'cmd'}, 'h', keyCode('left', {'cmd'}), true)
+remapKey({'alt', 'cmd'}, 'l', keyCode('right', {'cmd'}), true)
+remapKey({'alt', 'cmd'}, 'j', keyCode('down', {'cmd'}), true)
+remapKey({'alt', 'cmd'}, 'k', keyCode('up', {'cmd'}), true)
 
 -- show desktop
 remapKey({'alt'}, 'd', keyCode('f11'), false)
