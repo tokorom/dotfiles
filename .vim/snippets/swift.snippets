@@ -32,7 +32,46 @@ snippet uiclass
 	
 	import UIKit
 	
-	class $1 {${0}
+	class $1: ${2:UIView} {${0}
+	}
+snippet vcclass
+	//
+	//  ${1:`Filename()`}.swift
+	//
+	//  Created by ToKoRo on `strftime("%Y-%m-%d")`.
+	//
+	
+	import UIKit
+	
+	class $1: ${2:UIViewController} {${0}
+	}
+snippet tableclass
+	//
+	//  ${1:`Filename()`}.swift
+	//
+	//  Created by ToKoRo on `strftime("%Y-%m-%d")`.
+	//
+	
+	import UIKit
+	
+	class $1: ${2:UITableViewController} {${0}
+	}
+	
+	// MARK: - UITableViewDataSource
+	
+	extension $1 {
+		override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+		}
+	
+		override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+		}
+	}
+	
+	// MARK: - UITableViewDelegate
+	
+	extension $1 {
+		override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+		}
 	}
 snippet protocol
 alias pr
