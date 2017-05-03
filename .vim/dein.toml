@@ -385,6 +385,12 @@ repo = 'tpope/vim-rails.git'
 on_ft = ['ruby']
 #1}}}
 
+[[plugins]]
+repo = 'tpope/vim-haml.git'
+#{{{1
+on_ft = ['haml']
+#1}}}
+
 # markdown
 
 [[plugins]]
