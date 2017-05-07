@@ -472,6 +472,9 @@ snippet subscript_any
 	}
 snippet notimplemented
 	fatalError("\(#function) is not implemented")
+snippet assertionFailure
+alias af
+	assertionFailure("${1:Invalid condition}")${0}
 snippet assert
 alias xct
 	XCTAssert(${1})${0}
