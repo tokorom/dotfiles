@@ -184,6 +184,10 @@ let g:quickrun_config['markdown'] = {
 repo = 'scrooloose/syntastic'
 #{{{1
 on_ft = ['swift', 'ruby', 'python', 'html', 'css', 'slim', 'json', 'javascript', 'markdown']
+hook_post_source = '''
+let g:syntastic_ruby_checkers = ['rubocop']
+let g:syntastic_haml_checkers = ['haml_lint']
+'''
 #1}}}
 
 [[plugins]]
@@ -202,8 +206,6 @@ let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 
 let g:syntastic_swift_checkers = ['swiftlint']
-let g:syntastic_slim_checkers = ['slim_lint']
-let g:syntastic_ruby_checkers = ['rubocop']
 '''
 #1}}}
 

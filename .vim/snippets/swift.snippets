@@ -175,6 +175,11 @@ snippet fori
 	for ${1:index} in 0..<${2:count} {
 		${0}
 	}
+snippet fore
+	for index in ${1:elements}.indices {
+		let ${2:element} = $1[index]
+		${0}
+	}
 snippet forcase
 alias forc
 	for case let (${1:_}, ${2:value as Int}) in ${3:dicts} {

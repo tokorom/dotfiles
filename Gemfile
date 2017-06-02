@@ -3,6 +3,7 @@ source 'https://rubygems.org'
 gem 'rake'
 gem 'guard'
 gem 'guard-livereload'
+gem 'rubocop'
 
 gem 'cocoapods'
 gem 'cocoapods-search'
