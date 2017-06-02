@@ -30,6 +30,10 @@ call smartinput#define_rule({
 #1}}}
 
 [[plugins]]
+repo = 'Shougo/vimproc.vim'
+build = 'make'
+
+[[plugins]]
 repo = 'thinca/vim-tabrecent'
 #{{{1
 hook_add = '''
