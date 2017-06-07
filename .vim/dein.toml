@@ -31,7 +31,13 @@ call smartinput#define_rule({
 
 [[plugins]]
 repo = 'Shougo/vimproc.vim'
-build = 'make'
+build = {
+  windows = 'tools\\update-dll-mingw',
+  cygwin = 'make -f make_cygwin.mak',
+  mac = 'make -f make_mac.mak',
+  linux = 'make',
+  unix = 'gmake'
+}
 
 [[plugins]]
 repo = 'thinca/vim-tabrecent'
