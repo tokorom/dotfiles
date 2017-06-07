@@ -205,6 +205,12 @@ nnoremap [MyPrefix]cc            :<C-u>cc<CR>
 nnoremap [MyPrefix]cn            :<C-u>cn<CR>
 nnoremap [MyPrefix]cp            :<C-u>cp<CR>
 
+" ---------- location list ----------
+
+nnoremap [MyPrefix]ll            :<C-u>ll<CR>
+nnoremap [MyPrefix]ln            :<C-u>lnext<CR>
+nnoremap [MyPrefix]cp            :<C-u>lprevious<CR>
+
 " ---------- original ----------
 
 nnoremap [MyPrefix].  <Nop>
