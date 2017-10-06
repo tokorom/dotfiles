@@ -219,3 +219,15 @@ fi
 ####### swift #########
 
 if which swiftenv > /dev/null; then eval "$(swiftenv init -)"; fi
+
+####### path #########
+
+path=(
+  ~/bin # mine
+  /usr/local/bin # brew
+  /usr/bin # default
+  /bin # default
+  /usr/sbin # default
+  /sbin # default
+  $path
+)
