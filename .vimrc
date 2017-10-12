@@ -274,6 +274,8 @@ augroup AddFileType
   autocmd!
   " vim
   autocmd BufWinEnter,BufNewFile *.vimperatorrc setfiletype vim
+  " haml
+  autocmd BufWinEnter,BufNewFile *.vue setfiletype haml
   " toml
   autocmd BufWinEnter,BufNewFile *.toml setfiletype toml
   " markdown
