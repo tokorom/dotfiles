@@ -442,16 +442,30 @@ snippet unwind_segue
 		${0}
 	}
 snippet animateWithDuration
-	UIView.animateWithDuration(0.25, animations: { () in
+	UIView.animate(withDuration: 0.25) { () in
 		${0}
-	})
+	}
 snippet animateWithDuration_with_completion
-	UIView.animateWithDuration(0.25, delay: 0.0, options: .CurveEaseInOut, animations: { () in
+	UIView.animate(withDuration: 0.25, delay: 0.0, options: .curveEaseInOut, animations: { () in
 		${0}
 	}, completion: { (stopped: Bool) in
 		if (stopped) {
 		}
 	})
+snippet animateWithSpring
+	UIView.animate(
+		withDuration: 0.25,
+		delay: 0.0,
+		usingSpringWithDamping: 0.5,
+		initialSpringVelocity: 0.0,
+		options: .curveEaseInOut,
+		animations: { () in
+			${0}
+		}, completion: { (stopped: Bool) in
+			if (stopped) {
+			}
+		}
+	)
 snippet available_if
 alias available ifa
 	if #available(${1:iOS 9.0}, *) {
