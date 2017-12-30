@@ -1,9 +1,3 @@
 [submodule "vimfiles/bundle/neobundle.vim"]
 	path = vimfiles/bundle/neobundle.vim
 	url = git://github.com/Shougo/neobundle.vim.git
-[submodule "addfiles"]
-	path = addfiles
-	url = https://tokorom@bitbucket.org/tokorom/addfiles.git
-[submodule "/Users/tokorom/vim_swift"]
-	path = vim_swift
-	url = https://github.com/apple/swift.git
