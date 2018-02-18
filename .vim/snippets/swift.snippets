@@ -351,48 +351,16 @@ snippet dispatch_after
 	DispatchQueue.main.asyncAfter(deadline: .now() + ${1:5}) {
 		${0}
 	}
-snippet dispatch_after_old
-	dispatch_after(dispatch_time(DISPATCH_TIME_NOW, Int64(${1:10} * Double(NSEC_PER_SEC))), dispatch_get_main_queue()) {
-		${0}
-	}
 snippet dispatch_async_global
 alias global_queue
 alias async
-	dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {
+	DispatchQueue.global().async {
 		${0}
 	}
 snippet dispatch_async_main
 alias main_queue
 	DispatchQueue.main.async {
 		${0}
-	}
-snippet dispatch_async_main_old
-alias main_queue_old
-	dispatch_async(dispatch_get_main_queue()) {
-		${0}
-	}
-snippet quick
-	//
-	//  ${1:`Filename()`}.swift
-	//
-	//  Created by ToKoRo on `strftime("%Y-%m-%d")`.
-	//
-	
-	import Quick
-	import Nimble
-	
-	class $1: QuickSpec {
-		override func spec() {
-	
-			describe("$1") {
-				it("${2:can be created}") {
-					let subject = $1()
-					expect(subject).toNot(beNil())
-				}
-			}
-	
-		}
-	
 	}
 snippet awakeFromNib
 	override func awakeFromNib() {
