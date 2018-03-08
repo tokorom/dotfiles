@@ -17,3 +17,9 @@ map F createActiveTabbedHint
 " imap
 iunmapAll
 imap <C-w> deleteWord
+
+" searchaliases
+let searchalias m = "mail.google.com"
+let searchalias d = "drive.spinners.work"
+let searchalias k = "spinners.kibe.la"
+let searchalias r = "feedly.com/i/latest"
