@@ -1,3 +1,7 @@
+" variables
+let hintcharacters = "hjklasdfgyuiopqwertnmzxcvb"
+set cncpcompletion
+
 " nmap
 map <C-p> previousTab
 map <C-n> nextTab
@@ -13,4 +17,3 @@ map F createActiveTabbedHint
 " imap
 iunmapAll
 imap <C-w> deleteWord
-set cncpcompletion
