@@ -1,0 +1,16 @@
+" nmap
+map <C-p> previousTab
+map <C-n> nextTab
+map d closeTab
+map <C-u> scrollFullPageUp
+map <C-d> scrollFullPageDown
+map gf :viewsource!<CR>
+map u lastClosedTab
+map y yankDocumentUrl
+map zz zoomOrig
+map F createActiveTabbedHint
+
+" imap
+iunmapAll
+imap <C-w> deleteWord
+set cncpcompletion
