@@ -57,11 +57,15 @@ fi
 
 ####### autojump #########
 
-[[ -s `brew --prefix`/etc/autojump.sh ]] && . `brew --prefix`/etc/autojump.sh
+if type brew >/dev/null 2>&1; then
+  [[ -s `brew --prefix`/etc/autojump.sh ]] && . `brew --prefix`/etc/autojump.sh
+fi
 
 ####### direnv #########
 
-eval "$(direnv hook zsh)"
+if type direnv >/dev/null 2>&1; then
+  eval "$(direnv hook zsh)"
+fi
 
 ####### etc #########
 
