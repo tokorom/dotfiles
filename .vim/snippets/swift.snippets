@@ -295,6 +295,15 @@ snippet viewDidLayoutSubviews
 	
 		${0}
 	}
+snippet prepareForSegue
+	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+		switch segue.destination {
+		case let viewController as FooViewController:
+			viewController.value = sendValue
+		default:
+			break
+		}
+	}
 snippet UITableViewDelegate
 alias tableviewdelegate
 	// MARK: - UITableViewDelegate
@@ -510,3 +519,20 @@ alias xctassertfail
 	XCTFail(${1})${0}
 snippet wself
 	[weak self] in${0}
+snippet arraySafeSubscriptIf
+alias safe
+	if let ${2:value} = ${1:array}.indices.contains(${3:index}) ? $1[$3] : nil {
+		${0}
+	}
+snippet arraySafeSubscriptGuard
+alias safeg
+	guard let ${2:value} = ${1:array}.indices.contains(${3:index}) ? $1[$3] : nil else {
+		${0}
+	}
+snippet actionSheet
+	let alert = UIAlertController(title: "${1}", message: "${2}", preferredStyle: .actionSheet)
+	alert.addAction(UIAlertAction(title: "Action", style: .default) { [weak self] _ in
+		${0}
+	})
+	alert.addAction(UIAlertAction(title: "キャンセル", style: .cancel))
+	present(alert, animated: true)

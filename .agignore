@@ -27,3 +27,7 @@ build/
 *.jpeg
 *.gif
 *.ico
+
+# iOS
+Pods/
+Carthage/
