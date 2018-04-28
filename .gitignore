@@ -44,3 +44,4 @@
 !firefox-backup.sh
 # addfiles
 !/addfiles
+!/.broadlinkjs.config
