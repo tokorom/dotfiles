@@ -298,8 +298,8 @@ snippet viewDidLayoutSubviews
 snippet prepareForSegue
 	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 		switch segue.destination {
-		case let viewController as FooViewController:
-			viewController.value = sendValue
+		case let destination as FooViewController:
+			destination.value = sendValue
 		default:
 			break
 		}
