@@ -1,5 +1,0 @@
-if [ -e *.xcworkspace ]; then
-  find *.xcworkspace | head -1 | xargs open
-elif [ -e *.xcodeproj ]; then
-  find *.xcodeproj | head -1 | xargs open
-fi
