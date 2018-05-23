@@ -67,6 +67,12 @@ if type direnv >/dev/null 2>&1; then
   eval "$(direnv hook zsh)"
 fi
 
+####### java ########
+
+if type /usr/libexec/java_home >/dev/null 2>&1; then
+  export JAVA_HOME=`/usr/libexec/java_home -v "1.8"`
+fi
+
 ####### etc #########
 
 # Disable ssh-agent
