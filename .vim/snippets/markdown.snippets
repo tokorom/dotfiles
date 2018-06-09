@@ -3,14 +3,10 @@ snippet link
 	[${1:text}](${2:url})
 snippet url
 	[${1:text}](${2:url})
-snippet blog_image
-	{% img ${1:center} ${2:http://dl.dropbox.com/u/10351676/images/filename} %}
-snippet imageu
-	![$1](images/${1:filename}.png)
-snippet img
-	<img src="${1:http://dl.dropbox.com/u/10351676/images/filename}" />
-snippet more
-	<!-- more -->
+snippet image
+	![${1:foo}](images/${2:bar}.png)${0}
+snippet image-blog
+	![${1:foo}](https://raw.githubusercontent.com/tokorom/tokorom.github.com/images/images/$1.png)${0}
 snippet pre
 	\`\`\`${1:filetype}
 	${2}
@@ -37,8 +33,6 @@ snippet todo
 	<!-- TODO: ${1:todo} -->${0}
 snippet chapter
 	={chapter_${1:0}} ${2:title}${0}
-snippet image
-	![${1:foo}](images/${2:bar}.png)${0}
 snippet footnote
 	[^${1:1}]${0}
 snippet list
