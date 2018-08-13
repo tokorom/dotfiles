@@ -78,6 +78,10 @@ fi
 # Disable ssh-agent
 #unset SSH_AUTH_SOCK
 
+####### commands #########
+
+[ -f ~/.zshenv.command ] && source ~/.zshenv.command
+
 ####### finally #########
 
 [ -f ~/.zshenv.local ] && source ~/.zshenv.local
