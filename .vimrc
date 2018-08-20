@@ -268,23 +268,13 @@ augroup END
 " }}}1
 
 "=============================================================================
-" add filetypes {{{1
+" add filetypes autocmd BufNewFile,BufRead *.re setf review{{{1
 
 augroup AddFileType
   autocmd!
-  " vim
-  autocmd BufWinEnter,BufNewFile *.vimperatorrc setfiletype vim
-  " haml
-  autocmd BufWinEnter,BufNewFile *.vue setfiletype haml
-  " toml
-  autocmd BufWinEnter,BufNewFile *.toml setfiletype toml
-  " markdown
-  autocmd BufWinEnter,BufNewFile *.md,*.mkd,*.page setfiletype markdown
   " iOS
-  autocmd BufWinEnter,BufNewFile Podfile,*.podspec,Fastfile setfiletype ruby
-  autocmd BufWinEnter,BufNewFile apple-app-site-association setfiletype json
-  " slim
-  autocmd BufWinEnter,BufNewFile *.slim,*.html.slim setfiletype slim
+  autocmd BufNewFile,BufRead Podfile,*.podspec,Fastfile setfiletype ruby
+  autocmd BufNewFile,BufRead apple-app-site-association setfiletype json
 augroup END
 
 " }}}1
