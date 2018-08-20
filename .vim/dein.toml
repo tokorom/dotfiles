@@ -1,16 +1,16 @@
 # basic
 
 [[plugins]]
-repo = 'autodate.vim'
+repo = 'vim-scripts/autodate.vim'
 
 [[plugins]]
-repo = 'surround.vim'
+repo = 'vim-scripts/surround.vim'
 
 [[plugins]]
 repo = 'kana/vim-fakeclip'
 
 [[plugins]]
-repo = 'L9'
+repo = 'vim-scripts/L9'
 
 [[plugins]]
 repo = 'kana/vim-altr'
@@ -209,6 +209,32 @@ let g:syntastic_swift_checkers = ['swiftlint']
 '''
 #1}}}
 
+[[plugins]]
+repo = 'w0rp/ale'
+#{{{1
+on_ft = ['review']
+hook_post_source = '''
+let g:ale_linters_explicit = 1
+let g:ale_linters = {
+\   'review': ['redpen', 'prh'],
+\}
+" use the quickfix list instead of the loclist
+let g:ale_set_loclist = 0
+let g:ale_set_quickfix = 1
+" show Vim windows
+let g:ale_open_list = 1
+" don't wish to run linters while you type
+let g:ale_lint_on_text_changed = 0
+'''
+#1}}}
+
+[[plugins]]
+repo = '$VIMLOCAL/ale-prh'
+#{{{1
+depends = 'ale'
+on_ft = ['review']
+#1}}}
+
 # toml
 
 [[plugins]]
@@ -399,6 +425,14 @@ on_ft = ['haml']
 repo = 'chrismetcalf/vim-markdown.git'
 #{{{1
 on_ft = ['markdown']
+#1}}}
+
+# review
+
+[[plugins]]
+repo = 'uplus/vim-review'
+#{{{1
+on_ft = ['review']
 #1}}}
 
 # swift
