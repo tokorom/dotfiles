@@ -209,7 +209,7 @@ nnoremap [MyPrefix]cp            :<C-u>cp<CR>
 
 nnoremap [MyPrefix]ll            :<C-u>ll<CR>
 nnoremap [MyPrefix]ln            :<C-u>lnext<CR>
-nnoremap [MyPrefix]cp            :<C-u>lprevious<CR>
+nnoremap [MyPrefix]lp            :<C-u>lprevious<CR>
 
 " ---------- original ----------
 
