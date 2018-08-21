@@ -243,6 +243,18 @@ repo = 'cespare/vim-toml'
 on_ft = ['toml']
 #1}}}
 
+# grep
+
+[[plugins]]
+repo = 'mhinz/vim-grepper'
+#{{{1
+on_cmd = ['Grepper', 'GrepperAg']
+hook_add = '''
+nnoremap [MyPrefix]g :<C-u>Grepper -highlight<CR>
+nnoremap <expr> [MyPrefix].g ':Grepper -highlight -query ' . expand('<cword>')
+'''
+#1}}}
+
 # unite
 
 [[plugins]]
@@ -255,9 +267,6 @@ nnoremap [MyPrefix].f :<C-u>Unite -start-insert buffer file_rec file/new<CR>
 nnoremap [MyPrefix].b :<C-u>Unite -start-insert buffer<CR>
 nnoremap [MyPrefix].r :<C-u>Unite -start-insert file_mru<CR>
 nnoremap [MyPrefix].c :<C-u>Unite -start-insert codic<CR>
-
-nnoremap [MyPrefix]g :<C-u>Unite grep:.<CR>
-nnoremap <expr> [MyPrefix].g ':Unite grep:. -input=' . expand('<cword>')
 '''
 hook_post_source = '''
 let g:unite_update_time = 50

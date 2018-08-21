@@ -141,6 +141,9 @@ set cursorline
 highlight clear CursorLine
 highlight CursorLine ctermbg=black guibg=black
 
+" tab
+set switchbuf+=usetab,newtab
+
 " }}}1
 
 "=============================================================================
