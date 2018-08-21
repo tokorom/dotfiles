@@ -23,7 +23,7 @@ let dein_repo = 'Shougo/dein.vim'
 if &runtimepath !~# dein_repo
   let dein_repo_dir = $PLUGINSDIR.'/repos/github.com/'.dein_repo
   if !isdirectory(dein_repo_dir)
-    execute '!git clone https://github.com/'.dein_repo dein_repo_dir
+    "" execute '!git clone https://github.com/'.dein_repo dein_repo_dir
   endif
   execute 'set runtimepath^=' . fnamemodify(dein_repo_dir, ':p')
 endif
