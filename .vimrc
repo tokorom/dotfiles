@@ -281,6 +281,7 @@ augroup AddFileType
   " iOS
   autocmd BufNewFile,BufRead Podfile,*.podspec,Fastfile setfiletype ruby
   autocmd BufNewFile,BufRead apple-app-site-association setfiletype json
+  autocmd BufNewFile,BufRead *.swift setfiletype swift
 augroup END
 
 " }}}1
