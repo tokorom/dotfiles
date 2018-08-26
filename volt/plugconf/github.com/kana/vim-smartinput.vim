@@ -6,6 +6,13 @@ endfunction
 function! s:on_load_post()
   " Plugin configuration like the code written in vimrc.
   " This configuration is executed *after* a plugin is loaded.
+  call smartinput#clear_rules()
+  call smartinput#define_rule({
+    \ 'at': '{\%#',
+    \ 'char': '<Enter>',
+    \ 'input': '<Enter>}<Esc>O',
+    \ 'filetype': ['c', 'cpp', 'objc', 'swift'],
+    \ })
 endfunction
 
 function! s:loaded_on()

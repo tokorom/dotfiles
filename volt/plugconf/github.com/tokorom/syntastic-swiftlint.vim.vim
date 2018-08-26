@@ -6,6 +6,16 @@ endfunction
 function! s:on_load_post()
   " Plugin configuration like the code written in vimrc.
   " This configuration is executed *after* a plugin is loaded.
+  set statusline+=%#warningmsg#
+  set statusline+=%{SyntasticStatuslineFlag()}
+  set statusline+=%*
+
+  let g:syntastic_always_populate_loc_list = 1
+  let g:syntastic_auto_loc_list = 1
+  let g:syntastic_check_on_open = 1
+  let g:syntastic_check_on_wq = 0
+
+  let g:syntastic_swift_checkers = ['swiftlint']
 endfunction
 
 function! s:loaded_on()
@@ -20,7 +30,7 @@ function! s:loaded_on()
   " This function must contain 'return "<str>"' code.
   " (the argument of :return must be string literal)
 
-  return 'start'
+  return 'filetype=swift'
 endfunction
 
 function! s:depends()
@@ -31,5 +41,5 @@ function! s:depends()
   " (the argument of :return must be list literal, and the elements are string)
   " e.g. return ['github.com/tyru/open-browser.vim']
 
-  return []
+  return ['github.com/scrooloose/syntastic']
 endfunction

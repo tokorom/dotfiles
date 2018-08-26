@@ -1,6 +1,12 @@
 function! s:on_load_pre()
   " Plugin configuration like the code written in vimrc.
   " This configuration is executed *before* a plugin is loaded.
+  nmap [MyPrefix]x <Plug>(operator-comment)
+  nmap [MyPrefix]z <Plug>(operator-uncomment)
+  vmap [MyPrefix]x <Plug>(operator-comment)
+  vmap [MyPrefix]z <Plug>(operator-uncomment)
+  nmap [MyPrefix]xx <Plug>(operator-comment)l
+  nmap [MyPrefix]zz <Plug>(operator-uncomment)l
 endfunction
 
 function! s:on_load_post()
@@ -31,5 +37,5 @@ function! s:depends()
   " (the argument of :return must be list literal, and the elements are string)
   " e.g. return ['github.com/tyru/open-browser.vim']
 
-  return []
+  return ['github.com/kana/vim-operator-user']
 endfunction

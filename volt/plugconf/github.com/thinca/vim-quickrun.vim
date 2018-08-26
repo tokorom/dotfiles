@@ -1,11 +1,24 @@
 function! s:on_load_pre()
   " Plugin configuration like the code written in vimrc.
   " This configuration is executed *before* a plugin is loaded.
+  map [MyPrefix]q <Nop>
+  map [MyPrefix]q <Plug>(quickrun)
 endfunction
 
 function! s:on_load_post()
   " Plugin configuration like the code written in vimrc.
   " This configuration is executed *after* a plugin is loaded.
+  let g:quickrun_config = {}
+
+  let g:quickrun_config['*'] = {'split': 'below'}
+
+  let g:quickrun_config['markdown'] = {
+    \ 'outputter' : 'null',
+    \ 'command' : 'open',
+    \ 'cmdopt' : '-a',
+    \ 'args' : 'Marked\ 2',
+    \ 'exec' : '%c %o %a %s',
+    \ }
 endfunction
 
 function! s:loaded_on()

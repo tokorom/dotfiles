@@ -6,6 +6,7 @@ endfunction
 function! s:on_load_post()
   " Plugin configuration like the code written in vimrc.
   " This configuration is executed *after* a plugin is loaded.
+  call unite#custom#default_action('jump_list,file,buffer,openable', 'tabselect')
 endfunction
 
 function! s:loaded_on()
@@ -31,5 +32,5 @@ function! s:depends()
   " (the argument of :return must be list literal, and the elements are string)
   " e.g. return ['github.com/tyru/open-browser.vim']
 
-  return []
+  return ['github.com/Shougo/unite.vim']
 endfunction

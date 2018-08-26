@@ -1,6 +1,7 @@
 function! s:on_load_pre()
   " Plugin configuration like the code written in vimrc.
   " This configuration is executed *before* a plugin is loaded.
+  omap l <Plug>(textobj-line-a)
 endfunction
 
 function! s:on_load_post()
@@ -31,5 +32,5 @@ function! s:depends()
   " (the argument of :return must be list literal, and the elements are string)
   " e.g. return ['github.com/tyru/open-browser.vim']
 
-  return []
+  return ['github.com/kana/vim-textobj-user']
 endfunction
