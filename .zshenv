@@ -20,6 +20,7 @@ path=(
   /bin # default
   /usr/sbin # default
   /sbin # default
+  ~/go/bin # go
   $path
 )
 

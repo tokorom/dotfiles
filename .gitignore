@@ -8,6 +8,9 @@
 !/bin
 !/.vim
 /.vim/.*
+!/volt/
+/volt/repos/
+/.vim/pack/volt/
 !/.gitconfig
 !/.gitignore
 !/.global_gitignore
@@ -39,9 +42,8 @@
 !/Library/Application Support/KeyRemap4MacBook/*.xml
 # Xcode Templates
 !/Library/Developer/Xcode/Templates/
-# FireFox
-!FireFoxBackup.zip
-!firefox-backup.sh
+# apple/swift
+!/swift
 # addfiles
 !/addfiles
 !/.broadlinkjs.config

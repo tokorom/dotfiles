@@ -9,49 +9,8 @@ endif
 " set environments {{{1
 
 let $VIMHOME = $HOME.'/.vim'
-let $VIMLOCAL = $VIMHOME.'/.localplugins'
 
 " 1}}}
-
-"=============================================================================
-" plugins (dein) {{{1
-
-let $PLUGINS = expand($VIMHOME.'/dein.toml')
-let $PLUGINSDIR = expand($VIMHOME.'/.plugins')
-
-" dein header {{{2
-" Clone dein if needed {{{3
-let dein_repo = 'Shougo/dein.vim'
-if &runtimepath !~# dein_repo
-  let dein_repo_dir = $PLUGINSDIR.'/repos/github.com/'.dein_repo
-  if !isdirectory(dein_repo_dir)
-    execute '!git clone https://github.com/'.dein_repo dein_repo_dir
-  endif
-  execute 'set runtimepath^=' . fnamemodify(dein_repo_dir, ':p')
-endif
-" 3}}}
-
-" {{{3
-if dein#load_state($PLUGINSDIR)
-call dein#begin($PLUGINSDIR)
-call dein#add($PLUGINSDIR)
-" 3}}}
-" 2}}}
-
-call dein#load_toml($PLUGINS)
-
-" dein footer {{{2
-call dein#end()
-call dein#save_state()
-endif
-" 2}}}
-
-" dein commands {{{2
-command! DeinCheck :call dein#check_install()
-command! DeinInstall :call dein#install()
-" 2}}}
-
-" }}}1
 
 "=============================================================================
 " 基本設定 {{{1
@@ -281,7 +240,6 @@ augroup AddFileType
   " iOS
   autocmd BufNewFile,BufRead Podfile,*.podspec,Fastfile setfiletype ruby
   autocmd BufNewFile,BufRead apple-app-site-association setfiletype json
-  autocmd BufNewFile,BufRead *.swift setfiletype swift
 augroup END
 
 " }}}1
