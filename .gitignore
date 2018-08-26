@@ -42,6 +42,8 @@
 !/Library/Application Support/KeyRemap4MacBook/*.xml
 # Xcode Templates
 !/Library/Developer/Xcode/Templates/
+# apple/swift
+!/swift
 # addfiles
 !/addfiles
 !/.broadlinkjs.config
