@@ -126,14 +126,6 @@ repo = 'kana/vim-textobj-function'
 depends = 'vim-textobj-user'
 #1}}}
  
-# grep
-
-[[plugins]]
-repo = 'mileszs/ack.vim'
-#{{{1
-on_cmd = ['Ag']
-#1}}}
-
 # undo
 
 [[plugins]]
@@ -150,9 +142,6 @@ repo = 'tpope/vim-fugitive.git'
 on_cmd = ['Gblame', 'Ggrep']
 #1}}}
 
-[[plugins]]
-repo = 'airblade/vim-gitgutter'
- 
 # quickrun
 
 [[plugins]]
@@ -207,32 +196,6 @@ let g:syntastic_check_on_wq = 0
 
 let g:syntastic_swift_checkers = ['swiftlint']
 '''
-#1}}}
-
-[[plugins]]
-repo = 'w0rp/ale'
-#{{{1
-on_ft = ['review']
-hook_post_source = '''
-let g:ale_linters_explicit = 1
-let g:ale_linters = {
-\   'review': ['redpen', 'prh'],
-\}
-" use the quickfix list instead of the loclist
-let g:ale_set_loclist = 0
-let g:ale_set_quickfix = 1
-" show Vim windows
-let g:ale_open_list = 1
-" don't wish to run linters while you type
-let g:ale_lint_on_text_changed = 0
-'''
-#1}}}
-
-[[plugins]]
-repo = '$VIMLOCAL/ale-prh'
-#{{{1
-depends = 'ale'
-on_ft = ['review']
 #1}}}
 
 # toml
@@ -360,7 +323,7 @@ let g:neocomplete#keyword_patterns._ = '\h\w*'
 #1}}}
 
 [[plugins]]
-repo = '$VIMLOCAL/unite-action-tabselect'
+repo = 'tokorom/unite-action-tabselect'
 #{{{1
 depends = 'unite.vim'
 on_source = 'unite.vim'
@@ -398,50 +361,12 @@ smap <expr><Esc> neosnippet#jumpable() ?
 '''
 #1}}}
 
-# Codic
-
-[[plugins]]
-repo = 'koron/codic-vim'
-#{{{1
-on_cmd = ['Codic']
-on_source = 'unite-codic.vim'
-#1}}}
-
-[[plugins]]
-repo = 'rhysd/unite-codic.vim'
-#{{{1
-depends = 'unite.vim'
-on_source = 'unite.vim'
-#1}}}
-
-# ruby
-
-[[plugins]]
-repo = 'tpope/vim-rails.git'
-#{{{1
-on_ft = ['ruby']
-#1}}}
-
-[[plugins]]
-repo = 'tpope/vim-haml.git'
-#{{{1
-on_ft = ['haml']
-#1}}}
-
 # markdown
 
 [[plugins]]
 repo = 'chrismetcalf/vim-markdown.git'
 #{{{1
 on_ft = ['markdown']
-#1}}}
-
-# review
-
-[[plugins]]
-repo = 'uplus/vim-review'
-#{{{1
-on_ft = ['review']
 #1}}}
 
 # swift
@@ -474,14 +399,6 @@ let g:swift_dict_with_neocomplete = 1 "siwft-dictをneocomplete経由で利用�
 repo = 'elzr/vim-json.git'
 #{{{1
 on_ft = ['json']
-#1}}}
-
-# html
-
-[[plugins]]
-repo = 'slim-template/vim-slim'
-#{{{1
-on_ft = ['slim']
 #1}}}
 
 # etc
