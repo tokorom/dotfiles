@@ -56,6 +56,11 @@ elif [ -f ~/Applications/MacVim.app/Contents/MacOS/Vim ]; then
   alias vim='env LANG=ja_JP.UTF-8 ~/Applications/MacVim.app/Contents/MacOS/Vim "$@"'
 fi
 
+CHROMEMACAPP=/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome
+if [ -f $CHROMEMACAPP ]; then
+  alias chrome='$CHROMEMACAPP'
+fi
+
 ####### autojump #########
 
 if type brew >/dev/null 2>&1; then
@@ -78,10 +83,6 @@ fi
 
 # Disable ssh-agent
 #unset SSH_AUTH_SOCK
-
-####### commands #########
-
-[ -f ~/.zshenv.command ] && source ~/.zshenv.command
 
 ####### finally #########
 
