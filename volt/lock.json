@@ -109,16 +109,6 @@
     },
     {
       "type": "git",
-      "path": "github.com/scrooloose/syntastic",
-      "version": "0dde090ed41b383b1fa56f8db49d89e0735b1ca9"
-    },
-    {
-      "type": "git",
-      "path": "github.com/tokorom/syntastic-swiftlint.vim",
-      "version": "71ed079e54e38035eca220e3dac4c69583d96ca6"
-    },
-    {
-      "type": "git",
       "path": "github.com/cespare/vim-toml",
       "version": "85ba8277a6e331a56fce920d62bfdacce5bc5a80"
     },
@@ -176,6 +166,16 @@
       "type": "git",
       "path": "github.com/tokorom/urldecoder.vim",
       "version": "ea85c04d9eb1304ee4d3404b79e54326260cd794"
+    },
+    {
+      "type": "git",
+      "path": "github.com/w0rp/ale",
+      "version": "d476578a402763f2c6e4e0ada2eb345d0ac938d7"
+    },
+    {
+      "type": "git",
+      "path": "github.com/uplus/vim-review",
+      "version": "be14ee48295a70de30dd7c644158652ea8e3b6ad"
     }
   ],
   "profiles": [
@@ -203,8 +203,6 @@
         "github.com/sjl/gundo.vim",
         "github.com/tpope/vim-fugitive",
         "github.com/thinca/vim-quickrun",
-        "github.com/scrooloose/syntastic",
-        "github.com/tokorom/syntastic-swiftlint.vim",
         "github.com/cespare/vim-toml",
         "github.com/mhinz/vim-grepper",
         "github.com/Shougo/unite.vim",
@@ -216,7 +214,9 @@
         "github.com/tokorom/swift_gyb.vim",
         "github.com/tokorom/swift-dict.vim",
         "github.com/elzr/vim-json",
-        "github.com/tokorom/urldecoder.vim"
+        "github.com/tokorom/urldecoder.vim",
+        "github.com/w0rp/ale",
+        "github.com/uplus/vim-review"
       ]
     }
   ]

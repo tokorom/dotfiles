@@ -6,8 +6,6 @@ endfunction
 function! s:on_load_post()
   " Plugin configuration like the code written in vimrc.
   " This configuration is executed *after* a plugin is loaded.
-  let g:syntastic_ruby_checkers = ['rubocop']
-  let g:syntastic_haml_checkers = ['haml_lint']
 endfunction
 
 function! s:loaded_on()
@@ -22,8 +20,7 @@ function! s:loaded_on()
   " This function must contain 'return "<str>"' code.
   " (the argument of :return must be string literal)
 
-  " return 'filetype=swift,ruby,python,html,css,slim.json,javascript,markdown'
-  return 'filetype=foo'
+  return 'start'
 endfunction
 
 function! s:depends()
