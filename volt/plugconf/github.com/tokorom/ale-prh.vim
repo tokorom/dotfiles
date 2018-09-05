@@ -1,22 +1,6 @@
 function! s:on_load_pre()
   " Plugin configuration like the code written in vimrc.
   " This configuration is executed *before* a plugin is loaded.
-
-  " 保存した時にチェック
-  let g:ale_lint_on_save = 1
-  " テキスト変更時にはチェックしない
-  let g:ale_lint_on_text_changed = 0
-  " ファイルオープン時にチェックしない
-  let g:ale_lint_on_enter = 0
-  " エラーがあればlistを自動で開く
-  let g:ale_open_list = 1
-  " QuickFixを使う
-  let g:ale_set_loclist = 0
-  let g:ale_set_quickfix = 1
-
-  let g:ale_fixers = {
-  \   'review': ['redpen', 'prh'],
-  \}
 endfunction
 
 function! s:on_load_post()
@@ -36,7 +20,7 @@ function! s:loaded_on()
   " This function must contain 'return "<str>"' code.
   " (the argument of :return must be string literal)
 
-  return 'filetype=swift,review,ruby,python,html,css,slim.json,javascript,markdown'
+  return 'filetype=review'
 endfunction
 
 function! s:depends()

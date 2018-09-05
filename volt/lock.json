@@ -176,6 +176,11 @@
       "type": "git",
       "path": "github.com/uplus/vim-review",
       "version": "be14ee48295a70de30dd7c644158652ea8e3b6ad"
+    },
+    {
+      "type": "git",
+      "path": "github.com/tokorom/ale-prh",
+      "version": "d54345eea9934c5c28e3cdf57303515d680d2e20"
     }
   ],
   "profiles": [
@@ -216,7 +221,8 @@
         "github.com/elzr/vim-json",
         "github.com/tokorom/urldecoder.vim",
         "github.com/w0rp/ale",
-        "github.com/uplus/vim-review"
+        "github.com/uplus/vim-review",
+        "github.com/tokorom/ale-prh"
       ]
     }
   ]
