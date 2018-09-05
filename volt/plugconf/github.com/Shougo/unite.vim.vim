@@ -4,7 +4,7 @@ function! s:on_load_pre()
   nnoremap [MyPrefix].f :<C-u>Unite -start-insert buffer file_rec file/new<CR>
   nnoremap [MyPrefix].b :<C-u>Unite -start-insert buffer<CR>
   nnoremap [MyPrefix].r :<C-u>Unite -start-insert file_mru<CR>
-  nnoremap [MyPrefix].c :<C-u>Unite -start-insert codic<CR>
+  nnoremap [MyPrefix].p :<C-u>call unite#start#standard([['file_rec', '~/volt/plugconf']], {'start_insert':1})<CR>
 endfunction
 
 function! s:on_load_post()

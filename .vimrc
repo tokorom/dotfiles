@@ -9,6 +9,24 @@ endif
 " set environments {{{1
 
 let $VIMHOME = $HOME.'/.vim'
+let $MYVIMRC = $HOME.'/.vimrc'
+
+" 1}}}
+
+"=============================================================================
+" plugins {{{1
+
+" Use volt
+" https://github.com/vim-volt/volt
+"
+" plugin conf directory
+" ~/volt/plugconf/
+"
+" search a plugin conf
+" <Space>.p
+"
+" update plugin confs
+" volt build
 
 " 1}}}
 
@@ -181,7 +199,6 @@ nnoremap [MyPrefix]lp            :<C-u>lprevious<CR>
 nnoremap [MyPrefix].  <Nop>
 nnoremap [MyPrefix].. :<C-u>edit %:h<CR>
 nnoremap [MyPrefix].v :<C-u>edit $MYVIMRC<CR>
-nnoremap [MyPrefix].p :<C-u>edit $PLUGINS<CR>
 nnoremap [MyPrefix].s :<C-u>edit $VIMHOME/snippets/<CR>
 
 " ---------- file ----------
