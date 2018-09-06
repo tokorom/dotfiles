@@ -139,11 +139,6 @@
     },
     {
       "type": "git",
-      "path": "github.com/Shougo/neosnippet",
-      "version": "70700ddef65f8f0639b336d04a0d2dbdc4eb0830"
-    },
-    {
-      "type": "git",
       "path": "github.com/chrismetcalf/vim-markdown",
       "version": "d137ebccde28ef3e9ae8c3234069c36bc9f28139"
     },
@@ -180,7 +175,12 @@
     {
       "type": "git",
       "path": "github.com/tokorom/ale-prh-review",
-      "version": "908fde67affa9be840991503146f2cb53d13f389"
+      "version": "c88cf8c3d80fe24cd73800c92e972adc6e932607"
+    },
+    {
+      "type": "git",
+      "path": "github.com/tokorom/neosnippet.vim",
+      "version": "70700ddef65f8f0639b336d04a0d2dbdc4eb0830"
     }
   ],
   "profiles": [
@@ -214,7 +214,6 @@
         "github.com/Shougo/neomru.vim",
         "github.com/Shougo/neocomplete.vim",
         "github.com/tokorom/unite-action-tabselect",
-        "github.com/Shougo/neosnippet",
         "github.com/chrismetcalf/vim-markdown",
         "github.com/tokorom/swift_gyb.vim",
         "github.com/tokorom/swift-dict.vim",
@@ -222,7 +221,8 @@
         "github.com/tokorom/urldecoder.vim",
         "github.com/w0rp/ale",
         "github.com/uplus/vim-review",
-        "github.com/tokorom/ale-prh-review"
+        "github.com/tokorom/ale-prh-review",
+        "github.com/tokorom/neosnippet.vim"
       ]
     }
   ]
