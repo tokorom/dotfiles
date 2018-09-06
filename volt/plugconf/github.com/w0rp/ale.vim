@@ -36,7 +36,7 @@ function! s:loaded_on()
   " This function must contain 'return "<str>"' code.
   " (the argument of :return must be string literal)
 
-  return 'filetype=swift,review,ruby,python,html,css,slim.json,javascript,markdown'
+  return 'filetype=swift,review'
 endfunction
 
 function! s:depends()
