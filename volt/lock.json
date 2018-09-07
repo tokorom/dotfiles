@@ -181,6 +181,11 @@
       "type": "git",
       "path": "github.com/tokorom/neosnippet.vim",
       "version": "70700ddef65f8f0639b336d04a0d2dbdc4eb0830"
+    },
+    {
+      "type": "git",
+      "path": "github.com/rakr/vim-one",
+      "version": "08aca1b5d8cd83106a430f150aa77b4148f6cd5e"
     }
   ],
   "profiles": [
@@ -222,7 +227,8 @@
         "github.com/w0rp/ale",
         "github.com/uplus/vim-review",
         "github.com/tokorom/ale-prh-review",
-        "github.com/tokorom/neosnippet.vim"
+        "github.com/tokorom/neosnippet.vim",
+        "github.com/rakr/vim-one"
       ]
     }
   ]
