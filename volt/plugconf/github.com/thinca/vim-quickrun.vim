@@ -8,7 +8,9 @@ endfunction
 function! s:on_load_post()
   " Plugin configuration like the code written in vimrc.
   " This configuration is executed *after* a plugin is loaded.
-  let g:quickrun_config = {}
+  if !exists('g:quickrun_config')
+    let g:quickrun_config = {}
+  endif
 
   let g:quickrun_config['*'] = {'split': 'below'}
 

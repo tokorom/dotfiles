@@ -20,7 +20,7 @@ function! s:loaded_on()
   " This function must contain 'return "<str>"' code.
   " (the argument of :return must be string literal)
 
-  return 'filetype=review'
+  return 'filetype=vader,review'
 endfunction
 
 function! s:depends()

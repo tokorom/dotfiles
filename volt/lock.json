@@ -175,7 +175,7 @@
     {
       "type": "git",
       "path": "github.com/tokorom/ale-prh-review",
-      "version": "c88cf8c3d80fe24cd73800c92e972adc6e932607"
+      "version": "cef14f2199a55389cd8e86609f24be26eb0563f8"
     },
     {
       "type": "git",
@@ -186,6 +186,11 @@
       "type": "git",
       "path": "github.com/rakr/vim-one",
       "version": "08aca1b5d8cd83106a430f150aa77b4148f6cd5e"
+    },
+    {
+      "type": "git",
+      "path": "github.com/junegunn/vader.vim",
+      "version": "e30d7d06f78a508e58fb8fb10d1c75d591fc4202"
     }
   ],
   "profiles": [
@@ -228,7 +233,8 @@
         "github.com/uplus/vim-review",
         "github.com/tokorom/ale-prh-review",
         "github.com/tokorom/neosnippet.vim",
-        "github.com/rakr/vim-one"
+        "github.com/rakr/vim-one",
+        "github.com/junegunn/vader.vim"
       ]
     }
   ]
