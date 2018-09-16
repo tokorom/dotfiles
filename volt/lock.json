@@ -191,6 +191,11 @@
       "type": "git",
       "path": "github.com/junegunn/vader.vim",
       "version": "e30d7d06f78a508e58fb8fb10d1c75d591fc4202"
+    },
+    {
+      "type": "git",
+      "path": "github.com/tokorom/vim-review",
+      "version": "b882db999d1f6540385c1dcd7603b7cc2c97df89"
     }
   ],
   "profiles": [
@@ -230,11 +235,11 @@
         "github.com/elzr/vim-json",
         "github.com/tokorom/urldecoder.vim",
         "github.com/w0rp/ale",
-        "github.com/uplus/vim-review",
         "github.com/tokorom/ale-prh-review",
         "github.com/tokorom/neosnippet.vim",
+        "github.com/junegunn/vader.vim",
         "github.com/rakr/vim-one",
-        "github.com/junegunn/vader.vim"
+        "github.com/tokorom/vim-review"
       ]
     }
   ]

@@ -7,10 +7,7 @@ function! s:on_load_post()
   " Plugin configuration like the code written in vimrc.
   " This configuration is executed *after* a plugin is loaded.
   set background=light
-  let g:one_allow_italics = 1
-  colorscheme one
-
-  highlight Normal ctermfg=Black
+  colorscheme pencil
 endfunction
 
 function! s:loaded_on()

@@ -6,11 +6,6 @@ endfunction
 function! s:on_load_post()
   " Plugin configuration like the code written in vimrc.
   " This configuration is executed *after* a plugin is loaded.
-  set background=light
-  let g:one_allow_italics = 1
-  colorscheme one
-
-  highlight Normal ctermfg=Black
 endfunction
 
 function! s:loaded_on()
@@ -25,7 +20,7 @@ function! s:loaded_on()
   " This function must contain 'return "<str>"' code.
   " (the argument of :return must be string literal)
 
-  return 'filetype=review'
+  return 'start'
 endfunction
 
 function! s:depends()
