@@ -23,6 +23,7 @@
 !/.zshenv
 !/.zshrc
 !/zshfiles
+!/.fzf.zsh
 !/.hammerspoon
 !/.agignore
 !/.clang-format
