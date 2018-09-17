@@ -191,6 +191,11 @@
       "type": "git",
       "path": "github.com/junegunn/vader.vim",
       "version": "e30d7d06f78a508e58fb8fb10d1c75d591fc4202"
+    },
+    {
+      "type": "git",
+      "path": "github.com/junegunn/fzf.vim",
+      "version": "c3954d294a0f6c4fb5a46a1839cd42ec26767dea"
     }
   ],
   "profiles": [
@@ -233,7 +238,8 @@
         "github.com/tokorom/ale-prh-review",
         "github.com/tokorom/neosnippet.vim",
         "github.com/junegunn/vader.vim",
-        "github.com/rakr/vim-one"
+        "github.com/rakr/vim-one",
+        "github.com/junegunn/fzf.vim"
       ]
     }
   ]

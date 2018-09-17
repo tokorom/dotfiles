@@ -185,10 +185,6 @@ setopt auto_param_slash
 ## スペルチェック
 setopt correct
 
-####### peco #######
-
-[[ -e ~/zshfiles/peco.zsh ]] && source ~/zshfiles/peco.zsh
-
 ####### keychain ########
 
 if [ -x "`which keychain`" ]; then
@@ -229,4 +225,6 @@ fi
 
 if which swiftenv > /dev/null; then eval "$(swiftenv init -)"; fi
 
+####### fzf #########
+#
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
