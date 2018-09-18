@@ -23,4 +23,5 @@ bindkey '^F^D' fzf-cd-widget
 bindkey '^F^R' fzf-history-widget
 bindkey '^R' fzf-history-widget
 
+bindkey '^F^L' fzf-lbuffer
 bindkey '^F^G' fzf-git-st

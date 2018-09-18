@@ -32,6 +32,16 @@ is_in_git_repo() {
   git rev-parse HEAD > /dev/null 2>&1
 }
 
+fzf-lbuffer() {
+  local cmd="${LBUFFER}"
+  LBUFFER="$(FZF_CTRL_T_COMMAND="$cmd" __fzf)"
+  local ret=$?
+  zle redisplay
+  typeset -f zle-line-init >/dev/null && zle zle-line-init
+  return $ret
+}
+zle -N fzf-lbuffer
+
 fgst() {
   # "Nothing to see here, move along"
   is_in_git_repo || return
