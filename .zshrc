@@ -227,4 +227,4 @@ if which swiftenv > /dev/null; then eval "$(swiftenv init -)"; fi
 
 ####### fzf #########
 #
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+[ -f ~/.fzf/fzf.zsh ] && source ~/.fzf/fzf.zsh
