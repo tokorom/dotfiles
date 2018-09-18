@@ -49,11 +49,6 @@
     },
     {
       "type": "git",
-      "path": "github.com/itchyny/lightline.vim",
-      "version": "0532dff598abca9975d3f80128eaadadbf1d91d4"
-    },
-    {
-      "type": "git",
       "path": "github.com/kana/vim-operator-user",
       "version": "c3dfd41c1ed516b4b901c97562e644de62c367aa"
     },
@@ -181,6 +176,16 @@
       "type": "git",
       "path": "github.com/junegunn/fzf",
       "version": "8540902a35361dba217cc3ad86ff2215ae51918e"
+    },
+    {
+      "type": "git",
+      "path": "github.com/justinmk/vim-sneak",
+      "version": "91192d8969af1d86c98beff4001612976ea25d7a"
+    },
+    {
+      "type": "git",
+      "path": "github.com/vim-airline/vim-airline",
+      "version": "a1c112cafd51e7eba02161e56a8ae6a34debe8ea"
     }
   ],
   "profiles": [
@@ -196,7 +201,6 @@
         "github.com/thinca/vim-tabrecent",
         "github.com/Shougo/context_filetype.vim",
         "github.com/w0ng/vim-hybrid",
-        "github.com/itchyny/lightline.vim",
         "github.com/kana/vim-operator-user",
         "github.com/kana/vim-operator-replace",
         "github.com/emonkak/vim-operator-comment",
@@ -221,7 +225,9 @@
         "github.com/junegunn/vader.vim",
         "github.com/rakr/vim-one",
         "github.com/junegunn/fzf.vim",
-        "github.com/junegunn/fzf"
+        "github.com/junegunn/fzf",
+        "github.com/justinmk/vim-sneak",
+        "github.com/vim-airline/vim-airline"
       ]
     }
   ]
