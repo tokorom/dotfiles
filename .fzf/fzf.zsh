@@ -18,7 +18,7 @@ source "/usr/local/opt/fzf/shell/key-bindings.zsh"
 
 # Key bindings
 # ------------
-bindkey '^F^F' fzf-file-widget
+bindkey '^F^F' fzf-file-special
 bindkey '^F^D' fzf-cd-widget
 bindkey '^F^R' fzf-history-widget
 bindkey '^R' fzf-history-widget
