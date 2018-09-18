@@ -1,12 +1,15 @@
 function! s:on_load_pre()
   " Plugin configuration like the code written in vimrc.
   " This configuration is executed *before* a plugin is loaded.
-  nnoremap [MyPrefix].f :<C-u>Files<CR>
-  nnoremap [MyPrefix].b :<C-u>Buffers<CR>
-  nnoremap <C-b>        :<C-u>Buffers<CR>
-  nnoremap [MyPrefix].r :<C-u>History<CR>
-  nnoremap [MyPrefix].p :<C-u>Files ~/volt/plugconf<CR>
-  nnoremap <expr> [MyPrefix].g ':Ag ' . expand('<cword>')
+  let g:fzf_command_prefix = 'Fzf'
+
+  nnoremap [MyPrefix].f :<C-u>FzfFiles<CR>
+  nnoremap <C-f>        :<C-u>FzfFiles<CR>
+  nnoremap [MyPrefix].b :<C-u>FzfBuffers<CR>
+  nnoremap <C-b>        :<C-u>FzfBuffers<CR>
+  nnoremap [MyPrefix].r :<C-u>FzfHistory<CR>
+  nnoremap [MyPrefix].p :<C-u>FzfFiles ~/volt/plugconf<CR>
+  nnoremap <expr> [MyPrefix].g ':FzfAg ' . expand('<cword>')
 endfunction
 
 function! s:on_load_post()
