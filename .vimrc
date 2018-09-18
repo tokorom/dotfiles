@@ -122,7 +122,7 @@ highlight clear CursorLine
 highlight CursorLine ctermbg=black guibg=black
 
 " tab
-set switchbuf+=usetab,newtab
+set switchbuf+=useopen,split
 
 " }}}1
 
@@ -204,18 +204,13 @@ nnoremap [MyPrefix].s :<C-u>edit $VIMHOME/snippets/<CR>
 " ---------- file ----------
 
 nnoremap [MyPrefix]w             :<C-u>w<CR>
-nnoremap [MyPrefix].e            :<C-u>e .<CR>
-
-" ---------- tab ----------
-
-nnoremap [MyPrefix]t             :<C-u>tabnew 
-nnoremap <C-n>                   :<C-u>tabn<CR>
-nnoremap <C-p>                   :<C-u>tabp<CR>
 
 " ---------- buffer ----------
 
-nnoremap [MyPrefix]j       :<C-u>bn<CR>
-nnoremap [MyPrefix]k       :<C-u>bp<CR>
+nnoremap [MyPrefix]t             :<C-u>e 
+nnoremap [MyPrefix]e             :<C-u>e 
+nnoremap <C-n>                   :<C-u>bn<CR>
+nnoremap <C-p>                   :<C-u>bp<CR>
 
 " }}}1
 

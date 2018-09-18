@@ -1,12 +1,6 @@
 function! s:on_load_pre()
   " Plugin configuration like the code written in vimrc.
   " This configuration is executed *before* a plugin is loaded.
-  nnoremap [MyPrefix].f :<C-u>Files<CR>
-  nnoremap [MyPrefix].b :<C-u>Buffers<CR>
-  nnoremap <C-b>        :<C-u>Buffers<CR>
-  nnoremap [MyPrefix].r :<C-u>History<CR>
-  nnoremap [MyPrefix].p :<C-u>Files ~/volt/plugconf<CR>
-  nnoremap <expr> [MyPrefix].g ':Ag ' . expand('<cword>')
 endfunction
 
 function! s:on_load_post()
@@ -37,5 +31,5 @@ function! s:depends()
   " (the argument of :return must be list literal, and the elements are string)
   " e.g. return ['github.com/tyru/open-browser.vim']
 
-  return ['github.com/junegunn/fzf']
+  return []
 endfunction

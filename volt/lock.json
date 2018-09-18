@@ -114,28 +114,8 @@
     },
     {
       "type": "git",
-      "path": "github.com/mhinz/vim-grepper",
-      "version": "04d659c9e0a57e0c3e989069601d2a98df0386c4"
-    },
-    {
-      "type": "git",
-      "path": "github.com/Shougo/unite.vim",
-      "version": "7ed231f2dbceb82b3ed81dc5ef999c94c2528586"
-    },
-    {
-      "type": "git",
-      "path": "github.com/Shougo/neomru.vim",
-      "version": "97540f54fa20b94daf306f0c1f3cce983bbf7a1d"
-    },
-    {
-      "type": "git",
       "path": "github.com/Shougo/neocomplete.vim",
       "version": "4be617947f3fcf2d725fab20b0e12f8b46c9e2f3"
-    },
-    {
-      "type": "git",
-      "path": "github.com/tokorom/unite-action-tabselect",
-      "version": "3c8f8ada27c32916fc650785fd76c4a319985756"
     },
     {
       "type": "git",
@@ -196,6 +176,11 @@
       "type": "git",
       "path": "github.com/junegunn/fzf.vim",
       "version": "c3954d294a0f6c4fb5a46a1839cd42ec26767dea"
+    },
+    {
+      "type": "git",
+      "path": "github.com/junegunn/fzf",
+      "version": "8540902a35361dba217cc3ad86ff2215ae51918e"
     }
   ],
   "profiles": [
@@ -224,11 +209,7 @@
         "github.com/tpope/vim-fugitive",
         "github.com/thinca/vim-quickrun",
         "github.com/cespare/vim-toml",
-        "github.com/mhinz/vim-grepper",
-        "github.com/Shougo/unite.vim",
-        "github.com/Shougo/neomru.vim",
         "github.com/Shougo/neocomplete.vim",
-        "github.com/tokorom/unite-action-tabselect",
         "github.com/chrismetcalf/vim-markdown",
         "github.com/tokorom/swift_gyb.vim",
         "github.com/tokorom/swift-dict.vim",
@@ -239,7 +220,8 @@
         "github.com/tokorom/neosnippet.vim",
         "github.com/junegunn/vader.vim",
         "github.com/rakr/vim-one",
-        "github.com/junegunn/fzf.vim"
+        "github.com/junegunn/fzf.vim",
+        "github.com/junegunn/fzf"
       ]
     }
   ]
