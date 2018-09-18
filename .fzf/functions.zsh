@@ -2,7 +2,7 @@ __fzf() {
   local cmd="${FZF_CTRL_T_COMMAND:-"command find -L ${FZF_FIND_TARGET:-.} -mindepth 1 \\( -path '*/\\.*' -o -fstype 'sysfs' -o -fstype 'devfs' -o -fstype 'devtmpfs' -o -fstype 'proc' \\) -prune \
     -o -type f -print \
     -o -type d -print \
-    -o -type l -print 2> /dev/null | cut -b3-"}"
+    -o -type l -print 2> /dev/null"}"
   setopt localoptions pipefail 2> /dev/null
   eval "$cmd" | FZF_DEFAULT_OPTS="--height ${FZF_TMUX_HEIGHT:-40%} --reverse $FZF_DEFAULT_OPTS $FZF_CTRL_T_OPTS" $(__fzfcmd) -m "$@" | while read item; do
     echo -n "${(q)item} "
@@ -15,8 +15,10 @@ __fzf() {
 fzf-file-special() {
   local lastchar=$(echo "${LBUFFER}" | rev | cut -c 1-1)
   if [ $lastchar ] && [ "$lastchar" != " " ]; then
-    local lastfield=$(echo ${LBUFFER} | rev | cut -d' ' -f1 | rev)
-    LBUFFER="${LBUFFER}$(FZF_FIND_TARGET=$lastfield __fzf)"
+    local lastfield=$(echo ${LBUFFER} | awk '{ print $NF }')
+    local target=$(realpath --relative-to=. $lastfield)
+    local prefix=$(echo ${LBUFFER} | awk '{ $NF=""; print $0 }')
+    LBUFFER="${prefix}$(FZF_FIND_TARGET=$target __fzf)"
   else
     LBUFFER="${LBUFFER}$(__fzf)"
   fi
