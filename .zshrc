@@ -226,5 +226,9 @@ fi
 if which swiftenv > /dev/null; then eval "$(swiftenv init -)"; fi
 
 ####### fzf #########
-#
+
 [ -f ~/.fzf/fzf.zsh ] && source ~/.fzf/fzf.zsh
+
+####### z #########
+
+[ -f /usr/local/etc/profile.d/z.sh ] && . /usr/local/etc/profile.d/z.sh

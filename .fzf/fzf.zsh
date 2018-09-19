@@ -18,10 +18,10 @@ source "/usr/local/opt/fzf/shell/key-bindings.zsh"
 
 # Key bindings
 # ------------
-bindkey '^F^M' fzf-file-special
-bindkey '^F^D' fzf-cd-widget
-bindkey '^F^R' fzf-history-widget
+bindkey '^J^J' fzf-file-special
+bindkey '^J^D' fzf-cd-widget
+bindkey '^J^R' fzf-history-widget
 bindkey '^R' fzf-history-widget
 
-bindkey '^F^L' fzf-lbuffer
-bindkey '^F^G' fzf-git-st
+bindkey '^J^L' fzf-lbuffer
+bindkey '^J^G' fzf-git-st
