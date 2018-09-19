@@ -109,11 +109,6 @@
     },
     {
       "type": "git",
-      "path": "github.com/Shougo/neocomplete.vim",
-      "version": "4be617947f3fcf2d725fab20b0e12f8b46c9e2f3"
-    },
-    {
-      "type": "git",
       "path": "github.com/chrismetcalf/vim-markdown",
       "version": "d137ebccde28ef3e9ae8c3234069c36bc9f28139"
     },
@@ -213,7 +208,6 @@
         "github.com/tpope/vim-fugitive",
         "github.com/thinca/vim-quickrun",
         "github.com/cespare/vim-toml",
-        "github.com/Shougo/neocomplete.vim",
         "github.com/chrismetcalf/vim-markdown",
         "github.com/tokorom/swift_gyb.vim",
         "github.com/tokorom/swift-dict.vim",
