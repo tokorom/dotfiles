@@ -211,6 +211,7 @@ nnoremap [MyPrefix]t             :<C-u>e
 nnoremap [MyPrefix]e             :<C-u>e 
 nnoremap <C-n>                   :<C-u>bn<CR>
 nnoremap <C-p>                   :<C-u>bp<CR>
+nnoremap <C-w>                   :<C-u>bd<CR>
 
 " }}}1
 
