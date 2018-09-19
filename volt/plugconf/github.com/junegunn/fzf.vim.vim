@@ -13,6 +13,7 @@ function! s:on_load_pre()
   nnoremap [MyPrefix].l :<C-u>FzfLines<CR>
   nnoremap [MyPrefix].h :<C-u>FzfHelptags<CR>
   nnoremap [MyPrefix].g :<C-u>FzfGFiles<CR>
+  nnoremap [MyPrefix].s :<C-u>FzfFiles $VIMHOME/snippets/<CR>
   nnoremap <expr> [MyPrefix].g ':FzfAg ' . expand('<cword>')
 endfunction
 
