@@ -181,6 +181,16 @@
       "type": "git",
       "path": "github.com/vim-airline/vim-airline",
       "version": "a1c112cafd51e7eba02161e56a8ae6a34debe8ea"
+    },
+    {
+      "type": "git",
+      "path": "github.com/maralla/completor.vim",
+      "version": "f4994feb7dc0cbb7988fb256a3974f3043ebdbab"
+    },
+    {
+      "type": "git",
+      "path": "github.com/maralla/completor-neosnippet",
+      "version": "449e7ff37fbf5fbaea3aacd509bff6068e561c9b"
     }
   ],
   "profiles": [
@@ -221,7 +231,9 @@
         "github.com/junegunn/fzf.vim",
         "github.com/junegunn/fzf",
         "github.com/justinmk/vim-sneak",
-        "github.com/vim-airline/vim-airline"
+        "github.com/vim-airline/vim-airline",
+        "github.com/maralla/completor.vim",
+        "github.com/maralla/completor-neosnippet"
       ]
     }
   ]
