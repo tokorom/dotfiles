@@ -119,11 +119,6 @@
     },
     {
       "type": "git",
-      "path": "github.com/tokorom/swift-dict.vim",
-      "version": "340ac6a3b8c9703fed8f110c619dc71cd913b099"
-    },
-    {
-      "type": "git",
       "path": "github.com/elzr/vim-json",
       "version": "3727f089410e23ae113be6222e8a08dd2613ecf2"
     },
@@ -150,7 +145,7 @@
     {
       "type": "git",
       "path": "github.com/tokorom/neosnippet.vim",
-      "version": "70700ddef65f8f0639b336d04a0d2dbdc4eb0830"
+      "version": "b652967eaf181f95ae3d0bc9f5593df646f0b907"
     },
     {
       "type": "git",
@@ -191,6 +186,16 @@
       "type": "git",
       "path": "github.com/maralla/completor-neosnippet",
       "version": "449e7ff37fbf5fbaea3aacd509bff6068e561c9b"
+    },
+    {
+      "type": "git",
+      "path": "github.com/tokorom/swift-dict.vim",
+      "version": "624e009d95feb106a60fcdfada77bec9e28866d7"
+    },
+    {
+      "type": "git",
+      "path": "github.com/tokorom/completor-shell",
+      "version": "fe7ebf1e5ead444b5b33acf0a18dd7a46432a097"
     }
   ],
   "profiles": [
@@ -220,7 +225,6 @@
         "github.com/cespare/vim-toml",
         "github.com/chrismetcalf/vim-markdown",
         "github.com/tokorom/swift_gyb.vim",
-        "github.com/tokorom/swift-dict.vim",
         "github.com/elzr/vim-json",
         "github.com/tokorom/urldecoder.vim",
         "github.com/w0rp/ale",
@@ -233,7 +237,9 @@
         "github.com/justinmk/vim-sneak",
         "github.com/vim-airline/vim-airline",
         "github.com/maralla/completor.vim",
-        "github.com/maralla/completor-neosnippet"
+        "github.com/maralla/completor-neosnippet",
+        "github.com/tokorom/swift-dict.vim",
+        "github.com/tokorom/completor-shell"
       ]
     }
   ]
