@@ -100,7 +100,6 @@ set formatoptions+=mM
 set display+=lastline
 
 " 補完の設定
-set complete+=k
 set completeopt=menu,preview,longest
 
 " 日付の自動入力のフォーマット
