@@ -186,16 +186,6 @@
       "type": "git",
       "path": "github.com/maralla/completor-neosnippet",
       "version": "449e7ff37fbf5fbaea3aacd509bff6068e561c9b"
-    },
-    {
-      "type": "git",
-      "path": "github.com/tokorom/swift-dict.vim",
-      "version": "624e009d95feb106a60fcdfada77bec9e28866d7"
-    },
-    {
-      "type": "git",
-      "path": "github.com/tokorom/completor-shell",
-      "version": "fe7ebf1e5ead444b5b33acf0a18dd7a46432a097"
     }
   ],
   "profiles": [
@@ -237,9 +227,7 @@
         "github.com/justinmk/vim-sneak",
         "github.com/vim-airline/vim-airline",
         "github.com/maralla/completor.vim",
-        "github.com/maralla/completor-neosnippet",
-        "github.com/tokorom/swift-dict.vim",
-        "github.com/tokorom/completor-shell"
+        "github.com/maralla/completor-neosnippet"
       ]
     }
   ]

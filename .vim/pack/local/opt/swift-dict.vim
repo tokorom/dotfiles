@@ -1,0 +1,1 @@
+/Users/tokorom/develop/github/swift-dict.vim
