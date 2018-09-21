@@ -1,7 +1,8 @@
 function! s:on_load_pre()
   " Plugin configuration like the code written in vimrc.
   " This configuration is executed *before* a plugin is loaded.
-  let g:completor_auto_trigger = 0
+  let g:completor_auto_trigger = 1
+  let g:completor_min_chars = 5
   inoremap <expr> <C-n> pumvisible() ? "<C-n>" : "<C-r>=completor#do('complete')<CR>"
 endfunction
 
