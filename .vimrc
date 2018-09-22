@@ -123,6 +123,9 @@ highlight CursorLine ctermbg=black guibg=black
 " tab
 set switchbuf+=useopen,split
 
+" netrwのbufferをbdで削除できるように
+autocmd FileType netrw setlocal bufhidden=wipe
+
 " }}}1
 
 "=============================================================================
@@ -206,11 +209,10 @@ nnoremap [MyPrefix]w             :<C-u>w<CR>
 
 " ---------- buffer ----------
 
-nnoremap [MyPrefix]t             :<C-u>e 
-nnoremap [MyPrefix]e             :<C-u>e 
-nnoremap <C-n>                   :<C-u>bn<CR>
-nnoremap <C-p>                   :<C-u>bp<CR>
-nnoremap <C-w>                   :<C-u>bd<CR>
+nnoremap [MyPrefix]t             :<C-u>tabnew<Space>
+nnoremap [MyPrefix]e             :<C-u>e<Space>
+nnoremap <C-n>                   :<C-u>tabNext<CR>
+nnoremap <C-p>                   :<C-u>tabprevious<CR>
 
 " }}}1
 
@@ -255,7 +257,6 @@ augroup AddFileType
 augroup END
 
 " }}}1
-
 
 "=============================================================================
 " local plugins {{{1

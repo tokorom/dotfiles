@@ -1,16 +1,16 @@
 function! s:on_load_pre()
   " Plugin configuration like the code written in vimrc.
   " This configuration is executed *before* a plugin is loaded.
-  let g:airline#extensions#tabline#enabled = 1
-  let g:airline#extensions#tabline#buffer_idx_mode = 1
+"   let g:airline#extensions#tabline#enabled = 1
+  let g:airline_extensions#tabline#show_buffers = 1
 endfunction
 
 function! s:on_load_post()
   " Plugin configuration like the code written in vimrc.
   " This configuration is executed *after* a plugin is loaded.
-
-  nmap <C-n> <Plug>AirlineSelectNextTab
-  nmap <C-p> <Plug>AirlineSelectPrevTab
+  nmap <C-n>        <Plug>(XT-Next-Buffer)
+  nmap <C-p>        <Plug>(XT-Prev-Buffer)
+  nmap <S-z><S-z>   <Plug>(XT-Close-Buffer)
 endfunction
 
 function! s:loaded_on()
