@@ -199,9 +199,9 @@ nnoremap [MyPrefix]lp            :<C-u>lprevious<CR>
 " ---------- original ----------
 
 nnoremap [MyPrefix].  <Nop>
-nnoremap [MyPrefix].. :<C-u>edit %:h<CR>
-nnoremap [MyPrefix].v :<C-u>edit $MYVIMRC<CR>
-nnoremap [MyPrefix].s :<C-u>edit $VIMHOME/snippets/<CR>
+nnoremap [MyPrefix].. :<C-u>tabnew %:h<CR>
+nnoremap [MyPrefix].v :<C-u>tabnew $MYVIMRC<CR>
+nnoremap [MyPrefix].s :<C-u>tabnew $VIMHOME/snippets/<CR>
 
 " ---------- file ----------
 
@@ -211,7 +211,7 @@ nnoremap [MyPrefix]w             :<C-u>w<CR>
 
 nnoremap [MyPrefix]t             :<C-u>tabnew<Space>
 nnoremap [MyPrefix]e             :<C-u>e<Space>
-nnoremap <C-n>                   :<C-u>tabNext<CR>
+nnoremap <C-n>                   :<C-u>tabnext<CR>
 nnoremap <C-p>                   :<C-u>tabprevious<CR>
 
 " }}}1
