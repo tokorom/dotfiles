@@ -159,11 +159,6 @@
     },
     {
       "type": "git",
-      "path": "github.com/maralla/completor.vim",
-      "version": "f4994feb7dc0cbb7988fb256a3974f3043ebdbab"
-    },
-    {
-      "type": "git",
       "path": "github.com/maralla/completor-neosnippet",
       "version": "449e7ff37fbf5fbaea3aacd509bff6068e561c9b"
     },
@@ -186,6 +181,11 @@
       "type": "git",
       "path": "github.com/tokorom/tabnew-or-select.vim",
       "version": "6ac745a9832c968e9ec593b76d44d66810c05133"
+    },
+    {
+      "type": "git",
+      "path": "github.com/rizzatti/dash.vim",
+      "version": "25b17d9488454a1fcdbb2cbe829a23226f95e3c2"
     }
   ],
   "profiles": [
@@ -222,12 +222,12 @@
         "github.com/junegunn/vader.vim",
         "github.com/rakr/vim-one",
         "github.com/justinmk/vim-sneak",
-        "github.com/maralla/completor.vim",
         "github.com/maralla/completor-neosnippet",
         "github.com/itchyny/lightline.vim",
         "github.com/junegunn/fzf.vim",
         "github.com/junegunn/fzf",
-        "github.com/tokorom/tabnew-or-select.vim"
+        "github.com/tokorom/tabnew-or-select.vim",
+        "github.com/rizzatti/dash.vim"
       ]
     }
   ]
