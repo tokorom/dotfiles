@@ -154,11 +154,6 @@
     },
     {
       "type": "git",
-      "path": "github.com/justinmk/vim-sneak",
-      "version": "91192d8969af1d86c98beff4001612976ea25d7a"
-    },
-    {
-      "type": "git",
       "path": "github.com/maralla/completor-neosnippet",
       "version": "449e7ff37fbf5fbaea3aacd509bff6068e561c9b"
     },
@@ -186,6 +181,11 @@
       "type": "git",
       "path": "github.com/rizzatti/dash.vim",
       "version": "25b17d9488454a1fcdbb2cbe829a23226f95e3c2"
+    },
+    {
+      "type": "git",
+      "path": "github.com/jerrymarino/SwiftPlayground.vim",
+      "version": "f603700e74e994bb4a5996a36bb10684ab59623e"
     }
   ],
   "profiles": [
@@ -221,13 +221,13 @@
         "github.com/tokorom/neosnippet.vim",
         "github.com/junegunn/vader.vim",
         "github.com/rakr/vim-one",
-        "github.com/justinmk/vim-sneak",
         "github.com/maralla/completor-neosnippet",
         "github.com/itchyny/lightline.vim",
         "github.com/junegunn/fzf.vim",
         "github.com/junegunn/fzf",
         "github.com/tokorom/tabnew-or-select.vim",
-        "github.com/rizzatti/dash.vim"
+        "github.com/rizzatti/dash.vim",
+        "github.com/jerrymarino/SwiftPlayground.vim"
       ]
     }
   ]

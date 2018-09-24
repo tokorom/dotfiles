@@ -6,7 +6,6 @@ endfunction
 function! s:on_load_post()
   " Plugin configuration like the code written in vimrc.
   " This configuration is executed *after* a plugin is loaded.
-  nnoremap <expr> [MyPrefix]h ':Dash ' . expand('<cword>')
 endfunction
 
 function! s:loaded_on()
