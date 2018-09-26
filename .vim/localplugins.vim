@@ -16,3 +16,9 @@ let g:completor_min_chars = 1
 inoremap <expr> <C-n> pumvisible() ? "<C-n>" : "<C-r>=completor#do('complete')<CR>"
 
 packadd completor.vim
+
+
+" swift
+
+" packadd apple_swift_vim
+packadd tokorom_swift_vim
