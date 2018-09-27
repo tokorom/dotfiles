@@ -53,6 +53,9 @@
   met = mergetool
 [pager]
   color = true
+  log = if (type diff-highlight 1>/dev/null) then (diff-highlight | less) else (less) fi
+  show = if (type diff-highlight 1>/dev/null) then (diff-highlight | less) else (less) fi
+  diff = if (type diff-highlight 1>/dev/null) then (diff-highlight | less) else (less) fi
 [status]
   color = auto
 [http]
