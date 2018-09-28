@@ -444,13 +444,12 @@ snippet animateWithSpring
 		}
 	)
 snippet available_if
-alias available ifa
-	if #available(${1:iOS 9.0}, *) {
+alias available ifavailable
+	if #available(${1:iOS 12.0}, *) {
 		${0}
 	}
 snippet available_annotation
-alias aa
-	@available(${1:iOS 9.0}, *)${0}
+	@available(${1:iOS 12.0}, *)${0}
 snippet subscript_int
 	subscript(index: Int) -> ${1:Int} {
 		get {
