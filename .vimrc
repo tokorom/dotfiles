@@ -214,10 +214,17 @@ nnoremap [MyPrefix]e             :<C-u>e<Space>
 nnoremap <C-n>                   :<C-u>tabnext<CR>
 nnoremap <C-p>                   :<C-u>tabprevious<CR>
 
+" ---------- dictionary ----------
+
+nnoremap <expr> [MyPrefix]d ':!open dict://' . expand('<cword>')
+
 " }}}1
 
 "=============================================================================
-" my functions {{{1
+" my commands {{{1
+
+" refresh syntax highlight
+command! SyntaxRefresh :syn off | syn on
 
 " 行頭移動の自動制御版
 function! MoveToZero()
