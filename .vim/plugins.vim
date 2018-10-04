@@ -74,9 +74,13 @@ function! plugin.will_load() abort
   let g:ale_set_quickfix = 1
 
   let g:ale_fixers = {
+  \   'swift': ['swiftlint', 'swiftsyntaxcheck'],
   \   'review': ['redpen', 'prhreview'],
   \}
 endfunction
+
+let plugin = s:add('ale-swift-syntax-check')
+let plugin.filetype = ['swift']
 
 " completor.vim
 
@@ -87,6 +91,8 @@ function! plugin.will_load() abort
   let g:completor_min_chars = 1
   inoremap <expr> <C-n> pumvisible() ? "<C-n>" : "<C-r>=completor#do('complete')<CR>"
 endfunction
+
+call s:add('completor-shell')
 
 " swift
 
@@ -99,6 +105,11 @@ let plugin.filetype = ['swift']
 function! plugin.did_load() abort
   call swift_dict#configure_swift_dict_for_completor()
 endfunction
+
+" swift-smart-move.vim
+
+let plugin = s:add('swift-smart-move.vim')
+let plugin.filetype = ['swift']
 
 " review
 
