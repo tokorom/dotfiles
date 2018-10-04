@@ -84,7 +84,7 @@ fgst() {
 }
 
 fzf-git-st() {
-  LBUFFER="${LBUFFER}$(fgst)"
+  LBUFFER="${LBUFFER} $(fgst)"
   local ret=$?
   zle redisplay
   typeset -f zle-line-init >/dev/null && zle zle-line-init

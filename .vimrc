@@ -266,9 +266,9 @@ augroup END
 " }}}1
 
 "=============================================================================
-" local plugins {{{1
+" plugins {{{1
 
-let $LOCALPLUGINS = $VIMHOME.'/localplugins.vim'
+let $LOCALPLUGINS = $VIMHOME.'/plugins.vim'
 
 if filereadable($LOCALPLUGINS)
   source $LOCALPLUGINS

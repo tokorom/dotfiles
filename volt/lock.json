@@ -124,11 +124,6 @@
     },
     {
       "type": "git",
-      "path": "github.com/w0rp/ale",
-      "version": "d476578a402763f2c6e4e0ada2eb345d0ac938d7"
-    },
-    {
-      "type": "git",
       "path": "github.com/uplus/vim-review",
       "version": "be14ee48295a70de30dd7c644158652ea8e3b6ad"
     },
@@ -216,7 +211,6 @@
         "github.com/tokorom/swift_gyb.vim",
         "github.com/elzr/vim-json",
         "github.com/tokorom/urldecoder.vim",
-        "github.com/w0rp/ale",
         "github.com/tokorom/ale-prh-review",
         "github.com/tokorom/neosnippet.vim",
         "github.com/junegunn/vader.vim",
