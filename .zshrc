@@ -194,10 +194,10 @@ fi
 
 ####### rbenv #########
 
-# if [ -x "`which rbenv`" ]; then
-#   eval "$(rbenv init -)"
-#   unset RBENV_VERSION
-# fi
+if [ -x "`which rbenv`" ]; then
+  eval "$(rbenv init -)"
+  unset RBENV_VERSION
+fi
 
 ####### node.js #######
 
@@ -232,3 +232,7 @@ if which swiftenv > /dev/null; then eval "$(swiftenv init -)"; fi
 ####### z #########
 
 [ -f /usr/local/etc/profile.d/z.sh ] && . /usr/local/etc/profile.d/z.sh
+
+####### finally #########
+
+path_setting

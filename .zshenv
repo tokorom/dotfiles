@@ -13,16 +13,18 @@ export MAILCHECK=0
 
 setopt no_global_rcs
 
-path=(
-  ~/bin # mine
-  /usr/local/bin # brew
-  /usr/bin # default
-  /bin # default
-  /usr/sbin # default
-  /sbin # default
-  ~/go/bin # go
-  $path
-)
+path_setting() {
+  path=(
+    ~/bin # mine
+    /usr/local/bin # brew
+    /usr/bin # default
+    /bin # default
+    /usr/sbin # default
+    /sbin # default
+    ~/go/bin # go
+    $path
+  )
+}
 
 ####### alias ########
 
