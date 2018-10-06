@@ -181,6 +181,11 @@
       "type": "git",
       "path": "github.com/jerrymarino/SwiftPlayground.vim",
       "version": "f603700e74e994bb4a5996a36bb10684ab59623e"
+    },
+    {
+      "type": "git",
+      "path": "github.com/airblade/vim-gitgutter",
+      "version": "50a7062909d91a290fae04219887b1b45f3138db"
     }
   ],
   "profiles": [
@@ -221,7 +226,8 @@
         "github.com/junegunn/fzf",
         "github.com/tokorom/tabnew-or-select.vim",
         "github.com/rizzatti/dash.vim",
-        "github.com/jerrymarino/SwiftPlayground.vim"
+        "github.com/jerrymarino/SwiftPlayground.vim",
+        "github.com/airblade/vim-gitgutter"
       ]
     }
   ]
