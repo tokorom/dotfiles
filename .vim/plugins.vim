@@ -33,7 +33,7 @@ let plugin = thinpl#add('kana/vim-operator-replace')
 let plugin = thinpl#add('emonkak/vim-operator-comment')
 
 let plugin = thinpl#add('kana/vim-smartinput')
-let plugin.autocmd = ["InsertEnter"]
+let plugin.filetype = ['vim', 'c', 'cpp', 'swift', 'ruby']
 
 let plugin = thinpl#add('junegunn/vader.vim')
 
