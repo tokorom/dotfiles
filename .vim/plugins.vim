@@ -7,7 +7,7 @@ let g:thinpl#git_clone_location = '~/develop/vim_plugins'
 " plugins -----
 
 let plugin = thinpl#add('w0ng/vim-hybrid')
-" options {{{1
+" settings {{{1
 function! plugin.did_load() abort
   colorscheme hybrid
 endfunction
@@ -24,13 +24,35 @@ let plugin = thinpl#add('vim-scripts/L9')
 let plugin = thinpl#add('kana/vim-altr')
 
 let plugin = thinpl#add('kana/vim-textobj-user')
-let plugin = thinpl#add('kana/vim-textobj-line')
-let plugin = thinpl#add('kana/vim-textobj-entire')
 let plugin = thinpl#add('kana/vim-textobj-indent')
 let plugin = thinpl#add('kana/vim-textobj-function')
+let plugin = thinpl#add('kana/vim-textobj-line')
+" settings {{{1
+function! plugin.will_load() abort
+  omap l <Plug>(textobj-line-a)
+endfunction
+" 1}}}
+
 let plugin = thinpl#add('kana/vim-operator-user')
-let plugin = thinpl#add('kana/vim-operator-replace')
 let plugin = thinpl#add('emonkak/vim-operator-comment')
+" settings {{{1
+function! plugin.will_load() abort
+  nmap [MyPrefix]x <Plug>(operator-comment)
+  nmap [MyPrefix]z <Plug>(operator-uncomment)
+  vmap [MyPrefix]x <Plug>(operator-comment)
+  vmap [MyPrefix]z <Plug>(operator-uncomment)
+  nmap [MyPrefix]xx <Plug>(operator-comment)l
+  nmap [MyPrefix]zz <Plug>(operator-uncomment)l
+endfunction
+" 1}}}
+let plugin = thinpl#add('kana/vim-operator-replace')
+" settings {{{1
+function! plugin.will_load() abort
+  nmap [MyPrefix]r <Plug>(operator-replace)
+  vmap [MyPrefix]r <Plug>(operator-replace)
+  nmap [MyPrefix]rr <Plug>(operator-replace)iw
+endfunction
+" 1}}}
 
 let plugin = thinpl#add('kana/vim-smartinput')
 let plugin.filetype = ['vim', 'c', 'cpp', 'swift', 'ruby']
@@ -39,7 +61,7 @@ let plugin = thinpl#add('junegunn/vader.vim')
 
 let plugin = thinpl#add('Shougo/context_filetype.vim')
 let plugin = thinpl#add('tokorom/neosnippet.vim')
-" vim-review settings {{{1
+" settings {{{1
 function! plugin.will_load() abort
   let g:neosnippet#disable_runtime_snippets = {'_': 1}
   let g:neosnippet#snippets_directory = $VIMHOME.'/snippets'
@@ -62,7 +84,7 @@ endfunction
 " 1}}}
 
 let plugin = thinpl#add('thinca/vim-quickrun')
-" options {{{1
+" settings {{{1
 function! plugin.will_load() abort
   map [MyPrefix]q <Nop>
   map [MyPrefix]q <Plug>(quickrun)
@@ -85,7 +107,7 @@ endfunction
 " 1}}}
 
 let plugin = thinpl#add('itchyny/lightline.vim')
-" vim-review settings {{{1
+" settings {{{1
 function! plugin.will_load() abort
   let g:lightline = {'colorscheme': 'wombat'}
 endfunction
@@ -93,7 +115,7 @@ endfunction
 
 let plugin = thinpl#add('junegunn/fzf')
 let plugin = thinpl#add('junegunn/fzf.vim')
-" options {{{1
+" settings {{{1
 function! plugin.will_load() abort
   let g:fzf_command_prefix = 'Fzf'
   let g:fzf_layout = { 'up': '~40%' }
@@ -110,7 +132,7 @@ endfunction
 " 1}}}
 
 let plugin = thinpl#add('tokorom/tabnew-or-select.vim')
-" vim-review settings {{{1
+" settings {{{1
 function! plugin.will_load() abort
   let g:fzf_action = {
     \ '':       'TabNewOrSelect',
@@ -122,7 +144,7 @@ endfunction
 
 let plugin = thinpl#add('ale')
 let plugin.filetype = ['vader', 'swift', 'review']
-" options {{{1
+" settings {{{1
 function! plugin.will_load() abort
   " 保存した時にチェック
   let g:ale_lint_on_save = 1
@@ -147,7 +169,7 @@ let plugin = thinpl#add('ale-swift-syntax-check')
 let plugin.filetype = ['swift']
 
 let plugin = thinpl#add('completor.vim')
-" options {{{1
+" settings {{{1
 function! plugin.will_load() abort
   let g:completor_auto_trigger = 1
   let g:completor_auto_complete_min_chars = 5
@@ -166,7 +188,7 @@ let plugin.local_location = '~/develop/github/swift/utils/vim'
 
 let plugin = thinpl#add('swift-dict.vim')
 let plugin.filetype = ['swift']
-" options {{{1
+" settings {{{1
 function! plugin.did_load() abort
   call swift_dict#configure_swift_dict_for_completor()
 endfunction
@@ -176,7 +198,7 @@ let plugin = thinpl#add('swift-smart-move.vim')
 let plugin.filetype = ['swift']
 
 let plugin = thinpl#add('vim-review')
-" vim-review settings {{{1
+" settings {{{1
 function! plugin.will_load() abort
   let g:vim_review#include_filetypes = ['swift']
 endfunction
@@ -184,7 +206,7 @@ endfunction
 
 let plugin = thinpl#add('rakr/vim-one')
 let plugin.filetype = ['review']
-" options {{{1
+" settings {{{1
 function! plugin.did_load() abort
   set background=light
   let g:one_allow_italics = 1
@@ -201,7 +223,7 @@ let plugin = thinpl#add('tpope/vim-fugitive')
 
 let plugin = thinpl#add('sjl/gundo.vim')
 let plugin.command = ['Gundo*']
-" options {{{1
+" settings {{{1
 function! plugin.prepare() abort
   execute 'command! GundoEnable call thinpl#load_plugin("' . self.name . '", "gundo plugin is loaded :)")'
 endfunction
@@ -209,7 +231,7 @@ endfunction
 
 let plugin = thinpl#add('airblade/vim-gitgutter')
 let plugin.autocmd = ['BufWrite']
-" options {{{1
+" settings {{{1
 function! plugin.did_load() abort
   call gitgutter#all(1)
 endfunction
@@ -224,7 +246,7 @@ let plugin = thinpl#add('elzr/vim-json')
 let plugin = thinpl#add('tokorom/urldecoder.vim')
 
 let plugin = thinpl#add('rizzatti/dash.vim')
-" vim-review settings {{{1
+" settings {{{1
 function! plugin.did_load() abort
   nnoremap <expr> [MyPrefix]h ':Dash ' . expand('<cword>')
 endfunction
