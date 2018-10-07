@@ -23,8 +23,6 @@ let plugin = thinpl#add('vim-scripts/L9')
 
 let plugin = thinpl#add('kana/vim-altr')
 
-let plugin = thinpl#add('kana/vim-smartinput')
-
 let plugin = thinpl#add('kana/vim-textobj-user')
 let plugin = thinpl#add('kana/vim-textobj-line')
 let plugin = thinpl#add('kana/vim-textobj-entire')
@@ -33,6 +31,9 @@ let plugin = thinpl#add('kana/vim-textobj-function')
 let plugin = thinpl#add('kana/vim-operator-user')
 let plugin = thinpl#add('kana/vim-operator-replace')
 let plugin = thinpl#add('emonkak/vim-operator-comment')
+
+let plugin = thinpl#add('kana/vim-smartinput')
+let plugin.autocmd = ["InsertEnter"]
 
 let plugin = thinpl#add('junegunn/vader.vim')
 
