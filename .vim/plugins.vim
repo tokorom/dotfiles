@@ -198,7 +198,14 @@ let plugin = thinpl#add('tokorom/ale-prh-review')
 let plugin.filetype = ['review', 'vader']
 
 let plugin = thinpl#add('tpope/vim-fugitive')
+
 let plugin = thinpl#add('sjl/gundo.vim')
+let plugin.command = ['Gundo*']
+" options {{{1
+function! plugin.prepare() abort
+  execute 'command! GundoEnable call thinpl#load_plugin("' . self.name . '", "gundo plugin is loaded :)")'
+endfunction
+" 1}}}
 
 let plugin = thinpl#add('airblade/vim-gitgutter')
 let plugin.autocmd = ['BufWrite']
