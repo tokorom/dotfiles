@@ -55,7 +55,13 @@ endfunction
 " 1}}}
 
 let plugin = thinpl#add('kana/vim-smartinput')
-let plugin.filetype = ['vim', 'c', 'cpp', 'swift', 'ruby']
+let plugin.filetype = ['vim', 'c', 'cpp', 'java', 'swift', 'ruby']
+" settings {{{1
+function! plugin.did_load() abort
+  call smartinput#define_rule({'at': '{\%#}', 'char': '<Enter>', 'input': '<Enter><Esc><<O'})
+  call smartinput#define_rule({'at': '\%#\_s*}', 'char': '}', 'input': '}'})
+endfunction
+" 1}}}
 
 let plugin = thinpl#add('junegunn/vader.vim')
 
@@ -183,6 +189,7 @@ let plugin = thinpl#add('maralla/completor-neosnippet')
 let plugin = thinpl#add('completor-shell')
 
 let plugin = thinpl#add('swift_vim')
+let plugin.repository = ''
 " plugin.local_location = '~/swift/utils/vim'
 let plugin.local_location = '~/develop/github/swift/utils/vim'
 
