@@ -264,14 +264,3 @@ augroup AddFileType
 augroup END
 
 " }}}1
-
-"=============================================================================
-" plugins {{{1
-
-let $LOCALPLUGINS = $VIMHOME.'/plugins.vim'
-
-if filereadable($LOCALPLUGINS)
-  source $LOCALPLUGINS
-endif
-
-" 1}}}

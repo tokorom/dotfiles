@@ -1,1 +1,0 @@
-/Users/tokorom/develop/github/completor.vim
