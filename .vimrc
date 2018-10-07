@@ -200,8 +200,10 @@ nnoremap [MyPrefix]lp            :<C-u>lprevious<CR>
 
 nnoremap [MyPrefix].  <Nop>
 nnoremap [MyPrefix].. :<C-u>tabnew %:h<CR>
+nnoremap [MyPrefix]s  :<C-u>source %<CR>
 nnoremap [MyPrefix].v :<C-u>tabnew $MYVIMRC<CR>
 nnoremap [MyPrefix].s :<C-u>tabnew $VIMHOME/snippets/<CR>
+nnoremap [MyPrefix].p :<C-u>tabnew $VIMHOME/plugins.vim<CR>
 
 " ---------- file ----------
 

@@ -100,10 +100,10 @@ function! plugin.will_load() abort
   nnoremap [MyPrefix].f :<C-u>FzfFiles<CR>
   nnoremap [MyPrefix].b :<C-u>FzfBuffers<CR>
   nnoremap [MyPrefix].r :<C-u>FzfHistory<CR>
-  nnoremap [MyPrefix].p :<C-u>FzfFiles ~/volt/plugconf<CR>
   nnoremap [MyPrefix].l :<C-u>FzfLines<CR>
   nnoremap [MyPrefix].h :<C-u>FzfHelptags<CR>
   nnoremap [MyPrefix].s :<C-u>FzfFiles $VIMHOME/snippets/<CR>
+  nnoremap [MyPrefix].p :<C-u>tabnew $VIMHOME/plugins.vim<CR>:<C-u>FzfLines<CR>
   nnoremap <expr> [MyPrefix].g ':FzfAg ' . expand('<cword>')
 endfunction
 " 1}}}
@@ -197,8 +197,15 @@ let plugin = thinpl#add('tokorom/ale-prh-review')
 let plugin.filetype = ['review', 'vader']
 
 let plugin = thinpl#add('tpope/vim-fugitive')
-let plugin = thinpl#add('airblade/vim-gitgutter')
 let plugin = thinpl#add('sjl/gundo.vim')
+
+let plugin = thinpl#add('airblade/vim-gitgutter')
+let plugin.autocmd = ['BufWrite']
+" options {{{1
+function! plugin.did_load() abort
+  call gitgutter#all(1)
+endfunction
+" 1}}}
 
 let plugin = thinpl#add('cespare/vim-toml')
 
