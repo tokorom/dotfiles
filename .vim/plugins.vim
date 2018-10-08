@@ -165,6 +165,7 @@ function! plugin.will_load() abort
   let g:ale_set_quickfix = 1
 
   let g:ale_fixers = {
+  \   'vim': ['vint'],
   \   'swift': ['swiftlint', 'swiftsyntaxcheck'],
   \   'review': ['redpen', 'prhreview'],
   \}
