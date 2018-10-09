@@ -68,6 +68,7 @@ let plugin = thinpl#add('junegunn/vader.vim')
 let plugin = thinpl#add('SirVer/ultisnips')
 " settings {{{1
 function! plugin.will_load() abort
+  let g:UltiSnipsSnippetDirectories=['snippets/usnippets', 'UltiSnips']
   let g:UltiSnipsExpandTrigger='<tab>'
   let g:UltiSnipsJumpForwardTrigger='<tab>'
   let g:UltiSnipsJumpBackwardTrigger='<c-b>'
