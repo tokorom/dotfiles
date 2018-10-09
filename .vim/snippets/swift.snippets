@@ -80,6 +80,8 @@ snippet enum
 	}
 snippet import
 	import ${1:UIKit}
+snippet i
+	import
 snippet let
 	let ${1:name} = ${2:val}
 snippet var
@@ -100,6 +102,8 @@ snippet convenience_init
 	convenience init(${1:\#:parameters}) {
 		${0}
 	}
+snippet conini
+	convenience_init
 snippet deinit
 	deinit {
 		${0}
@@ -196,10 +200,12 @@ snippet ibaction
 	@IBAction func ${1:action}(sender: ${2:AnyObject}) {
 		${0}
 	}
+snippet IBOutlet
+	@IBOutlet weak var ${1:label}: ${2:UILabel}?
 snippet iboutlet
-	@IBOutlet weak var ${1:label}: ${2:UILabel}?
+	IBOutlet
 snippet ib
-	@IBOutlet weak var ${1:label}: ${2:UILabel}?
+	IBOutlet
 snippet lazy
 	lazy var ${1:string} = ${2}
 snippet ibinspectable
@@ -312,10 +318,14 @@ snippet dispatch_async_global
 	DispatchQueue.global().async {
 		${0}
 	}
+snippet global_queue
+	dispatch_async_global
 snippet dispatch_async_main
 	DispatchQueue.main.async {
 		${0}
 	}
+snippet main_queue
+	dispatch_async_main
 snippet awakeFromNib
 	override func awakeFromNib() {
 		super.awakeFromNib()
@@ -342,21 +352,6 @@ snippet promise_function
 			return
 		})
 		return promise
-	}
-snippet task
-	func ${1:requestXXX}() -> Task<Progress, ${2:Int}, NSError> {
-		let task = Task<Progress, $2, NSError> { progress, fulfill, reject, configure in
-			if success {
-				fulfill(0)
-			} else {
-				reject(error)
-			}
-		}
-		return task
-	}
-snippet static_struct
-	struct Static {
-		static var targets = [Any]()${0}
 	}
 snippet unwind_segue
 	@IBAction func ${1:unwindToHere}(segue: UIStoryboardSegue) {
