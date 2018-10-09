@@ -65,27 +65,12 @@ endfunction
 
 let plugin = thinpl#add('junegunn/vader.vim')
 
-let plugin = thinpl#add('Shougo/context_filetype.vim')
-let plugin = thinpl#add('tokorom/neosnippet.vim')
+let plugin = thinpl#add('SirVer/ultisnips')
 " settings {{{1
 function! plugin.will_load() abort
-  let g:neosnippet#disable_runtime_snippets = {'_': 1}
-  let g:neosnippet#snippets_directory = $VIMHOME.'/snippets'
-  let g:neosnippet#enable_snipmate_compatibility = 1
-
-  imap <expr><TAB> neosnippet#expandable() ? "\<Plug>(neosnippet_expand_or_jump)"
-  \ : neosnippet#jumpable() ? "\<Plug>(neosnippet_jump)"
-  \ : pumvisible() ? "\<CR>"
-  \ : "\<TAB>"
-  smap <expr><TAB> neosnippet#expandable() ? "\<Plug>(neosnippet_expand_or_jump)"
-  \ : neosnippet#jumpable() ? "\<Plug>(neosnippet_jump)"
-  \ : "\<TAB>"
-  imap <expr><M-Y> neosnippet#jumpable() ? "\<Plug>(neosnippet_jump)" : ""
-  smap <expr><M-Y> neosnippet#jumpable() ? "\<Plug>(neosnippet_jump)" : ""
-  imap <expr><Esc> neosnippet#jumpable() ?
-  \ "\<M-Y>\<M-Y>\<M-Y>\<M-Y>\<M-Y>\<M-Y>\<M-Y>\<M-Y>\<M-Y>\<M-Y>\<M-Y>\<Esc>" : "\<Esc>"
-  smap <expr><Esc> neosnippet#jumpable() ?
-  \ "\<M-Y>\<M-Y>\<M-Y>\<M-Y>\<M-Y>\<M-Y>\<M-Y>\<M-Y>\<M-Y>\<M-Y>\<M-Y>\<Esc>" : "\<Esc>"
+  let g:UltiSnipsExpandTrigger='<tab>'
+  let g:UltiSnipsJumpForwardTrigger='<tab>'
+  let g:UltiSnipsJumpBackwardTrigger='<c-b>'
 endfunction
 " 1}}}
 
@@ -184,8 +169,6 @@ function! plugin.will_load() abort
   inoremap <expr> <C-n> pumvisible() ? "<C-n>" : "<C-r>=completor#do('complete')<CR>"
 endfunction
 " 1}}}
-
-let plugin = thinpl#add('maralla/completor-neosnippet')
 
 let plugin = thinpl#add('completor-shell')
 

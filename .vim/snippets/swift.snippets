@@ -1,20 +1,17 @@
-snippet header
+snippet template_header
 	//
-	//  ${1:`Filename()`}.swift
+	//  ${1:`expand('%:t:r')`}.swift
 	//
 	//  Created by ToKoRo on `strftime("%Y-%m-%d")`.
 	//
-snippet shell
-alias commandline
-alias cli
+snippet template_shell
 	 #!/usr/bin/env xcrun swift
 	 // vim: ft=swift
 	
 	 ${0}
-snippet class
-alias cls
+snippet template_class
 	//
-	//  ${1:`Filename()`}.swift
+	//  ${1:`expand('%:t:r')`}.swift
 	//
 	//  Created by ToKoRo on `strftime("%Y-%m-%d")`.
 	//
@@ -23,9 +20,9 @@ alias cls
 	
 	class $1 {${0}
 	}
-snippet uiclass
+snippet template_class_view
 	//
-	//  ${1:`Filename()`}.swift
+	//  ${1:`expand('%:t:r')`}.swift
 	//
 	//  Created by ToKoRo on `strftime("%Y-%m-%d")`.
 	//
@@ -34,9 +31,9 @@ snippet uiclass
 	
 	class $1: ${2:UIView} {${0}
 	}
-snippet vcclass
+snippet template_class_viewcontroller
 	//
-	//  ${1:`Filename()`}.swift
+	//  ${1:`expand('%:t:r')`}.swift
 	//
 	//  Created by ToKoRo on `strftime("%Y-%m-%d")`.
 	//
@@ -45,68 +42,53 @@ snippet vcclass
 	
 	class $1: ${2:UIViewController} {${0}
 	}
-snippet tableclass
+snippet template_protocol
 	//
-	//  ${1:`Filename()`}.swift
+	//  ${1:`expand('%:t:r')`}.swift
 	//
 	//  Created by ToKoRo on `strftime("%Y-%m-%d")`.
 	//
 	
-	import UIKit
+	import ${2:Foundation}
 	
-	class $1: ${2:UITableViewController} {${0}
+	extension $1 {${0}
 	}
+snippet template_extension
+	//
+	//  ${1:`expand('%:t:r')`}.swift
+	//
+	//  Created by ToKoRo on `strftime("%Y-%m-%d")`.
+	//
 	
-	// MARK: - UITableViewDataSource
+	import ${2:Foundation}
 	
-	extension $1 {
-		override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-		}
-	
-		override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-		}
-	}
-	
-	// MARK: - UITableViewDelegate
-	
-	extension $1 {
-		override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-		}
+	protocol $1 {${0}
 	}
 snippet protocol
-alias pr
-	// MARK: - ${1:`Filename()`}
+	// MARK: - ${1:`expand('%:t:r')`}
 	
 	protocol $1 {${0}
 	}
 snippet extension
-alias ext
 	// MARK: - ${1:Extension}
 	
-	extension ${2:`Filename()`: }$1 {${0}
+	extension ${2:`expand('%:t:r')`: }$1 {${0}
 	}
 snippet enum
 	enum ${1:Name}${2} {
 		case ${3:Label}
 	}
 snippet import
-alias i im
 	import ${1:UIKit}
 snippet let
-alias l
 	let ${1:name} = ${2:val}
-snippet ll
-	let ${1:name}: ${2:Type} = ${3:value}
 snippet var
-alias v
 	var ${1:name} = ${2:value}
 snippet vv
 	var ${1:name}: ${2:Type} = ${3:value}
 snippet weak
-alias vw
 	weak var ${1:name}: ${2:type}?
 snippet struct
-alias st
 	struct ${1:name} {
 		var ${2:\#:variant = 0}
 	}
@@ -115,7 +97,6 @@ snippet init
 		${0}
 	}
 snippet convenience_init
-alias conini
 	convenience init(${1:\#:parameters}) {
 		${0}
 	}
@@ -124,17 +105,14 @@ snippet deinit
 		${0}
 	}
 snippet func
-alias f
 	func ${1:something}(${2:\#:parameters}) ${3:\#:-> Int }{
 		${0}
 	}
 snippet override
-alias ov
 	override func ${1:something}(${2:\#:parameters}) ${3:\#:-> Int }{
 		${0}
 	}
-snippet closure
-alias cl
+snippet {
 	{ (${1:\#:parameters}) -> ${2:\#:return type} in
 		${0}
 	}
@@ -142,28 +120,20 @@ snippet if
 	if ${1:true} {
 		${0}
 	}
-snippet ifl
+snippet if_let
 	if let ${1:let} = ${2:true} {
 		${0}
 	}
-snippet ifcase
-alias ifc
+snippet if_case
 	if case let (${1:_}, ${2:value as Int}) = ${3:dicts} {
 		${0}
 	}
-snippet gl
+snippet guard_let
 	guard let ${1:name} = ${2:name} else {
 		return ${3:nil}
 	}
 	${0}
-snippet glself
-alias gls
-	guard let wself = self else {
-		return
-	}
-	${0}
-snippet glcase
-alias glc
+snippet guard_case
 	guard case let (${1:_}, ${2:value as Int}) = ${3:dicts} else {
 		return
 	}
@@ -171,17 +141,16 @@ snippet for
 	for ${1:_} in ${2:\#:list} {
 		${0}
 	}
-snippet fori
+snippet for_index
 	for ${1:index} in 0..<${2:count} {
 		${0}
 	}
-snippet fore
+snippet for_each
 	for index in ${1:elements}.indices {
 		let ${2:element} = $1[index]
 		${0}
 	}
-snippet forcase
-alias forc
+snippet for_case
 	for case let (${1:_}, ${2:value as Int}) in ${3:dicts} {
 		${0}
 	}
@@ -206,7 +175,7 @@ snippet alert
 	alert.addButtonWithTitle("OK")
 	alert.show()
 snippet #pm
-	// MARK: - ${1:`Filename()`}
+	// MARK: - ${1:`expand('%:t:r')`}
 snippet #pmpm
 	// MARK: - Private Methods
 snippet #pmpu
@@ -220,33 +189,19 @@ snippet #pmpr
 snippet log
 	NSLog("${1}")
 snippet print
-alias p
 	print("${1}")
 snippet \
 	\(${1})${0}
 snippet ibaction
-alias action act
 	@IBAction func ${1:action}(sender: ${2:AnyObject}) {
 		${0}
 	}
 snippet iboutlet
-alias ib
 	@IBOutlet weak var ${1:label}: ${2:UILabel}?
-snippet property
-alias prop
-	var ${1:string}: ${2:String}
-snippet propw
-	weak var ${1:string}: ${2:String}
-snippet propr
-	var ${1:string}: ${2:String} { get }
-snippet propl
-alias lazy
+snippet ib
+	@IBOutlet weak var ${1:label}: ${2:UILabel}?
+snippet lazy
 	lazy var ${1:string} = ${2}
-snippet propg
-alias get
-	var ${1:string} {
-		return ${0}
-	}
 snippet ibinspectable
 	@IBInspectable
 snippet ibdesignable
@@ -305,18 +260,16 @@ snippet prepareForSegue
 		}
 	}
 snippet UITableViewDelegate
-alias tableviewdelegate
 	// MARK: - UITableViewDelegate
 	
-	extension ${1:`Filename()`}: UITableViewDelegate {
+	extension ${1:`expand('%:t:r')`}: UITableViewDelegate {
 		func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 		}
 	}
 snippet UITableViewDataSource
-alias tableviewdatasource
 	// MARK: - UITableViewDataSource
 	
-	extension ${1:`Filename()`}: UITableViewDataSource {
+	extension ${1:`expand('%:t:r')`}: UITableViewDataSource {
 		func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 		}
 	
@@ -324,7 +277,6 @@ alias tableviewdatasource
 		}
 	}
 snippet dequeueReusableCell
-alias dequeuereusablecell
 	let cell = tableView.dequeueReusableCell(withIdentifier: "${1:FooCell}", for: indexPath)
 	${2:// cell.textLabel?.text = "bar"}${0}
 	return cell
@@ -336,23 +288,19 @@ snippet titleForHeaderInSection
 	func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
 		${0}
 	}
-snippet viewForHeaderInSection
-alias tableViewDelegate_viewForHeaderInSection
+snippet UITableViewDelegate_viewForHeaderInSection
 	func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView {
 		${0}
 	}
-snippet heightForHeaderInSection
-alias tableViewDelegate_heightForHeaderInSection
+snippet UITableViewDelegate_heightForHeaderInSection
 	func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
 		${0}
 	}
-snippet heightForRowAtIndexPath
-alias tableViewDelegate_heightForRowAtIndexPath
+snippet UITableViewDelegate_heightForRowAtIndexPath
 	func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
 		return ${1: UITableViewAutomaticDimension}
 	}
-snippet estimatedHeightForRowAtIndexPath
-alias tableViewDelegate_estimatedHeightForRowAtIndexPath
+snippet UITableViewDelegate_estimatedHeightForRowAtIndexPath
 	func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
 		return ${1: UITableViewAutomaticDimension}
 	}
@@ -361,13 +309,10 @@ snippet dispatch_after
 		${0}
 	}
 snippet dispatch_async_global
-alias global_queue
-alias async
 	DispatchQueue.global().async {
 		${0}
 	}
 snippet dispatch_async_main
-alias main_queue
 	DispatchQueue.main.async {
 		${0}
 	}
@@ -384,8 +329,7 @@ snippet layoutSubviews
 		${0}
 	}
 snippet singleton
-alias sharedInstance
-	static let shared = ${1:`Filename()`}()${0}
+	static let shared = ${1:`expand('%:t:r')`}()${0}
 snippet promise_function
 	func ${1:requestXXX}() -> Promise<${2:Int}> {
 		let promise = Promise<$2>({ fulfiller, rejecter in
@@ -443,8 +387,7 @@ snippet animateWithSpring
 			}
 		}
 	)
-snippet available_if
-alias available ifavailable
+snippet availableif
 	if #available(${1:iOS 12.0}, *) {
 		${0}
 	}
@@ -469,62 +412,44 @@ snippet subscript_any
 snippet notimplemented
 	fatalError("\(#function) is not implemented")
 snippet assertionFailure
-alias af
 	assertionFailure("${1:Invalid condition}")${0}
 snippet assert
-alias xct
 	XCTAssert(${1})${0}
 snippet assertequal
-alias xctassertequal
 	XCTAssertEqual(${1}, ${2})${0}
 snippet assertequalwithaccuracy
-alias xctassertequalwithaccuracy
 	XCTAssertEqualWithAccuracy(${1}, ${2})${0}
 snippet assertfalse
-alias xctassertfalse
 	XCTAssertFalse(${1})${0}
 snippet assertgreaterthan
-alias xctassertgreaterthan
 	XCTAssertGreaterThan(${1}, ${2})${0}
 snippet assertgreaterthanorequal
-alias xctassertgreaterthanorequal
 	XCTAssertGreaterThanOrEqual(${1}, ${2})${0}
 snippet assertlessthan
-alias xctassertlessthan
 	XCTAssertLessThan(${1}, ${2})${0}
 snippet assertlessthanorequal
-alias xctassertlessthanorequal
 	XCTAssertLessThanOrEqual(${1}, ${2})${0}
 snippet assertnil
-alias xctassertnil
 	XCTAssertNil(${1})${0}
 snippet assertnotequal
-alias xctassertnotequal
 	XCTAssertNotEqual(${1}, ${2})${0}
 snippet assertnotequalwithaccuracy
-alias xctassertnotequalwithaccuracy
 	XCTAssertNotEqualWithAccuracy(${1}, ${2})${0}
 snippet assertnotnil
-alias xctassertnotnil
 	XCTAssertNotNil(${1})${0}
 snippet asserthrowserror
-alias xctasserthrowserror
 	XCTAssertThrowsError(${1})${0}
 snippet asserttrue
-alias xctasserttrue
 	XCTAssertTrue(${1})${0}
 snippet assertfail
-alias xctassertfail
 	XCTFail(${1})${0}
 snippet wself
 	[weak self] in${0}
 snippet arraySafeSubscriptIf
-alias safe
 	if let ${2:value} = ${1:array}.indices.contains(${3:index}) ? $1[$3] : nil {
 		${0}
 	}
 snippet arraySafeSubscriptGuard
-alias safeg
 	guard let ${2:value} = ${1:array}.indices.contains(${3:index}) ? $1[$3] : nil else {
 		${0}
 	}
