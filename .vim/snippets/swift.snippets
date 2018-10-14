@@ -51,7 +51,7 @@ snippet template_protocol
 	
 	import ${2:Foundation}
 	
-	extension $1 {${0}
+	protocol $1 {${0}
 	}
 snippet template_extension
 	//
@@ -62,7 +62,7 @@ snippet template_extension
 	
 	import ${2:Foundation}
 	
-	protocol $1 {${0}
+	extension $1 {${0}
 	}
 snippet protocol
 	// MARK: - ${1:`expand('%:t:r')`}
@@ -155,7 +155,7 @@ snippet for_each
 		${0}
 	}
 snippet for_case
-	for case let (${1:_}, ${2:value as Int}) in ${3:dicts} {
+	for case let ${1:value} as ${2:Type} in ${3:values} {
 		${0}
 	}
 snippet while

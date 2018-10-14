@@ -54,14 +54,14 @@ function! plugin.will_load() abort
 endfunction
 " 1}}}
 
-let plugin = thinpl#add('kana/vim-smartinput')
-let plugin.filetype = ['vim', 'c', 'cpp', 'java', 'swift', 'ruby']
-" settings {{{1
-function! plugin.did_load() abort
-  call smartinput#define_rule({'at': '{\%#}', 'char': '<Enter>', 'input': '<Enter><Esc><<O'})
-  call smartinput#define_rule({'at': '\%#\_s*}', 'char': '}', 'input': '}'})
-endfunction
-" 1}}}
+" let plugin = thinpl#add('kana/vim-smartinput')
+" let plugin.filetype = ['vim', 'c', 'cpp', 'java', 'swift', 'ruby']
+" " settings {{{1
+" function! plugin.did_load() abort
+"   call smartinput#define_rule({'at': '{\%#}', 'char': '<Enter>', 'input': '<Enter><Esc><<O'})
+"   call smartinput#define_rule({'at': '\%#\_s*}', 'char': '}', 'input': '}'})
+" endfunction
+" " 1}}}
 
 let plugin = thinpl#add('junegunn/vader.vim')
 
