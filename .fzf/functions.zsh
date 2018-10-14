@@ -78,9 +78,9 @@ fgst() {
   local cmd="command git status -s"
 
   eval "$cmd" | FZF_DEFAULT_OPTS="--height ${FZF_TMUX_HEIGHT:-40%} --reverse $FZF_DEFAULT_OPTS $FZF_CTRL_T_OPTS" fzf -m "$@" | while read -r item; do
-    printf '%q ' "$item" | cut -d " " -f 2
+    local selected=$(printf '%q ' "$item" | cut -d " " -f 2)
+    echo -n "${selected} "
   done
-  echo
 }
 
 fzf-git-st() {
