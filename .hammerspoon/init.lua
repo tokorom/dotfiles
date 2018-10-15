@@ -26,7 +26,7 @@ remapKey({'alt', 'cmd'}, 'j', keyCode('down', {'cmd'}), true)
 remapKey({'alt', 'cmd'}, 'k', keyCode('up', {'cmd'}), true)
 
 -- show desktop
-remapKey({'alt'}, 'd', keyCode('f11'), false)
+-- remapKey({'alt'}, 'd', keyCode('f11'), false)
 
 -- alternate escape key
 remapKey({'ctrl'}, ';', keyCode('escape'), false)
