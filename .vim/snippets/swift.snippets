@@ -69,6 +69,8 @@ snippet protocol
 	
 	protocol $1 {${0}
 	}
+snippet ext
+	extension
 snippet extension
 	// MARK: - ${1:Extension}
 	
@@ -382,9 +384,13 @@ snippet animateWithSpring
 			}
 		}
 	)
-snippet availableif
+snippet available_if
 	if #available(${1:iOS 12.0}, *) {
 		${0}
+	}
+snippet available_guard
+	guard #available(${1:iOS 12.0}, *) else {
+		${2:return}
 	}
 snippet available_annotation
 	@available(${1:iOS 12.0}, *)${0}
