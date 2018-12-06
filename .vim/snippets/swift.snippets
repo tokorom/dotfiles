@@ -4,6 +4,8 @@ snippet template_header
 	//
 	//  Created by ToKoRo on `strftime("%Y-%m-%d")`.
 	//
+snippet header
+	template_header
 snippet template_shell
 	 #!/usr/bin/env xcrun swift
 	 // vim: ft=swift
@@ -461,3 +463,11 @@ snippet actionSheet
 	})
 	alert.addAction(UIAlertAction(title: "キャンセル", style: .cancel))
 	present(alert, animated: true)
+snippet CustomDebugStringConvertible
+	extension ${1:Target}: CustomDebugStringConvertible {
+		var debugDescription: String {
+			${0}
+		}
+	}
+snippet debugstring
+	CustomDebugStringConvertible
