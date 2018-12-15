@@ -36,7 +36,8 @@ snippet chapter
 snippet footnote
 	[^${1:1}]${0}
 snippet list
-alias code
+	code
+snippet code
 	list[${1:id}]${2:caption}
 	\`\`\`
 	${0}
@@ -48,7 +49,8 @@ snippet ref-image
 snippet ref-table
 	@<table>{${1:bar}}${0}
 snippet ref-list
-alias ref-code
+	ref-code
+snippet ref-code
 	@<list>{${1:bar}}${0}
 snippet ref-footnote
 	[^${1:1}]: ${2:description}
