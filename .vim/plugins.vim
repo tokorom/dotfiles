@@ -67,6 +67,32 @@ endfunction
 
 let plugin = thinpl#add('junegunn/vader.vim')
 
+let plugin = thinpl#add('prabirshrestha/async.vim')
+let plugin.filetype = ['swift']
+
+let plugin = thinpl#add('prabirshrestha/vim-lsp')
+let plugin.filetype = ['swift']
+" settings {{{1
+function! plugin.prepare() abort
+  let g:lsp_auto_enable = 0
+  let g:lsp_diagnostics_enabled = 0
+  au FileType swift setlocal omnifunc=lsp#complete
+  if executable('sourcekit-lsp')
+    au User lsp_setup call lsp#register_server({
+      \ 'name': 'sourcekit-lsp',
+      \ 'cmd': {server_info->['sourcekit-lsp']},
+      \ 'whitelist': ['swift'],
+      \ })
+  endif
+endfunction
+function! plugin.did_load() abort
+  call lsp#enable()
+  nnoremap <C-]> :<C-u>LspDefinition<CR>
+  nnoremap <C-[> :<C-u>LspHover<CR>
+endfunction
+" 1}}}
+
+
 let plugin = thinpl#add('SirVer/ultisnips')
 " settings {{{1
 function! plugin.will_load() abort
