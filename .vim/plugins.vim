@@ -169,7 +169,7 @@ function! plugin.will_load() abort
   " 保存した時にチェック
   let g:ale_lint_on_save = 1
   " テキスト変更時にはチェックしない
-  let g:ale_lint_on_text_changed = 0
+  let g:ale_lint_on_text_changed = 'never'
   " ファイルオープン時にチェックしない
   let g:ale_lint_on_enter = 0
   " エラーがあればlistを自動で開く
@@ -178,7 +178,10 @@ function! plugin.will_load() abort
   let g:ale_set_loclist = 0
   let g:ale_set_quickfix = 1
 
-  let g:ale_fixers = {
+  " Only run linters named in ale_linters settings.
+  let g:ale_linters_explicit = 1
+
+  let g:ale_linters = {
   \   'vim': ['vint'],
   \   'swift': ['swiftlint', 'swiftsyntaxcheck'],
   \   'review': ['redpen', 'prhreview'],
