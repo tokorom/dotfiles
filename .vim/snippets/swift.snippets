@@ -471,3 +471,19 @@ snippet CustomDebugStringConvertible
 	}
 snippet debugstring
 	CustomDebugStringConvertible
+snippet #if_ios
+	#if os(iOS)
+	#else
+	#endif
+snippet if_ios
+	#if_ios
+snippet #if_os
+	#if os(${1:iOS})
+	#else
+	#endif
+snippet if_os
+	#if_os
+snippet test
+	func test${1:Subject}() throws {
+		${0}
+	}
