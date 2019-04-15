@@ -44,6 +44,17 @@ snippet template_class_viewcontroller
 	
 	class $1: ${2:UIViewController} {${0}
 	}
+snippet template_struct
+	//
+	//  ${1:`expand('%:t:r')`}.swift
+	//
+	//  Created by ToKoRo on `strftime("%Y-%m-%d")`.
+	//
+	
+	import ${2:Foundation}
+	
+	struct $1 {${0}
+	}
 snippet template_protocol
 	//
 	//  ${1:`expand('%:t:r')`}.swift
