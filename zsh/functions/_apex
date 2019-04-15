@@ -1,0 +1,5 @@
+#compdef apex
+
+_apex()  {
+  _values commands $(apex autocomplete)
+}

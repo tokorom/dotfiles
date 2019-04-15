@@ -26,6 +26,13 @@ path_setting() {
   )
 }
 
+####### fpath #########
+
+fpath=(
+  ~/zsh/functions
+  $fpath
+)
+
 ####### alias ########
 
 alias g="git"
@@ -85,7 +92,3 @@ fi
 
 # Disable ssh-agent
 #unset SSH_AUTH_SOCK
-
-####### finally #########
-
-[ -f ~/.zshenv.local ] && source ~/.zshenv.local
