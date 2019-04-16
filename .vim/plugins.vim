@@ -88,7 +88,7 @@ endfunction
 function! plugin.did_load() abort
   call lsp#enable()
   nnoremap <C-]> :<C-u>LspDefinition<CR>
-  nnoremap <C-[> :<C-u>LspHover<CR>
+  nnoremap [MyPrefix].o :<C-u>LspHover<CR>
 endfunction
 " 1}}}
 
