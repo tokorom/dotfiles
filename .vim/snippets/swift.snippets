@@ -20,7 +20,7 @@ snippet template_class
 	
 	import ${2:Foundation}
 	
-	class $1 {${0}
+	final class $1 {${0}
 	}
 snippet template_class_view
 	//
@@ -31,7 +31,7 @@ snippet template_class_view
 	
 	import UIKit
 	
-	class $1: ${2:UIView} {${0}
+	final class $1: ${2:UIView} {${0}
 	}
 snippet template_class_viewcontroller
 	//
@@ -42,7 +42,7 @@ snippet template_class_viewcontroller
 	
 	import UIKit
 	
-	class $1: ${2:UIViewController} {${0}
+	final class $1: ${2:UIViewController} {${0}
 	}
 snippet template_struct
 	//
@@ -216,7 +216,7 @@ snippet ibaction
 		${0}
 	}
 snippet IBOutlet
-	@IBOutlet private weak var ${1:label}: ${2:UILabel}?
+	@IBOutlet weak var ${1:label}: ${2:UILabel}?
 snippet iboutlet
 	IBOutlet
 snippet ib
@@ -259,6 +259,18 @@ snippet viewDidDisappear
 	
 		${0}
 	}
+snippet willMove
+	override func willMove(toParent parent: UIViewController?) {
+		super.willMove(toParent: parent)
+	
+		${0}
+	}
+snippet didMove
+	override func didMove(toParent parent: UIViewController?) {
+		super.didMove(toParent: parent)
+	
+		${0}
+	}
 snippet viewWillLayoutSubviews
 	override func viewWillLayoutSubviews() {
 		super.viewWillLayoutSubviews()
@@ -273,11 +285,8 @@ snippet viewDidLayoutSubviews
 	}
 snippet prepareForSegue
 	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-		switch segue.destination {
-		case let destination as FooViewController:
-			destination.value = sendValue
-		default:
-			break
+		if let destination = segue.findDestination(as: ${1:ModelAcceptable}.self) {
+			destination.${2:accept(model)}$0
 		}
 	}
 snippet UITableViewDelegate
