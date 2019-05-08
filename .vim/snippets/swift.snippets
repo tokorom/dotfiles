@@ -334,6 +334,26 @@ snippet UITableViewDelegate_estimatedHeightForRowAtIndexPath
 	func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
 		return ${1: UITableViewAutomaticDimension}
 	}
+snippet UICollectionViewDataSource
+	// MARK: - UICollectionViewDataSource
+	
+	extension ${1:`expand('%:t:r')`}: UICollectionViewDataSource {
+		func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+			return 1
+		}
+	
+		func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+			let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath)
+			return cell
+		}
+	}
+snippet UICollectionViewDelegate
+	// MARK: - UICollectionViewDelegate
+	
+	extension ${1:`expand('%:t:r')`}: UICollectionViewDelegate {
+		func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath)
+		}
+	}
 snippet dispatch_after
 	DispatchQueue.main.asyncAfter(deadline: .now() + ${1:5}) {
 		${0}
