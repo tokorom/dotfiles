@@ -24,7 +24,6 @@
 !/.fzf
 !/.hammerspoon
 !/.agignore
-!/.clang-format
 !/clear_backups
 !/Brewfile
 !/Gemfile
