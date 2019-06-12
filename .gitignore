@@ -27,6 +27,7 @@
 !/clear_backups
 !/Brewfile
 !/Gemfile
+!/terminal
 # add ignore files
 .DS_Store
 .svn
