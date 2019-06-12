@@ -8,9 +8,6 @@
 !/bin
 !/.vim
 /.vim/.*
-!/volt/
-/volt/repos/
-/.vim/pack/volt/
 !/.gitconfig
 !/.gitignore
 !/.global_gitignore
