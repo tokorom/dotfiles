@@ -84,9 +84,9 @@ fi
 
 ####### java ########
 
-if type /usr/libexec/java_home >/dev/null 2>&1; then
-  export JAVA_HOME=`/usr/libexec/java_home -v "1.8"`
-fi
+# if type /usr/libexec/java_home >/dev/null 2>&1; then
+#   export JAVA_HOME=`/usr/libexec/java_home -v "1.8"`
+# fi
 
 ####### etc #########
 
