@@ -62,12 +62,6 @@ if [ -f $CHROMEMACAPP ]; then
   alias chrome='$CHROMEMACAPP'
 fi
 
-####### autojump #########
-
-if type brew >/dev/null 2>&1; then
-  [[ -s `brew --prefix`/etc/autojump.sh ]] && . `brew --prefix`/etc/autojump.sh
-fi
-
 ####### direnv #########
 
 if type direnv >/dev/null 2>&1; then
