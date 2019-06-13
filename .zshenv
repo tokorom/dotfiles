@@ -21,6 +21,7 @@ path_setting() {
     /bin # default
     /usr/sbin # default
     /sbin # default
+    ~/.nodebrew/current/bin # nodebrew
     ~/go/bin # go
     $path
   )
