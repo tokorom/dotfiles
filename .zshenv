@@ -52,7 +52,7 @@ alias mkcd='source ~/bin/mkcd'
 alias tmux-changekey='tmux set-option -ag prefix C-b'
 alias tmux-revertkey='tmux set-option -ag prefix C-t'
 
-alias bi='bundle install --path vendor/bundler'
+alias bi='bundle install'
 alias be='bundle exec'
 
 alias vim-buffer='tmux capture-pane -t 0 -S -32768; tmux show-buffer | vim - -c 32768'
