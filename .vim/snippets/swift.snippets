@@ -401,6 +401,14 @@ snippet unwind_segue
 	@IBAction func ${1:unwindToHere}(segue: UIStoryboardSegue) {
 		${0}
 	}
+snippet segueaction
+	IBSegueAction
+snippet IBSegueAction
+	@IBSegueAction func creawte${1:ViewController}(_ coder: NSCoder, sender: Any?, segueIdentifier: String?) -> UIViewController? {
+		return $1(coder: coder)
+	}
+snippet segueaction_selector
+	create:sender:segueIdentifier:
 snippet animateWithDuration
 	UIView.animate(withDuration: 0.25) { () in
 		${0}
