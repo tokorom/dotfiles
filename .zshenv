@@ -23,6 +23,7 @@ path_setting() {
     /sbin # default
     ~/.nodebrew/current/bin # nodebrew
     ~/go/bin # go
+    ~/.cargo/bin # rust
     $path
   )
 }
