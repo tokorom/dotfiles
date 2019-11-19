@@ -18,17 +18,8 @@ let $MYVIMRC = $HOME.'/.vimrc'
 "=============================================================================
 " plugins {{{1
 
-" Use volt
-" https://github.com/vim-volt/volt
-"
-" plugin conf directory
-" ~/volt/plugconf/
-"
-" search a plugin conf
-" <Space>.p
-"
-" update plugin confs
-" volt build
+" Use thinpl
+" https://github.com/tokorom/thinpl
 
 " 1}}}
 

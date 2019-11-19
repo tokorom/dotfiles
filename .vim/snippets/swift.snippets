@@ -535,3 +535,31 @@ snippet test
 	func test${1:Subject}() throws {
 		${0}
 	}
+snippet template_swiftUI_view
+	//
+	//  ${1:`expand('%:t:r')`}.swift
+	//
+	//  Created by ToKoRo on 2019-11-15.
+	//
+	
+	import SwiftUI
+	
+	struct $1: View {
+		var body: some View {
+			Text("Hello")${0}
+		}
+	}
+	
+	// MARK: - Previews
+	
+	#if DEBUG
+	
+	struct $1_Previews: PreviewProvider {
+		static var previews: some View {
+			$1()
+		}
+	}
+	
+	#endif
+snippet TERMINATE
+	{TERMINATE}

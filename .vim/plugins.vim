@@ -92,6 +92,8 @@ function! plugin.did_load() abort
 endfunction
 " 1}}}
 
+let plugin = thinpl#add('vim-xcode-preview')
+let plugin.filetype = ['swift']
 
 let plugin = thinpl#add('SirVer/ultisnips')
 " settings {{{1
@@ -206,8 +208,20 @@ let plugin = thinpl#add('completor-shell')
 
 let plugin = thinpl#add('swift_vim')
 let plugin.repository = ''
-" plugin.local_location = '~/swift/utils/vim'
 let plugin.local_location = '~/develop/github/swift/utils/vim'
+
+let plugin = thinpl#add('swift_vim')
+let plugin.repository = ''
+let plugin.local_location = '~/develop/github/swift/utils/vim'
+" settings {{{1
+function! plugin.prepare() abort
+  augroup overrideSwiftVim
+    autocmd!
+    autocmd FileType swift setlocal shiftwidth=4
+    autocmd FileType swift setlocal tabstop=4
+  augroup END
+endfunction
+" 1}}}
 
 let plugin = thinpl#add('swift-dict.vim')
 let plugin.filetype = ['swift']
