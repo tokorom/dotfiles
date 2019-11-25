@@ -535,7 +535,7 @@ snippet test
 	func test${1:Subject}() throws {
 		${0}
 	}
-snippet template_swiftUI_view
+snippet template_swiftui_view
 	//
 	//  ${1:`expand('%:t:r')`}.swift
 	//
@@ -545,6 +545,12 @@ snippet template_swiftUI_view
 	import SwiftUI
 	
 	struct $1: View {
+		private let ${2:value}: ${3:Value}
+		
+		init($2: $3) {
+			self.$2 = $2
+		}
+		
 		var body: some View {
 			Text("Hello")${0}
 		}
@@ -556,7 +562,9 @@ snippet template_swiftUI_view
 	
 	struct $1_Previews: PreviewProvider {
 		static var previews: some View {
-			$1()
+			Group {
+				$1()
+			}
 		}
 	}
 	
