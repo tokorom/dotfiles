@@ -55,6 +55,29 @@ snippet template_struct
 	
 	struct $1 {${0}
 	}
+snippet template_enum
+	//
+	//  ${1:`expand('%:t:r')`}.swift
+	//
+	//  Created by ToKoRo on `strftime("%Y-%m-%d")`.
+	//
+	
+	import ${2:Foundation}
+	
+	enum $1 {${0}
+	}
+snippet template_identiable
+	//
+	//  ${1:`expand('%:t:r')`}.swift
+	//
+	//  Created by ToKoRo on `strftime("%Y-%m-%d")`.
+	//
+	
+	import Foundation
+	
+	struct $1: Identifiable {
+		let id: ${2:String}${0}
+	}
 snippet template_protocol
 	//
 	//  ${1:`expand('%:t:r')`}.swift
@@ -569,5 +592,23 @@ snippet template_swiftui_view
 	}
 	
 	#endif
+snippet UIViewRepresentable
+	struct ${1:View}: UIViewRepresentable {
+		func makeUIView(context: Context) -> ${2:UIView} {
+			return $2()${0}
+		}
+		
+		func updateUIView(_ UIView: $2, context: Context) {
+		}
+	}
+snippet UIViewControllerRepresentable
+	struct ${1:View}: UIViewControllerRepresentable {
+		func makeUIViewController(context: Context) -> ${2:UIViewController} {
+			return $2()${0}
+		}
+		
+		func updateUIViewController(_ uiViewController: $2, context: Context) {
+		}
+	}
 snippet TERMINATE
 	{TERMINATE}

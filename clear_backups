@@ -1,3 +1,5 @@
 rm backup/*.*
 rm backup/.*
 rm backup/*~
+
+rm .viminf*.tmp
