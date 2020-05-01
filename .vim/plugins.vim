@@ -289,6 +289,15 @@ function! plugin.did_load() abort
 endfunction
 " 1}}}
 
+let plugin = thinpl#add('replace-current-line')
+let plugin.filetype = ['markdown']
+let plugin.repository = ''
+let plugin.local_location = '~/develop/github/vim-replace-current-line'
+function! plugin.did_load() abort
+  command! -nargs=0 MarkdownImageFromLine :call vim_replace_current_line#execute("./.vim-replace-current-line/markdown-image-from-line")
+  command! -nargs=0 MarkdownImageWithScreenshot :call vim_replace_current_line#execute("./.vim-replace-current-line/markdown-image-with-screenshot")
+endfunction
+
 " ==============================
 " setup added plugins
 call thinpl#setup_plugins()

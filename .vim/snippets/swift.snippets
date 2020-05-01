@@ -146,6 +146,18 @@ snippet deinit
 	deinit {
 		${0}
 	}
+snippet init_coder
+	init?(coder: NSCoder, value: Value) {
+		self.value = value
+		
+		super.init(coder: coder)
+	}
+	
+	required init?(coder: NSCoder) {
+		fatalError("Invalid init")
+	}
+snippet segueaction_init
+	init_coder
 snippet func
 	func ${1:something}(${2:\#:parameters}) ${3:\#:-> Int }{
 		${0}
