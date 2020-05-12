@@ -622,5 +622,85 @@ snippet UIViewControllerRepresentable
 		func updateUIViewController(_ uiViewController: $2, context: Context) {
 		}
 	}
+snippet UICollectionViewController_DiffeableDataSource
+	final class ${1:Item}ListCollectionViewController: UICollectionViewController {
+		typealias DataSource = UICollectionViewDiffableDataSource<Int, $1>
+		typealias Snapshot = NSDiffableDataSourceSnapshot<Int, $1>
+		
+		private lazy var dataSource: DataSource = createDataSource()
+		private lazy var snapshot: Snapshot = Snapshot()
+		
+		private var lastLayoutViewSize: CGSize?
+		
+		override func viewDidLoad() {
+			super.viewDidLoad()
+			
+			bind()
+			
+			collectionView.dataSource = dataSource
+			
+			invalidateLayout(animated: true)
+		}
+		
+		override func viewDidLayoutSubviews() {
+			super.viewDidLayoutSubviews()
+			
+			invalidateLayout(animated: true)
+		}
+		
+		private func bind() {
+			// applyDataSource(${2:item}s)
+		}
+		
+		private func applyDataSource(_ $2s: [$1]) {
+			snapshot.deleteAllItems()
+			
+			snapshot.appendSections([0])
+			snapshot.appendItems($2s, toSection: 0)
+			
+			dataSource.apply(snapshot, animatingDifferences: true)
+		}
+	}
+	
+	// MARK: - UICollectionViewDataSource
+	
+	extension $1ListCollectionViewController {
+		private func createDataSource() -> DataSource {
+			let dataSource = DataSource(collectionView: collectionView) { collectionView, indexPath, $2 in
+				let cellIdentifier: String = "$1"
+				let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath)
+				// cell.find($1Adoptable.self)?.adopt$1($2)
+				return cell
+			}
+			return dataSource
+		}
+	}
+	
+	// MARK: - Layout
+	
+	extension $1ListCollectionViewController {
+		private func invalidateLayout(animated: Bool) {
+			guard lastLayoutViewSize != collectionView.bounds.size else {
+				return
+			}
+			
+			collectionView.setCollectionViewLayout(createLayout(for: collectionView), animated: animated)
+		}
+		
+		private func createLayout(for collectionView: UICollectionView) -> UICollectionViewLayout {
+			let viewSize = collectionView.bounds.size
+			
+			self.lastLayoutViewSize = viewSize
+			
+			let itemHeight: CGFloat = 70
+			let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .absolute(itemHeight))
+			let item = NSCollectionLayoutItem(layoutSize: itemSize)
+			let group = NSCollectionLayoutGroup.vertical(layoutSize: itemSize, subitem: item, count: 1)
+			let section = NSCollectionLayoutSection(group: group)
+			
+			return UICollectionViewCompositionalLayout(section: section)
+		}
+	}
 snippet TERMINATE
 	{TERMINATE}
+
