@@ -296,6 +296,8 @@ let plugin.local_location = '~/develop/github/vim-replace-current-line'
 function! plugin.did_load() abort
   command! -nargs=0 MarkdownImageFromLine :call vim_replace_current_line#execute("./.vim-replace-current-line/markdown-image-from-line")
   command! -nargs=0 MarkdownImageWithScreenshot :call vim_replace_current_line#execute("./.vim-replace-current-line/markdown-image-with-screenshot")
+  command! -nargs=0 GitHubWikiImageFromLine :call vim_replace_current_line#execute("~/.vim-replace-current-line/github-image-from-line")
+  command! -nargs=0 GitHubWikiImageWithScreenshot :call vim_replace_current_line#execute("~/.vim-replace-current-line/github-image-with-screenshot")
 endfunction
 
 " ==============================

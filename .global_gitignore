@@ -36,3 +36,6 @@ DerivedData
 
 # Gemfile
 vendor/
+
+# Custom Tools
+.vim-replace-current-line
