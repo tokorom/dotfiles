@@ -29,6 +29,7 @@
 !/Gemfile
 !/terminal
 !/.broadlinkjs.config
+!/.vim-replace-current-line
 # add ignore files
 .DS_Store
 .svn
