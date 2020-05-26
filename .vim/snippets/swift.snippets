@@ -417,8 +417,11 @@ snippet layoutSubviews
 		
 		${0}
 	}
-snippet singleton
+snippet sharedInstance
 	static let shared = ${1:`expand('%:t:r')`}()${0}
+	private init() {}
+snippet defaultInstance
+	static let \`default\` = ${1:`expand('%:t:r')`}()${0}
 snippet promise_function
 	func ${1:requestXXX}() -> Promise<${2:Int}> {
 		let promise = Promise<$2>({ fulfiller, rejecter in
@@ -635,9 +638,9 @@ snippet UICollectionViewController_DiffeableDataSource
 		override func viewDidLoad() {
 			super.viewDidLoad()
 			
-			bind()
-			
 			collectionView.dataSource = dataSource
+			
+			bind()
 			
 			invalidateLayout(animated: true)
 		}
@@ -674,6 +677,20 @@ snippet UICollectionViewController_DiffeableDataSource
 			}
 			return dataSource
 		}
+		
+		private func $2(at indexPath: IndexPath) -> $1? {
+			let section = indexPath.section
+			guard section < snapshot.numberOfSections else {
+				return nil
+			}
+				
+			let item = indexPath.item
+			guard item < snapshot.numberOfItems(inSection: section) else {
+				return nil
+			}
+			
+			return snapshot.itemIdentifiers(inSection: section)[item]
+		}
 	}
 	
 	// MARK: - Layout
@@ -701,6 +718,46 @@ snippet UICollectionViewController_DiffeableDataSource
 			return UICollectionViewCompositionalLayout(section: section)
 		}
 	}
+	
+	// MARK: - UICollectionViewDelegate
+	
+	extension $1ListCollectionViewController {
+		override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+			guard let $2 = self.$2(at: indexPath) else {
+				return
+			}
+		}
+	}
+snippet Equatable
+	extension ${1:`expand('%:t:r')`}: Equatable {
+		static func == (lhs: Self, rhs: Self) -> Bool {
+			return lhs.id == rhs.id
+		}
+	}
+snippet Hashable
+	extension ${1:`expand('%:t:r')`}: Hashable {
+		func hash(into hasher: inout Hasher) {
+			hasher.combine(self.foo)
+			hasher.combine(self.bar)
+		}
+	}
+snippet CocoaAction
+	CocoaAction.send(from: self) { (handler: ${1:FooHandler}) in
+		handler.${2:handleFoo}(${3:foo})
+	}
+snippet Combine
+	import Combine
+		private var cancellables: Set<AnyCancellable> = []
+		private func bind() {
+			SampleState.shared.currentValueSubject
+				.receive(on: DispatchQueue.main)
+				.sink { [weak self] in
+					self?.handleSample($0)
+				}
+				.store(in: &cancellables)
+		}
+		private func handleSample(_ sample: Sample) {
+		}
 snippet TERMINATE
 	{TERMINATE}
 
