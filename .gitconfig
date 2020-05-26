@@ -5,6 +5,9 @@
   quotepath = false
   excludesfile = ~/.global_gitignore
   editor = /usr/bin/vim
+  pager = delta --plus-color="#003400" --minus-color="#340001" --theme='Monokai Extended'
+[interactive]
+    diffFilter = delta --color-only
 [color] 
   ui = auto
 [alias]
