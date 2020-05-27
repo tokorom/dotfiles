@@ -712,7 +712,7 @@ snippet UICollectionViewController_DiffeableDataSource
 			let itemHeight: CGFloat = 70
 			let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .absolute(itemHeight))
 			let item = NSCollectionLayoutItem(layoutSize: itemSize)
-			let group = NSCollectionLayoutGroup.vertical(layoutSize: itemSize, subitem: item, count: 1)
+			let group = NSCollectionLayoutGroup.horizontal(layoutSize: itemSize, subitems: [item])
 			let section = NSCollectionLayoutSection(group: group)
 			
 			return UICollectionViewCompositionalLayout(section: section)
