@@ -729,12 +729,16 @@ snippet UICollectionViewController_DiffeableDataSource
 		}
 	}
 snippet Equatable
+	// MARK: - Equatable
+	
 	extension ${1:`expand('%:t:r')`}: Equatable {
 		static func == (lhs: Self, rhs: Self) -> Bool {
 			return lhs.id == rhs.id
 		}
 	}
 snippet Hashable
+	// MARK: - Hashable
+	
 	extension ${1:`expand('%:t:r')`}: Hashable {
 		func hash(into hasher: inout Hasher) {
 			hasher.combine(self.foo)
