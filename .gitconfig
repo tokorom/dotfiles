@@ -12,10 +12,9 @@
   ui = auto
 [alias]
   ad = add
-  co = checkout
-  cob = checkout -b
-  com = checkout master
-  track = checkout --track
+  sw = switch
+  swc = switch -c
+  swm = switch master
   cm = commit
   cma = commit -a
   cmi = commit --interactive
