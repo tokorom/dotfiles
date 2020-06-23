@@ -15,6 +15,7 @@
   sw = switch
   swc = switch -c
   swm = switch master
+  res = restore
   cm = commit
   cma = commit -a
   cmi = commit --interactive
