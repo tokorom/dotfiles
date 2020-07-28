@@ -20,7 +20,7 @@
 !/.tigrc
 !/.zshenv
 !/.zshrc
-!/zsh
+!/.zsh
 !/.fzf
 !/.hammerspoon
 !/.agignore
