@@ -31,7 +31,8 @@ path_setting() {
 ####### fpath #########
 
 fpath=(
-  ~/zsh/functions
+  ~/.zsh/functions
+  ~/.zsh/completion
   $fpath
 )
 
