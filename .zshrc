@@ -116,8 +116,6 @@ autoload -Uz compinit
 compinit -u
 
 # 補完候補に色つける
-autoload -U colors
-colors
 zstyle ':completion:*' list-colors "${LS_COLORS}"
 
 # 単語の入力途中でもTab補完を有効化

@@ -155,6 +155,7 @@ __git_zsh_cmd_common ()
 	show:'show various types of objects'
 	status:'show the working tree status'
 	switch:'switch branches'
+	browse:'browse github repository'
 	tag:'create, list, delete or verify a tag object signed with GPG')
 	_describe -t common-commands 'common commands' list && _ret=0
 }
