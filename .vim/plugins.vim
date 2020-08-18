@@ -185,14 +185,19 @@ function! plugin.will_load() abort
 
   let g:ale_linters = {
   \   'vim': ['vint'],
-  \   'swift': ['swiftlint', 'swiftsyntaxcheck'],
+  \   'swift': ['swift-format'],
   \   'review': ['redpen', 'prhreview'],
   \}
 endfunction
 " 1}}}
 
-let plugin = thinpl#add('ale-swift-syntax-check')
+let plugin = thinpl#add('tokorom/vim-swift-format')
 let plugin.filetype = ['swift']
+" settings {{{1
+function! plugin.prepare() abort
+  let g:vim_swift_format_use_ale = 1
+endfunction
+" 1}}}
 
 let plugin = thinpl#add('completor.vim')
 " settings {{{1
