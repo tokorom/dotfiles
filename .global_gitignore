@@ -1,6 +1,9 @@
 # tokoro custom
 tokorom/bin/
 
+# Build
+.build
+
 # General
 
 .DS_Store
