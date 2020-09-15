@@ -165,7 +165,7 @@ endfunction
 " 1}}}
 
 let plugin = thinpl#add('ale')
-let plugin.filetype = ['vader', 'swift', 'review']
+let plugin.filetype = ['vader', 'swift', 'review', 'javascript', 'vue']
 " settings {{{1
 function! plugin.will_load() abort
   " 保存した時にチェック
@@ -186,6 +186,8 @@ function! plugin.will_load() abort
   let g:ale_linters = {
   \   'vim': ['vint'],
   \   'swift': ['swift-format'],
+  \   'javascript': ['eslint'],
+  \   'vue': ['eslint'],
   \   'review': ['redpen', 'prhreview'],
   \}
 endfunction
@@ -293,6 +295,8 @@ function! plugin.did_load() abort
   nnoremap <expr> [MyPrefix]h ':Dash ' . expand('<cword>')
 endfunction
 " 1}}}
+
+let plugin = thinpl#add('posva/vim-vue')
 
 let plugin = thinpl#add('replace-current-line')
 let plugin.filetype = ['markdown']
