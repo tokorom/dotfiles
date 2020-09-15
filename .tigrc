@@ -1,1 +1,0 @@
-bind generic P      ?git push -u %(remote) %(repo:head)
