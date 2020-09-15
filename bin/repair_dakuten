@@ -1,5 +1,0 @@
-#!/bin/sh
-
-cat $1 | mccc -iu -os > __$1
-cat __$1 | mccc -is -ou > $1
-rm __$1
