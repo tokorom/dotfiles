@@ -66,26 +66,6 @@
 [diff]
   color = auto
   rename = copy
-  tool = Kaleidoscope
-[difftool "Kaleidoscope"]
-  cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
-[difftool]
-  prompt = false
-[mergetool "Kaleidoscope"]
-  cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
-  trustExitCode = true
-[mergetool]
-  prompt = false
-[merge]
-  tool = Kaleidoscope
-[merge "mergepbx"]
-	name = Xcode project files merger
-	driver = mergepbx %O %A %B
-	note = auto-generated configuration by `cpad manifest ios`
 
 [include]
   path = ~/.gitconfig.local
-
-[hub]
-  host = github.cookpad.com
-	host = ghe.ckpd.co
