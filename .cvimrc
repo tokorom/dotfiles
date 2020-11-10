@@ -1,4 +1,29 @@
-unmapAll
+" variables
+let hintcharacters = "hjklasdfgyuiopqwertnmzxcvb"
+set cncpcompletion
 
+" nmap
+map <C-p> previousTab
+map <C-n> nextTab
+map d closeTab
+map <C-u> scrollFullPageUp
+map <C-d> scrollFullPageDown
+map gf :viewsource!<CR>
+map u lastClosedTab
+map y yankDocumentUrl
+map zz zoomOrig
+map F createTabbedHint
+map S :tabnew google<Space>
+
+" imap
+iunmapAll
 imap <C-w> deleteWord
-imap <C-w> deleteToBeginning
+
+" searchaliases
+let searchalias m = "mail.google.com"
+let searchalias d = "drive.spinners.work"
+let searchalias k = "spinners.kibe.la"
+let searchalias r = "feedly.com/i/latest"
+let searchalias t = "twitter.com"
+let searchalias gt = "https://translate.google.com/?hl=ja"
+let searchalias ga = "https://analytics.google.com/analytics/web/"
