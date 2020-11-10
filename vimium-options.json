@@ -9,7 +9,7 @@
   "filterLinkHints": false,
   "waitForEnterForFilteredHints": true,
   "hideHud": false,
-  "keyMappings": "# Insert your preferred key mappings here.\n\nmap <c-p> previousTab\nmap <c-n> nextTab\nmap d removeTab\nmap u restoreTab\n\nmap J scrollPageDown\nmap K scrollPageUp\n\nmap t Vomnibar.activateInNewTab\nmap Y LinkHints.activateModeToCopyLinkUrl",
+  "keyMappings": "# Insert your preferred key mappings here.\n\nmap <c-p> previousTab\nmap <c-n> nextTab\nmap d removeTab\nmap u restoreTab\n\nmap J scrollPageDown\nmap K scrollPageUp\n\nmap Y LinkHints.activateModeToCopyLinkUrl",
   "linkHintCharacters": "sadfjklewcmpgh",
   "linkHintNumbers": "0123456789",
   "newTabUrl": "about:newtab",
