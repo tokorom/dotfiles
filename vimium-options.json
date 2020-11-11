@@ -9,7 +9,7 @@
   "filterLinkHints": false,
   "waitForEnterForFilteredHints": true,
   "hideHud": false,
-  "keyMappings": "# Insert your preferred key mappings here.\n\nmap <c-p> previousTab\nmap <c-n> nextTab\nmap d removeTab\nmap u restoreTab\n\nmap J scrollPageDown\nmap K scrollPageUp\n\nmap Y LinkHints.activateModeToCopyLinkUrl",
+  "keyMappings": "# Insert your preferred key mappings here.\n\nmap <c-p> previousTab\nmap <c-n> nextTab\nmap d removeTab\nmap u restoreTab\n\nmap J scrollPageDown\nmap K scrollPageUp\n\nmap Y LinkHints.activateModeToCopyLinkUrl\nmap t Vomnibar.activateInNewTab\n\nmap gr createTab https://feedly.com/i/latest\nmap gm createTab https://mail.google.com/\nmap gd createTab https://drive.google.com/\nmap gga createTab https://analytics.google.com/analytics/web/\nmap gt createTab https://twitter.com/\nmap gk createTab https://spinners.kibe.la/\nmap gg createTab https://github.com/\nmap gn createTab https://github.com/notifications?query=is%3Aunread\nmap ga createTab https://www.amazon.co.jp/",
   "linkHintCharacters": "sadfjklewcmpgh",
   "linkHintNumbers": "0123456789",
   "newTabUrl": "about:newtab",
