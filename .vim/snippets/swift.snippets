@@ -596,8 +596,6 @@ snippet template_swiftui_view
 	
 	// MARK: - Previews
 	
-	#if DEBUG
-	
 	struct $1_Previews: PreviewProvider {
 		static var previews: some View {
 			Group {
@@ -605,8 +603,6 @@ snippet template_swiftui_view
 			}
 		}
 	}
-	
-	#endif
 snippet UIViewRepresentable
 	struct ${1:View}: UIViewRepresentable {
 		func makeUIView(context: Context) -> ${2:UIView} {
