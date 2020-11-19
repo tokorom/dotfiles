@@ -27,6 +27,7 @@ brew install git
 brew install tmux
 brew install git-delta
 brew install fzf
+brew install gh
 ```
 
 ### Vim
@@ -45,6 +46,10 @@ Would you like to install this plugin now? [y/n] => y
 brew install p7zip
 
 7za x private.zip
+
+echo "AddKeysToAgent yes
+UseKeychain yes
+" > .ssh/config
 ```
 
 Need your zip password.
