@@ -31,6 +31,7 @@
 !/terminal
 !/.broadlinkjs.config
 !/.vim-replace-current-line
+!/private.zip
 # add ignore files
 .DS_Store
 .svn
