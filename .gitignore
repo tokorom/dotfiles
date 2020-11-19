@@ -7,6 +7,8 @@
 !/bin
 !/.vim
 /.vim/.*
+/.vim/pack
+!/.vim/pack/thinpl/start
 !/.gitconfig
 !/.gitignore
 !/.global_gitignore

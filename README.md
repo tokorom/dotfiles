@@ -28,6 +28,8 @@ brew install tmux
 brew install git-delta
 brew install fzf
 brew install gh
+brew install gawk
+brew install gsed
 ```
 
 ### Vim
