@@ -54,3 +54,8 @@ UseKeychain yes
 
 Need your zip password.
 
+### Other Dev Apps
+
+- http://www.hammerspoon.org/
+- https://www.alfredapp.com/
+
