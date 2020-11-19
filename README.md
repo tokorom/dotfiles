@@ -30,17 +30,9 @@ brew install fzf
 brew install gh
 brew install gawk
 brew install gsed
+brew install python
+brew install vim
 ```
-
-### Vim
-
-```sh
-git submodule update -i
-
-vim
-```
-
-Would you like to install this plugin now? [y/n] => y
 
 ### private.zip
 
@@ -55,6 +47,16 @@ UseKeychain yes
 ```
 
 Need your zip password.
+
+### Vim
+
+```sh
+git submodule update -i
+
+vim
+```
+
+Would you like to install this plugin now? [y/n] => y
 
 ### Other Dev Apps
 
