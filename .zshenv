@@ -16,7 +16,8 @@ setopt no_global_rcs
 path_setting() {
   path=(
     ~/bin # mine
-    /usr/local/bin # brew
+    /usr/local/bin # brew for Intel
+    /opt/homebrew/bin # brew for ARM
     /usr/bin # default
     /bin # default
     /usr/sbin # default
