@@ -291,7 +291,7 @@ endfunction
 
 let plugin = thinpl#add('posva/vim-vue')
 
-let plugin = thinpl#add('tokorom/replace-current-line')
+let plugin = thinpl#add('tokorom/vim-replace-current-line')
 let plugin.filetype = ['markdown']
 function! plugin.did_load() abort
   command! -nargs=0 MarkdownImageFromLine :call vim_replace_current_line#execute("./.vim-replace-current-line/markdown-image-from-line")
