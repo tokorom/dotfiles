@@ -92,9 +92,6 @@ function! plugin.did_load() abort
 endfunction
 " 1}}}
 
-let plugin = thinpl#add('vim-xcode-preview')
-let plugin.filetype = ['swift']
-
 let plugin = thinpl#add('SirVer/ultisnips')
 " settings {{{1
 function! plugin.will_load() abort
@@ -164,7 +161,7 @@ function! plugin.will_load() abort
 endfunction
 " 1}}}
 
-let plugin = thinpl#add('ale')
+let plugin = thinpl#add('tokorom/ale')
 let plugin.filetype = ['vader', 'swift', 'review', 'javascript', 'vue']
 " settings {{{1
 function! plugin.will_load() abort
@@ -201,7 +198,7 @@ function! plugin.prepare() abort
 endfunction
 " 1}}}
 
-let plugin = thinpl#add('completor.vim')
+let plugin = thinpl#add('tokorom/completor.vim')
 " settings {{{1
 function! plugin.will_load() abort
   let g:completor_auto_trigger = 1
@@ -211,11 +208,7 @@ function! plugin.will_load() abort
 endfunction
 " 1}}}
 
-let plugin = thinpl#add('completor-shell')
-
-let plugin = thinpl#add('swift_vim')
-let plugin.repository = ''
-let plugin.local_location = '~/develop/github/swift/utils/vim'
+let plugin = thinpl#add('tokorom/completor-shell')
 
 let plugin = thinpl#add('swift_vim')
 let plugin.repository = ''
@@ -230,7 +223,7 @@ function! plugin.prepare() abort
 endfunction
 " 1}}}
 
-let plugin = thinpl#add('swift-dict.vim')
+let plugin = thinpl#add('tokorom/swift-dict.vim')
 let plugin.filetype = ['swift']
 " settings {{{1
 function! plugin.did_load() abort
@@ -238,10 +231,10 @@ function! plugin.did_load() abort
 endfunction
 " 1}}}
 
-let plugin = thinpl#add('swift-smart-move.vim')
+let plugin = thinpl#add('tokorom/swift-smart-move.vim')
 let plugin.filetype = ['swift']
 
-let plugin = thinpl#add('vim-review')
+let plugin = thinpl#add('tokorom/vim-review')
 " settings {{{1
 function! plugin.will_load() abort
   let g:vim_review#include_filetypes = ['swift']
@@ -298,10 +291,8 @@ endfunction
 
 let plugin = thinpl#add('posva/vim-vue')
 
-let plugin = thinpl#add('replace-current-line')
+let plugin = thinpl#add('tokorom/replace-current-line')
 let plugin.filetype = ['markdown']
-let plugin.repository = ''
-let plugin.local_location = '~/develop/github/vim-replace-current-line'
 function! plugin.did_load() abort
   command! -nargs=0 MarkdownImageFromLine :call vim_replace_current_line#execute("./.vim-replace-current-line/markdown-image-from-line")
   command! -nargs=0 MarkdownImageWithScreenshot :call vim_replace_current_line#execute("./.vim-replace-current-line/markdown-image-with-screenshot")
