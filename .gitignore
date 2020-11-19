@@ -5,7 +5,6 @@
 !README.md
 !/Documents/terminal/*.terminal
 !/bin
-!/backup
 !/.vim
 /.vim/.*
 !/.gitconfig
