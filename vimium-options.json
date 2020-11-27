@@ -9,7 +9,7 @@
   "filterLinkHints": false,
   "waitForEnterForFilteredHints": true,
   "hideHud": false,
-  "keyMappings": "# Insert your preferred key mappings here.\n\nmap <c-p> previousTab\nmap <c-n> nextTab\nmap d removeTab\nmap u restoreTab\n\nmap J scrollPageDown\nmap K scrollPageUp\n\nmap Y LinkHints.activateModeToCopyLinkUrl\nmap t Vomnibar.activateInNewTab\n\nmap gr createTab https://feedly.com/i/latest\nmap gm createTab https://mail.google.com/\nmap gd createTab https://drive.google.com/\nmap gga createTab https://analytics.google.com/analytics/web/\nmap gt createTab https://twitter.com/\nmap gk createTab https://spinners.kibe.la/\nmap gg createTab https://github.com/\nmap gn createTab https://github.com/notifications?query=is%3Aunread\nmap ga createTab https://www.amazon.co.jp/",
+  "keyMappings": "# Insert your preferred key mappings here.\n\nmap <c-p> previousTab\nmap <c-n> nextTab\nmap d removeTab\nmap u restoreTab\n\nmap J scrollPageDown\nmap K scrollPageUp\n\nmap Y LinkHints.activateModeToCopyLinkUrl\nmap t Vomnibar.activateInNewTab",
   "linkHintCharacters": "sadfjklewcmpgh",
   "linkHintNumbers": "0123456789",
   "newTabUrl": "about:newtab",
@@ -20,7 +20,7 @@
   "scrollStepSize": 60,
   "smoothScroll": true,
   "grabBackFocus": false,
-  "searchEngines": "# More examples.\n#\n# (Vimium supports search completion Wikipedia, as\n# above, and for these.)\n#\n# g: https://www.google.com/search?q=%s Google\n# l: https://www.google.com/search?q=%s&btnI I'm feeling lucky...\n# y: https://www.youtube.com/results?search_query=%s Youtube\n# gm: https://www.google.com/maps?q=%s Google maps\n# b: https://www.bing.com/search?q=%s Bing\n# d: https://duckduckgo.com/?q=%s DuckDuckGo\n# az: https://www.amazon.com/s/?field-keywords=%s Amazon\n# qw: https://www.qwant.com/?q=%s Qwant\n\ng: https://www.google.com/search?q=%s Google\na: https://www.amazon.co.jp/s?k=%s Amazon\nk: https://spinners.kibe.la/search?query=%s Kibela",
+  "searchEngines": "# More examples.\n#\n# (Vimium supports search completion Wikipedia, as\n# above, and for these.)\n#\n# g: https://www.google.com/search?q=%s Google\n# l: https://www.google.com/search?q=%s&btnI I'm feeling lucky...\n# y: https://www.youtube.com/results?search_query=%s Youtube\n# gm: https://www.google.com/maps?q=%s Google maps\n# b: https://www.bing.com/search?q=%s Bing\n# d: https://duckduckgo.com/?q=%s DuckDuckGo\n# az: https://www.amazon.com/s/?field-keywords=%s Amazon\n# qw: https://www.qwant.com/?q=%s Qwant\n\ng: https://www.google.com/search?q=%s Google\na: https://www.amazon.co.jp/s?k=%s Amazon\nk: https://spinners.kibe.la/search?query=%s Kibela\n\nr: https://feedly.com/i/latest Feedly RSS\nt: https://twitter.com/ Twitter\n\ngm: https://mail.google.com/ Gmail\ngd: https://drive.google.com/ Google Drive\nga: https://analytics.google.com/analytics/web/ Google Analytics\n\nsm: http://mail.spinners.work/ Spinners Gmail\nsd: http://drive.spinners.work/ Spinners Drive\nsk: https://spinners.kibe.la/\n\ngh: https://github.com/ GitHub\nghn: https://github.com/notifications?query=is%3Aunread GitHub Notifications",
   "searchUrl": "https://www.google.com/search?q=",
   "userDefinedLinkHintCss": "div > .vimiumHintMarker {\n/* linkhint boxes */\nbackground: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#FFF785),\n  color-stop(100%,#FFC542));\nborder: 1px solid #E3BE23;\n}\n\ndiv > .vimiumHintMarker span {\n/* linkhint text */\ncolor: black;\nfont-weight: bold;\nfont-size: 12px;\n}\n\ndiv > .vimiumHintMarker > .matchingCharacter {\n}"
 }
