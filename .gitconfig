@@ -4,7 +4,7 @@
 [core]  
   quotepath = false
   excludesfile = ~/.global_gitignore
-  editor = /usr/bin/vim
+  editor = vim
   pager = delta --plus-color="#003400" --minus-color="#340001" --theme='Monokai Extended'
 [init]
 	defaultBranch = main
