@@ -257,6 +257,7 @@ let plugin = thinpl#add('tokorom/ale-prh-review')
 let plugin.filetype = ['review', 'vader']
 
 let plugin = thinpl#add('tpope/vim-fugitive')
+let plugin = thinpl#add('tpope/vim-rhubarb')
 
 let plugin = thinpl#add('sjl/gundo.vim')
 let plugin.command = ['Gundo*']
