@@ -232,9 +232,6 @@ function! MoveToZero()
 endfunction
 command! MoveToZero :call MoveToZero()
 
-" 現在のコードをGitHubで開く
-command! -nargs=* -range GitBrowseRemote !git browse-remote --rev -L<line1>,<line2> <f-args> -- %
-
 " }}}1
 
 "=============================================================================
