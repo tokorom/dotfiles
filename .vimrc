@@ -213,6 +213,11 @@ nnoremap <C-p>                   :<C-u>tabprevious<CR>
 
 nnoremap <expr> [MyPrefix]d ':!open dict://' . expand('<cword>')
 
+" ---------- commands ----------
+
+nnoremap [MyPrefix]ze             <S-v>!deepl-cui-swift -s JA -w<CR>
+vnoremap ze                       !deepl-cui-swift -s JA -w<CR>
+
 " }}}1
 
 "=============================================================================
