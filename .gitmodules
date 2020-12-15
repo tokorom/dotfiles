@@ -1,3 +1,6 @@
 [submodule ".vim/pack/thinpl/start/thinpl"]
 	path = .vim/pack/thinpl/start/thinpl
 	url = https://github.com/tokorom/thinpl
+[submodule "secrets"]
+	path = secrets
+	url = git@github.com:tokorom/secrets.git
