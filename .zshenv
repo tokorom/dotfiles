@@ -25,6 +25,7 @@ path_setting() {
     ~/.nodebrew/current/bin # nodebrew
     ~/go/bin # go
     ~/.cargo/bin # rust
+    /usr/local/flutter/bin # Flutter
     $path
   )
 }
