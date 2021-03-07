@@ -231,6 +231,19 @@ function! plugin.did_load() abort
 endfunction
 " 1}}}
 
+let plugin = thinpl#add('tokorom/asyncomplete-shellcommand.vim')
+let plugin.filetype = ['swift']
+" settings {{{1
+function! plugin.did_load() abort
+  let g:asyncomplete#sources#shellcommand#command = 'ag ${token} | grep -o "[[:alnum:]]\+" | fzy -e ${token} | uniq'
+  call asyncomplete#register_source({
+    \ 'name': 'project',
+    \ 'allowlist': ['*'],
+    \ 'completor': function('asyncomplete#sources#shellcommand#completor'),
+    \ })
+endfunction
+" 1}}}
+
 let plugin = thinpl#add('swift_vim')
 let plugin.repository = ''
 let plugin.local_location = '~/develop/github/swift/utils/vim'
