@@ -93,7 +93,7 @@ set formatoptions+=mM
 set display+=lastline
 
 " 補完の設定
-set completeopt=menu,preview,longest
+set completeopt=menuone,noinsert,noselect,preview
 
 " 日付の自動入力のフォーマット
 let autodate_format='%Y-%m-%d'

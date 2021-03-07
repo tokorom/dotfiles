@@ -198,17 +198,38 @@ function! plugin.prepare() abort
 endfunction
 " 1}}}
 
-let plugin = thinpl#add('tokorom/completor.vim')
+let plugin = thinpl#add('prabirshrestha/asyncomplete.vim')
 " settings {{{1
 function! plugin.will_load() abort
-  let g:completor_auto_trigger = 1
-  let g:completor_auto_complete_min_chars = 5
-  let g:completor_min_chars = 1
-  inoremap <expr> <C-n> pumvisible() ? "<C-n>" : "<C-r>=completor#do('complete')<CR>"
+  let g:asyncomplete_auto_popup = 0
+  let g:asyncomplete_auto_completeopt = 1
+  inoremap <expr> <cr> pumvisible() ? asyncomplete#close_popup() : "\<cr>"
+  imap <expr> <C-h> pumvisible() ? "\<C-h>" . asyncomplete#force_refresh() : "\<C-h>"
+  imap <C-n> <Plug>(asyncomplete_force_refresh)
 endfunction
 " 1}}}
 
-let plugin = thinpl#add('tokorom/completor-shell')
+let plugin = thinpl#add('prabirshrestha/asyncomplete-ultisnips.vim')
+" settings {{{1
+function! plugin.did_load() abort
+  call asyncomplete#register_source(asyncomplete#sources#ultisnips#get_source_options({
+    \ 'name': 'ultisnips',
+    \ 'allowlist': ['*'],
+    \ 'completor': function('asyncomplete#sources#ultisnips#completor'),
+    \ }))
+endfunction
+" 1}}}
+
+let plugin = thinpl#add('tokorom/asyncomplete-dictionary.vim')
+" settings {{{1
+function! plugin.did_load() abort
+  call asyncomplete#register_source({
+    \ 'name': 'dictionary',
+    \ 'allowlist': ['*'],
+    \ 'completor': function('asyncomplete#sources#dictionary#completor'),
+    \ })
+endfunction
+" 1}}}
 
 let plugin = thinpl#add('swift_vim')
 let plugin.repository = ''
