@@ -369,6 +369,10 @@ snippet UITableViewDelegate_estimatedHeightForRowAtIndexPath
 	func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
 		return ${1: UITableViewAutomaticDimension}
 	}
+snippet UITableViewDelegate_willDisplayForRowAt
+	func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+		${0}
+	}
 snippet UICollectionViewDataSource
 	// MARK: - UICollectionViewDataSource
 	
