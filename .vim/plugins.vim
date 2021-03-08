@@ -198,11 +198,36 @@ function! plugin.prepare() abort
 endfunction
 " 1}}}
 
+" sort_by_priority_preprocessor {{{1
+function! s:sort_by_priority_preprocessor(options, matches) abort
+  let l:items = []
+  let l:startcols = []
+  for [l:source_name, l:matches] in items(a:matches)
+    let l:startcol = l:matches['startcol']
+    let l:base = a:options['typed'][l:startcol - 1:]
+    for l:item in l:matches['items']
+      if stridx(l:item['word'], l:base) == 0
+        let l:startcols += [l:startcol]
+        let l:item['priority'] =
+                    \ get(asyncomplete#get_source_info(l:source_name), 'priority', 0)
+        call add(l:items, l:item)
+      endif
+    endfor
+  endfor
+
+  let a:options['startcol'] = min(l:startcols)
+  let l:items = sort(l:items, {a, b -> b['priority'] - a['priority']})
+
+  call asyncomplete#preprocess_complete(a:options, l:items)
+endfunction
+" 1}}}
+
 let plugin = thinpl#add('prabirshrestha/asyncomplete.vim')
 " settings {{{1
 function! plugin.will_load() abort
   let g:asyncomplete_auto_popup = 0
   let g:asyncomplete_auto_completeopt = 1
+  let g:asyncomplete_preprocessor = [function('s:sort_by_priority_preprocessor')]
   inoremap <expr> <cr> pumvisible() ? asyncomplete#close_popup() : "\<cr>"
   imap <expr> <C-h> pumvisible() ? "\<C-h>" . asyncomplete#force_refresh() : "\<C-h>"
   imap <C-n> <Plug>(asyncomplete_force_refresh)
@@ -216,6 +241,7 @@ function! plugin.did_load() abort
     \ 'name': 'ultisnips',
     \ 'allowlist': ['*'],
     \ 'completor': function('asyncomplete#sources#ultisnips#completor'),
+    \ 'priority': 1000,
     \ }))
 endfunction
 " 1}}}
@@ -240,6 +266,7 @@ function! plugin.did_load() abort
     \ 'name': 'project',
     \ 'allowlist': ['*'],
     \ 'completor': function('asyncomplete#sources#shellcommand#completor'),
+    \ 'priority': 100,
     \ })
 endfunction
 " 1}}}
