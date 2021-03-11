@@ -144,6 +144,8 @@ endfunction
 " endfunction
 " " 1}}}
 
+" Fuzzy Finder {{{1
+
 function! Fzy(select_command, choice_command, word)
   function! ExitCb(job, status)
     if a:status != 0
@@ -177,10 +179,11 @@ function! Fzy(select_command, choice_command, word)
   let g:fzy#last_buf = term_start(command, options)
 endfunction
 
-command! -nargs=1 FzyGrep call Fzy(":e", "rg -n --no-heading", <f-args>)
-nnoremap <silent> [MyPrefix].f :call Fzy(":e", "fd --type f", "")<CR>
+command! -nargs=1 FzyGrep call Fzy(":TabNewOrSelect", "rg -n --no-heading", <f-args>)
+nnoremap <silent> [MyPrefix].f :call Fzy(":TabNewOrSelect", "fd --type f", "")<CR>
 nnoremap <expr> [MyPrefix].g ':FzyGrep ' . expand('<cword>')
 
+" 1}}}
 
 let plugin = thinpl#add('tokorom/tabnew-or-select.vim')
 " settings {{{1
