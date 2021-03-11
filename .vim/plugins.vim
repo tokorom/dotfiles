@@ -146,7 +146,7 @@ endfunction
 
 " Fuzzy Finder {{{1
 
-function! Fzy(select_command, choice_command, word)
+function! Fzy(select_command, choice_command, file, word)
   function! ExitCb(job, status)
     if a:status != 0
       let g:fzy#last_selected = ''
@@ -155,32 +155,47 @@ function! Fzy(select_command, choice_command, word)
     let selected = term_getline(g:fzy#last_buf, 1)
     :q
     if !empty(selected)
-      let filename_and_line = matchlist(selected, '^\([^:]\+\):\(\d\+\):') 
-      if len(filename_and_line) < 3
-        exec g:fzy#last_select_command . ' ' . selected
+      let m_filename_and_line = matchlist(selected, '^\([^:]\+\):\(\d\+\):') 
+      if len(m_filename_and_line) < 3
+        let file = g:fzy#last_file
+        let m_line = matchlist(selected, '^\(\d\+\):') 
+        if len(m_line) > 1 && !empty(file)
+          let line = m_line[1]
+          exec g:fzy#last_select_command . ' ' . file
+          exec ':' . line
+        else
+          exec g:fzy#last_select_command . ' ' . selected
+        endif
       else
-        let filename = filename_and_line[1]
-        let line = filename_and_line[2]
+        let filename = m_filename_and_line[1]
+        let line = m_filename_and_line[2]
         exec g:fzy#last_select_command . ' ' . filename
         exec ':' . line
       endif
     endif
   endfunction
 
-  let shell = "zsh"
-  let fuzzy_finder_command = "fzf"
-  let command = shell . ' -c "' . a:choice_command . ' ' . a:word . ' | ' . fuzzy_finder_command . ' "'
-  echom command
+  let choice_command = a:choice_command
+  if !empty(a:file)
+    let choice_command = substitute(choice_command, '${file}', a:file, 'g') 
+  endif
+  if !empty(a:word)
+    let choice_command = substitute(choice_command, '${word}', a:word, 'g') 
+  endif
+  let command = $SHELL . ' -c "' . choice_command . '"'
   let options = {
   \   "term_finish": "close",
   \   "exit_cb": "ExitCb",
   \ }
   let g:fzy#last_select_command = a:select_command
+  let g:fzy#last_file = a:file
   let g:fzy#last_buf = term_start(command, options)
 endfunction
 
-command! -nargs=1 FzyGrep call Fzy(":TabNewOrSelect", "rg -n --no-heading", <f-args>)
-nnoremap <silent> [MyPrefix].f :call Fzy(":TabNewOrSelect", "fd --type f", "")<CR>
+command! -nargs=1 FzyGrep call Fzy(":TabNewOrSelect", "rg -n --no-heading ${word} | fzf", "", <f-args>)
+
+nnoremap <silent> [MyPrefix].f :call Fzy(":TabNewOrSelect", "fd --type f \| fzf", "", "")<CR>
+nnoremap <silent> [MyPrefix].l :call Fzy(":TabNewOrSelect", "rg -n '' ${file} \| fzf --reverse", expand("%"), "")<CR>
 nnoremap <expr> [MyPrefix].g ':FzyGrep ' . expand('<cword>')
 
 " 1}}}
