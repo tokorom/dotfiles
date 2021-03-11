@@ -211,7 +211,8 @@ nnoremap <C-p>                   :<C-u>tabprevious<CR>
 
 " ---------- dictionary ----------
 
-nnoremap <expr> [MyPrefix]d ':!open dict://' . expand('<cword>')
+" nnoremap <expr> [MyPrefix]d ':!open dict://' . expand('<cword>')
+nnoremap <expr> [MyPrefix]d ':!open dash://' . expand('<cword>')
 
 " ---------- commands ----------
 
