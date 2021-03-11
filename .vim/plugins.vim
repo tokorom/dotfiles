@@ -128,7 +128,7 @@ endfunction
 
 " Fuzzy Finder {{{1
 
-function! Fzy(select_command, choice_command, file, word)
+function! Fzy(select_command, choice_command, file, options)
   function! ExitCb(job, status)
     if a:status != 0
       let g:fzy#last_selected = ''
@@ -161,8 +161,10 @@ function! Fzy(select_command, choice_command, file, word)
   if !empty(a:file)
     let choice_command = substitute(choice_command, '${file}', a:file, 'g') 
   endif
-  if !empty(a:word)
-    let choice_command = substitute(choice_command, '${word}', a:word, 'g') 
+  if !empty(a:options)
+    for key in keys(a:options)
+      let choice_command = substitute(choice_command, '${' . key . '}', a:options[key], 'g') 
+    endfor
   endif
   let command = $SHELL . ' -c "' . choice_command . '"'
   let options = {
@@ -177,17 +179,17 @@ endfunction
 function! FzyList(select_command, list)
   let tmpfile = tempname()
   call writefile(a:list, tmpfile)
-  call Fzy(a:select_command, "cat " . tmpfile . " \| fzf", "", "")
+  call Fzy(a:select_command, "cat " . tmpfile . " \| fzf", "", {})
 endfunction
 
-nnoremap <silent> [MyPrefix].f :call Fzy(":TabNewOrSelect", "fd --type f \| fzf", "", "")<CR>
-nnoremap <silent> [MyPrefix].l :call Fzy(":TabNewOrSelect", "rg -n '' ${file} \| fzf --reverse", expand("%"), "")<CR>
-nnoremap <silent> [MyPrefix].p :call Fzy(":TabNewOrSelect", "rg -n '' ${file} \| fzf --reverse", "$VIMHOME/plugins.vim", "")<CR>
-nnoremap <silent> [MyPrefix].s :call Fzy(":TabNewOrSelect", "fd --type f '' $VIMHOME/snippets/ \| fzf", "", "")<CR>
+nnoremap <silent> [MyPrefix].f :call Fzy(":TabNewOrSelect", "fd --type f \| fzf", "", {})<CR>
+nnoremap <silent> [MyPrefix].l :call Fzy(":TabNewOrSelect", "rg -n '' ${file} \| fzf --reverse", expand("%"), {})<CR>
+nnoremap <silent> [MyPrefix].p :call Fzy(":TabNewOrSelect", "rg -n '' ${file} \| fzf --reverse", "$VIMHOME/plugins.vim", {})<CR>
+nnoremap <silent> [MyPrefix].s :call Fzy(":TabNewOrSelect", "fd --type f '' $VIMHOME/snippets/ \| fzf", "", {})<CR>
 nnoremap <silent> [MyPrefix].r :call FzyList(":TabNewOrSelect", v:oldfiles)<CR>
 nnoremap <expr> [MyPrefix].g ':FzyGrep ' . expand('<cword>')
 
-command! -nargs=1 FzyGrep call Fzy(":TabNewOrSelect", "rg -n --no-heading ${word} | fzf", "", <f-args>)
+command! -nargs=1 FzyGrep call Fzy(":TabNewOrSelect", "rg -n --no-heading ${word} | fzf", "", {'word': <f-args>})
 
 " 1}}}
 
