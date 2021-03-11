@@ -192,10 +192,16 @@ function! Fzy(select_command, choice_command, file, word)
   let g:fzy#last_buf = term_start(command, options)
 endfunction
 
+function! FzyOldFiles(select_command)
+endfunction
+
 command! -nargs=1 FzyGrep call Fzy(":TabNewOrSelect", "rg -n --no-heading ${word} | fzf", "", <f-args>)
 
 nnoremap <silent> [MyPrefix].f :call Fzy(":TabNewOrSelect", "fd --type f \| fzf", "", "")<CR>
 nnoremap <silent> [MyPrefix].l :call Fzy(":TabNewOrSelect", "rg -n '' ${file} \| fzf --reverse", expand("%"), "")<CR>
+nnoremap <silent> [MyPrefix].p :call Fzy(":TabNewOrSelect", "rg -n '' ${file} \| fzf --reverse", "$VIMHOME/plugins.vim", "")<CR>
+nnoremap <silent> [MyPrefix].s :call Fzy(":TabNewOrSelect", "fd --type f '' $VIMHOME/snippets/ \| fzf", "", "")<CR>
+nnoremap <silent> [MyPrefix].r :call FzyOldFiles(":TabNewOrSelect")<CR>
 nnoremap <expr> [MyPrefix].g ':FzyGrep ' . expand('<cword>')
 
 " 1}}}
