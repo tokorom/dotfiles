@@ -126,24 +126,6 @@ function! plugin.will_load() abort
 endfunction
 " 1}}}
 
-" let plugin = thinpl#add('junegunn/fzf')
-" let plugin = thinpl#add('junegunn/fzf.vim')
-" " settings {{{1
-" function! plugin.will_load() abort
-"   let g:fzf_command_prefix = 'Fzf'
-"   let g:fzf_layout = { 'up': '~40%' }
-" 
-"   nnoremap [MyPrefix].f :<C-u>FzfFiles<CR>
-"   nnoremap [MyPrefix].b :<C-u>FzfBuffers<CR>
-"   nnoremap [MyPrefix].r :<C-u>FzfHistory<CR>
-"   nnoremap [MyPrefix].l :<C-u>FzfLines<CR>
-"   nnoremap [MyPrefix].h :<C-u>FzfHelptags<CR>
-"   nnoremap [MyPrefix].s :<C-u>FzfFiles $VIMHOME/snippets/<CR>
-"   nnoremap [MyPrefix].p :<C-u>tabnew $VIMHOME/plugins.vim<CR>:<C-u>FzfLines<CR>
-"   nnoremap <expr> [MyPrefix].g ':FzfAg ' . expand('<cword>')
-" endfunction
-" " 1}}}
-
 " Fuzzy Finder {{{1
 
 function! Fzy(select_command, choice_command, file, word)
