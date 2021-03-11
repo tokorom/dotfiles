@@ -144,7 +144,7 @@ endfunction
 " endfunction
 " " 1}}}
 
-function! Fzy(choice_command, select_command)
+function! Fzy(select_command, choice_command, word)
   function! ExitCb(job, status)
     if a:status != 0
       let g:fzy#last_selected = ''
@@ -153,13 +153,22 @@ function! Fzy(choice_command, select_command)
     let selected = term_getline(g:fzy#last_buf, 1)
     :q
     if !empty(selected)
-      exec g:fzy#last_select_command . ' ' . selected
+      let filename_and_line = matchlist(selected, '^\([^:]\+\):\(\d\+\):') 
+      if len(filename_and_line) < 3
+        exec g:fzy#last_select_command . ' ' . selected
+      else
+        let filename = filename_and_line[1]
+        let line = filename_and_line[2]
+        exec g:fzy#last_select_command . ' ' . filename
+        exec ':' . line
+      endif
     endif
   endfunction
 
   let shell = "zsh"
   let fuzzy_finder_command = "fzf"
-  let command = shell . ' -c "' . a:choice_command . ' | ' . fuzzy_finder_command . ' "'
+  let command = shell . ' -c "' . a:choice_command . ' ' . a:word . ' | ' . fuzzy_finder_command . ' "'
+  echom command
   let options = {
   \   "term_finish": "close",
   \   "exit_cb": "ExitCb",
@@ -168,7 +177,9 @@ function! Fzy(choice_command, select_command)
   let g:fzy#last_buf = term_start(command, options)
 endfunction
 
-nnoremap <silent> [MyPrefix].f :call Fzy("fd --type f", ":e")<CR>
+command! -nargs=1 FzyGrep call Fzy(":e", "rg -n --no-heading", <f-args>)
+nnoremap <silent> [MyPrefix].f :call Fzy(":e", "fd --type f", "")<CR>
+nnoremap <expr> [MyPrefix].g ':FzyGrep ' . expand('<cword>')
 
 
 let plugin = thinpl#add('tokorom/tabnew-or-select.vim')
