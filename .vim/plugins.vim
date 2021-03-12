@@ -145,32 +145,47 @@ endfunction
 " Fuzzy Finder {{{1
 
 function! Fzy(select_command, choice_command, file, options)
+  function! Select(command, target)
+    let command = a:command
+    let target = a:target
+    let m_filename_and_line = matchlist(target, '^\([^:]\+\):\(\d\+\):') 
+    if len(m_filename_and_line) < 3
+      let file = g:fzy#last_file
+      let m_line = matchlist(target, '^\(\d\+\):') 
+      if len(m_line) > 1 && !empty(file)
+        let line = m_line[1]
+        exec command . ' ' . file
+        exec ':' . line
+      else
+        exec command . ' ' . target
+      endif
+    else
+      let filename = m_filename_and_line[1]
+      let line = m_filename_and_line[2]
+      exec command . ' ' . filename
+      exec ':' . line
+    endif
+  endfunction
+
   function! ExitCb(job, status)
     if a:status != 0
-      let g:fzy#last_selected = ''
       return
     endif
-    let selected = term_getline(g:fzy#last_buf, 1)
-    :q
-    if !empty(selected)
-      let m_filename_and_line = matchlist(selected, '^\([^:]\+\):\(\d\+\):') 
-      if len(m_filename_and_line) < 3
-        let file = g:fzy#last_file
-        let m_line = matchlist(selected, '^\(\d\+\):') 
-        if len(m_line) > 1 && !empty(file)
-          let line = m_line[1]
-          exec g:fzy#last_select_command . ' ' . file
-          exec ':' . line
-        else
-          exec g:fzy#last_select_command . ' ' . selected
-        endif
+    let candidates = []
+    let line = 1
+    while 1
+      let candidate = term_getline(g:fzy#last_buf, line)
+      if empty(candidate)
+        break
       else
-        let filename = m_filename_and_line[1]
-        let line = m_filename_and_line[2]
-        exec g:fzy#last_select_command . ' ' . filename
-        exec ':' . line
+        call add(candidates, candidate)
       endif
-    endif
+      let line = line + 1
+    endwhile
+    :q
+    for candidate in candidates
+      call Select(g:fzy#last_select_command, candidate)
+    endfor
   endfunction
 
   let choice_command = a:choice_command
@@ -195,17 +210,17 @@ endfunction
 function! FzyList(select_command, list)
   let tmpfile = tempname()
   call writefile(a:list, tmpfile)
-  call Fzy(a:select_command, "cat " . tmpfile . " \| fzf", "", {})
+  call Fzy(a:select_command, "cat " . tmpfile . " \| fzf -m", "", {})
 endfunction
 
-nnoremap <silent> [MyPrefix].f :call Fzy(":TabNewOrSelect", "fd --type f \| fzf", "", {})<CR>
-nnoremap <silent> [MyPrefix].l :call Fzy(":TabNewOrSelect", "rg -n '' ${file} \| fzf --reverse", expand("%"), {})<CR>
-nnoremap <silent> [MyPrefix].p :call Fzy(":TabNewOrSelect", "rg -n '' ${file} \| fzf --reverse", "$VIMHOME/plugins.vim", {})<CR>
-nnoremap <silent> [MyPrefix].s :call Fzy(":TabNewOrSelect", "fd --type f '' $VIMHOME/snippets/ \| fzf", "", {})<CR>
+nnoremap <silent> [MyPrefix].f :call Fzy(":TabNewOrSelect", "fd --type f \| fzf -m", "", {})<CR>
+nnoremap <silent> [MyPrefix].l :call Fzy(":TabNewOrSelect", "rg -n '' ${file} \| fzf -m --reverse", expand("%"), {})<CR>
+nnoremap <silent> [MyPrefix].p :call Fzy(":TabNewOrSelect", "rg -n '' ${file} \| fzf -m --reverse", "$VIMHOME/plugins.vim", {})<CR>
+nnoremap <silent> [MyPrefix].s :call Fzy(":TabNewOrSelect", "fd --type f '' $VIMHOME/snippets/ \| fzf -m", "", {})<CR>
 nnoremap <silent> [MyPrefix].r :call FzyList(":TabNewOrSelect", v:oldfiles)<CR>
 nnoremap <expr> [MyPrefix].g ':FzyGrep ' . expand('<cword>')
 
-command! -nargs=1 FzyGrep call Fzy(":TabNewOrSelect", "rg -n --no-heading ${word} | fzf", "", {'word': <f-args>})
+command! -nargs=1 FzyGrep call Fzy(":TabNewOrSelect", "rg -n --no-heading ${word} | fzf -m", "", {'word': <f-args>})
 
 " 1}}}
 
