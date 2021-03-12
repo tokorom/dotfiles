@@ -36,23 +36,29 @@ endfunction
 " 1}}}
 
 let plugin = thinpl#add('kana/vim-operator-user')
-let plugin = thinpl#add('emonkak/vim-operator-comment')
-" settings {{{1
-function! plugin.will_load() abort
-  nmap [MyPrefix]x <Plug>(operator-comment)
-  nmap [MyPrefix]z <Plug>(operator-uncomment)
-  vmap [MyPrefix]x <Plug>(operator-comment)
-  vmap [MyPrefix]z <Plug>(operator-uncomment)
-  nmap [MyPrefix]xx <Plug>(operator-comment)l
-  nmap [MyPrefix]zz <Plug>(operator-uncomment)l
-endfunction
-" 1}}}
 let plugin = thinpl#add('kana/vim-operator-replace')
 " settings {{{1
 function! plugin.will_load() abort
   nmap [MyPrefix]r <Plug>(operator-replace)
   vmap [MyPrefix]r <Plug>(operator-replace)
   nmap [MyPrefix]rr <Plug>(operator-replace)iw
+endfunction
+" 1}}}
+
+let plugin = thinpl#add('preservim/nerdcommenter')
+" settings {{{1
+function! plugin.will_load() abort
+  let g:NERDCreateDefaultMappings = 0
+  let g:NERDSpaceDelims = 1
+  let g:NERDCommentEmptyLines = 0
+  let g:NERDDefaultAlign = 'left'
+  let g:NERDCustomDelimiters = {
+  \   'swift': {'left': '//'},
+  \ }
+  nmap [MyPrefix]xx :call NERDComment('n', 'Comment')<CR>
+  nmap [MyPrefix]zz :call NERDComment('n', 'Uncomment')<CR>
+  vmap [MyPrefix]x :call NERDComment('x', 'Comment')<CR>
+  vmap [MyPrefix]z :call NERDComment('x', 'Uncomment')<CR>
 endfunction
 " 1}}}
 
