@@ -210,15 +210,6 @@ command! -nargs=1 FzyGrep call Fzy(":TabNewOrSelect", "rg -n --no-heading ${word
 " 1}}}
 
 let plugin = thinpl#add('tokorom/tabnew-or-select.vim')
-" settings {{{1
-function! plugin.will_load() abort
-  let g:fzf_action = {
-    \ '':       'TabNewOrSelect',
-    \ 'ctrl-t': 'tab split',
-    \ 'ctrl-x': 'split',
-    \ 'ctrl-v': 'vsplit' }
-endfunction
-" 1}}}
 
 let plugin = thinpl#add('tokorom/ale')
 let plugin.filetype = ['vader', 'swift', 'review', 'javascript', 'vue']
