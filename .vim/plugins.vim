@@ -46,6 +46,7 @@ endfunction
 " 1}}}
 
 let plugin = thinpl#add('preservim/nerdcommenter')
+let plugin.filetype = ['swift']
 " settings {{{1
 function! plugin.will_load() abort
   let g:NERDCreateDefaultMappings = 0
@@ -64,6 +65,15 @@ endfunction
 
 " Auto close parentheses
 let plugin = thinpl#add('cohama/lexima.vim')
+let plugin.filetype = ['swift']
+" settings {{{1
+function! plugin.did_load() abort
+  let g:lexima_enable_basic_rules = 0
+  let g:lexima_enable_newline_rules = 1
+  let g:lexima_enable_space_rules = 0
+  let g:lexima_enable_endwise_rules	 = 0
+endfunction
+" 1}}}
 
 let plugin = thinpl#add('junegunn/vader.vim')
 
