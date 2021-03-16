@@ -209,6 +209,9 @@ nnoremap [MyPrefix]e             :<C-u>e<Space>
 nnoremap <C-n>                   :<C-u>tabnext<CR>
 nnoremap <C-p>                   :<C-u>tabprevious<CR>
 
+" ---------- window ----------
+nnoremap <C-w>g                  :<C-u>:terminal ++shell ++close tigs<CR>
+
 " ---------- dictionary ----------
 
 " nnoremap <expr> [MyPrefix]d ':!open dict://' . expand('<cword>')
