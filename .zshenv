@@ -38,6 +38,10 @@ fpath=(
   $fpath
 )
 
+####### envs ########
+
+export CLICOLOR=1
+
 ####### alias ########
 
 alias g="git"
