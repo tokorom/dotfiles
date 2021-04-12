@@ -389,6 +389,7 @@ let plugin = thinpl#add('sjl/gundo.vim')
 let plugin.command = ['Gundo*']
 " settings {{{1
 function! plugin.prepare() abort
+  let g:gundo_prefer_python3 = 1
   execute 'command! GundoEnable call thinpl#load_plugin("' . self.name . '", "gundo plugin is loaded :)")'
 endfunction
 " 1}}}
