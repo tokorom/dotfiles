@@ -69,7 +69,5 @@
   color = auto
   rename = copy
 
-[include]
-  path = ~/.gitconfig.local
 [pull]
 	rebase = false
