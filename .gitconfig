@@ -64,10 +64,10 @@
   sslVerify = false
 [push]
   default = current
-
 [diff]
   color = auto
   rename = copy
-
 [pull]
 	rebase = false
+[commit]
+	verbose = true
