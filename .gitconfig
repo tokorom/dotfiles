@@ -38,7 +38,7 @@
   plu = pull upstream main
   ps = push
   psm = push origin main
-  psh = push origin HEAD
+  psa = push origin @
   psu = push upstream main
   df = diff --ignore-space-change
   dfs = diff --staged --ignore-space-change
