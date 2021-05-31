@@ -19,22 +19,16 @@
   swm = switch main
   res = restore
   cm = commit
-  cma = commit -a
-  cmi = commit --interactive
   amend = commit --amend -a
   st = status ./
-  stn = status --untracked-files=no ./
   rmc = rm --cached
   br = branch
-  brr = branch -a
   me = merge
-  ms = merge --squash
-  re = reset --hard
   rb = rebase
   rbm = rebase main
   pl = pull
   plm = pull origin main
-  plh = pull origin HEAD
+  pla = pull origin @
   plu = pull upstream main
   ps = push
   psm = push origin main
@@ -49,13 +43,8 @@
   ls = log --stat
   lp = log -p --stat
   lo = log --oneline --decorate
-  type = cat-file -t
-  dump = cat-file -p
   rv = remote -v
   ru = remote update
-  cancel = !git add . && git commit -a -m 'Temporary commit for cancel' && git reset --hard HEAD~
-  dft = difftool
-  met = mergetool
 [pager]
   color = true
 [status]
