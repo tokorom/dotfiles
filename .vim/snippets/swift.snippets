@@ -22,7 +22,7 @@ snippet template_class
 	
 	final class $1 {${0}
 	}
-snippet template_class_view
+snippet template_view
 	//
 	//  ${1:`expand('%:t:r')`}.swift
 	//
@@ -33,7 +33,7 @@ snippet template_class_view
 	
 	final class $1: ${2:UIView} {${0}
 	}
-snippet template_class_viewcontroller
+snippet template_viewcontroller
 	//
 	//  ${1:`expand('%:t:r')`}.swift
 	//
@@ -43,6 +43,37 @@ snippet template_class_viewcontroller
 	import UIKit
 	
 	final class $1: ${2:UIViewController} {${0}
+	}
+snippet template_tableviewcontroller
+	//
+	//  ${1:`expand('%:t:r')`}.swift
+	//
+	//  Created by ToKoRo on `strftime("%Y-%m-%d")`.
+	//
+	
+	import UIKit
+	
+	final class $1: ${2:UITableViewController} {${0}
+	}
+	
+	// MARK: - UITableViewDataSource
+	
+	extension ${1:`expand('%:t:r')`} {
+		override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+			return 1
+		}
+	
+		override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+			let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
+			return cell
+		}
+	}
+	
+	// MARK: - UITableViewDelegate
+	
+	extension ${1:`expand('%:t:r')`} {
+		override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+		}
 	}
 snippet template_struct
 	//
