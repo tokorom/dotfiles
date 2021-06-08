@@ -65,13 +65,21 @@ endfunction
 
 " Auto close parentheses
 let plugin = thinpl#add('cohama/lexima.vim')
-let plugin.filetype = ['swift']
+let plugin.filetype = ['swift', 'markdown']
 " settings {{{1
 function! plugin.did_load() abort
+  " common {{{2
   let g:lexima_enable_basic_rules = 0
   let g:lexima_enable_newline_rules = 1
   let g:lexima_enable_space_rules = 0
   let g:lexima_enable_endwise_rules	 = 0
+  " 2}}}
+
+  " markdown {{{2
+  call lexima#add_rule({'char': '<CR>', 'at': '- .*\%#', 'input': '<CR>- ', 'filetype': 'markdown'})
+  call lexima#add_rule({'char': '>>', 'at': '- \%#', 'input': '<Esc>>>A', 'filetype': 'markdown'})
+  call lexima#add_rule({'char': '<<', 'at': '- \%#', 'input': '<Esc><<A', 'filetype': 'markdown'})
+  " 2}}}
 endfunction
 " 1}}}
 
