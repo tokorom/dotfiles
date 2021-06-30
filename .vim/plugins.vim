@@ -186,9 +186,20 @@ function! Fzy(select_command, choice_command, file, options)
       if empty(candidate)
         break
       else
-        let filelocation = matchstr(candidate, '^[^:]\+:\d*:')
-        if !empty(filelocation)
-          call add(candidates, filelocation)
+        if !empty(g:fzy#last_file)
+          let location = matchstr(candidate, '^\d\+:')
+          if !empty(location)
+            call add(candidates, location)
+          endif
+        else
+          if filereadable(expand(candidate))
+            call add(candidates, candidate)
+          else
+            let filelocation = matchstr(candidate, '^[^:]\+:\d*:')
+            if !empty(filelocation)
+              call add(candidates, filelocation)
+            endif
+          endif
         endif
       endif
       let line = line + 1
