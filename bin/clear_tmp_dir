@@ -1,9 +1,0 @@
-#!/bin/bash
-
-read -p "Clear tmp directory? (y/N): " yn
-case "$yn" in [yY]*) ;; *) echo "abort." ; exit ;; esac
-
-rm -rf tmp
-mkdir tmp
-
-echo "Clear :)"

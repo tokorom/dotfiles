@@ -59,6 +59,36 @@ alias be='bundle exec'
 alias vim-buffer='tmux capture-pane -t 0 -S -32768; tmux show-buffer | vim - -c 32768'
 alias vb='vim-buffer'
 
+####### functions ########
+
+mkcd() {
+  mkdir -p $1
+  cd $_
+  pwd
+}
+
+tt() {
+  if tmux ls > /dev/null 2>&1 ; then
+    tmux attach
+  else
+    tmux
+  fi
+}
+
+clear_backups() {
+  cd ~
+
+  ls backup/*.*
+  ls backup/.*
+  ls backup/*~
+  ls .viminf *.tmp
+
+  rm backup/*.*
+  rm backup/.*
+  rm backup/*~
+  rm .viminf *.tmp
+}
+
 ####### direnv #########
 
 if type direnv >/dev/null 2>&1; then

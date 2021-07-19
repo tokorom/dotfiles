@@ -1,6 +1,0 @@
-#/bin/sh
-if tmux ls > /dev/null 2>&1 ; then
-  tmux attach
-else
-  tmux
-fi
