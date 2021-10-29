@@ -793,6 +793,28 @@ snippet Combine
 		}
 		private func handleSample(_ sample: Sample) {
 		}
+snippet withCheckedContinuation
+	await withCheckedContinuation { continuation in
+		doSomething { foo in
+			continuation.resume(returning: foo)
+		}
+	}
+snippet withCheckedThrowingContinuation
+	try await withCheckedThrowingContinuation { continuation in
+		doSomething { result in
+			continuation.resume(with: result)
+		}
+	}
+snippet withCheckedThrowingContinuationWithoutResult
+	try await withCheckedThrowingContinuation { continuation in
+		doSomething { foo in
+			try {
+				let bar = try something()
+				continuation.resume(returning: bar)
+			} catch {
+				continuation.resume(throwing: error)
+			}
+		}
+	}
 snippet TERMINATE
 	{TERMINATE}
-
