@@ -487,26 +487,25 @@ snippet animateWithDuration
 		${0}
 	}
 snippet animateWithDuration_with_completion
-	UIView.animate(withDuration: 0.25, delay: 0.0, options: .curveEaseInOut, animations: { () in
+	UIView.animate(withDuration: 0.25, delay: 0.0, options: .curveEaseInOut) { () in
 		${0}
-	}, completion: { (stopped: Bool) in
+	} completion: { (stopped: Bool) in
 		if (stopped) {
 		}
-	})
+	}
 snippet animateWithSpring
 	UIView.animate(
 		withDuration: 0.25,
 		delay: 0.0,
 		usingSpringWithDamping: 0.5,
 		initialSpringVelocity: 0.0,
-		options: .curveEaseInOut,
-		animations: { () in
-			${0}
-		}, completion: { (stopped: Bool) in
-			if (stopped) {
-			}
+		options: .curveEaseInOut)
+	{ () in
+		${0}
+	} completion: { (stopped: Bool) in
+		if (stopped) {
 		}
-	)
+	}
 snippet available_if
 	if #available(${1:iOS 12.0}, *) {
 		${0}
