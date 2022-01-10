@@ -18,6 +18,7 @@ path_setting() {
     ~/bin # mine
     /usr/local/bin # brew for Intel
     /opt/homebrew/bin # brew for ARM
+    ~/.rbenv/shims # rbenv
     /usr/bin # default
     /bin # default
     /usr/sbin # default
