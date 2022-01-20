@@ -5,7 +5,7 @@
   quotepath = false
   excludesfile = ~/.global_gitignore
   editor = vim
-  pager = delta --plus-color="#003400" --minus-color="#340001" --theme='Monokai Extended'
+  pager = delta
 [init]
 	defaultBranch = main
 [interactive]
@@ -53,10 +53,15 @@
   sslVerify = false
 [push]
   default = current
+[merge]
+  conflictstyle = diff3
 [diff]
   color = auto
   rename = copy
+  colorMoved = default
 [pull]
-	rebase = false
+  rebase = false
 [commit]
-	verbose = true
+  verbose = true
+[delta]
+  navigate = true  # use n and N to move between diff sections
