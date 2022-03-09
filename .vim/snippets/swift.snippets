@@ -815,5 +815,14 @@ snippet withCheckedThrowingContinuationWithoutResult
 			}
 		}
 	}
+snippet Task
+	Task {
+		do {
+			${0:let foo = try await fetchFoo()}
+		} catch {
+			// AppLogger.error(error)
+			// AppAlert.showError(error, on: self)
+		}
+	}
 snippet TERMINATE
 	{TERMINATE}
