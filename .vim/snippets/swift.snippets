@@ -691,7 +691,9 @@ snippet UICollectionViewController_DiffeableDataSource
 			snapshot.appendSections([0])
 			snapshot.appendItems($2s, toSection: 0)
 			
-			dataSource.apply(snapshot, animatingDifferences: true)
+			UIView.performWithoutAnimation {
+				dataSource.apply(snapshot, animatingDifferences: true)
+			}
 		}
 	}
 	
