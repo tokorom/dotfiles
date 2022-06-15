@@ -3,7 +3,6 @@
 /.*
 # require files
 !README.md
-!/Documents/terminal/*.terminal
 !/.vim
 /.vim/.*
 /.vim/pack
@@ -12,9 +11,7 @@
 !/.gitignore
 !/.global_gitignore
 !/.gvimrc
-!/.screenrc
 !/.tmux.conf
-!/.vimperatorrc
 !/.vimrc
 !/.cvimrc
 !/vimium-options.json
@@ -25,11 +22,8 @@
 !/.fzf
 !/.hammerspoon
 !/.agignore
-!/clear_backups
-!/Brewfile
-!/Gemfile
 !/terminal
-!/.broadlinkjs.config
+!/alfred
 !/.vim-replace-current-line
 !/private.zip
 !/.ssh/config
