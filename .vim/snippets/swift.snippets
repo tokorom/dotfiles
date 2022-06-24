@@ -617,14 +617,14 @@ snippet template_swiftui_view
 	import SwiftUI
 	
 	struct $1: View {
-		private let ${2:value}: ${3:Value}
+		private let ${2:value}: ${3:Int}
 		
 		init($2: $3) {
 			self.$2 = $2
 		}
 		
 		var body: some View {
-			Text("Hello")${0}
+			Text("Hello \($2)")${0}
 		}
 	}
 	
@@ -632,9 +632,7 @@ snippet template_swiftui_view
 	
 	struct $1_Previews: PreviewProvider {
 		static var previews: some View {
-			Group {
-				$1()
-			}
+			$1($2: 0)
 		}
 	}
 snippet UIViewRepresentable
