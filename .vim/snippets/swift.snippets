@@ -824,5 +824,13 @@ snippet Task
 			// AppAlert.showError(error, on: self)
 		}
 	}
+snippet task
+	.task {
+		do {
+			${0:let foo = try await fetchFoo()}
+		} catch {
+			AppLogger.error(error)
+		}
+	}
 snippet TERMINATE
 	{TERMINATE}
