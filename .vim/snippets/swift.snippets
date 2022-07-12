@@ -815,6 +815,12 @@ snippet withCheckedThrowingContinuationWithoutResult
 			}
 		}
 	}
+snippet do
+	do {
+		${0:try foo}
+	} catch {
+		AppLogger.error(error)
+	}
 snippet Task
 	Task {
 		do {
