@@ -607,6 +607,28 @@ snippet test
 	func test${1:Subject}() throws {
 		${0}
 	}
+snippet template_swiftui_view_simple
+	//
+	//  ${1:`expand('%:t:r')`}.swift
+	//
+	//  Created by ToKoRo on `strftime("%Y-%m-%d")`.
+	//
+	
+	import SwiftUI
+	
+	struct $1: View {
+		var body: some View {
+			Text("Hello $1")${0}
+		}
+	}
+	
+	// MARK: - Previews
+	
+	struct $1_Previews: PreviewProvider {
+		static var previews: some View {
+			$1()
+		}
+	}
 snippet template_swiftui_view
 	//
 	//  ${1:`expand('%:t:r')`}.swift
