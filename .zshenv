@@ -9,6 +9,8 @@ export MANPATH=/opt/local/man:$MANPATH
 export EDITOR=vim
 export MAILCHECK=0
 
+export HOMEBREWDIR=`brew --prefix`
+
 ####### path #########
 
 setopt no_global_rcs
@@ -16,8 +18,7 @@ setopt no_global_rcs
 path_setting() {
   path=(
     ~/bin # mine
-    /usr/local/bin # brew for Intel
-    /opt/homebrew/bin # brew for ARM
+    $HOMEBREWDIR/bin # brew
     ~/.rbenv/shims # rbenv
     /usr/bin # default
     /bin # default
@@ -95,6 +96,10 @@ clear_backups() {
 if type direnv >/dev/null 2>&1; then
   eval "$(direnv hook zsh)"
 fi
+
+####### z #########
+
+[ -f $HOMEBREWDIR/etc/profile.d/z.sh ] && sh $HOMEBREWDIR/etc/profile.d/z.sh
 
 ####### secrets #########
 
