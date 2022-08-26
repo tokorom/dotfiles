@@ -234,13 +234,18 @@ fi
 
 if which swiftenv > /dev/null; then eval "$(swiftenv init -)"; fi
 
+####### pyenv #########
+
+if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
+
 ####### fzf #########
 
 [ -f ~/.fzf/fzf.zsh ] && source ~/.fzf/fzf.zsh
 
 ####### z #########
 
-[ -f /usr/local/etc/profile.d/z.sh ] && . /usr/local/etc/profile.d/z.sh
+[ -f $HOMEBREWDIR/etc/profile.d/z.sh ] && sh $HOMEBREWDIR/etc/profile.d/z.sh
+
 
 ####### finally #########
 
