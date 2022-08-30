@@ -33,7 +33,7 @@ cmd-finddir() {
 }
 
 cmd-z() {
-  echo "z -cx | sed 's/^[0-9a-z,.:]* *//'"
+  echo "zoxide query -l"
 }
 
 fzf-file-special() {

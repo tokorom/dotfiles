@@ -242,10 +242,9 @@ if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
 
 [ -f ~/.fzf/fzf.zsh ] && source ~/.fzf/fzf.zsh
 
-####### z #########
+####### zoxide #########
 
-[ -f $HOMEBREWDIR/etc/profile.d/z.sh ] && sh $HOMEBREWDIR/etc/profile.d/z.sh
-
+if which zoxide > /dev/null; then eval "$(zoxide init zsh)"; fi
 
 ####### finally #########
 
