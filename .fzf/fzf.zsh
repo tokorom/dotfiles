@@ -23,7 +23,6 @@ source "$FZFDIR/shell/key-bindings.zsh"
 # ------------
 bindkey '^J^J' fzf-file-special
 bindkey '^J^D' fzf-cd-widget
-bindkey '^J^R' fzf-history-widget
 bindkey '^R' fzf-history-widget
 
 bindkey '^J^H' fzf-lbuffer

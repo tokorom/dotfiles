@@ -37,22 +37,19 @@ cmd-z() {
 }
 
 fzf-file-special() {
-  local firstfield=$(echo ${LBUFFER} | awk '{ print $1 }')
-  if [ "$firstfield" = "cd" ]; then
-    local lastfield=$(echo ${LBUFFER} | awk '{ print $NF }')
-    if [ "$lastfield" = "cd" ]; then
-      LBUFFER="${LBUFFER} $(FZF_COMMAND="$(cmd-z) || $(cmd-finddir)" __fzf)"
-    else
-      local target=$(realpath --relative-to=. ${lastfield})
-      LBUFFER="${prefix}$(FZF_FIND_TARGET="${target}" FZF_COMMAND="$(cmd-z) || $(cmd-finddir)" __fzf)"
-    fi
+  local lbuf="${LBUFFER}"
+  _fzf_complete -- "$@" < <(
+    zoxide query -l
+    eval "$(cmd-z)"
+    eval "$(cmd-finddir)"
+  )
+  local selected="${LBUFFER}"
+  if [ "${selected}" = "${lbuf}" ]; then
+    LBUFFER="${lbuf}"
   else
-    LBUFFER="${LBUFFER}$(__fzf)"
+    LBUFFER="${lbuf}${selected}"
   fi
-  local ret=$?
   zle redisplay
-  typeset -f zle-line-init >/dev/null && zle zle-line-init
-  return $ret
 }
 zle -N fzf-file-special
 
