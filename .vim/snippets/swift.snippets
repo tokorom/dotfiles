@@ -829,7 +829,7 @@ snippet withCheckedThrowingContinuation
 snippet withCheckedThrowingContinuationWithoutResult
 	try await withCheckedThrowingContinuation { continuation in
 		doSomething { foo in
-			try {
+			do {
 				let bar = try something()
 				continuation.resume(returning: bar)
 			} catch {
@@ -851,6 +851,10 @@ snippet Task
 			// AppLogger.error(error)
 			// AppAlert.showError(error, on: self)
 		}
+	}
+snippet TaskMain
+	Task { @MainActor in
+		${0}
 	}
 snippet task
 	.task {
