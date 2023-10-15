@@ -650,10 +650,10 @@ snippet template_swiftui_view
 	
 	// MARK: - Previews
 	
-	struct $1_Previews: PreviewProvider {
-		static var previews: some View {
-			$1($2: 0)
-		}
+	// MARK: - Previews
+	
+	#Preview {
+		$1($2: 0)
 	}
 snippet UIViewRepresentable
 	struct ${1:View}: UIViewRepresentable {
