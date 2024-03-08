@@ -42,3 +42,4 @@ vendor/
 
 # Custom Tools
 .vim-replace-current-line
+/app
