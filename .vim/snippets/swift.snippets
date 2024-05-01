@@ -272,7 +272,15 @@ snippet #pmac
 snippet #pmpr
 	// MARK: - Properties
 snippet log
-	NSLog("${1}")
+	logger.info("${1}")
+snippet info
+	logger.info("${1}")
+snippet warning
+	logger.warning("${1}")
+snippet error
+	logger.error("${1}")
+snippet debug
+	logger.debug("${1}")
 snippet print
 	print("${1}")
 snippet \
