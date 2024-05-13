@@ -845,14 +845,14 @@ snippet do
 	do {
 		${0:try foo}
 	} catch {
-		AppLogger.error(error)
+		logger.error("\(error)")
 	}
 snippet Task
 	Task {
 		do {
 			${0:let foo = try await fetchFoo()}
 		} catch {
-			// AppLogger.error(error)
+			// logger.error("\(error)")
 			// AppAlert.showError(error, on: self)
 		}
 	}
@@ -865,7 +865,7 @@ snippet task
 		do {
 			${0:let foo = try await fetchFoo()}
 		} catch {
-			AppLogger.error(error)
+			logger.error("\(error)")
 		}
 	}
 snippet TERMINATE
