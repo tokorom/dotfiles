@@ -870,5 +870,21 @@ snippet task
 			logger.error("\(error)")
 		}
 	}
+snippet view
+	struct $1: View {
+		var body: some View {
+			Text("Hello $1")${0}
+		}
+	}
+snippet extentionView
+	// MARK: - $2
+	
+	extension ${1:`expand('%:t:r')`} {
+		struct ${2:SomeView}: View {
+			var body: some View {
+				Text("Hello $2")${0}
+			}
+		}
+	}
 snippet TERMINATE
 	{TERMINATE}
