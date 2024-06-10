@@ -1,3 +1,19 @@
+snippet tt_swift_class
+	template_class
+snippet tt_swift_protocol
+	template_protocol
+snippet tt_swift_struct
+	template_struct
+snippet tt_swift_enum
+	template_enum
+snippet tt_swift_identifiable
+	template_identifiable
+snippet tt_swift_extension
+	template_extension
+snippet tt_swiftui_view
+	template_swiftui_view
+snippet tt_swift_extension
+	template_extension
 snippet template_header
 	//
 	//  ${1:`expand('%:t:r')`}.swift
@@ -617,7 +633,7 @@ snippet test
 	func test${1:Subject}() throws {
 		${0}
 	}
-snippet template_swiftui_view_simple
+snippet template_swiftui_view
 	//
 	//  ${1:`expand('%:t:r')`}.swift
 	//
@@ -636,32 +652,6 @@ snippet template_swiftui_view_simple
 	
 	#Preview {
 		$1()
-	}
-snippet template_swiftui_view
-	//
-	//  ${1:`expand('%:t:r')`}.swift
-	//
-	//  Created by ToKoRo on `strftime("%Y-%m-%d")`.
-	//
-	
-	import SwiftUI
-	
-	struct $1: View {
-		private let ${2:value}: ${3:Int}
-		
-		init($2: $3) {
-			self.$2 = $2
-		}
-		
-		var body: some View {
-			Text("Hello \($2)")${0}
-		}
-	}
-	
-	// MARK: - Previews
-	
-	#Preview {
-		$1($2: 0)
 	}
 snippet UIViewRepresentable
 	struct ${1:View}: UIViewRepresentable {
@@ -890,5 +880,17 @@ snippet extentionView
 			}
 		}
 	}
+snippet .toolbar
+	.toolbar {
+		ToolbarItem(placement: .topBarLeading) {
+			Button {
+				cancelAction()
+			} label: {
+				Text("キャンセル")
+			}
+		}
+	}
+snippet toolbar
+	.toolbar
 snippet TERMINATE
 	{TERMINATE}
