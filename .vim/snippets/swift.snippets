@@ -12,8 +12,6 @@ snippet tt_swift_extension
 	template_extension
 snippet tt_swiftui_view
 	template_swiftui_view
-snippet tt_swift_extension
-	template_extension
 snippet template_header
 	//
 	//  ${1:`expand('%:t:r')`}.swift
@@ -158,6 +156,22 @@ snippet extension
 	// MARK: - ${1:Extension}
 	
 	extension ${2:`expand('%:t:r')`: }$1 {${0}
+	}
+snippet ext_struct
+	// MARK: - ${1:Extension}
+	
+	extension ${2:`expand('%:t:r')`} {
+		struct $1 {
+			${0}
+		}
+	}
+snippet ext_enum
+	// MARK: - ${1:Extension}
+	
+	extension ${2:`expand('%:t:r')`} {
+		enum $1 {
+			case ${0}
+		}
 	}
 snippet enum
 	enum ${1:Name}${2} {
