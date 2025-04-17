@@ -32,3 +32,8 @@
 .svn
 *.pyc
 .netrwhist
+
+# Cursor
+!/.cursor
+/.cursor/**
+!/.cursor/settings.json

@@ -1,0 +1,44 @@
+{
+    "editor.fontSize": 14,
+
+    "vim.easymotion": true,
+    "vim.incsearch": true,
+    "vim.useSystemClipboard": true,
+    "vim.useCtrlKeys": true,
+    "vim.hlsearch": true,
+    "vim.insertModeKeyBindings": [
+        {
+            "before": ["C-i"],
+            "after": ["C-t"]
+        }
+    ],
+    "vim.normalModeKeyBindingsNonRecursive": [
+        {
+            "before": ["J"],
+            "after": ["8", "j"]
+        },
+        {
+            "before": ["K"],
+            "after": ["8", "k"]
+        },
+        {
+            "before": ["<C-n>"],
+            "commands": [":tabnext"]
+        },
+        {
+            "before": ["<C-p>"],
+            "commands": [":tabprev"]
+        },
+        {
+            "before": ["<leader>", "o"],
+            "commands": ["workbench.action.quickOpen"]
+        }
+    ],
+    "vim.leader": "<space>",
+    "vim.handleKeys": {
+    },
+  
+    "extensions.experimental.affinity": {
+      "vscodevim.vim": 1
+    }
+}
