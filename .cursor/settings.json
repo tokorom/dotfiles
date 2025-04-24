@@ -1,5 +1,6 @@
 {
     "editor.fontSize": 14,
+    "search.mode": "newEditor",
 
     "vim.easymotion": true,
     "vim.incsearch": true,

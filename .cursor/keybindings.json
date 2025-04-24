@@ -1,0 +1,35 @@
+// Place your key bindings in this file to override the defaults
+[
+    {
+        "key": "cmd+i",
+        "command": "composerMode.agent"
+    },
+    {
+        "key": "shift+alt+cmd+o",
+        "command": "workbench.action.files.openFile",
+        "when": "false"
+    },
+    {
+        "key": "cmd+o",
+        "command": "-workbench.action.files.openFile",
+        "when": "false"
+    },
+    {
+        "key": "cmd+o",
+        "command": "workbench.action.quickOpen"
+    },
+    {
+        "key": "cmd+p",
+        "command": "-workbench.action.quickOpen"
+    },
+    {
+        "key": "enter",
+        "command": "search.action.focusNextSearchResult",
+        "when": "inSearchEditor && inputFocus"
+    },
+    {
+        "key": "enter",
+        "command": "editor.action.goToDeclaration",
+        "when": "inSearchEditor && editorTextFocus"
+    }
+]

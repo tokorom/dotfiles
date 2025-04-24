@@ -37,3 +37,4 @@
 !/.cursor
 /.cursor/**
 !/.cursor/settings.json
+!/.cursor/keybindings.json
