@@ -11,6 +11,14 @@
         {
             "before": ["C-i"],
             "after": ["C-t"]
+        },
+        {
+            "before": ["C-d"],
+            "after": ["Del"]
+        },
+        {
+            "before": ["C-j"],
+            "commands": ["editor.action.insertSnippet"]
         }
     ],
     "vim.normalModeKeyBindingsNonRecursive": [
@@ -33,6 +41,10 @@
         {
             "before": ["<leader>", "o"],
             "commands": ["workbench.action.quickOpen"]
+        },
+        {
+            "before": ["<leader>", "t"],
+            "commands": ["workbench.action.tasks.runTask"]
         }
     ],
     "vim.leader": "<space>",
