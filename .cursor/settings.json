@@ -39,21 +39,66 @@
             "commands": [":tabprev"]
         },
         {
+            "before": ["<leader>", "w"],
+            "commands": ["workbench.action.files.save"]
+        },
+        {
             "before": ["<leader>", "o"],
             "commands": ["workbench.action.quickOpen"]
         },
         {
             "before": ["<leader>", "t"],
             "commands": ["workbench.action.tasks.runTask"]
-        }
+        },
+        {
+            "before": ["<leader>", "m"],
+            "commands": ["editor.action.marker.next"],
+            "when": "editorTextFocus",
+        },
+    ],
+    "vim.normalModeKeyBindings": [
+        {
+            "before": ["<leader>", "g"],
+            "after": ["v", "i", "w", "<leader>", "g"],
+        },
+        {
+            "before": ["g", ","],
+            "after": ["v", "i", "w", "g", "s"],
+        },
+    ],
+    "vim.visualModeKeyBindingsNonRecursive": [
+        {
+            "before": ["g", "g"],
+            "commands": [
+                {
+                    "command": "workbench.action.tasks.runTask",
+                    "args": "Search Google",
+                }
+            ],
+        },
+        {
+            "before": ["g", "s"],
+            "commands": [
+                {
+                    "command": "workbench.action.tasks.runTask",
+                    "args": "Search Apple Docs",
+                }
+            ],
+        },
+        {
+            "before": ["<leader>", "g"],
+            "commands": ["workbench.action.findInFiles"],
+        },
+    ],
+    "vim.visualModeKeyBindings": [
     ],
     "vim.leader": "<space>",
     "vim.handleKeys": {
     },
-  
     "extensions.experimental.affinity": {
       "vscodevim.vim": 1
     },
+
     "git.enableSmartCommit": true,
-    "git.confirmSync": false
+    "git.confirmSync": false,
 }

@@ -38,3 +38,4 @@
 /.cursor/**
 !/.cursor/settings.json
 !/.cursor/keybindings.json
+!/.cursor/tasks.json
