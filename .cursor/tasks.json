@@ -1,0 +1,14 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Search Google",
+            "type": "shell",
+            "command": "open 'https://www.google.com/?q=${selectedText}'",
+            "presentation": {
+                "reveal": "never"
+            },
+            "problemMatcher": [],
+        },
+    ]
+}
