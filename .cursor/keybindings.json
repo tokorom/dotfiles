@@ -19,12 +19,12 @@
         "command": "-workbench.action.quickOpen"
     },
     {
-        "key": "enter",
+        "key": "down",
         "command": "search.action.focusNextSearchResult",
         "when": "inSearchEditor && inputFocus"
     },
     {
-        "key": "enter",
+        "key": "alt+enter",
         "command": "editor.action.goToDeclaration",
         "when": "inSearchEditor && editorTextFocus"
     }
