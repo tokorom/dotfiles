@@ -8,6 +8,19 @@
             "problemMatcher": []
         },
         {
+            "label": "Open in Xcode",
+            "type": "shell",
+            "command": "zsh",
+            "args": [
+                "-c",
+                "source ${workspaceFolder}/.vscode/.env; if [ -n \"$XCODE_TARGET\" ]; then open -a Xcode \"$XCODE_TARGET\"; else open -a Xcode *.xcodeproj; fi"
+            ],
+            "problemMatcher": [],
+            "options": {
+                "envFile": "${workspaceFolder}/.vscode/.env"
+            }
+        },
+        {
             "label": "Search Google",
             "type": "shell",
             "command": "open 'https://www.google.com/?q=${selectedText}'",
@@ -26,31 +39,106 @@
             "problemMatcher": []
         },
         {
+            "label": "Build Project",
+            "type": "shell",
+            "command": "osascript",
+            "args": [
+                "-e", "tell application \"Xcode\" to activate",
+                "-e", "tell application \"System Events\" to keystroke \"b\" using {command down}"
+            ],
+            "problemMatcher": []
+        },
+        {
+            "label": "Collect Build Problems",
+            "type": "shell",
+            "command": "$HOME/.cursor/scripts/collect-build-problems-default.sh",
+            "options": {
+                "env": {
+                    "WORKSPACE_FOLDER": "${workspaceFolder}"
+                }
+            },
+            "problemMatcher": [
+                {
+                    "owner": "xcode",
+                    "fileLocation": ["absolute"],
+                    "pattern": {
+                        "regexp": "^(.*):(\\d+):(\\d+):\\s+(error|warning):\\s+(.*)$",
+                        "file": 1,
+                        "line": 2,
+                        "column": 3,
+                        "severity": 4,
+                        "message": 5
+                    }
+                }
+            ],
+            "presentation": {
+                "reveal": "always",
+                "revealProblems": "onProblem"
+            }
+        },
+        {
             "label": "Run Project",
             "type": "shell",
-            "command": "echo",
+            "command": "osascript",
             "args": [
-                "${file}"
+                "-e", "tell application \"Xcode\" to activate",
+                "-e", "tell application \"System Events\" to keystroke \"r\" using {command down}"
             ],
             "problemMatcher": []
         },
         {
             "label": "Lint Current File",
             "type": "shell",
-            "command": "echo",
+            "command": "zsh",
             "args": [
-                "${file}"
+                "-c",
+                "if [ \"${fileExtname}\" = \".swift\" ]; then xcrun swift-format lint \"${file}\"; fi"
             ],
-            "problemMatcher": []
+            "problemMatcher": [
+                {
+                    "owner": "swift-format",
+                    "fileLocation": ["absolute"],
+                    "pattern": {
+                        "regexp": "^(.*):(\\d+):(\\d+):\\s+(error|warning):\\s+(.*)$",
+                        "file": 1,
+                        "line": 2,
+                        "column": 3,
+                        "severity": 4,
+                        "message": 5
+                    }
+                }
+            ],
+            "presentation": {
+                "reveal": "silent",
+                "revealProblems": "onProblem"
+            }
         },
         {
             "label": "Format Current File",
             "type": "shell",
-            "command": "echo",
+            "command": "zsh",
             "args": [
-                "${file}"
+                "-c",
+                "if [ \"${fileExtname}\" = \".swift\" ]; then xcrun swift-format format --in-place \"${file}\"; fi"
             ],
-            "problemMatcher": []
+            "presentation": {
+                "reveal": "silent",
+                "revealProblems": "onProblem"
+            },
+            "problemMatcher": [
+                {
+                    "owner": "swift-format",
+                    "fileLocation": ["absolute"],
+                    "pattern": {
+                        "regexp": "^(.*):(\\d+):(\\d+):\\s+(error|warning):\\s+(.*)$",
+                        "file": 1,
+                        "line": 2,
+                        "column": 3,
+                        "severity": 4,
+                        "message": 5
+                    }
+                }
+            ]
         }
     ]
 }

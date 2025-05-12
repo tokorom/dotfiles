@@ -82,6 +82,15 @@
             ]
         },
         {
+            "before": ["<leader>", "c"],
+            "commands": [
+                {
+                    "command": "workbench.action.tasks.runTask",
+                    "args": "Collect Build Problems"
+                }
+            ]
+        },
+        {
             "before": ["<leader>", "r"],
             "commands": [
                 {
@@ -89,7 +98,7 @@
                     "args": "Run Project"
                 }
             ]
-        }
+        },
     ],
     "vim.normalModeKeyBindings": [
         {
