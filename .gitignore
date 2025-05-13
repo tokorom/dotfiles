@@ -34,8 +34,7 @@
 .netrwhist
 
 # Cursor
-!/.cursor
+!/.cursor/
 /.cursor/**
-!/.cursor/settings.json
-!/.cursor/keybindings.json
-!/.cursor/tasks.json
+!/.cursor/scripts/
+!/.cursor/scripts/**

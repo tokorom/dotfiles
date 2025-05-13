@@ -51,12 +51,7 @@
         {
             "label": "Collect Build Problems",
             "type": "shell",
-            "command": "$HOME/.cursor/scripts/collect-build-problems-default.sh",
-            "options": {
-                "env": {
-                    "WORKSPACE_FOLDER": "${workspaceFolder}"
-                }
-            },
+            "command": "$HOME/.cursor/scripts/collect-build-problems-default.sh ${workspaceFolder}",
             "problemMatcher": [
                 {
                     "owner": "xcode",
