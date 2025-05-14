@@ -1,5 +1,6 @@
 {
     "editor.fontSize": 14,
+    "editor.wordWrap": "on",
     "search.mode": "newEditor",
 
     "vim.easymotion": true,
@@ -22,6 +23,14 @@
         }
     ],
     "vim.normalModeKeyBindingsNonRecursive": [
+        {
+            "before": ["j"],
+            "after": ["g", "j"]
+        },
+        {
+            "before": ["k"],
+            "after": ["g", "k"]
+        },
         {
             "before": ["J"],
             "after": ["8", "j"]
@@ -47,6 +56,10 @@
                 {
                     "command": "workbench.action.tasks.runTask",
                     "args": "Lint Current File"
+                },
+                {
+                    "command": "workbench.action.tasks.runTask",
+                    "args": "Collect Build Problems"
                 }
             ]
         },

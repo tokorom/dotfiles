@@ -13,7 +13,7 @@
             "command": "zsh",
             "args": [
                 "-c",
-                "source ${workspaceFolder}/.vscode/.env; if [ -n \"$XCODE_TARGET\" ]; then open -a Xcode \"$XCODE_TARGET\"; else open -a Xcode *.xcodeproj; fi"
+                "source ${workspaceFolder}/.vscode/.env; if [ -n \"$XCODE_TARGET\" ]; then open -a Xcode \"$XCODE_TARGET\"; else open -a Xcode *.xcodeproj; fi; echo \"Set XCODE_TARGET in .vscode.env if necessary.\""
             ],
             "problemMatcher": [],
             "options": {
