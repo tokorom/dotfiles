@@ -13,4 +13,4 @@ xclogparser parse \
   --project "$PROJECT_NAME" \
   --reporter flatJson | \
   jq '[.[].errors[], .[].warnings[]] | flatten | .[]' | \
-  jq -r '(if .documentURL == "" then .detail else (.documentURL | gsub("^file://"; "")) + ":" + (.startingLineNumber | tostring) + ":" + (.startingColumnNumber | tostring) + ":" + (if .severity == 0 then " error: " else " warning: " end) + .title end)'
+  jq -r '(if .documentURL == "" then .detail else (.documentURL | gsub("^file://"; "")) + ":" + (.startingLineNumber | tostring) + ":" + (.startingColumnNumber | tostring) + ":" + (if .severity == 2 then " error: " else " warning: " end) + .title end)'

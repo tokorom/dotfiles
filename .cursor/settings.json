@@ -42,11 +42,11 @@
             "before": ["<leader>", "w"],
             "commands": [
                 {
-                    "command": "workbench.action.files.save",
+                    "command": "workbench.action.files.save"
                 },
                 {
                     "command": "workbench.action.tasks.runTask",
-                    "args": "Lint Current File",
+                    "args": "Lint Current File"
                 }
             ]
         },
@@ -55,7 +55,7 @@
             "commands": [
                 {
                     "command": "workbench.action.tasks.runTask",
-                    "args": "Format Current File",
+                    "args": "Format Current File"
                 }
             ]
         },
@@ -70,7 +70,7 @@
         {
             "before": ["<leader>", "m"],
             "commands": ["editor.action.marker.next"],
-            "when": "editorTextFocus",
+            "when": "editorTextFocus"
         },
         {
             "before": ["<leader>", "b"],
@@ -98,17 +98,17 @@
                     "args": "Run Project"
                 }
             ]
-        },
+        }
     ],
     "vim.normalModeKeyBindings": [
         {
             "before": ["<leader>", "g"],
-            "after": ["v", "i", "w", "<leader>", "g"],
+            "after": ["v", "i", "w", "<leader>", "g"]
         },
         {
             "before": ["g", ","],
-            "after": ["v", "i", "w", "g", "a"],
-        },
+            "after": ["v", "i", "w", "g", "a"]
+        }
     ],
     "vim.visualModeKeyBindingsNonRecursive": [
         {
@@ -116,23 +116,23 @@
             "commands": [
                 {
                     "command": "workbench.action.tasks.runTask",
-                    "args": "Search Google",
+                    "args": "Search Google"
                 }
-            ],
+            ]
         },
         {
             "before": ["g", "a"],
             "commands": [
                 {
                     "command": "workbench.action.tasks.runTask",
-                    "args": "Search Apple Docs",
+                    "args": "Search Apple Docs"
                 }
-            ],
+            ]
         },
         {
             "before": ["<leader>", "g"],
-            "commands": ["workbench.action.findInFiles"],
-        },
+            "commands": ["workbench.action.findInFiles"]
+        }
     ],
     "vim.visualModeKeyBindings": [
     ],
@@ -144,5 +144,5 @@
     },
 
     "git.enableSmartCommit": true,
-    "git.confirmSync": false,
+    "git.confirmSync": false
 }
