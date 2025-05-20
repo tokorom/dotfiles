@@ -15,10 +15,7 @@
                 "-c",
                 "source ${workspaceFolder}/.vscode/.env; if [ -n \"$XCODE_TARGET\" ]; then open -a Xcode \"$XCODE_TARGET\"; else open -a Xcode *.xcodeproj; fi; echo \"Set XCODE_TARGET in .vscode.env if necessary.\""
             ],
-            "problemMatcher": [],
-            "options": {
-                "envFile": "${workspaceFolder}/.vscode/.env"
-            }
+            "problemMatcher": []
         },
         {
             "label": "Search Google",
@@ -51,7 +48,7 @@
         {
             "label": "Collect Build Problems",
             "type": "shell",
-            "command": "$HOME/.cursor/scripts/collect-build-problems-default.sh ${workspaceFolder}",
+            "command": "if [ \"${fileExtname}\" = \".swift\" ]; then $HOME/.cursor/scripts/collect-build-problems-default.sh ${workspaceFolder}; fi",
             "problemMatcher": [
                 {
                     "owner": "xcode",
