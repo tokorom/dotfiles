@@ -18,7 +18,7 @@ fi
 # XCODE_TARGET未指定なら*.xcodeprojを探す
 if [ -z "$XCODE_TARGET" ]; then
     echo "Warning: XCODE_TARGET is not defined in .vscode/.env"
-    XCODE_TARGET=$(find . -maxdepth 1 -type d -name "*.xcodeproj" | head -n 1)
+    XCODE_TARGET=$(find . -maxdepth 1 -type d -name "*.xcodeproj" | sed 's|^\./||' | head -n 1)
 fi
 
 echo "XCODE_TARGET: $XCODE_TARGET"
