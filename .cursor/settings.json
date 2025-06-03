@@ -119,7 +119,7 @@
             "after": ["v", "i", "w", "<leader>", "g"]
         },
         {
-            "before": ["g", ","],
+            "before": ["<leader>", ","],
             "after": ["v", "i", "w", "g", "a"]
         }
     ],
