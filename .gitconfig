@@ -65,3 +65,8 @@
   verbose = true
 [delta]
   navigate = true  # use n and N to move between diff sections
+[filter "lfs"]
+	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
