@@ -64,7 +64,7 @@
                 }
             ],
             "presentation": {
-                "reveal": "always",
+                "reveal": "silent",
                 "revealProblems": "onProblem"
             }
         },
@@ -81,17 +81,14 @@
         {
             "label": "Lint Current File",
             "type": "shell",
-            "command": "zsh",
-            "args": [
-                "-c",
-                "if [ \"${fileExtname}\" = \".swift\" ]; then xcrun swift-format lint \"${file}\"; fi"
-            ],
+            "command": "$HOME/.cursor/scripts/lint-current-file.sh",
+            "args": ["${file}", "${fileExtname}", "${workspaceFolder}"],
             "problemMatcher": [
                 {
-                    "owner": "swift-format",
+                    "owner": "lint",
                     "fileLocation": ["absolute"],
                     "pattern": {
-                        "regexp": "^(.*):(\\d+):(\\d+):\\s+(error|warning):\\s+(.*)$",
+                        "regexp": "^(.*):(\\d+):(\\d+):\\s+(\\w+):\\s+(.*)$",
                         "file": 1,
                         "line": 2,
                         "column": 3,
@@ -101,7 +98,7 @@
                 }
             ],
             "presentation": {
-                "reveal": "silent",
+                "reveal": "always",
                 "revealProblems": "onProblem"
             }
 

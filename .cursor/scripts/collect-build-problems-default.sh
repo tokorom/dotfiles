@@ -1,6 +1,5 @@
 #!/bin/zsh
 
-# エラーが発生したら即座に終了
 set -e
 
 WORKSPACE_FOLDER="$1"
