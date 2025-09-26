@@ -154,10 +154,8 @@
     "vim.leader": "<space>",
     "vim.handleKeys": {
     },
-    "extensions.experimental.affinity": {
-      "vscodevim.vim": 1
-    },
 
     "git.enableSmartCommit": true,
-    "git.confirmSync": false
+    "git.confirmSync": false,
+    "git.blame.statusBarItem.enabled": false
 }
