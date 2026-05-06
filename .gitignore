@@ -27,6 +27,7 @@
 !/.vim-replace-current-line
 !/private.zip
 !/.ssh/config
+!/template
 # add ignore files
 .DS_Store
 .svn
@@ -34,7 +35,5 @@
 .netrwhist
 
 # Cursor
-!/.cursor/
-/.cursor/**
 !/.cursor/scripts/
 !/.cursor/scripts/**
