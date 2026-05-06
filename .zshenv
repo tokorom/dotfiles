@@ -105,3 +105,4 @@ fi
 ####### secrets #########
 
 [ -f ~/secrets/secrets.zsh ] && source ~/secrets/secrets.zsh
+. "$HOME/.rokit/env"
