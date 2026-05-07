@@ -1,3 +1,8 @@
+theme = Ayu
+
+font-family = UDEV Gothic NFLG
+font-size = 18
+
 keybind = ctrl+i=text:\x09
 
 keybind = ctrl+shift+p=previous_tab
