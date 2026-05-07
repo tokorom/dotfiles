@@ -37,3 +37,6 @@
 # Cursor
 !/.cursor/scripts/
 !/.cursor/scripts/**
+
+# Ghostty
+!/.ghostty
