@@ -246,6 +246,10 @@ if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
 
 if which zoxide > /dev/null; then eval "$(zoxide init zsh)"; fi
 
+####### rokit #########
+
+if which rokit > /dev/null; then eval ". $HOME/.rokit/env"; fi
+
 ####### finally #########
 
 path_setting
