@@ -1,0 +1,17 @@
+{
+  "allowlist": [
+    "git *",
+    "xcodebuild *",
+    "ls *",
+    "pwd *",
+    "sed *"
+  ],
+  "mcpServers": {
+    "xcode": {
+      "command": "xcrun",
+      "args": ["mcpbridge"],
+      "timeout": 300000,
+      "trust": true
+    }
+  }
+}
