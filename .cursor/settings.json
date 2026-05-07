@@ -157,5 +157,6 @@
 
     "git.enableSmartCommit": true,
     "git.confirmSync": false,
-    "git.blame.statusBarItem.enabled": false
+    "git.blame.statusBarItem.enabled": false,
+    "window.autoDetectColorScheme": false
 }
