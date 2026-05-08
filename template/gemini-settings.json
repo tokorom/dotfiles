@@ -3,8 +3,15 @@
     "git *",
     "xcodebuild *",
     "ls *",
+    "cp *",
+    "mv *",
     "pwd *",
-    "sed *"
+    "sed *",
+    "chmod *",
+    "perl *",
+    "npm *",
+    "grep *",
+    "make *"
   ],
   "mcpServers": {
     "xcode": {
