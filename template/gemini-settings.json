@@ -2,15 +2,16 @@
   "allowlist": [
     "git *",
     "xcodebuild *",
+    "pwd *",
     "ls *",
+    "cd *",
+    "grep *",
     "cp *",
     "mv *",
-    "pwd *",
     "sed *",
     "chmod *",
     "perl *",
     "npm *",
-    "grep *",
     "make *"
   ],
   "mcpServers": {
