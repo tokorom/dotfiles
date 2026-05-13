@@ -1,7 +1,7 @@
 # Setup fzf
 # ---------
 
-export FZFDIR=/opt/homebrew/Cellar/fzf/0.32.1
+export FZFDIR=$(brew --prefix fzf)
 
 if [[ ! "$PATH" == *$FZFDIR/bin* ]]; then
   export PATH="$PATH:$FZFDIR/bin"
