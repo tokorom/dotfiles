@@ -8,6 +8,7 @@ keybind = ctrl+i=text:\x09
 keybind = ctrl+shift+p=previous_tab
 keybind = ctrl+shift+n=next_tab
 
+keybind = super+alt+d=new_split:down
 keybind = ctrl+shift+k=goto_split:up
 keybind = ctrl+shift+j=goto_split:down
 keybind = ctrl+shift+h=goto_split:left

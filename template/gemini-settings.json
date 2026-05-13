@@ -8,9 +8,11 @@
     "grep *",
     "cp *",
     "mv *",
+    "cat *",
     "sed *",
     "chmod *",
     "perl *",
+    "clang++ *",
     "npm *",
     "make *"
   ],
