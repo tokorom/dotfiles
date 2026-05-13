@@ -252,4 +252,3 @@ if which rokit > /dev/null; then eval ". $HOME/.rokit/env"; fi
 
 ####### finally #########
 
-path_setting

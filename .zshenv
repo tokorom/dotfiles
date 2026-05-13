@@ -31,6 +31,8 @@ path_setting() {
   )
 }
 
+path_setting
+
 ####### fpath #########
 
 fpath=(
