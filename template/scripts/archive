@@ -1,0 +1,150 @@
+#!/bin/zsh
+
+set -euo pipefail
+
+if [[ $# -lt 1 ]]; then
+  echo "Usage: $0 <APP_NAME>" >&2
+  exit 1
+fi
+
+APP_NAME="$1"
+
+# Configuration
+XCCONFIG="Version.xcconfig"
+PROJECT="$APP_NAME.xcodeproj"
+SCHEME="$APP_NAME"
+BUILD_DIR=".build"
+ARCHIVE_PATH="$BUILD_DIR/$APP_NAME.xcarchive"
+APP_PATH="$ARCHIVE_PATH/Products/Applications/$APP_NAME.app"
+
+# Signing / Notarization
+DEVELOPER_ID="Developer ID Application: SPINNERS, LIMITED LIABILITY CO. (5AXCX2DUCQ)"
+NOTARY_PROFILE="notarytool-profile"
+
+# Check whether notarytool profile exists
+if ! xcrun notarytool history \
+    --keychain-profile "$NOTARY_PROFILE" >/dev/null 2>&1; then
+
+    echo "" >&2
+    echo "--------------------------------------------------" >&2
+    echo "Notary profile '$NOTARY_PROFILE' was not found." >&2
+    echo "" >&2
+    echo "Create it first with:" >&2
+    echo "" >&2
+    echo "xcrun notarytool store-credentials \"$NOTARY_PROFILE\" \\" >&2
+    echo "  --apple-id \"YOUR_APPLE_ID\" \\" >&2
+    echo "  --team-id \"YOUR_TEAM_ID\" \\" >&2
+    echo "  --password \"YOUR_APP_SPECIFIC_PASSWORD\"" >&2
+    echo "" >&2
+    echo "You can create an app-specific password at:" >&2
+    echo "https://account.apple.com/account/manage" >&2
+    echo "--------------------------------------------------" >&2
+    echo "" >&2
+
+    exit 1
+fi
+
+# 1. Get version from xcconfig
+VERSION=$(grep -E '^APP_VERSION' "$XCCONFIG" | awk -F'=' '{print $2}' | tr -d ' ')
+
+if [[ -z "$VERSION" ]]; then
+    echo "Error: Could not find APP_VERSION in $XCCONFIG" >&2
+    exit 1
+fi
+
+DMG_NAME="$APP_NAME-${VERSION}.dmg"
+DMG_PATH="$BUILD_DIR/$DMG_NAME"
+
+# 2. Cleanup
+echo "Cleaning up $BUILD_DIR..." >&2
+rm -rf "$BUILD_DIR"
+mkdir -p "$BUILD_DIR"
+
+# 3. Build & Archive
+echo "Archiving $APP_NAME version $VERSION..." >&2
+xcodebuild archive \
+    -project "$PROJECT" \
+    -scheme "$SCHEME" \
+    -configuration Release \
+    -archivePath "$ARCHIVE_PATH" >&2
+
+# 4. Re-sign app for Developer ID distribution
+echo "Re-signing app with Developer ID..." >&2
+codesign --force --deep --options runtime \
+    --sign "$DEVELOPER_ID" \
+    "$APP_PATH" >&2
+
+ditto -c -k --keepParent "$APP_PATH" "$BUILD_DIR/$APP_NAME.app.zip" >&2
+
+xcrun notarytool submit "$BUILD_DIR/$APP_NAME.app.zip" \
+  --keychain-profile "$NOTARY_PROFILE" \
+  --wait >&2
+
+xcrun stapler staple "$APP_PATH" >&2
+xcrun stapler validate "$APP_PATH" >&2
+
+# 5. Verify app signing
+echo "Verifying app signature..." >&2
+codesign --verify --deep --strict --verbose=2 "$APP_PATH" >&2
+codesign -dv --verbose=4 "$APP_PATH" >&2
+
+# 6. Create DMG
+echo "Clean $DMG_NAME..." >&2
+hdiutil detach "/Volumes/$APP_NAME" 2>/dev/null || true
+rm -f "$DMG_PATH"
+echo "APP_PATH=$APP_PATH" >&2
+codesign -dv --verbose=4 "$APP_PATH" 2>&1 | grep Authority >&2
+
+echo "Creating $DMG_NAME..." >&2
+/opt/homebrew/bin/create-dmg \
+    --volname "$APP_NAME" \
+    --window-pos 200 120 \
+    --window-size 600 400 \
+    --icon-size 100 \
+    --icon "$APP_NAME.app" 150 190 \
+    --hide-extension "$APP_NAME.app" \
+    --app-drop-link 450 190 \
+    "$DMG_PATH" \
+    "$APP_PATH" >&2
+
+MOUNT_DIR=$(mktemp -d)
+
+hdiutil attach "$DMG_PATH" \
+  -mountpoint "$MOUNT_DIR" \
+  -nobrowse \
+  -quiet >&2
+
+echo "Verifying app inside DMG..." >&2
+codesign -dv --verbose=4 "$MOUNT_DIR/$APP_NAME.app" 2>&1 | grep Authority >&2
+spctl -a -vvv "$MOUNT_DIR/$APP_NAME.app" >&2
+
+hdiutil detach "$MOUNT_DIR" -quiet >&2
+rmdir "$MOUNT_DIR" >&2
+
+# 7. Sign DMG with Developer ID
+echo "Signing DMG..." >&2
+codesign --force --sign "$DEVELOPER_ID" "$DMG_PATH" >&2
+
+# 8. Verify DMG signature
+echo "Verifying DMG signature..." >&2
+codesign -dv --verbose=4 "$DMG_PATH" >&2
+
+# 9. Notarize DMG
+echo "Submitting DMG for notarization..." >&2
+xcrun notarytool submit "$DMG_PATH" \
+    --keychain-profile "$NOTARY_PROFILE" \
+    --wait >&2
+
+# 10. Staple notarization ticket
+echo "Stapling notarization ticket..." >&2
+xcrun stapler staple "$DMG_PATH" >&2
+
+# 11. Final verification
+echo "Final verification..." >&2
+xcrun stapler validate "$DMG_PATH" >&2
+spctl -a -vvv -t open --context context:primary-signature "$DMG_PATH" >&2
+
+echo "--------------------------------------------------" >&2
+echo "Success! Signed, notarized, and stapled DMG created at: $DMG_PATH" >&2
+
+echo "$DMG_PATH"
