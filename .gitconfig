@@ -59,6 +59,9 @@
   color = auto
   rename = copy
   colorMoved = default
+  tool = meld
+[difftool]
+  prompt = false
 [pull]
   rebase = false
 [commit]
