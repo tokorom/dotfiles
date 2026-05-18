@@ -1,21 +1,24 @@
 {
-  "allowlist": [
-    "git *",
-    "xcodebuild *",
-    "pwd *",
-    "ls *",
-    "cd *",
-    "grep *",
-    "cp *",
-    "mv *",
-    "cat *",
-    "sed *",
-    "chmod *",
-    "perl *",
-    "clang++ *",
-    "npm *",
-    "make *"
-  ],
+  "tools": {
+    "allowed": [
+      "run_shell_command(git)",
+      "run_shell_command(xcodebuild)",
+      "run_shell_command(pwd)",
+      "run_shell_command(ls)",
+      "run_shell_command(cd)",
+      "run_shell_command(grep)",
+      "run_shell_command(cp)",
+      "run_shell_command(mv)",
+      "run_shell_command(cat)",
+      "run_shell_command(grep)",
+      "run_shell_command(sed)",
+      "run_shell_command(chmod)",
+      "run_shell_command(perl)",
+      "run_shell_command(clang++)",
+      "run_shell_command(npm)",
+      "run_shell_command(make)"
+    ]
+  },
   "mcpServers": {
     "xcode": {
       "command": "xcrun",
