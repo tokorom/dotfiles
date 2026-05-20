@@ -38,6 +38,10 @@ bindkey '^K' kill-line
 bindkey '^R' history-incremental-search-backward
 bindkey '^W' backward-kill-word
 
+autoload -Uz edit-command-line
+zle -N edit-command-line
+bindkey '^G' edit-command-line
+
 # C-d でログアウトさせない
 setopt IGNOREEOF
 
@@ -249,6 +253,10 @@ if which zoxide > /dev/null; then eval "$(zoxide init zsh)"; fi
 ####### rokit #########
 
 if which rokit > /dev/null; then eval ". $HOME/.rokit/env"; fi
+
+####### prompttap #########
+
+if which prompttap > /dev/null; then export VISUAL="prompttap --wait"; fi
 
 ####### finally #########
 
