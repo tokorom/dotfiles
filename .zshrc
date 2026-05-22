@@ -260,3 +260,7 @@ if which prompttap > /dev/null; then export VISUAL="prompttap --wait"; fi
 
 ####### finally #########
 
+
+
+# Added by Antigravity CLI installer
+export PATH="/Users/tokorom/.local/bin:$PATH"
