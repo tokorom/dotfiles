@@ -42,3 +42,6 @@ vendor/
 
 # Custom Tools
 .vim-replace-current-line
+
+# Antigravity
+.antigravitycli
