@@ -158,5 +158,8 @@
     "git.enableSmartCommit": true,
     "git.confirmSync": false,
     "git.blame.statusBarItem.enabled": false,
-    "window.autoDetectColorScheme": false
+    "window.autoDetectColorScheme": false,
+
+    "vim.enable": true,
+    "vim.disableExtension": false
 }
